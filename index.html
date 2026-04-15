@@ -1622,7 +1622,7 @@
     .sticky-mobile-cta {
       display: none;
       position: fixed; bottom: 0; left: 0; right: 0;
-      z-index: 999;
+      z-index: 9999;
       padding: 12px 24px calc(12px + env(safe-area-inset-bottom));
       background: #ffffff;
       border-top: 1px solid rgba(53,51,48,0.08);
@@ -1898,20 +1898,50 @@
     }
 
     /* ═══════════════════════════════════════
+       ANIMATIONS — desktop + mobile
+    ═══════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero text entrance */
+    .hero-line1 { animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .hero-line2 { animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
+    .hero-sub   { animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) 0.5s both; }
+    .hero-cta-wrap { animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) 0.7s both; }
+
+    /* Scroll-triggered fade-in */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Stagger delays */
+    .animate-in[data-delay="1"] { transition-delay: 0s; }
+    .animate-in[data-delay="2"] { transition-delay: 0.1s; }
+    .animate-in[data-delay="3"] { transition-delay: 0.2s; }
+    .animate-in[data-delay="4"] { transition-delay: 0.3s; }
+    .animate-in[data-delay="5"] { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════
        MOBILE — 768px
     ═══════════════════════════════════════ */
     @media (max-width: 768px) {
 
       /* ── GLOBAL ── */
-      body { overflow-x: hidden; }
-      img, video, svg { max-width: 100%; }
+      body { overflow-x: hidden; padding-bottom: 80px; }
+      img, video, svg { max-width: 100%; height: auto; }
+      * { max-width: 100vw; }
 
       /* ── NAV ── */
       .rylo-nav { height: 64px; }
       .rn-cta { padding: 10px 20px; font-size: 12px; }
 
       /* ── TRUST BAR ── */
-      .ticker-bar { overflow: hidden; }
+      .ticker-bar { overflow: hidden; max-width: 100vw; }
       .ticker-item { font-size: 11px; }
 
       /* ── HERO VIDEO / IMAGE ── */
@@ -1925,12 +1955,13 @@
         object-fit: cover;
         object-position: center top;
       }
-      .hero-outer { min-height: 100vh; overflow: hidden; }
+      .hero-outer { min-height: 100vh; max-height: 100vh; overflow: hidden; }
       .hero {
         padding: 80px 24px 100px;
         min-height: 100vh;
+        max-height: 100vh;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-end;
         box-sizing: border-box;
       }
       .hero-content {
@@ -1940,65 +1971,68 @@
       }
 
       /* ── HERO TEXT ── */
-      .hero-line1 {
-        font-size: 36px;
-        line-height: 1.08;
-      }
-      .hero-line2 {
-        font-size: 26px;
-        line-height: 1.12;
-        margin-top: 4px;
-      }
+      .hero-line1 { font-size: 38px; line-height: 1.05; }
+      .hero-line2 { font-size: 28px; line-height: 1.1; margin-top: 4px; }
       .hero h1 { margin-bottom: 16px; }
-      .hero-sub { font-size: 14px; max-width: 100%; }
+      .hero-sub { font-size: 14px; line-height: 1.6; max-width: 100%; }
       .btn-hero-start {
-        width: 100%;
-        max-width: none;
-        text-align: center;
-        display: block;
-        box-sizing: border-box;
-        padding: 16px;
+        width: 100%; max-width: none;
+        text-align: center; display: block;
+        box-sizing: border-box; padding: 16px;
+        border-radius: 0;
       }
       .hero-cta-wrap { width: 100%; }
 
-      /* ── TREATMENTS SECTION ── */
+      /* ── TREATMENTS ── */
       .prod-header { padding: 0 20px; text-align: center; }
       .prod-title { font-size: 32px; text-align: center; }
       .prod-eyebrow { text-align: center; }
       .prod-card.tall,
-      .prod-card.short { height: 320px; min-height: 280px; }
+      .prod-card.short { height: auto; min-height: 320px; }
       .prod-card-content { padding: 0 20px 24px; }
       .prod-card-meta { top: 20px; left: 20px; right: 20px; }
-      .prod-name.xl { font-size: 36px; }
+      .prod-name.xl { font-size: 32px; }
       .prod-name.md { font-size: 28px; }
-      .prod-price { font-size: 24px; }
+      .prod-price { font-size: 28px; }
+      .prod-card-footer { flex-wrap: wrap; gap: 12px; }
       .prod-btn {
-        width: 100%;
-        text-align: center;
-        display: block;
-        box-sizing: border-box;
+        width: 100%; text-align: center;
+        display: block; box-sizing: border-box;
+        margin: 0;
       }
+      .prod-save { font-size: 11px; }
 
-      /* ── CLOSING SECTION ── */
-      .closing-section { padding: 40px 16px; background: #1a1a1a; }
-      .closing-card {
-        flex-direction: column;
-        min-height: auto;
-        border-radius: 20px;
+      /* ── HOW IT WORKS ── */
+      .hrw-h2 { font-size: 32px !important; }
+      .hrw-card { flex-direction: column; }
+      .hrw-left { flex: none; border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.08); padding: 24px; }
+      .hrw-right { padding: 24px; }
+      .hrw-title { font-size: 20px; }
+      .hrw-desc { font-size: 14px; }
+      .hrw-bg-img { max-height: 200px; object-fit: cover; }
+
+      /* ── BENTO GRID ── */
+      .wc, .wc-woman, .wc-clin, .wc-pharm, .wc-247, .wc-price, .wc-cal, .wc-stat {
+        border-radius: 16px !important;
+        margin-bottom: 8px;
       }
+      .wc img, .wc-woman img { object-fit: cover; max-height: 250px; }
+      .why-title { font-size: 28px; text-align: center; }
+      .why-top { text-align: center; }
+
+      /* ── CLOSING CTA ── */
+      .closing-section { padding: 40px 24px; background: #1a1a1a; }
+      .closing-card { flex-direction: column; min-height: auto; border-radius: 20px; }
       .closing-photo-wrap {
-        width: 100% !important;
-        position: relative !important;
-        height: 260px;
-        flex-shrink: 0;
+        width: 100% !important; position: relative !important;
+        height: 300px; flex-shrink: 0;
       }
+      .closing-photo { object-fit: cover; max-height: 300px; }
       .closing-left { padding: 36px 28px 40px; }
       .closing-heading { font-size: clamp(1.4rem, 6vw, 2rem); }
       .closing-btn {
-        width: 100%;
-        text-align: center;
-        display: block;
-        box-sizing: border-box;
+        width: 100%; text-align: center;
+        display: block; box-sizing: border-box;
       }
       .closing-cta-row { flex-direction: column; align-items: flex-start; gap: 12px; }
 
@@ -2007,15 +2041,9 @@
       .footer-top { grid-template-columns: 1fr; gap: 32px; text-align: center; }
       .footer-brand img { margin: 0 auto 10px; }
       .footer-brand p { max-width: 100%; margin: 0 auto; }
-      .footer-links { align-items: center; }
+      .footer-links { align-items: center; gap: 12px; }
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
       .footer-bottom-links { justify-content: center; }
-
-      /* ── BENTO GRID ── */
-      .wc, .wc-woman, .wc-clin, .wc-pharm, .wc-247, .wc-price, .wc-cal, .wc-stat {
-        border-radius: 16px !important;
-      }
-      .wc img, .wc-woman img { object-fit: cover; }
     }
   </style>
 </head>
@@ -2173,7 +2201,7 @@
 </style>
 
 <!-- ─── PRODUCTS SECTION ─── -->
-<section class="products-section" id="treatments">
+<section class="products-section animate-in" id="treatments">
 <style>
   .products-section {
     background: #EEE8DF;
@@ -2491,7 +2519,7 @@
 
   <div class="prod-grid-top">
 
-    <div class="prod-card tall" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
+    <div class="prod-card tall animate-in" data-delay="1" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
       <div class="prod-card-photo" style="background-image: url('./Tirzepatide Product Card .png'); background-position: center top;"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
@@ -2511,7 +2539,7 @@
       </div>
     </div>
 
-    <div class="prod-card tall" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
+    <div class="prod-card tall animate-in" data-delay="2" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
       <div class="prod-card-photo" style="background-image: url('./Semaglutide Product Card.png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
@@ -2539,7 +2567,7 @@
 
   <div class="prod-grid-bottom" style="margin-top:4px;">
 
-    <div class="prod-card short" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
+    <div class="prod-card short animate-in" data-delay="1" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
       <div class="prod-card-photo" style="background-image: url('./SERMORELIN PRODUCT CARD .png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
@@ -2555,7 +2583,7 @@
       </div>
     </div>
 
-    <div class="prod-card short" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
+    <div class="prod-card short animate-in" data-delay="2" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
       <div class="prod-card-photo" style="background-image: url('./Glutathione Product Card.png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
@@ -2571,7 +2599,7 @@
       </div>
     </div>
 
-    <div class="prod-card short" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
+    <div class="prod-card short animate-in" data-delay="3" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
       <div class="prod-card-photo" style="background-image: url('./NAD PRODUCT CARD.png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
@@ -2596,7 +2624,7 @@
 </section>
 
 <!-- ─── HOW IT WORKS ─── -->
-<section class="hrw" id="how-it-works">
+<section class="hrw animate-in" id="how-it-works">
     <style>
         .hrw {
             position: relative;
@@ -2799,9 +2827,8 @@
     <!-- STAIRCASE STEPS -->
     <div class="hrw-steps">
 
-        <div class="hrw-step">
+        <div class="hrw-step animate-in" data-delay="1">
             <div class="hrw-card">
-
                 <div class="hrw-left">
                     <div class="hrw-num">[ 01 ]</div>
                     <div class="hrw-title">Simple<br>Questionnaire</div>
@@ -2812,9 +2839,8 @@
             </div>
         </div>
 
-        <div class="hrw-step">
+        <div class="hrw-step animate-in" data-delay="2">
             <div class="hrw-card">
-
                 <div class="hrw-left">
                     <div class="hrw-num">[ 02 ]</div>
                     <div class="hrw-title">Provider<br>Evaluation</div>
@@ -2825,7 +2851,7 @@
             </div>
         </div>
 
-        <div class="hrw-step">
+        <div class="hrw-step animate-in" data-delay="3">
             <div class="hrw-card">
 
                 <div class="hrw-left">
@@ -3295,7 +3321,7 @@
 }
 </style>
 
-<section class="why-section">
+<section class="why-section animate-in">
 <div class="why-inner">
 
   <!-- HEADLINE -->
@@ -3308,7 +3334,7 @@
   <div class="why-bento">
 
     <!-- 24/7 -->
-    <div class="wc wc-247">
+    <div class="wc wc-247 animate-in" data-delay="1">
       <img src="aiwomancomputer.png" alt="48 hour response" />
       <div class="ov">
         <div class="big">48 hours</div>
@@ -3317,7 +3343,7 @@
     </div>
 
     <!-- CENTER WOMAN + glow + widget -->
-    <div class="wc-woman">
+    <div class="wc-woman animate-in" data-delay="2">
       <!-- Replace src with your yoga lady image filename -->
       <img src="asianwomanjeans.png" alt="Rylo patient"
            onerror="this.style.display='none'" />
@@ -3329,7 +3355,7 @@
     </div>
 
     <!-- CLINICIAN — full bleed -->
-    <div class="wc wc-clin">
+    <div class="wc wc-clin animate-in" data-delay="3">
       <img src="doctor.png" alt="Board-certified clinician"
            onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#c8c2bc,#b8b2ab)'" />
       <div class="ov">
@@ -3339,7 +3365,7 @@
     </div>
 
     <!-- CALENDAR CARD -->
-    <div class="wc wc-cal" id="wcCal">
+    <div class="wc wc-cal animate-in" data-delay="1" id="wcCal">
       <div class="wc-cal-label">Visible results in</div>
       <div class="wc-cal-headline">2–4 <em>weeks</em></div>
       <div class="wc-cal-grid">
@@ -3394,7 +3420,7 @@
     </script>
 
     <!-- PHARMACY — full bleed + gradient overlay -->
-    <div class="wc wc-pharm">
+    <div class="wc wc-pharm animate-in" data-delay="2">
       <img src="pharmacyimage.png" alt="Licensed US pharmacy"
            onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#d8d2cb,#c8c2bc)'" />
       <div class="ov">
@@ -3404,7 +3430,7 @@
     </div>
 
     <!-- STAT: 20.2% -->
-    <div class="wc wc-stat wc-stat-editorial">
+    <div class="wc wc-stat wc-stat-editorial animate-in" data-delay="3">
       <div class="stat-label">Not a fad.</div>
       <div class="stat-label-em">Real change.</div>
       <div class="num">20.2%</div>
@@ -4089,7 +4115,7 @@
 </section>
 
 <!-- ─── COMBINED CLOSING CTA ─── -->
-<section class="closing-section" id="start">
+<section class="closing-section animate-in" id="start">
   <div class="closing-card">
     <div class="closing-photo-wrap">
       <img src="closingimagefinal.png" alt="Rylo Health member" class="closing-photo" />
@@ -4694,6 +4720,24 @@
   }
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
+})();
+</script>
+
+<script>
+/* ── SCROLL FADE-IN ANIMATIONS ── */
+(function () {
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-in').forEach(function (el) {
+    observer.observe(el);
+  });
 })();
 </script>
 </body>
