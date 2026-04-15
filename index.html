@@ -1622,11 +1622,9 @@
     .sticky-mobile-cta {
       display: none;
       position: fixed; bottom: 0; left: 0; right: 0;
-      z-index: 900;
-      padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      z-index: 999;
+      padding: 12px 24px calc(12px + env(safe-area-inset-bottom));
+      background: #ffffff;
       border-top: 1px solid rgba(53,51,48,0.08);
       box-shadow: 0 -8px 32px rgba(53,51,48,0.08);
     }
@@ -1667,10 +1665,11 @@
     .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
     .footer-disclaimer { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 8px; line-height: 1.6; }
     @media (max-width: 768px) {
-      .footer-inner { padding: 48px 24px 28px; }
+      .footer-inner { padding: 40px 24px 28px; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; text-align: center; }
       .footer-brand img { margin: 0 auto 10px; }
-      .footer-brand p { max-width: 100%; }
+      .footer-brand p { max-width: 100%; margin: 0 auto; }
+      .footer-links { align-items: center; }
       .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
       .footer-bottom-links { justify-content: center; }
     }
@@ -1903,6 +1902,18 @@
     ═══════════════════════════════════════ */
     @media (max-width: 768px) {
 
+      /* ── GLOBAL ── */
+      body { overflow-x: hidden; }
+      img, video, svg { max-width: 100%; }
+
+      /* ── NAV ── */
+      .rylo-nav { height: 64px; }
+      .rn-cta { padding: 10px 20px; font-size: 12px; }
+
+      /* ── TRUST BAR ── */
+      .ticker-bar { overflow: hidden; }
+      .ticker-item { font-size: 11px; }
+
       /* ── HERO VIDEO / IMAGE ── */
       .hero-video-bg video { display: none; }
       .hero-mobile-img {
@@ -1914,25 +1925,27 @@
         object-fit: cover;
         object-position: center top;
       }
-      .hero-outer { min-height: 100svh; }
+      .hero-outer { min-height: 100vh; overflow: hidden; }
       .hero {
-        padding: 100px 24px 64px;
-        min-height: 100svh;
+        padding: 80px 24px 100px;
+        min-height: 100vh;
         align-items: flex-start;
-        justify-content: flex-end;
+        justify-content: center;
+        box-sizing: border-box;
       }
       .hero-content {
         padding-left: 0;
         max-width: 100%;
+        width: 100%;
       }
 
       /* ── HERO TEXT ── */
       .hero-line1 {
-        font-size: clamp(32px, 8vw, 48px);
+        font-size: 36px;
         line-height: 1.08;
       }
       .hero-line2 {
-        font-size: clamp(24px, 6vw, 36px);
+        font-size: 26px;
         line-height: 1.12;
         margin-top: 4px;
       }
@@ -1940,29 +1953,34 @@
       .hero-sub { font-size: 14px; max-width: 100%; }
       .btn-hero-start {
         width: 100%;
+        max-width: none;
         text-align: center;
         display: block;
         box-sizing: border-box;
+        padding: 16px;
       }
       .hero-cta-wrap { width: 100%; }
 
-      /* ── PRODUCT CARDS ── */
+      /* ── TREATMENTS SECTION ── */
+      .prod-header { padding: 0 20px; text-align: center; }
+      .prod-title { font-size: 32px; text-align: center; }
+      .prod-eyebrow { text-align: center; }
       .prod-card.tall,
-      .prod-card.short { height: 340px; }
+      .prod-card.short { height: 320px; min-height: 280px; }
       .prod-card-content { padding: 0 20px 24px; }
       .prod-card-meta { top: 20px; left: 20px; right: 20px; }
-      .prod-title { font-size: clamp(32px, 9vw, 48px); }
-      .prod-price { font-size: 26px; }
+      .prod-name.xl { font-size: 36px; }
+      .prod-name.md { font-size: 28px; }
+      .prod-price { font-size: 24px; }
       .prod-btn {
         width: 100%;
         text-align: center;
         display: block;
         box-sizing: border-box;
       }
-      .prod-header { padding: 0 20px; }
 
       /* ── CLOSING SECTION ── */
-      .closing-section { padding: 40px 16px; }
+      .closing-section { padding: 40px 16px; background: #1a1a1a; }
       .closing-card {
         flex-direction: column;
         min-height: auto;
@@ -1974,12 +1992,8 @@
         height: 260px;
         flex-shrink: 0;
       }
-      .closing-left {
-        padding: 36px 28px 40px;
-      }
-      .closing-heading {
-        font-size: clamp(1.4rem, 6vw, 2rem);
-      }
+      .closing-left { padding: 36px 28px 40px; }
+      .closing-heading { font-size: clamp(1.4rem, 6vw, 2rem); }
       .closing-btn {
         width: 100%;
         text-align: center;
@@ -1987,6 +2001,21 @@
         box-sizing: border-box;
       }
       .closing-cta-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+      /* ── FOOTER ── */
+      .footer-inner { padding: 40px 24px 28px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .footer-brand img { margin: 0 auto 10px; }
+      .footer-brand p { max-width: 100%; margin: 0 auto; }
+      .footer-links { align-items: center; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+      .footer-bottom-links { justify-content: center; }
+
+      /* ── BENTO GRID ── */
+      .wc, .wc-woman, .wc-clin, .wc-pharm, .wc-247, .wc-price, .wc-cal, .wc-stat {
+        border-radius: 16px !important;
+      }
+      .wc img, .wc-woman img { object-fit: cover; }
     }
   </style>
 </head>
@@ -2731,6 +2760,21 @@
             .hrw-left { flex: 0 0 180px; padding: 24px; }
             .hrw-right { padding: 24px; }
             .hrw-title { font-size: 22px; }
+            .hrw-desc { font-size: 14px; }
+        }
+        @media (max-width: 768px) {
+            .hrw-bg { height: auto; min-height: 50vh; position: relative; top: auto; }
+            .hrw-header { padding: 48px 24px 24px; }
+            .hrw-h2 { font-size: clamp(36px, 10vw, 52px); }
+            .hrw-steps { margin-top: 0; padding: 0 16px 48px; }
+            .hrw-step:nth-child(1),
+            .hrw-step:nth-child(2),
+            .hrw-step:nth-child(3) { padding-left: 0; padding-right: 0; }
+            .hrw-card { flex-direction: column; }
+            .hrw-left { flex: none; border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.08); padding: 24px; }
+            .hrw-right { padding: 24px; }
+            .hrw-num { font-size: 13px; }
+            .hrw-title { font-size: 20px; }
             .hrw-desc { font-size: 14px; }
         }
         @media (max-width: 540px) {
