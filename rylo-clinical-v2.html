@@ -1,0 +1,298 @@
+<!-- 
+    RYLO HEALTH — CLINICAL DATA SECTION v2
+    Replace your testimonials section with this code.
+    All data sourced from published SURMOUNT clinical trials (NEJM).
+-->
+
+<section class="clin" id="clinical-results">
+    <style>
+        .clin {
+            padding: 100px 24px;
+            background: #FFFFFF;
+            position: relative;
+        }
+        .clin-inner {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        /* ── HEADER ── */
+        .clin-kicker {
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            background: linear-gradient(135deg, #D9C3E3, #E9B1B6, #F4BEAF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        .clin-h2 {
+            font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 300;
+            color: #1A1A1A;
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+        }
+        .clin-sub {
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 17px;
+            font-weight: 300;
+            color: #86868B;
+            text-align: center;
+            line-height: 1.5;
+            max-width: 480px;
+            margin: 0 auto 64px;
+        }
+
+        /* ── MAIN STATS ROW ── */
+        .clin-stats {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr 1px 1fr;
+            align-items: center;
+            margin-bottom: 64px;
+        }
+        .clin-divider {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(180deg, transparent, #E5E5E7, transparent);
+        }
+        .clin-stat-block {
+            text-align: center;
+            padding: 20px;
+        }
+        .clin-pill {
+            display: inline-block;
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+        .clin-pill.tirz {
+            color: #9B6BB0;
+            background: rgba(217, 195, 227, 0.25);
+        }
+        .clin-pill.sema {
+            color: #C0707A;
+            background: rgba(233, 177, 182, 0.25);
+        }
+        .clin-pill.glp1 {
+            color: #C08A70;
+            background: rgba(244, 190, 175, 0.25);
+        }
+        .clin-num {
+            font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+            font-size: clamp(48px, 7vw, 72px);
+            font-weight: 300;
+            color: #1A1A1A;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+        .clin-num sup {
+            font-size: 0.4em;
+            color: #86868B;
+            vertical-align: super;
+            font-weight: 400;
+        }
+        .clin-caption {
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #86868B;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        /* ── DETAIL CARDS ── */
+        .clin-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #F0F0F0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 48px;
+        }
+        .clin-card {
+            background: #FFFFFF;
+            padding: 36px 24px;
+            text-align: center;
+        }
+        .clin-card-num {
+            font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+            font-size: 36px;
+            font-weight: 300;
+            color: #1A1A1A;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+        .clin-card-text {
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #86868B;
+            line-height: 1.5;
+        }
+
+        /* ── BOTTOM BAR ── */
+        .clin-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            padding: 28px 32px;
+            background: #FAFAFA;
+            border-radius: 16px;
+            margin-bottom: 32px;
+        }
+        .clin-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .clin-bar-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .clin-bar-dot.d1 { background: #D9C3E3; }
+        .clin-bar-dot.d2 { background: #E9B1B6; }
+        .clin-bar-dot.d3 { background: #F4BEAF; }
+        .clin-bar-text {
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #1A1A1A;
+        }
+
+        /* ── DISCLAIMER ── */
+        .clin-disc {
+            text-align: center;
+        }
+        .clin-disc p {
+            font-family: 'Outfit', 'DM Sans', -apple-system, sans-serif;
+            font-size: 11px;
+            font-weight: 300;
+            color: #AEAEB2;
+            line-height: 1.9;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .clin-disc a {
+            color: #86868B;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .clin { padding: 72px 20px; }
+            .clin-stats {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .clin-divider {
+                width: 120px;
+                height: 1px;
+                margin: 0 auto;
+                background: linear-gradient(90deg, transparent, #E5E5E7, transparent);
+            }
+            .clin-stat-block { padding: 28px 20px; }
+            .clin-cards { grid-template-columns: 1fr 1fr; }
+            .clin-bar {
+                flex-direction: column;
+                gap: 16px;
+                padding: 24px;
+            }
+        }
+        @media (max-width: 480px) {
+            .clin-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <div class="clin-inner">
+
+        <div class="clin-kicker">Backed by clinical research</div>
+        <h2 class="clin-h2">The science behind your results.</h2>
+        <p class="clin-sub">Our treatments use the same active ingredients studied in peer-reviewed clinical trials published in The New England Journal of Medicine.</p>
+
+        <!-- MAIN STATS -->
+        <div class="clin-stats">
+            <div class="clin-stat-block">
+                <div class="clin-pill tirz">Tirzepatide</div>
+                <div class="clin-num">20.2<sup>%</sup></div>
+                <div class="clin-caption">avg. body weight reduction</div>
+            </div>
+            <div class="clin-divider"></div>
+            <div class="clin-stat-block">
+                <div class="clin-pill sema">Semaglutide</div>
+                <div class="clin-num">13.7<sup>%</sup></div>
+                <div class="clin-caption">avg. body weight reduction</div>
+            </div>
+            <div class="clin-divider"></div>
+            <div class="clin-stat-block">
+                <div class="clin-pill glp1">GLP-1 Therapy</div>
+                <div class="clin-num">89<sup>%</sup></div>
+                <div class="clin-caption">achieved clinically meaningful results</div>
+            </div>
+        </div>
+
+        <!-- DETAIL CARDS -->
+        <div class="clin-cards">
+            <div class="clin-card">
+                <div class="clin-card-num">96%</div>
+                <div class="clin-card-text">achieved 5%+ weight loss on tirzepatide at 72 weeks</div>
+            </div>
+            <div class="clin-card">
+                <div class="clin-card-num">71%</div>
+                <div class="clin-card-text">achieved 15% or more body weight reduction</div>
+            </div>
+            <div class="clin-card">
+                <div class="clin-card-num">57%</div>
+                <div class="clin-card-text">achieved 20% or more body weight reduction</div>
+            </div>
+            <div class="clin-card">
+                <div class="clin-card-num">>95%</div>
+                <div class="clin-card-text">with prediabetes converted to normal glucose</div>
+            </div>
+        </div>
+
+        <!-- TRUST BAR -->
+        <div class="clin-bar">
+            <div class="clin-bar-item">
+                <div class="clin-bar-dot d1"></div>
+                <span class="clin-bar-text">Licensed US providers</span>
+            </div>
+            <div class="clin-bar-item">
+                <div class="clin-bar-dot d2"></div>
+                <span class="clin-bar-text">US licensed pharmacy</span>
+            </div>
+            <div class="clin-bar-item">
+                <div class="clin-bar-dot d3"></div>
+                <span class="clin-bar-text">HIPAA compliant</span>
+            </div>
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="clin-disc">
+            <p>
+                Data from the SURMOUNT-1 and SURMOUNT-5 clinical trials published in 
+                <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206038" target="_blank" rel="noopener">The New England Journal of Medicine</a>. 
+                Results reflect FDA-approved branded formulations (Zepbound® and Wegovy®) studied under controlled conditions 
+                and cannot be directly extrapolated to compounded formulations. 
+                Compounded medications are not FDA-approved and have not been evaluated for safety, effectiveness, or quality. 
+                Individual results may vary. All treatments require a prescription from a licensed provider.
+                Zepbound® is a trademark of Eli Lilly. Wegovy® is a trademark of Novo Nordisk. Rylo is not affiliated with these manufacturers.
+            </p>
+        </div>
+
+    </div>
+</section>

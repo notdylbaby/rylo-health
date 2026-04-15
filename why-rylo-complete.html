@@ -1,0 +1,765 @@
+<!--
+  ═══════════════════════════════════════════════════════════════
+  WHY CHOOSE RYLO — COMPLETE DROP-IN SECTION
+  ═══════════════════════════════════════════════════════════════
+  
+  TO INSTALL:
+  1. Delete your old why-section (from <section class="why-section"> to </section> and its <script>)
+  2. Delete old .why-* CSS from your global <style> block
+  3. Paste this entire block where the old section was
+  
+  IMAGES NEEDED (already in your project):
+  - yoglady - Edited.png (center woman)
+  - DOCTORTALKINGPHONE - Edited.png (phone mockup)
+  - patientavatar1.png (clinician photo — or swap for a better one)
+  - pharmacy-photo.png (swap in a pharmacy/compounding shot)
+  - shipping box photo (optional — currently using your Rylo box if you have one)
+  
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<style>
+/* ═══════════════════════════════════════
+   WHY SECTION — MASTER STYLES
+   ═══════════════════════════════════════ */
+.why-section {
+  background: var(--ivory-dark, #faf7f2);
+  padding: 100px 48px 80px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.why-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Headline ── */
+.why-top {
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(28px);
+}
+.why-top.visible {
+  animation: whyFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+.why-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #aaa;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.why-title {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: clamp(34px, 4.2vw, 54px);
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.14;
+}
+.why-title em {
+  font-style: italic;
+  display: block;
+  color: var(--sage, #3d5c35);
+}
+
+@keyframes whyFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════
+   BENTO GRID
+   ═══════════════════════════════════════ */
+.why-bento {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* ── Base card ── */
+.wb-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.wb-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+}
+.wb-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 44px rgba(0,0,0,0.06);
+}
+
+/* ═══════════════════════════════════════
+   CLINICIAN CARD — full bleed photo, text overlay
+   ═══════════════════════════════════════ */
+.wb-clinician {
+  grid-column: 1;
+  grid-row: 1;
+  min-height: 260px;
+}
+.wb-clinician .wb-img {
+  position: absolute;
+  inset: 0;
+}
+.wb-clinician .wb-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.5s ease;
+}
+.wb-clinician:hover .wb-img img { transform: scale(1.03); }
+
+.wb-clinician .wb-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.58) 0%, transparent 100%);
+  z-index: 2;
+}
+.wb-clinician .wb-overlay h3 {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 21px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.wb-clinician .wb-overlay p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════
+   CENTER WOMAN — spans all rows, warm glow
+   ═══════════════════════════════════════ */
+.wb-woman {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  min-height: 620px;
+  border-radius: 24px;
+  background: #d4cfc8;
+}
+
+/* Warm glow behind her */
+.wb-woman::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 65%;
+  background: radial-gradient(ellipse, rgba(253,240,218,0.55) 0%, rgba(253,240,218,0.2) 40%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(25px);
+}
+
+.wb-woman .wb-img {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.wb-woman .wb-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Floating weight widget */
+.why-widget {
+  position: absolute;
+  bottom: 32px; left: 22px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow: 0 8px 36px rgba(0,0,0,0.10);
+  z-index: 10;
+  min-width: 148px;
+  animation: whyFloat 4s ease-in-out infinite;
+}
+@keyframes whyFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.why-widget-label {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 8px;
+}
+.why-widget-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 40px; font-weight: 300;
+  color: #1a1a1a; line-height: 1;
+  letter-spacing: -0.02em;
+}
+.why-widget-unit {
+  font-size: 14px; font-weight: 400; color: #aaa;
+}
+.why-widget-bar {
+  height: 3px;
+  background: #f0ede8;
+  border-radius: 100px;
+  margin-top: 10px;
+  overflow: hidden;
+  width: 100px;
+}
+.why-widget-fill {
+  height: 100%; width: 0%;
+  background: #3d5c35;
+  border-radius: 100px;
+}
+.why-widget-fill.go { animation: whyBar 2s ease forwards; }
+@keyframes whyBar { to { width: 65%; } }
+
+/* ═══════════════════════════════════════
+   PHARMACY CARD — full bleed photo, floating label
+   ═══════════════════════════════════════ */
+.wb-pharmacy {
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 210px;
+}
+.wb-pharmacy .wb-img {
+  position: absolute;
+  inset: 0;
+}
+.wb-pharmacy .wb-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.wb-pharmacy:hover .wb-img img { transform: scale(1.03); }
+
+.wb-pharmacy .wb-float-label {
+  position: absolute;
+  bottom: 16px; right: 16px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  z-index: 3;
+  max-width: 210px;
+}
+.wb-float-label h3 {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 17px; font-weight: 400;
+  color: #1a1a1a; margin-bottom: 3px;
+}
+.wb-float-label p {
+  font-size: 12px; color: #777; line-height: 1.4;
+}
+
+/* ═══════════════════════════════════════
+   STAT CARDS — right column
+   ═══════════════════════════════════════ */
+.wb-stat {
+  border-radius: 20px;
+  padding: 26px 24px;
+}
+.wb-stat .ws-pill {
+  display: inline-block;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3d5c35;
+  background: rgba(61,92,53,0.09);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.wb-stat .ws-num {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 48px; font-weight: 400;
+  line-height: 1;
+  color: #3d5c35;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.wb-stat .ws-desc {
+  font-size: 13px; color: #777; line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════
+   24/7 CARD — bottom left of bento
+   ═══════════════════════════════════════ */
+.wb-support {
+  grid-column: 1;
+  grid-row: 3;
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wb-support .ws-big {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 50px; font-weight: 400;
+  font-style: italic;
+  color: #3d5c35;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.wb-support h3 {
+  font-size: 17px; font-weight: 600;
+  color: #1a1a1a; margin-bottom: 6px;
+}
+.wb-support p {
+  font-size: 13px; color: #777; line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════
+   FLAT PRICE CARD
+   ═══════════════════════════════════════ */
+.wb-price {
+  grid-column: 3;
+  grid-row: 3;
+  border-radius: 20px;
+  padding: 28px 24px;
+}
+.wb-price h3 {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 26px; font-weight: 400;
+  color: #1a1a1a; line-height: 1.15;
+  margin-bottom: 10px;
+}
+.wb-price h3 em { font-style: italic; }
+.wb-price p {
+  font-size: 13px; color: #777; line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════
+   BOTTOM ROW — asymmetric
+   ═══════════════════════════════════════ */
+.why-bottom-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.wb-bot {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 20px;
+  overflow: visible;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.wb-bot.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+}
+.wb-bot:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 44px rgba(0,0,0,0.06);
+}
+
+/* ── 1-on-1 PROVIDER CARD — horizontal, phone floating out top ── */
+.wb-provider {
+  display: flex;
+  align-items: flex-end;
+  min-height: 300px;
+  background: #eee9e0;
+  border-color: #e4dfd8;
+  overflow: visible;
+}
+.wb-provider .wb-phone {
+  flex-shrink: 0;
+  width: 200px;
+  margin-left: 28px;
+  margin-top: -55px;
+  margin-bottom: 0;
+  z-index: 2;
+  position: relative;
+  animation: phoneHover 5s ease-in-out infinite;
+}
+.wb-provider .wb-phone img {
+  width: 100%; height: auto;
+  display: block;
+  filter: drop-shadow(0 16px 36px rgba(0,0,0,0.14));
+}
+@keyframes phoneHover {
+  0%,100% { transform: translateY(0) rotate(-0.5deg); }
+  50% { transform: translateY(-7px) rotate(0.5deg); }
+}
+.wb-provider .wb-phone::before {
+  content: '';
+  position: absolute;
+  top: 30px; left: 50%;
+  transform: translateX(-50%);
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,92,53,0.06) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.wb-provider .wb-text {
+  flex: 1;
+  padding: 36px 32px 40px 24px;
+}
+.wb-provider .wb-text .wb-stat-big {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 50px; font-weight: 400;
+  font-style: italic;
+  color: #3d5c35;
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.wb-provider .wb-text h3 {
+  font-size: 18px; font-weight: 600;
+  color: #1a1a1a; margin-bottom: 8px;
+}
+.wb-provider .wb-text p {
+  font-size: 13.5px; color: #777; line-height: 1.6;
+  max-width: 320px;
+}
+
+/* ── DARK CARD — navy ── */
+.wb-dark {
+  background: var(--rylo-navy, #1e3148);
+  border-color: transparent;
+  border-radius: 20px;
+  padding: 36px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wb-dark .wb-stat-big {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 50px; font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.wb-dark h3 {
+  font-size: 17px; font-weight: 600;
+  color: #fff; margin-bottom: 8px;
+}
+.wb-dark p {
+  font-size: 13px; color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+/* ── SHIPPING CARD — photo + text ── */
+.wb-shipping {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+.wb-shipping .wb-ship-img {
+  height: 170px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+.wb-shipping .wb-ship-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.wb-shipping:hover .wb-ship-img img { transform: scale(1.03); }
+
+.wb-shipping .wb-ship-text {
+  padding: 22px 22px 28px;
+  flex: 1;
+}
+.wb-shipping .wb-ship-text .wb-stat-sm {
+  font-family: var(--font-serif, 'Instrument Serif', serif);
+  font-size: 32px; font-weight: 400;
+  font-style: italic;
+  color: #3d5c35;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.wb-shipping .wb-ship-text h3 {
+  font-size: 16px; font-weight: 600;
+  color: #1a1a1a; margin-bottom: 6px;
+}
+.wb-shipping .wb-ship-text p {
+  font-size: 12.5px; color: #777; line-height: 1.55;
+}
+
+/* ═══════════════════════════════════════
+   TRUST STRIP + CTA
+   ═══════════════════════════════════════ */
+.why-trust-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.why-trust-strip.visible {
+  animation: whyFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+.why-strip-item {
+  background: transparent;
+  padding: 11px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  border: 1px solid rgba(0,0,0,0.15);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.why-strip-item:hover {
+  background: var(--rylo-navy, #1e3148);
+  color: #fff;
+}
+
+.why-cta-wrap {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.why-cta-wrap.visible {
+  animation: whyFadeUp 0.6s cubic-bezier(0.22,1,0.36,1) forwards 0.1s;
+}
+
+.why-cta {
+  display: inline-block;
+  background: var(--rylo-navy, #1e3148);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.why-cta:hover {
+  background: #1a3050;
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .why-section { padding: 60px 20px; }
+  .why-bento {
+    grid-template-columns: 1fr;
+  }
+  .wb-woman {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 400px;
+  }
+  .wb-clinician,
+  .wb-pharmacy,
+  .wb-support,
+  .wb-price { grid-column: 1; grid-row: auto; }
+  .wb-stat { grid-column: 1; }
+
+  .why-bottom-row {
+    grid-template-columns: 1fr;
+  }
+  .wb-provider {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .wb-provider .wb-phone {
+    width: 160px;
+    margin: -45px 0 0 0;
+  }
+  .wb-provider .wb-text {
+    padding: 24px 28px 36px;
+  }
+  .wb-provider .wb-text p { max-width: 100%; }
+}
+</style>
+
+
+<section class="why-section">
+  <div class="why-inner">
+
+    <!-- HEADLINE -->
+    <div class="why-top" id="whyTop">
+      <p class="why-eyebrow">The Rylo Difference</p>
+      <h2 class="why-title">Everything they charge extra for.<br><em>Included.</em></h2>
+    </div>
+
+    <!-- ═══════ BENTO GRID ═══════ -->
+    <div class="why-bento">
+
+      <!-- CLINICIAN — full bleed photo -->
+      <div class="wb-card wb-clinician" data-d="0">
+        <div class="wb-img">
+          <img src="patientavatar1.png" alt="Board-certified clinician" />
+        </div>
+        <div class="wb-overlay">
+          <h3>Board-certified clinician</h3>
+          <p>Reviewed by a licensed US provider — not an algorithm.</p>
+        </div>
+      </div>
+
+      <!-- CENTER WOMAN -->
+      <div class="wb-card wb-woman" data-d="100">
+        <div class="wb-img">
+          <img src="yoglady - Edited.png" alt="Rylo patient" />
+        </div>
+        <div class="why-widget">
+          <div class="why-widget-label">Weight lost</div>
+          <div class="why-widget-num">↓ 26 <span class="why-widget-unit">lbs</span></div>
+          <div class="why-widget-bar"><div class="why-widget-fill" id="whyBarFill"></div></div>
+        </div>
+      </div>
+
+      <!-- STAT: 4-8 wks -->
+      <div class="wb-card wb-stat" data-d="150">
+        <div class="ws-pill">Clinical Data</div>
+        <div class="ws-num">4–8 wks</div>
+        <p class="ws-desc">Avg time for patients to notice meaningful changes after starting GLP-1 treatment.</p>
+      </div>
+
+      <!-- PHARMACY — full bleed photo with floating label -->
+      <div class="wb-card wb-pharmacy" data-d="200">
+        <div class="wb-img">
+          <img src="pharmacy-photo.png" alt="Licensed US pharmacy"
+               onerror="this.parentElement.style.background='linear-gradient(135deg,#d8d2cb,#c8c2bc)';this.style.display='none'" />
+        </div>
+        <div class="wb-float-label">
+          <h3>Licensed US pharmacy</h3>
+          <p>FDA-registered. Third-party tested.</p>
+        </div>
+      </div>
+
+      <!-- STAT: 20.2% -->
+      <div class="wb-card wb-stat" data-d="250">
+        <div class="ws-pill">Clinical Data</div>
+        <div class="ws-num">20.2%</div>
+        <p class="ws-desc">Avg body weight lost in published tirzepatide clinical trials over 72 weeks.</p>
+      </div>
+
+      <!-- 24/7 SUPPORT -->
+      <div class="wb-card wb-support" data-d="300">
+        <div class="ws-big">24/7</div>
+        <h3>Support that doesn't disappear</h3>
+        <p>Message your care team anytime. Real answers from real people.</p>
+      </div>
+
+      <!-- ONE FLAT PRICE -->
+      <div class="wb-card wb-price" data-d="350">
+        <h3>One flat <em>price.</em></h3>
+        <p>No surprise charges on dose increases. Same monthly rate at every stage of your treatment, no matter what.</p>
+      </div>
+
+    </div>
+
+    <!-- ═══════ BOTTOM ROW ═══════ -->
+    <div class="why-bottom-row">
+
+      <!-- 1-ON-1 — phone floating out top -->
+      <div class="wb-bot wb-provider" data-d="400">
+        <div class="wb-phone">
+          <img src="DOCTORTALKINGPHONE - Edited.png" alt="FaceTime with your provider" />
+        </div>
+        <div class="wb-text">
+          <div class="wb-stat-big">1-on-1</div>
+          <h3>A provider who actually knows you</h3>
+          <p>A board-certified clinician reviews your health, adjusts your dose, and answers your questions directly.</p>
+        </div>
+      </div>
+
+      <!-- DARK CARD — Free shipping -->
+      <div class="wb-bot wb-dark" data-d="500">
+        <div class="wb-stat-big">Free</div>
+        <h3>Free shipping, every month</h3>
+        <p>Ships monthly from a licensed US pharmacy. Same price at every dose.</p>
+      </div>
+
+      <!-- HSA/FSA -->
+      <div class="wb-bot wb-shipping" data-d="600">
+        <div class="wb-ship-img">
+          <!-- Optional: Rylo box photo or any shipping image -->
+          <img src="shipping-photo.png" alt="Rylo shipping"
+               onerror="this.parentElement.style.background='#eee9e0';this.style.display='none'" />
+        </div>
+        <div class="wb-ship-text">
+          <div class="wb-stat-sm">HSA/FSA</div>
+          <h3>Use your benefits</h3>
+          <p>HSA &amp; FSA accepted. No insurance needed.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TRUST STRIP -->
+    <div class="why-trust-strip" id="whyStrip">
+      <span class="why-strip-item">Free shipping</span>
+      <span class="why-strip-item">HIPAA secure</span>
+      <span class="why-strip-item">HSA &amp; FSA accepted</span>
+      <span class="why-strip-item">No insurance needed</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="why-cta-wrap" id="whyCta">
+      <a href="intake.html" class="why-cta">Get Started →</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  // Scroll reveal
+  const els = document.querySelectorAll('.wb-card, .wb-bot, .why-top, .why-trust-strip, .why-cta-wrap');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const d = e.target.getAttribute('data-d') || 0;
+        setTimeout(() => e.target.classList.add('visible'), parseInt(d));
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => io.observe(el));
+
+  // Bar fill
+  const bar = document.getElementById('whyBarFill');
+  if (bar) {
+    const bo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { bar.classList.add('go'); bo.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    bo.observe(bar);
+  }
+})();
+</script>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Rylo Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:    #1d1d1f;
+      --charcoal-80: #1d1d1fcc;
+      --charcoal-60: #1d1d1f99;
+      --charcoal-40: #1d1d1f66;
+      --charcoal-20: #1d1d1f33;
+      --soft-gray:   #f5f5f7;
+      --white:       #ffffff;
+      --green:       #1E3B20;
+      --green-mid:   #2E5A30;
+      --green-bright:#1fa465;
+      --sage:        #6B9E5E;
+      --sage-pale:   #D6E9CC;
+      --peach:       #E8A07A;
+      --peach-light: #f5c9ae;
+      --border:      #1d1d1f1a;
+      --font: 'Plus Jakarta Sans', Arial, sans-serif;
+      --site-width: 800px;
+      --site-margin: clamp(1rem, 5vw, 4rem);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--charcoal-80);
+      font-size: 1rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin-inline: auto;
+      padding: 0 clamp(1rem, 5vw, 5rem);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal-60);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-back:hover { color: var(--green); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 10px 22px;
+      background: var(--green);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(30,59,32,0.25); }
+
+    /* ─── PAGE HEADER ─── */
+    .faq-header {
+      background: linear-gradient(160deg, #f0faf4 0%, #eaf5ef 60%, #f4f8ff 100%);
+      padding: 72px var(--site-margin) 64px;
+      text-align: center;
+    }
+
+    .faq-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 14px;
+    }
+
+    .faq-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .faq-title em {
+      font-style: normal;
+      color: var(--green-bright);
+    }
+
+    .faq-subtitle {
+      font-size: 1rem;
+      color: var(--charcoal-60);
+      max-width: 520px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+
+    /* ─── FAQ BODY ─── */
+    .faq-body {
+      max-width: var(--site-width);
+      margin-inline: auto;
+      padding: 72px var(--site-margin) 100px;
+    }
+
+    /* Category headings */
+    .faq-category {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      padding: 0 0 16px 0;
+      margin-top: 52px;
+      margin-bottom: 4px;
+      border-bottom: 2px solid var(--sage-pale);
+    }
+
+    .faq-category:first-child { margin-top: 0; }
+
+    /* Accordion items */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.4;
+      transition: color 0.15s ease;
+    }
+
+    .faq-question:hover { color: var(--green); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--soft-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.3s cubic-bezier(0.34,1.3,0.64,1);
+    }
+
+    .faq-icon svg {
+      width: 12px; height: 12px;
+      transition: transform 0.3s cubic-bezier(0.34,1.3,0.64,1);
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--sage-pale);
+    }
+
+    .faq-item.open .faq-icon svg {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .faq-item.open .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .faq-answer-text {
+      padding: 0 0 24px 0;
+      font-size: 0.92rem;
+      color: var(--charcoal-60);
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .faq-answer-text a {
+      color: var(--green-bright);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .faq-answer-text a:hover { text-decoration: underline; }
+
+    /* ─── CTA STRIP ─── */
+    .faq-cta {
+      background: var(--green);
+      padding: 72px var(--site-margin);
+      text-align: center;
+    }
+
+    .faq-cta h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .faq-cta p {
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    .faq-cta-btn {
+      display: inline-block;
+      padding: 16px 44px;
+      background: #fff;
+      color: var(--green);
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 800;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+    }
+
+    .faq-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ─── FOOTER ─── */
+    .faq-footer {
+      background: var(--charcoal);
+      padding: 32px var(--site-margin);
+      text-align: center;
+    }
+
+    .faq-footer p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .faq-footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .faq-footer a:hover { color: rgba(255,255,255,0.8); }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="Untitled design.png" alt="Rylo Health" />
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to home
+    </a>
+    <a href="index.html#start" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<!-- ─── HEADER ─── -->
+<div class="faq-header">
+  <div class="faq-eyebrow">Support</div>
+  <h1 class="faq-title">Frequently asked <em>questions</em></h1>
+  <p class="faq-subtitle">Everything you need to know about GLP-1 therapy, our programs, and what to expect on your journey with Rylo Health.</p>
+</div>
+
+<!-- ─── FAQ BODY ─── -->
+<div class="faq-body">
+
+  <!-- GETTING STARTED -->
+  <div class="faq-category">Getting started</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How do I get started with Rylo Health?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Getting started takes about 5 minutes. Click "Get started," complete a short health assessment, and select the program that fits your goals. A board-certified clinician will review your intake — often the same day — and build your personalized protocol. Once approved, your medication ships from an FDA-registered pharmacy directly to your door.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Do I need to see a doctor in person?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">No. Rylo Health is 100% online. Your clinician reviews your health intake asynchronously and may follow up with a brief phone or video call if additional information is needed. There are no waiting rooms, no commutes, and no in-person visits required.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Which states do you currently serve?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Rylo Health is currently available in most U.S. states. We're expanding rapidly. When you complete your intake, we'll confirm eligibility based on your state. States where we operate include California, Texas, Florida, New York, Illinois, and dozens more. Check back frequently as we continue to grow.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What information will I need to provide?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">You'll provide basic contact details, date of birth, state of residence, height, current weight, and your health goals. We'll also ask about any prior medications, medical conditions, and allergies. Everything is encrypted and kept strictly confidential under HIPAA.</p></div></div>
+  </div>
+
+  <!-- GLP-1 MEDICATIONS -->
+  <div class="faq-category">GLP-1 medications</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What is GLP-1 therapy?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">GLP-1 (glucagon-like peptide-1) is a naturally occurring hormone that regulates appetite and blood sugar. GLP-1 receptor agonists like semaglutide and tirzepatide mimic this hormone, signaling to your brain that you're full, slowing gastric emptying, and reducing cravings. They are FDA-approved for weight management and have been studied extensively in large-scale clinical trials.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What is the difference between semaglutide and tirzepatide?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Semaglutide is a GLP-1 receptor agonist that reduces appetite and supports sustained weight loss — the active ingredient in Ozempic and Wegovy. Tirzepatide is a dual GIP + GLP-1 receptor agonist (the active ingredient in Mounjaro and Zepbound) that targets two appetite-regulating pathways simultaneously. Clinical trials show tirzepatide produces up to 22% body weight reduction on average, compared to approximately 15% with semaglutide. Your clinician will recommend the right option based on your health profile and goals.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Is compounded semaglutide or tirzepatide the same as the brand name?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Compounded medications contain the same active pharmaceutical ingredient (API) as brand-name drugs, but are prepared by a licensed 503B FDA-registered compounding pharmacy. Compounded versions are not FDA-approved but use the same active compound. They are typically more affordable and allow for custom dosing tailored to your body. Rylo Health only works with accredited, inspected pharmacies.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What is NAD+ therapy and who is it for?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">NAD+ (nicotinamide adenine dinucleotide) is a coenzyme found in every cell of your body that plays a critical role in energy production, DNA repair, and cellular aging. NAD+ levels decline with age. Our peptide therapy program — which includes NAD+, glutathione, and sermorelin — is designed for those focused on longevity, anti-aging, and peak cellular performance. It's ideal as a standalone or complement to GLP-1 therapy.</p></div></div>
+  </div>
+
+  <!-- SAFETY & SIDE EFFECTS -->
+  <div class="faq-category">Safety &amp; side effects</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Is GLP-1 therapy safe?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">GLP-1 receptor agonists have been studied in clinical trials involving tens of thousands of patients and are considered safe for most adults when prescribed by a licensed clinician. As with any medication, there are risks and contraindications. Rylo Health clinicians conduct a thorough medical review before prescribing and monitor your progress throughout treatment. Not everyone is a candidate — your clinician will determine eligibility based on your health history.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What are the most common side effects?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">The most commonly reported side effects are gastrointestinal: nausea, vomiting, diarrhea, constipation, and reduced appetite. These are typically mild to moderate and tend to improve as your body adjusts, especially when starting at a low dose and titrating gradually. Less common but serious side effects include pancreatitis, gallbladder disease, and — in rare cases — thyroid tumors. Your clinician will review your personal risk profile before prescribing.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Who is NOT a candidate for GLP-1 therapy?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">GLP-1 medications may not be appropriate if you have a personal or family history of medullary thyroid carcinoma or Multiple Endocrine Neoplasia syndrome type 2, a history of pancreatitis, severe gastrointestinal disease, are pregnant or breastfeeding, or are under 18. Certain medications may also interact. Your clinician will review your full history during the intake process to determine eligibility.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Can I take GLP-1 if I have diabetes or other conditions?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">GLP-1 receptor agonists were originally developed for type 2 diabetes management and have a well-established safety profile in that context. However, combining them with other diabetes medications (especially insulin or sulfonylureas) requires careful dose management to avoid hypoglycemia. Always disclose all existing medications and conditions in your intake form. Your Rylo clinician will coordinate your care accordingly.</p></div></div>
+  </div>
+
+  <!-- RESULTS & TIMELINES -->
+  <div class="faq-category">Results &amp; timelines</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How much weight can I expect to lose?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Results vary based on starting weight, adherence, diet, and activity. Clinical trials show semaglutide produces an average of ~15% body weight reduction over 68 weeks, while tirzepatide produces up to ~22% over 72 weeks. In practice, members commonly report 1–3 lbs of loss per week early in treatment, tapering to a slower, steady pace over time. Your Rylo clinician will set realistic expectations based on your specific profile.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      When will I start seeing results?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Most members notice reduced appetite and early weight changes within the first 2–4 weeks. Meaningful, visible results typically appear by weeks 8–12. GLP-1 therapy is a long-term intervention — the biggest results are seen at the 3-, 6-, and 12-month marks as doses are titrated upward and your body adapts to treatment.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What happens when I stop taking the medication?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Clinical research shows that many people regain weight after stopping GLP-1 therapy, because the medication is actively suppressing appetite signals that return when treatment ends. This is why Rylo Health focuses on concurrent lifestyle support alongside medication. Your clinician will discuss a long-term strategy — including when and how to appropriately taper — as part of your ongoing care plan.</p></div></div>
+  </div>
+
+  <!-- COST & INSURANCE -->
+  <div class="faq-category">Cost &amp; insurance</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How much does Rylo Health cost?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Your first month starts at $65 for our GLP-1 programs. This includes clinician review, your prescription, medication, and free shipping. Ongoing monthly costs vary based on your program and dose. We believe medication-assisted weight loss should be accessible — we keep our prices significantly below traditional healthcare and brand-name alternatives.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Does insurance cover GLP-1 therapy through Rylo?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Rylo Health currently operates on a direct-pay model and does not bill insurance directly. However, we accept HSA (Health Savings Account) and FSA (Flexible Spending Account) payments. Compounded GLP-1 medications are generally not covered by standard insurance, but our prices are designed to be significantly more affordable than brand-name alternatives out of pocket.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Are there any hidden fees?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">No. What you see is what you pay. Shipping is always free. Clinician consultations are included. There are no surprise fees, enrollment fees, or upsell traps. We believe transparency is foundational to trust — your invoice will always match what you agreed to at checkout.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Do you offer any discounts or financial assistance?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">We periodically run promotions for new members. Your first month starts at $65 — our lowest rate. We're actively working to expand access and affordability. If cost is a barrier, please reach out to our support team and we'll do our best to find a solution that works for you.</p></div></div>
+  </div>
+
+  <!-- SHIPPING & MEDICATION -->
+  <div class="faq-category">Shipping &amp; medication</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How long does it take to receive my medication?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Once your clinician approves your prescription, it is transmitted to our pharmacy partner within 24 hours. Medication typically ships within 48 hours of approval and arrives within 3–5 business days depending on your location. You'll receive tracking information as soon as your order ships.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How is the medication packaged and stored?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Medications are shipped in discrete, temperature-appropriate packaging. Injectable GLP-1 medications are shipped with insulated cold packs to maintain proper temperature during transit. Once received, most injectables should be refrigerated. Detailed storage and administration instructions are included with every shipment and reviewed by your clinician.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Do I need to self-inject? Is it difficult?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Yes — GLP-1 medications are subcutaneous injections (under the skin), administered once weekly. The needles are very fine and most members find them nearly painless after the first few doses. Your medication ships with detailed step-by-step injection instructions, and your care team is available to walk you through the process via message if needed. Many members describe it as easier than they expected.</p></div></div>
+  </div>
+
+  <!-- ONGOING CARE -->
+  <div class="faq-category">Ongoing care</div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Who are Rylo Health's clinicians?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">All Rylo Health clinicians are board-certified physicians, nurse practitioners, and physician assistants licensed in your state. They are vetted for their expertise in obesity medicine, endocrinology, and metabolic health. You'll be matched with a provider based on your health profile and location. Your clinician is your long-term partner in care — not a one-time gatekeeper.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How do I communicate with my clinician?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">All communication happens through the Rylo Health secure member portal via async messaging. You can message your clinician anytime — questions about side effects, dose adjustments, lifestyle guidance, or anything else. Most messages are responded to within a few hours during business hours. Unlimited messaging is included in all programs.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Will my dose be adjusted over time?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Yes. GLP-1 therapy follows a dose titration schedule — you start low and gradually increase your dose every 4 weeks (or as your clinician recommends) to minimize side effects and optimize results. Your clinician monitors your progress during monthly check-ins and adjusts your protocol based on how your body is responding. Dose changes are handled within your portal without additional fees.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Can I cancel anytime?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Yes, absolutely. There are no contracts, no lock-in periods, and no cancellation fees. You can pause or cancel your membership at any time through your member portal or by contacting our support team. We ask that you cancel before your next billing cycle to avoid being charged for the following month's shipment.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What if I'm not approved after completing my intake?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">If a Rylo Health clinician determines that GLP-1 therapy is not appropriate for you based on your health profile, you will receive a full refund of any intake fees paid. Your safety is our first priority. Your clinician may also suggest alternative programs or provide referrals to appropriate care if indicated.</p></div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Is my health information private and secure?
+      <span class="faq-icon"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner"><p class="faq-answer-text">Absolutely. Rylo Health is fully HIPAA-compliant. All data is encrypted in transit and at rest. We never sell your health information to third parties. Your data is used solely to provide you with clinical care and improve our platform. You can request a copy or deletion of your data at any time under our Privacy Policy.</p></div></div>
+  </div>
+
+</div>
+
+<!-- ─── CTA ─── -->
+<div class="faq-cta">
+  <h2>Still have questions?</h2>
+  <p>Our care team is here to help — or you can start your intake and speak with a clinician directly.</p>
+  <a href="index.html#start" class="faq-cta-btn">Get started today</a>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<div class="faq-footer">
+  <p>© 2025 Rylo Health, Inc. All rights reserved. &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a> &nbsp;·&nbsp; <a href="#">Medical Disclaimer</a></p>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    // Open this one if it wasn't open
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

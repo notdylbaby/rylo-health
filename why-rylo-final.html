@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Choose Rylo — Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#faf7f2;font-family:'Plus Jakarta Sans',sans-serif;color:#1a1a1a;-webkit-font-smoothing:antialiased}
+
+/* ════════════════════════════════════
+   SECTION
+   ════════════════════════════════════ */
+.why-section{
+  padding:100px 48px 80px;
+  overflow:hidden; /* prevents bottom row from bleeding */
+}
+.why-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* ── Headline ── */
+.why-top{text-align:center;margin-bottom:60px}
+.why-eyebrow{font-size:10px;font-weight:600;letter-spacing:.14em;color:#aaa;text-transform:uppercase;margin-bottom:14px}
+.why-title{font-family:'Instrument Serif',serif;font-size:clamp(34px,4.2vw,54px);font-weight:400;color:#1a1a1a;line-height:1.14}
+.why-title em{font-style:italic;display:block;color:#3d5c35}
+
+/* ════════════════════════════════════
+   BENTO GRID
+   ════════════════════════════════════ */
+.why-bento{
+  display:grid;
+  grid-template-columns:1fr 1.2fr 1fr;
+  grid-template-rows:auto auto auto;
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.wc{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.wc:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 44px rgba(0,0,0,.06);
+}
+
+/* ── CLINICIAN ── full bleed photo */
+.wc-clin{grid-column:1;grid-row:1;min-height:260px}
+.wc-clin img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease}
+.wc-clin:hover img{transform:scale(1.03)}
+.wc-clin .ov{position:absolute;bottom:0;left:0;right:0;padding:26px 22px;background:linear-gradient(to top,rgba(0,0,0,.55),transparent);z-index:2}
+.wc-clin .ov h3{font-family:'Instrument Serif',serif;font-size:21px;font-weight:400;color:#fff;margin-bottom:3px}
+.wc-clin .ov p{font-size:13px;color:rgba(255,255,255,.78);line-height:1.5}
+
+/* ── CENTER WOMAN ── spans 3 rows */
+.wc-woman{
+  grid-column:2;grid-row:1/4;
+  min-height:620px;
+  border-radius:24px;
+  background:#d4cfc8;
+  overflow:hidden;
+}
+/* WARM GLOW */
+.wc-woman::after{
+  content:'';
+  position:absolute;
+  top:8%;left:50%;
+  transform:translateX(-50%);
+  width:80%;height:70%;
+  background:radial-gradient(ellipse,rgba(255,228,180,.45) 0%,rgba(255,228,180,.15) 40%,transparent 70%);
+  z-index:1;
+  pointer-events:none;
+  filter:blur(40px);
+}
+.wc-woman img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  z-index:2;
+}
+
+/* Weight widget */
+.ww{
+  position:absolute;bottom:32px;left:22px;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:16px;padding:18px 22px;
+  box-shadow:0 8px 36px rgba(0,0,0,.1);
+  z-index:10;min-width:148px;
+  animation:wFloat 4s ease-in-out infinite;
+}
+@keyframes wFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.ww-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#bbb;margin-bottom:8px}
+.ww-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#1a1a1a;line-height:1;letter-spacing:-.02em}
+.ww-unit{font-size:14px;font-weight:400;color:#aaa}
+.ww-bar{height:3px;background:#f0ede8;border-radius:100px;margin-top:10px;overflow:hidden;width:100px}
+.ww-fill{height:100%;width:65%;background:#3d5c35;border-radius:100px}
+
+/* ── PHARMACY ── full bleed + floating label */
+.wc-pharm{grid-column:1;grid-row:2;min-height:210px}
+.wc-pharm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.wc-pharm:hover img{transform:scale(1.03)}
+.wc-pharm .fl{
+  position:absolute;bottom:14px;right:14px;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(12px);
+  border-radius:12px;padding:14px 18px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  z-index:3;max-width:210px;
+}
+.wc-pharm .fl h3{font-family:'Instrument Serif',serif;font-size:17px;font-weight:400;color:#1a1a1a;margin-bottom:2px}
+.wc-pharm .fl p{font-size:12px;color:#777;line-height:1.4}
+
+/* ── STAT CARDS ── */
+.wc-stat{border-radius:20px;padding:26px 24px}
+.wc-stat .pill{
+  display:inline-block;font-family:'JetBrains Mono',monospace;
+  font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:#3d5c35;background:rgba(61,92,53,.09);
+  border-radius:100px;padding:4px 12px;margin-bottom:12px;
+}
+.wc-stat .num{font-family:'Instrument Serif',serif;font-size:48px;font-weight:400;line-height:1;color:#3d5c35;margin-bottom:8px;letter-spacing:-.02em}
+.wc-stat .desc{font-size:13px;color:#777;line-height:1.55}
+
+/* ── 24/7 ── */
+.wc-247{grid-column:1;grid-row:3;border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
+.wc-247 .big{font-family:'Instrument Serif',serif;font-size:50px;font-weight:400;font-style:italic;color:#3d5c35;line-height:1;margin-bottom:10px}
+.wc-247 h3{font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.wc-247 p{font-size:13px;color:#777;line-height:1.6}
+
+/* ── FLAT PRICE ── */
+.wc-price{grid-column:3;grid-row:3;border-radius:20px;padding:28px 24px}
+.wc-price h3{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;color:#1a1a1a;line-height:1.15;margin-bottom:10px}
+.wc-price h3 em{font-style:italic}
+.wc-price p{font-size:13px;color:#777;line-height:1.65}
+
+/* ════════════════════════════════════
+   BOTTOM ROW
+   ════════════════════════════════════ */
+.why-bot{
+  display:grid;
+  grid-template-columns:1.4fr .8fr .8fr;
+  gap:14px;
+  margin-bottom:56px;
+  /* extra top padding so phone can float above */
+  padding-top:60px;
+}
+
+.wb{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.wb:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 44px rgba(0,0,0,.06);
+}
+
+/* ── 1-on-1 PROVIDER — horizontal layout, phone breaks top ── */
+.wb-prov{
+  background:#eee9e0;
+  border-color:#e4dfd8;
+  overflow:visible;
+  display:flex;
+  align-items:flex-end;
+  min-height:280px;
+  position:relative;
+}
+.wb-prov .phone{
+  flex-shrink:0;
+  width:210px;
+  margin-left:28px;
+  position:relative;
+  z-index:2;
+  /* THIS makes the phone break out the top */
+  margin-top:-70px;
+  margin-bottom:10px;
+  animation:phFloat 5s ease-in-out infinite;
+}
+.wb-prov .phone img{
+  width:100%;height:auto;display:block;
+  filter:drop-shadow(0 18px 36px rgba(0,0,0,.14));
+}
+@keyframes phFloat{
+  0%,100%{transform:translateY(0) rotate(-.5deg)}
+  50%{transform:translateY(-7px) rotate(.5deg)}
+}
+/* subtle glow behind phone */
+.wb-prov .phone::after{
+  content:'';position:absolute;
+  top:40px;left:50%;transform:translateX(-50%);
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(61,92,53,.06) 0%,transparent 70%);
+  z-index:-1;
+}
+
+.wb-prov .txt{
+  flex:1;
+  padding:36px 32px 40px 24px;
+}
+.wb-prov .txt .big{
+  font-family:'Instrument Serif',serif;
+  font-size:50px;font-weight:400;font-style:italic;
+  color:#3d5c35;line-height:1;margin-bottom:12px;letter-spacing:-.02em;
+}
+.wb-prov .txt h3{font-size:18px;font-weight:600;color:#1a1a1a;margin-bottom:8px}
+.wb-prov .txt p{font-size:13.5px;color:#777;line-height:1.6;max-width:320px}
+
+/* ── DARK CARD ── */
+.wb-dark{
+  background:#1e3148;border-color:transparent;
+  border-radius:20px;padding:36px 26px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.wb-dark .big{font-family:'Instrument Serif',serif;font-size:50px;font-weight:400;font-style:italic;color:#fff;line-height:1;margin-bottom:12px}
+.wb-dark h3{font-size:17px;font-weight:600;color:#fff;margin-bottom:8px}
+.wb-dark p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.6}
+
+/* ── HSA/FSA CARD ── */
+.wb-hsa{
+  border-radius:20px;padding:32px 24px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.wb-hsa .big{font-family:'Instrument Serif',serif;font-size:36px;font-weight:400;font-style:italic;color:#3d5c35;line-height:1;margin-bottom:10px}
+.wb-hsa h3{font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.wb-hsa p{font-size:13px;color:#777;line-height:1.55}
+
+/* ════════════════════════════════════
+   TRUST STRIP + CTA
+   ════════════════════════════════════ */
+.why-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;margin-bottom:40px;flex-wrap:wrap;
+}
+.why-strip span{
+  background:transparent;padding:11px 24px;
+  font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+  color:#1a1a1a;border:1px solid rgba(0,0,0,.15);
+  transition:background .2s,color .2s;
+}
+.why-strip span:hover{background:#1e3148;color:#fff}
+
+.why-cta-wrap{text-align:center}
+.why-cta{
+  display:inline-block;background:#1e3148;color:#fff;
+  font-size:.72rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+  padding:14px 40px;text-decoration:none;
+  transition:background .2s,transform .2s;
+}
+.why-cta:hover{background:#1a3050;transform:translateY(-2px)}
+
+/* ════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════ */
+@media(max-width:900px){
+  .why-section{padding:60px 20px}
+  .why-bento{grid-template-columns:1fr}
+  .wc-woman{grid-column:1;grid-row:auto;min-height:400px}
+  .wc-clin,.wc-pharm,.wc-247,.wc-price{grid-column:1;grid-row:auto}
+  .wc-stat{grid-column:1}
+  .why-bot{grid-template-columns:1fr;padding-top:50px}
+  .wb-prov{flex-direction:column;align-items:center;text-align:center}
+  .wb-prov .phone{width:160px;margin:−45px 0 0 0}
+  .wb-prov .txt{padding:24px 28px 36px}
+  .wb-prov .txt p{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<section class="why-section">
+<div class="why-inner">
+
+  <!-- HEADLINE -->
+  <div class="why-top">
+    <p class="why-eyebrow">The Rylo Difference</p>
+    <h2 class="why-title">Everything they charge extra for.<br><em>Included.</em></h2>
+  </div>
+
+  <!-- ═══════ BENTO ═══════ -->
+  <div class="why-bento">
+
+    <!-- CLINICIAN — full bleed -->
+    <div class="wc wc-clin">
+      <!-- Replace src with your actual clinician image filename -->
+      <img src="patientavatar1.png" alt="Board-certified clinician"
+           onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#c8c2bc,#b8b2ab)'" />
+      <div class="ov">
+        <h3>Board-certified clinician</h3>
+        <p>Reviewed by a licensed US provider — not an algorithm.</p>
+      </div>
+    </div>
+
+    <!-- CENTER WOMAN + glow + widget -->
+    <div class="wc wc-woman">
+      <!-- Replace src with your yoga lady image filename -->
+      <img src="yoglady - Edited.png" alt="Rylo patient"
+           onerror="this.style.display='none'" />
+      <div class="ww">
+        <div class="ww-label">Weight lost</div>
+        <div class="ww-num">↓ 26 <span class="ww-unit">lbs</span></div>
+        <div class="ww-bar"><div class="ww-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- STAT: 4-8 wks -->
+    <div class="wc wc-stat">
+      <div class="pill">Clinical Data</div>
+      <div class="num">4–8 wks</div>
+      <p class="desc">Avg time for patients to notice meaningful changes after starting GLP-1 treatment.</p>
+    </div>
+
+    <!-- PHARMACY — full bleed + floating label -->
+    <div class="wc wc-pharm">
+      <!-- Replace src with your pharmacy image filename -->
+      <img src="pharmacy-photo.png" alt="Licensed US pharmacy"
+           onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#d8d2cb,#c8c2bc)'" />
+      <div class="fl">
+        <h3>Licensed US pharmacy</h3>
+        <p>FDA-registered. Third-party tested.</p>
+      </div>
+    </div>
+
+    <!-- STAT: 20.2% -->
+    <div class="wc wc-stat">
+      <div class="pill">Clinical Data</div>
+      <div class="num">20.2%</div>
+      <p class="desc">Avg body weight lost in published tirzepatide clinical trials over 72 weeks.</p>
+    </div>
+
+    <!-- 24/7 -->
+    <div class="wc wc-247">
+      <div class="big">24/7</div>
+      <h3>Support that doesn't disappear</h3>
+      <p>Message your care team anytime. Real answers from real people.</p>
+    </div>
+
+    <!-- ONE FLAT PRICE -->
+    <div class="wc wc-price">
+      <h3>One flat <em>price.</em></h3>
+      <p>No surprise charges on dose increases. Same monthly rate at every stage, no matter what.</p>
+    </div>
+
+  </div>
+
+  <!-- ═══════ BOTTOM ROW ═══════ -->
+  <div class="why-bot">
+
+    <!-- 1-ON-1 — phone floating out top -->
+    <div class="wb wb-prov">
+      <div class="phone">
+        <img src="/mnt/user-data/uploads/DOCTORTALKINGPHONE_-_Edited.png" alt="FaceTime with your provider" />
+      </div>
+      <div class="txt">
+        <div class="big">1-on-1</div>
+        <h3>A provider who actually knows you</h3>
+        <p>A board-certified clinician reviews your health, adjusts your dose, and answers your questions directly.</p>
+      </div>
+    </div>
+
+    <!-- DARK — Free shipping -->
+    <div class="wb wb-dark">
+      <div class="big">Free</div>
+      <h3>Free shipping, every month</h3>
+      <p>Ships monthly from a licensed US pharmacy. Same price at every dose.</p>
+    </div>
+
+    <!-- HSA/FSA -->
+    <div class="wb wb-hsa">
+      <div class="big">HSA/FSA</div>
+      <h3>Use your benefits</h3>
+      <p>HSA &amp; FSA accepted. No insurance needed.</p>
+    </div>
+
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="why-strip">
+    <span>Free shipping</span>
+    <span>HIPAA secure</span>
+    <span>HSA &amp; FSA accepted</span>
+    <span>No insurance needed</span>
+  </div>
+
+  <!-- CTA -->
+  <div class="why-cta-wrap">
+    <a href="intake.html" class="why-cta">Get Started →</a>
+  </div>
+
+</div>
+</section>
+
+</body>
+</html>

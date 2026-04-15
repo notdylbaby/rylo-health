@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rylo — Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background: #f2f0ec;
+            -webkit-font-smoothing: antialiased;
+            padding: 60px 24px;
+        }
+
+        .products-section { max-width: 1000px; margin: 0 auto; }
+
+        .products-heading {
+            text-align: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(26px, 3.5vw, 36px);
+            font-weight: 600;
+            color: #1d1d1f;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 40px;
+        }
+        .products-heading em {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #86868b;
+        }
+
+        .row-top { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+        .row-btm { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+        .pc {
+            position: relative;
+            border-radius: 18px;
+            text-decoration: none;
+            color: #1d1d1f;
+            overflow: hidden;
+            transition: background-color 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            background: transparent;
+        }
+        .pc-hero { height: 300px; }
+        .pc-std { height: 240px; }
+
+        .pc-top {
+            position: relative;
+            z-index: 2;
+            padding: 22px 22px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .pc-name {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            transition: color 0.35s ease;
+        }
+        .pc-std .pc-name { font-size: 15px; }
+        .pc-name span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            margin-top: 2px;
+            transition: color 0.35s ease;
+        }
+
+        .pc-arrow {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(0,0,0,0.1);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.35s ease;
+            background: transparent;
+        }
+        .pc-std .pc-arrow { width: 30px; height: 30px; }
+        .pc-arrow svg {
+            width: 12px; height: 12px;
+            stroke: #999; stroke-width: 2; fill: none;
+            stroke-linecap: round; stroke-linejoin: round;
+            transition: stroke 0.35s ease;
+        }
+
+        /* Price + arrow bottom bar */
+        .pc-btm {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 0 22px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .pc-price {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+            transition: color 0.35s ease;
+        }
+        .pc-std .pc-price { font-size: 14px; }
+        .pc-price span {
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            transition: color 0.35s ease;
+        }
+
+        .pc-img-area {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            z-index: 1;
+        }
+        .pc-hero .pc-img-area { width: 60%; bottom: -30px; }
+        .pc-img-area img {
+            width: 100%;
+            object-fit: contain;
+            transition: opacity 0.35s ease, transform 0.4s ease;
+        }
+        .pc-img-hover {
+            position: absolute;
+            top: 0; left: 0;
+            opacity: 0;
+        }
+        .pc:hover .pc-img-hover { opacity: 1; transform: scale(1.02); }
+        .pc:hover .pc-img-default { opacity: 0; }
+
+        /* Hover fills */
+        .pc-tirz:hover { background: #F4AB4B; border-color: transparent; }
+        .pc-tirz:hover .pc-name, .pc-tirz:hover .pc-name span, .pc-tirz:hover .pc-price, .pc-tirz:hover .pc-price span { color: #fff; }
+        .pc-tirz:hover .pc-arrow { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.2); }
+        .pc-tirz:hover .pc-arrow svg { stroke: #fff; }
+
+        .pc-sema:hover { background: #62A6E7; border-color: transparent; }
+        .pc-sema:hover .pc-name, .pc-sema:hover .pc-name span, .pc-sema:hover .pc-price, .pc-sema:hover .pc-price span { color: #fff; }
+        .pc-sema:hover .pc-arrow { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.2); }
+        .pc-sema:hover .pc-arrow svg { stroke: #fff; }
+
+        .pc-serm:hover { background: #A8C686; border-color: transparent; }
+        .pc-serm:hover .pc-name, .pc-serm:hover .pc-name span, .pc-serm:hover .pc-price, .pc-serm:hover .pc-price span { color: #fff; }
+        .pc-serm:hover .pc-arrow { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.2); }
+        .pc-serm:hover .pc-arrow svg { stroke: #fff; }
+
+        .pc-nad:hover { background: #C4B7D4; border-color: transparent; }
+        .pc-nad:hover .pc-name, .pc-nad:hover .pc-name span, .pc-nad:hover .pc-price, .pc-nad:hover .pc-price span { color: #fff; }
+        .pc-nad:hover .pc-arrow { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.2); }
+        .pc-nad:hover .pc-arrow svg { stroke: #fff; }
+
+        .pc-glut:hover { background: #C4868E; border-color: transparent; }
+        .pc-glut:hover .pc-name, .pc-glut:hover .pc-name span, .pc-glut:hover .pc-price, .pc-glut:hover .pc-price span { color: #fff; }
+        .pc-glut:hover .pc-arrow { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.2); }
+        .pc-glut:hover .pc-arrow svg { stroke: #fff; }
+
+        @media (max-width: 768px) {
+            .row-top { grid-template-columns: 1fr; }
+            .row-btm { grid-template-columns: 1fr; }
+            .pc-hero { height: 280px; }
+            .pc-std { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="products-section" id="programs">
+    <h2 class="products-heading">What if feeling like yourself again<br><em>was this simple?</em></h2>
+
+    <div class="row-top">
+        <a class="pc pc-hero pc-tirz" href="intake.html">
+            <div class="pc-top">
+                <div class="pc-name">Tirzepatide<span>Weekly injection · GLP-1 + GIP</span></div>
+            </div>
+            <div class="pc-img-area">
+                <img class="pc-img-default" src="tirz-default.png" alt="Tirzepatide">
+                <img class="pc-img-hover" src="tirz-hover.png" alt="Tirzepatide">
+            </div>
+            <div class="pc-btm">
+                <div class="pc-price">$199 <span>/mo</span></div>
+                <div class="pc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div>
+            </div>
+        </a>
+
+        <a class="pc pc-hero pc-sema" href="intake.html">
+            <div class="pc-top">
+                <div class="pc-name">Semaglutide<span>Weekly injection · GLP-1</span></div>
+            </div>
+            <div class="pc-img-area">
+                <img class="pc-img-default" src="sema-default.png" alt="Semaglutide">
+                <img class="pc-img-hover" src="sema-hover.png" alt="Semaglutide">
+            </div>
+            <div class="pc-btm">
+                <div class="pc-price">$149 <span>/mo</span></div>
+                <div class="pc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row-btm">
+        <a class="pc pc-std pc-serm" href="intake.html">
+            <div class="pc-top">
+                <div class="pc-name">Sermorelin<span>Growth hormone · Recovery</span></div>
+            </div>
+            <div class="pc-img-area">
+                <img class="pc-img-default" src="sermorelin-default.png" alt="Sermorelin">
+                <img class="pc-img-hover" src="sermorelin-hover.png" alt="Sermorelin">
+            </div>
+            <div class="pc-btm">
+                <div class="pc-price">$249 <span>/mo</span></div>
+                <div class="pc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div>
+            </div>
+        </a>
+
+        <a class="pc pc-std pc-nad" href="intake.html">
+            <div class="pc-top">
+                <div class="pc-name">NAD+<span>Cellular repair · Anti-aging</span></div>
+            </div>
+            <div class="pc-img-area">
+                <img class="pc-img-default" src="nadPRODUCT.png" alt="NAD+">
+                <img class="pc-img-hover" src="purpleproductdestroyed.png" alt="NAD+">
+            </div>
+            <div class="pc-btm">
+                <div class="pc-price">$179 <span>/mo</span></div>
+                <div class="pc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div>
+            </div>
+        </a>
+
+        <a class="pc pc-std pc-glut" href="intake.html">
+            <div class="pc-top">
+                <div class="pc-name">Glutathione<span>Detox · Immune support</span></div>
+            </div>
+            <div class="pc-img-area">
+                <img class="pc-img-default" src="glutathione-default.png" alt="Glutathione">
+                <img class="pc-img-hover" src="glutathione-hover.png" alt="Glutathione">
+            </div>
+            <div class="pc-btm">
+                <div class="pc-price">$149 <span>/mo</span></div>
+                <div class="pc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></div>
+            </div>
+        </a>
+    </div>
+</section>
+
+</body>
+</html>

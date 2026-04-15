@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Disclaimer — Rylo Health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f5f4f0; color: #353330; -webkit-font-smoothing: antialiased; }
+    .top-bar {
+      background: #fff; border-bottom: 1px solid rgba(53,51,48,0.08);
+      padding: 18px clamp(1rem,5vw,5rem);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .top-bar a.logo { text-decoration: none; display: flex; align-items: center; }
+    .top-bar img { height: 36px; width: auto; }
+    .top-bar a.back {
+      font-size: 13px; font-weight: 400; color: rgba(53,51,48,0.5);
+      text-decoration: none; transition: color 0.15s ease;
+    }
+    .top-bar a.back:hover { color: #353330; }
+    .page-wrap {
+      max-width: 720px; margin: 60px auto; padding: 0 clamp(1rem,5vw,2rem) 80px;
+    }
+    .page-eyebrow {
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #88B07E; margin-bottom: 14px;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 400; letter-spacing: -0.02em;
+      line-height: 1.15; margin-bottom: 12px;
+    }
+    .updated { font-size: 13px; font-weight: 300; color: rgba(53,51,48,0.45); margin-bottom: 40px; }
+    .notice-card {
+      background: #fff;
+      border: 1px solid rgba(53,51,48,0.08);
+      border-radius: 18px;
+      padding: 36px 40px;
+      margin-bottom: 20px;
+    }
+    .notice-card + .notice-card { margin-top: 0; }
+    .notice-card h2 {
+      font-size: 15px; font-weight: 500; color: #353330;
+      margin-bottom: 14px; letter-spacing: -0.01em;
+    }
+    .notice-card p {
+      font-size: 15px; font-weight: 300; line-height: 1.8;
+      color: rgba(53,51,48,0.75); margin-bottom: 14px;
+    }
+    .notice-card p:last-child { margin-bottom: 0; }
+    .notice-card strong { font-weight: 500; color: #353330; }
+    .emergency-card {
+      background: rgba(180,60,60,0.06);
+      border: 1px solid rgba(180,60,60,0.18);
+      border-radius: 14px;
+      padding: 22px 28px;
+      margin-bottom: 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .emergency-card p { font-size: 14px; font-weight: 400; line-height: 1.6; color: #6b2020; }
+    .emergency-card strong { font-weight: 600; }
+    .contact-block {
+      background: rgba(136,176,126,0.08);
+      border: 1px solid rgba(136,176,126,0.2);
+      border-radius: 14px;
+      padding: 24px 28px;
+    }
+    .contact-block p { font-size: 14px; font-weight: 300; line-height: 1.6; color: rgba(53,51,48,0.7); }
+    .contact-block a { color: #5E8A58; font-weight: 500; text-decoration: none; }
+    .contact-block a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="logo">
+    <img src="Untitled design.png" alt="Rylo Health" />
+  </a>
+  <a href="index.html" class="back">← Back to home</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-eyebrow">Legal</div>
+  <h1>Medical Disclaimer</h1>
+  <p class="updated">Last updated: April 2026</p>
+
+  <div class="emergency-card">
+    <p><strong>Emergency Notice:</strong> Rylo Health is not an emergency service. If you are experiencing a medical emergency, call <strong>911</strong> or go to your nearest emergency room immediately.</p>
+  </div>
+
+  <div class="notice-card">
+    <h2>Not a substitute for in-person care</h2>
+    <p>The information provided on this website and through the Rylo Health platform is for informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before starting, changing, or stopping any treatment.</p>
+    <p>Telehealth consultations facilitated through Rylo Health are conducted by independent licensed healthcare providers. The provider-patient relationship is established at the time of your consultation, not when you submit your intake form.</p>
+  </div>
+
+  <div class="notice-card">
+    <h2>Compounded medications</h2>
+    <p>Medications dispensed through Rylo Health's pharmacy partners are <strong>compounded medications</strong> and are not FDA-approved drug products. Compounding is legal and regulated under federal and state pharmacy law, but compounded drugs have not undergone FDA review for safety, efficacy, or manufacturing quality.</p>
+    <p>Individual results vary. Clinical statistics referenced on this website are sourced from published trials of FDA-approved branded formulations and cannot be directly extrapolated to compounded equivalents.</p>
+  </div>
+
+  <div class="notice-card">
+    <h2>HSA / FSA eligibility</h2>
+    <p>Eligibility of Rylo Health services and medications for reimbursement through Health Savings Accounts (HSA) or Flexible Spending Accounts (FSA) depends on your specific plan. We recommend confirming with your plan administrator. Rylo Health does not guarantee HSA/FSA reimbursement.</p>
+  </div>
+
+  <div class="contact-block">
+    <p>Questions about your treatment or health? Message your provider through your patient portal, or contact our support team at <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a>.</p>
+  </div>
+</div>
+
+</body>
+</html>
