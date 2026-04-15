@@ -2791,24 +2791,83 @@
             .hrw-desc { font-size: 14px; }
         }
         @media (max-width: 768px) {
-            .hrw-bg { height: auto; min-height: 50vh; position: relative; top: auto; }
-            .hrw-header { padding: 48px 24px 24px; }
-            .hrw-h2 { font-size: clamp(36px, 10vw, 52px); }
-            .hrw-steps { margin-top: 0; padding: 0 16px 48px; }
+            /* Kill the sticky parallax — become a plain dark section */
+            .hrw { overflow: visible; background: #111413; }
+            .hrw-bg {
+                position: relative !important;
+                top: auto !important;
+                height: auto !important;
+                min-height: 0 !important;
+                overflow: visible;
+            }
+            /* Hide background image entirely */
+            .hrw-bg-img { display: none !important; }
+            .hrw-bg-overlay { display: none !important; }
+
+            /* Header flows in document now */
+            .hrw-header {
+                position: relative !important;
+                top: auto !important; left: auto !important; right: auto !important;
+                padding: 56px 24px 32px;
+                pointer-events: auto;
+                text-align: center;
+            }
+            .hrw-eyebrow { margin: 0 auto 14px; }
+            .hrw-h2 { font-size: 32px !important; line-height: 1.1; text-align: center; }
+
+            /* Steps stack below header, no negative margin */
+            .hrw-steps {
+                margin-top: 0 !important;
+                padding: 0 16px 56px;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
             .hrw-step:nth-child(1),
             .hrw-step:nth-child(2),
-            .hrw-step:nth-child(3) { padding-left: 0; padding-right: 0; }
-            .hrw-card { flex-direction: column; }
-            .hrw-left { flex: none; border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.08); padding: 24px; }
-            .hrw-right { padding: 24px; }
-            .hrw-num { font-size: 13px; }
-            .hrw-title { font-size: 20px; }
-            .hrw-desc { font-size: 14px; }
+            .hrw-step:nth-child(3) {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                width: 100% !important;
+            }
+
+            /* Cards: single column, text only */
+            .hrw-card {
+                flex-direction: column;
+                background: rgba(255,255,255,0.06);
+                border: 1px solid rgba(255,255,255,0.08);
+            }
+            .hrw-left {
+                flex: none;
+                border-right: none;
+                border-bottom: 1px dashed rgba(255,255,255,0.08);
+                padding: 32px 24px 20px;
+            }
+            .hrw-right { padding: 20px 24px 32px; }
+            .hrw-num { font-size: 11px; margin-bottom: 10px; }
+            .hrw-title { font-size: 24px; }
+            .hrw-desc { font-size: 14px; line-height: 1.6; }
+
+            /* Full-width CTA button */
+            .hrw-cta-mobile {
+                display: block !important;
+                width: calc(100% - 32px);
+                margin: 0 16px 56px;
+                padding: 16px;
+                background: #fff;
+                color: #1a1a1a;
+                text-align: center;
+                text-decoration: none;
+                font-family: var(--font);
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 0.02em;
+                border-radius: 0;
+            }
         }
         @media (max-width: 540px) {
-            .hrw-card { flex-direction: column; }
-            .hrw-left { flex: none; border-right: none; border-bottom: 1px dashed rgba(255,255,255,0.08); padding: 20px; }
-            .hrw-right { padding: 20px; }
+            .hrw-left { padding: 28px 20px 16px; }
+            .hrw-right { padding: 16px 20px 28px; }
         }
     </style>
 
@@ -2865,6 +2924,8 @@
         </div>
 
     </div>
+    <!-- Mobile-only CTA (hidden on desktop via CSS) -->
+    <a href="intake.html" class="hrw-cta-mobile" style="display:none;">Start your free assessment →</a>
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
