@@ -4387,26 +4387,35 @@
   content: ''; width: 12px; height: 1px; background: #B8945F; flex-shrink: 0;
 }
 
-/* ── MOBILE MODAL ── */
+/* ── MODAL ── */
 .ic-overlay {
   display: none; position: fixed; inset: 0; z-index: 9998;
-  background: rgba(0,0,0,0.38);
-  opacity: 0; transition: opacity 0.3s ease;
+  background: rgba(0,0,0,0.52);
+  opacity: 0; transition: opacity 0.35s ease;
 }
 .ic-overlay.open { opacity: 1; }
 .ic-modal {
-  position: fixed; inset: 0; z-index: 9999;
-  background: #faf7f2; overflow-y: auto;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.92) translateY(16px);
+  opacity: 0;
+  z-index: 9999;
+  width: 90%; max-width: 560px;
+  max-height: 88vh; overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  transform: translateY(100%); opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1),
-              opacity 0.5s cubic-bezier(0.22,1,0.36,1);
+  background: #faf7f2;
+  border-radius: 16px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.12);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+              opacity 0.4s cubic-bezier(0.22,1,0.36,1);
   pointer-events: none;
 }
-.ic-modal.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.ic-modal.open {
+  transform: translate(-50%, -50%) scale(1) translateY(0);
+  opacity: 1; pointer-events: auto;
+}
 .ic-modal-close {
-  position: absolute;
-  top: calc(20px + env(safe-area-inset-top)); right: 20px;
+  position: absolute; top: 16px; right: 16px;
   width: 44px; height: 44px; border-radius: 50%;
   background: rgba(184,148,95,0.1); border: 1px solid rgba(184,148,95,0.22);
   display: flex; align-items: center; justify-content: center;
@@ -4419,7 +4428,7 @@
   stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round;
 }
 .ic-modal-body {
-  padding: calc(80px + env(safe-area-inset-top)) 24px calc(40px + env(safe-area-inset-bottom));
+  padding: 48px 32px 36px;
 }
 .ic-modal-eyebrow {
   display: block; font-family: 'Plus Jakarta Sans', sans-serif;
