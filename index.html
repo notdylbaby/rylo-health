@@ -1645,6 +1645,7 @@
     .hero-eligibility-pill { display: none; }
     .hrw-mobile { display: none; }
     .prod-cat { display: none; }
+    .prod-mobile { display: none; }
 
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
@@ -2105,8 +2106,115 @@
       }
 
       /* ── TREATMENTS SECTION ── */
-      /* (detailed card overrides live in the products-section inline <style>) */
-      .products-section { padding-top: 0; background: #faf7f2; }
+      /* Hide desktop products section, show mobile version */
+      .products-section { display: none !important; }
+      .prod-mobile { display: block !important; background: #faf7f2; padding: 0 0 8px; }
+      .prod-mobile[aria-hidden="true"] { display: none !important; }
+
+      /* Hero grid */
+      .pm-hero-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+        padding: 16px 16px 0;
+      }
+      .pm-hero-card {
+        position: relative; height: 280px; border-radius: 16px;
+        overflow: hidden; display: block; text-decoration: none;
+        opacity: 0; transform: translateY(15px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .pm-hero-card.pm-visible { opacity: 1; transform: translateY(0); }
+      .pm-hero-img {
+        position: absolute; inset: 0;
+        background-size: cover; background-position: center;
+      }
+      .pm-hero-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 80%);
+      }
+      .pm-popular-badge {
+        position: absolute; top: 12px; left: 12px;
+        background: #B8945F; color: #fff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase;
+        padding: 3px 8px; border-radius: 8px; z-index: 2;
+      }
+      .pm-hero-body {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        padding: 16px; z-index: 2;
+      }
+      .pm-hero-cat {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.5); margin-bottom: 3px;
+      }
+      .pm-hero-name {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 22px; font-weight: 400; color: #fff;
+        line-height: 1.1; margin-bottom: 3px;
+      }
+      .pm-hero-price {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 16px; font-weight: 500; color: #fff;
+      }
+      .pm-mo { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; }
+      .pm-hero-arrow {
+        position: absolute; bottom: 16px; right: 16px; z-index: 2;
+        width: 32px; height: 32px; border-radius: 50%;
+        background: rgba(255,255,255,0.2);
+        display: flex; align-items: center; justify-content: center;
+        color: #fff; font-size: 14px;
+      }
+
+      /* Peptide list */
+      .pm-list {
+        display: flex; flex-direction: column; gap: 6px;
+        padding: 8px 16px 0;
+      }
+      .pm-row {
+        height: 80px; border-radius: 14px;
+        background: #fff; border: 1px solid rgba(0,0,0,0.06);
+        display: flex; align-items: center; padding: 0 16px; gap: 14px;
+        text-decoration: none;
+        opacity: 0; transform: translateY(15px);
+        transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+      }
+      .pm-row.pm-visible { opacity: 1; transform: translateY(0); }
+      .pm-row:active { background: rgba(0,0,0,0.02); }
+      .pm-row-img {
+        width: 56px; height: 56px; border-radius: 10px;
+        background-size: cover; background-position: center;
+        flex-shrink: 0;
+      }
+      .pm-row-text { flex: 1; min-width: 0; }
+      .pm-row-name {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 15px; font-weight: 600; color: #1a1a1a;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .pm-row-cat {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; color: rgba(26,26,26,0.4);
+        margin-top: 2px;
+      }
+      .pm-row-right {
+        display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+      }
+      .pm-row-price {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 500; color: #1a1a1a;
+      }
+      .pm-row-arrow {
+        font-size: 14px; color: rgba(26,26,26,0.25);
+      }
+
+      /* View all link */
+      .pm-view-all {
+        display: block; text-align: center;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(26,26,26,0.35);
+        padding: 16px 0; text-decoration: underline;
+        text-underline-offset: 3px;
+      }
 
       /* ── HOW RYLO WORKS — hide desktop version, show mobile version ── */
       .hrw { display: none !important; }
@@ -3005,6 +3113,82 @@
   </div>
 
 </section>
+
+<!-- ─── PRODUCTS — MOBILE LAYOUT ─── -->
+<div class="prod-mobile" id="prodMobile" aria-hidden="true">
+
+  <!-- Hero tier: Tirzepatide + Semaglutide -->
+  <div class="pm-hero-grid">
+
+    <a href="tirzepatide-product.html" class="pm-hero-card pm-anim" data-pm-delay="0">
+      <div class="pm-hero-img" style="background-image:url('./Tirzepatide Product Card .png');background-position:center top;"></div>
+      <div class="pm-hero-overlay"></div>
+      <div class="pm-popular-badge">Most Popular</div>
+      <div class="pm-hero-body">
+        <div class="pm-hero-cat">GLP-1 + GIP · Weekly</div>
+        <div class="pm-hero-name">Tirzepatide</div>
+        <div class="pm-hero-price">$179<span class="pm-mo">/mo</span></div>
+      </div>
+      <div class="pm-hero-arrow">&#8594;</div>
+    </a>
+
+    <a href="semaglutide-product.html" class="pm-hero-card pm-anim" data-pm-delay="1">
+      <div class="pm-hero-img" style="background-image:url('./Semaglutide Product Card.png');"></div>
+      <div class="pm-hero-overlay"></div>
+      <div class="pm-hero-body">
+        <div class="pm-hero-cat">GLP-1 · Weekly</div>
+        <div class="pm-hero-name">Semaglutide</div>
+        <div class="pm-hero-price">$129<span class="pm-mo">/mo</span></div>
+      </div>
+      <div class="pm-hero-arrow">&#8594;</div>
+    </a>
+
+  </div>
+
+  <!-- Peptide tier: list rows -->
+  <div class="pm-list">
+
+    <a href="sermorelin-product.html" class="pm-row pm-anim" data-pm-delay="2">
+      <div class="pm-row-img" style="background-image:url('./SERMORELIN PRODUCT CARD .png');"></div>
+      <div class="pm-row-text">
+        <div class="pm-row-name">Sermorelin</div>
+        <div class="pm-row-cat">Growth Hormone · Recovery</div>
+      </div>
+      <div class="pm-row-right">
+        <span class="pm-row-price">$159<span class="pm-mo">/mo</span></span>
+        <span class="pm-row-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <a href="glutathione-product.html" class="pm-row pm-anim" data-pm-delay="3">
+      <div class="pm-row-img" style="background-image:url('./Glutathione Product Card.png');"></div>
+      <div class="pm-row-text">
+        <div class="pm-row-name">Glutathione</div>
+        <div class="pm-row-cat">Detox · Immune</div>
+      </div>
+      <div class="pm-row-right">
+        <span class="pm-row-price">$89<span class="pm-mo">/mo</span></span>
+        <span class="pm-row-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <a href="nad-product.html" class="pm-row pm-anim" data-pm-delay="4">
+      <div class="pm-row-img" style="background-image:url('./NAD PRODUCT CARD.png');"></div>
+      <div class="pm-row-text">
+        <div class="pm-row-name">NAD+</div>
+        <div class="pm-row-cat">Cellular Repair · Anti-aging</div>
+      </div>
+      <div class="pm-row-right">
+        <span class="pm-row-price">$139<span class="pm-mo">/mo</span></span>
+        <span class="pm-row-arrow">&#8594;</span>
+      </div>
+    </a>
+
+  </div>
+
+  <a href="#treatments" class="pm-view-all">View all treatments</a>
+
+</div>
 
 <!-- ─── HOW IT WORKS ─── -->
 <section class="hrw animate-in" id="how-it-works">
@@ -5297,6 +5481,27 @@
 
   document.querySelectorAll('.animate-in').forEach(function (el) {
     observer.observe(el);
+  });
+})();
+</script>
+
+<script>
+/* ── MOBILE PRODUCT CARDS ANIMATION ── */
+(function () {
+  if (window.innerWidth > 768) return;
+
+  var mobileSection = document.getElementById('prodMobile');
+  if (!mobileSection) return;
+  mobileSection.removeAttribute('aria-hidden');
+
+  var delays = [300, 380, 460, 540, 620]; /* ms */
+  var items = mobileSection.querySelectorAll('.pm-anim');
+
+  items.forEach(function (el) {
+    var idx = parseInt(el.getAttribute('data-pm-delay') || '0', 10);
+    setTimeout(function () {
+      el.classList.add('pm-visible');
+    }, delays[idx] || 300);
   });
 })();
 </script>
