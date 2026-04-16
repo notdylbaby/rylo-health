@@ -1642,6 +1642,11 @@
     }
     .sticky-mobile-cta a:active { opacity: 0.85; }
 
+    /* ─── MOBILE-ONLY ELEMENTS (hidden on desktop) ─── */
+    .rn-hamburger { display: none; }
+    .rn-mobile-menu { display: none; }
+    .hero-eligibility-pill { display: none; }
+
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
       display: grid;
@@ -1940,17 +1945,74 @@
       .rylo-nav {
         position: fixed; top: 0; z-index: 9999;
         height: 56px;
-        background: rgba(250,247,242,0.97) !important;
-        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        background: transparent !important;
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+        border-bottom: none !important;
+        box-shadow: none !important;
         padding: 0 20px;
       }
+      .rylo-nav.scrolled {
+        background: rgba(250,247,242,0.97) !important;
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+      }
       .rn-logo img { height: 22px; }
-      .rn-logo-white { display: none !important; }
-      .rn-logo-dark { display: block !important; }
-      .rn-cta {
-        font-size: 11px; font-weight: 500; padding: 8px 16px;
-        background: #1a1a1a; color: #fff; border-radius: 0;
+      .rn-logo-white { display: block !important; }
+      .rn-logo-dark { display: none !important; }
+      .rylo-nav.scrolled .rn-logo-white { display: none !important; }
+      .rylo-nav.scrolled .rn-logo-dark { display: block !important; }
+      .rn-links { display: none !important; }
+      .rn-right { display: none !important; }
+      /* Hamburger */
+      .rn-hamburger {
+        display: flex; flex-direction: column; justify-content: center;
+        align-items: center; gap: 5px;
+        width: 40px; height: 40px;
+        background: none; border: none; cursor: pointer; padding: 0;
+      }
+      .rn-hamburger span {
+        display: block; width: 22px; height: 1.5px;
+        background: #fff; border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.3s ease;
+      }
+      .rylo-nav.scrolled .rn-hamburger span { background: #1a1a1a; }
+      .rn-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .rn-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .rn-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+      /* Mobile menu panel */
+      .rn-mobile-menu {
+        display: none;
+        position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+        background: #faf7f2;
+        z-index: 9998;
+        padding: 32px 24px 48px;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .rn-mobile-menu.open { display: flex; }
+      .rn-mobile-menu-link {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 40px; font-weight: 400; color: #1a1a1a;
+        text-decoration: none; line-height: 1.1; padding: 14px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.06); display: block;
+      }
+      .rn-mobile-menu-sub {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(26,26,26,0.35); letter-spacing: 0.06em;
+        text-decoration: none; padding: 8px 0; display: block; margin-top: 4px;
+      }
+      .rn-mobile-menu-login {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px; color: rgba(26,26,26,0.4);
+        text-decoration: none; padding: 16px 0; display: block;
+        margin-top: 8px;
+      }
+      .rn-mobile-menu-cta {
+        display: block; width: 100%; padding: 16px; margin-top: 24px;
+        background: #1a1a1a; color: #fff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 500; text-align: center;
+        text-decoration: none; border: none;
       }
 
       /* ── SCROLLING TICKER — hide completely ── */
@@ -1977,53 +2039,70 @@
       .trust-signal::after { content: ' · '; color: rgba(26,26,26,0.2); }
       .trust-signal:last-child::after { content: ''; }
 
-      /* ── HERO — no image, clean oat ── */
-      .hero-video-bg { display: none !important; }
-      .hero-video-overlay { display: none !important; }
+      /* ── HERO — video background, full height ── */
+      .hero-video-bg { display: block !important; position: absolute; inset: 0; }
+      .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+      .hero-video-overlay {
+        display: block !important;
+        background: linear-gradient(to bottom,
+          rgba(0,0,0,0.25) 0%,
+          rgba(0,0,0,0.1) 35%,
+          rgba(0,0,0,0.55) 100%) !important;
+      }
       .hero-outer {
-        background: #faf7f2;
-        min-height: auto; max-height: none; overflow: visible;
+        background: #111;
+        min-height: 100svh; min-height: 100vh;
+        max-height: none; overflow: hidden;
+        position: relative;
       }
       .hero {
-        padding: 88px 24px 48px;
-        min-height: auto; max-height: none;
+        padding: 0 24px 44px;
+        min-height: 100svh; min-height: 100vh;
         flex-direction: column; align-items: flex-start;
-        justify-content: flex-start;
-        box-sizing: border-box;
+        justify-content: flex-end;
+        box-sizing: border-box; position: relative; z-index: 2;
       }
       .hero-content { padding-left: 0; width: 100%; max-width: 100%; }
       .hero-line1 {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 42px; font-weight: 400;
-        line-height: 1.0; color: #1a1a1a; letter-spacing: -0.03em;
+        font-size: 46px; font-weight: 400;
+        line-height: 1.0; color: #fff; letter-spacing: -0.02em;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.2);
       }
       .hero-line2 {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 28px; font-weight: 400; font-style: italic;
-        color: rgba(26,26,26,0.35); margin-top: 4px; line-height: 1.1;
+        font-size: 30px; font-weight: 400; font-style: italic;
+        color: rgba(255,255,255,0.6); margin-top: 4px; line-height: 1.1;
       }
-      .hero h1 em { font-style: italic; color: rgba(26,26,26,0.35); }
+      .hero h1 em { font-style: italic; color: rgba(255,255,255,0.6); }
       .hero h1 { margin-bottom: 0; text-shadow: none; }
       .hero-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; color: rgba(26,26,26,0.4); line-height: 1.6;
-        margin-top: 16px; margin-bottom: 0; max-width: 320px;
+        font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6;
+        margin-top: 12px; margin-bottom: 0; max-width: 300px;
       }
       .hero-cta-wrap { width: 100%; margin-top: 24px; }
-      .btn-hero-start {
-        display: block; width: 100%; max-width: none;
-        padding: 16px; text-align: center;
-        background: #1a1a1a; color: #fff;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; font-weight: 500;
-        border: none; border-radius: 0; box-sizing: border-box;
-      }
-      /* "No commitment" fine text below CTA */
-      .hero-fine-mobile {
+      .btn-hero-start { display: none !important; }
+      .hero-fine-mobile { display: none !important; }
+      /* Eligibility pill CTA */
+      .hero-eligibility-pill {
         display: block !important;
-        font-size: 11px; color: rgba(26,26,26,0.25);
-        text-align: center; margin-top: 10px;
+        width: 100%; margin-top: 20px;
+      }
+      .hero-eligibility-pill a {
+        display: flex; align-items: center; justify-content: space-between;
+        width: 100%; padding: 16px 20px;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.22);
         font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 500; color: #fff;
+        text-decoration: none; letter-spacing: 0.01em;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+      .hero-eligibility-pill a:active { background: rgba(255,255,255,0.18); }
+      .hero-eligibility-pill-arrow {
+        font-size: 18px; opacity: 0.7; margin-left: 8px;
       }
 
       /* ── TREATMENTS SECTION ── */
@@ -2263,7 +2342,20 @@
     <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-ghost">Log in</a>
     <a href="intake.html" class="rn-cta">Start now →</a>
   </div>
+  <!-- Mobile hamburger (hidden on desktop via CSS) -->
+  <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile navigation menu -->
+<div class="rn-mobile-menu" id="rnMobileMenu" aria-hidden="true">
+  <a href="index.html#treatments" class="rn-mobile-menu-link">Treatments</a>
+  <a href="#how-it-works" class="rn-mobile-menu-link">How It Works</a>
+  <a href="#faq" class="rn-mobile-menu-link">FAQ</a>
+  <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-mobile-menu-login">Log in</a>
+  <a href="intake.html" class="rn-mobile-menu-cta">Start your free assessment →</a>
+</div>
 
 <!-- ─── HERO ─── -->
 <div class="hero-outer">
@@ -2286,6 +2378,12 @@
       <div class="hero-cta-wrap">
         <a href="intake.html" class="btn-hero-start">Start now →</a>
         <span class="hero-fine-mobile" style="display:none;">No commitment · Cancel anytime</span>
+        <div class="hero-eligibility-pill">
+          <a href="intake.html">
+            Check your eligibility
+            <span class="hero-eligibility-pill-arrow">&#8594;</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -4987,6 +5085,42 @@
 
   document.querySelectorAll('.animate-in').forEach(function (el) {
     observer.observe(el);
+  });
+})();
+</script>
+
+<script>
+/* ── MOBILE HAMBURGER MENU ── */
+(function () {
+  var btn = document.getElementById('rnHamburger');
+  var menu = document.getElementById('rnMobileMenu');
+  var nav = document.getElementById('ryloNav');
+  if (!btn || !menu) return;
+
+  function closeMenu() {
+    btn.classList.remove('open');
+    btn.setAttribute('aria-label', 'Open menu');
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', function () {
+    var isOpen = menu.classList.contains('open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      btn.classList.add('open');
+      btn.setAttribute('aria-label', 'Close menu');
+      menu.classList.add('open');
+      menu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  /* Close when a link inside is tapped */
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
   });
 })();
 </script>
