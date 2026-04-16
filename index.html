@@ -4466,6 +4466,98 @@
   .ic .ic-expand { display: none !important; }
 }
 
+
+/* ══════════════════════════════════════════════
+   RYLO ANIMATED CALENDAR
+   ══════════════════════════════════════════════ */
+.rylo-cal {
+  background: #faf7f2; border-radius: 12px; padding: 20px;
+}
+.rcal-head {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 500; color: #1a1a1a;
+  margin: 0 0 14px; line-height: 1.4;
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.rcal-head.rcal-in { opacity: 1; }
+.rcal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 6px; align-items: center; justify-items: center;
+}
+.rcal-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.04em;
+  color: rgba(26,26,26,0.35); text-align: center;
+  opacity: 0; transition: opacity 0.4s ease 0.2s;
+}
+.rcal-label.rcal-in { opacity: 1; }
+
+/* Base circle — starts hidden for animation */
+.rcal-day {
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 500;
+  opacity: 0; transform: scale(0.6);
+  /* hover transition only — animation-in is set by JS */
+  transition: box-shadow 0.2s ease;
+}
+.rcal-day.rcal-in { opacity: 1; transform: scale(1); }
+
+/* Asymmetric sizes */
+.sz-sm { width: 26px; height: 28px; font-size: 10px; }
+.sz-md { width: 30px; height: 30px; font-size: 11px; }
+.sz-lg { width: 34px; height: 32px; font-size: 11px; }
+.sz-xl { width: 36px; height: 34px; font-size: 12px; }
+
+/* Border-radius variants */
+.br-round { border-radius: 50%; }
+.br-pill  { border-radius: 40%; }
+.br-sq    { border-radius: 30%; }
+
+/* Types */
+.rcal-day.dark   { background: #1a1a1a; color: #fff; }
+.rcal-day.empty  { background: #fff; border: 1px solid rgba(0,0,0,0.08); color: #1a1a1a; }
+.rcal-day.soft   { background: #E8DDD0; color: #1a1a1a; }
+.rcal-day.hatch  {
+  background: repeating-linear-gradient(
+    45deg, rgba(196,114,74,0.3) 0px, rgba(196,114,74,0.3) 2px,
+    transparent 2px, transparent 6px);
+  border: 1px solid rgba(0,0,0,0.08); color: rgba(26,26,26,0.45);
+}
+.rcal-day.bronze { background: #B8945F; color: #fff; }
+
+/* Desktop hover */
+@media(min-width:769px) {
+  .rcal-day.rcal-in { cursor: default; }
+  .rcal-day.rcal-in:hover { transform: scale(1.1) !important; }
+  .rcal-day.bronze.rcal-in:hover { box-shadow: 0 0 0 4px rgba(184,148,95,0.2); }
+}
+
+/* Bronze milestone pulse */
+@keyframes rcal-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.08); }
+}
+.rcal-day.bronze.rcal-pulse { animation: rcal-pulse 0.6s ease; }
+
+.rcal-foot {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; color: rgba(26,26,26,0.4);
+  margin: 14px 0 0; line-height: 1.5;
+}
+
+/* Mobile */
+@media(max-width:768px) {
+  .rcal-grid { gap: 5px; }
+  .sz-sm { width: 22px; height: 24px; font-size: 9px; }
+  .sz-md { width: 26px; height: 26px; font-size: 10px; }
+  .sz-lg { width: 29px; height: 27px; font-size: 10px; }
+  .sz-xl { width: 31px; height: 29px; font-size: 11px; }
+  .rcal-head { font-size: 12px; }
+  .rcal-label { font-size: 8px; }
+  .rcal-foot { font-size: 10px; }
+  .ts-stats-row { grid-template-columns: 1fr !important; }
+}
+
 /* ── iPHONE SPECIFIC (390px) ── */
 @media(max-width:430px){
   /* Hero — typed word was clipping */
@@ -4519,14 +4611,16 @@
     <div class="ts-col">
       <!-- 2-4 weeks -->
       <div class="ts-stat-card-tall ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="Learn more about 2–4 week results">
-        <span class="ts-stat-label">Visible results in</span>
-        <span class="ts-stat-num-lg">2–4 <em>weeks</em></span>
-        <div class="ts-cal-dots" id="tsDots">
-          <span class="ts-dot ts-dot-fill" data-d="0"></span><span class="ts-dot ts-dot-fill" data-d="80"></span>
-          <span class="ts-dot ts-dot-active" data-d="160"></span><span class="ts-dot ts-dot-fill" data-d="240"></span>
-          <span class="ts-dot"></span><span class="ts-dot"></span><span class="ts-dot ts-dot-active" data-d="320"></span>
+        <div class="rylo-cal" id="ryloCalDesktop">
+          <p class="rcal-head">Visible results in 2–4 weeks</p>
+          <div class="rcal-grid">
+            <span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">Th</span><span class="rcal-label">F</span><span class="rcal-label">Sa</span><span class="rcal-label">Su</span>
+            <div class="rcal-day dark sz-lg br-round">1</div><div class="rcal-day empty sz-sm br-pill">2</div><div class="rcal-day hatch sz-md br-sq">3</div><div class="rcal-day hatch sz-lg br-round">4</div><div class="rcal-day soft sz-sm br-round">5</div><div class="rcal-day empty sz-md br-pill">6</div><div class="rcal-day empty sz-sm br-sq">7</div>
+            <div class="rcal-day soft sz-lg br-pill">8</div><div class="rcal-day empty sz-sm br-round">9</div><div class="rcal-day soft sz-md br-sq">10</div><div class="rcal-day empty sz-md br-round">11</div><div class="rcal-day hatch sz-sm br-round">12</div><div class="rcal-day hatch sz-lg br-sq">13</div><div class="rcal-day hatch sz-md br-pill">14</div>
+            <div class="rcal-day empty sz-md br-round">15</div><div class="rcal-day bronze sz-xl br-round">16</div><div class="rcal-day bronze sz-xl br-sq">17</div><div class="rcal-day soft sz-md br-pill">18</div><div class="rcal-day soft sz-lg br-round">19</div><div class="rcal-day soft sz-sm br-sq">20</div><div class="rcal-day empty sz-sm br-round">21</div>
+          </div>
+          <p class="rcal-foot">Avg time to notice meaningful changes after starting GLP-1.</p>
         </div>
-        <p class="ts-stat-sub-text">Avg time for patients to notice meaningful changes after starting GLP-1.</p>
       </div>
       <!-- 20.2% -->
       <div class="ts-stat-card-sm ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="Learn more about 20.2% results">
@@ -4581,9 +4675,16 @@
     </div>
     <div class="ts-stats-row">
       <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="2–4 week results">
-        <span class="ts-stat-label">Visible results in</span>
-        <span class="ts-stat-num">2–4 weeks</span>
-        <span class="ts-stat-sub">Avg time to notice meaningful changes</span>
+        <div class="rylo-cal" id="ryloCalMobile">
+          <p class="rcal-head">Visible results in 2–4 weeks</p>
+          <div class="rcal-grid">
+            <span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">Th</span><span class="rcal-label">F</span><span class="rcal-label">Sa</span><span class="rcal-label">Su</span>
+            <div class="rcal-day dark sz-lg br-round">1</div><div class="rcal-day empty sz-sm br-pill">2</div><div class="rcal-day hatch sz-md br-sq">3</div><div class="rcal-day hatch sz-lg br-round">4</div><div class="rcal-day soft sz-sm br-round">5</div><div class="rcal-day empty sz-md br-pill">6</div><div class="rcal-day empty sz-sm br-sq">7</div>
+            <div class="rcal-day soft sz-lg br-pill">8</div><div class="rcal-day empty sz-sm br-round">9</div><div class="rcal-day soft sz-md br-sq">10</div><div class="rcal-day empty sz-md br-round">11</div><div class="rcal-day hatch sz-sm br-round">12</div><div class="rcal-day hatch sz-lg br-sq">13</div><div class="rcal-day hatch sz-md br-pill">14</div>
+            <div class="rcal-day empty sz-md br-round">15</div><div class="rcal-day bronze sz-xl br-round">16</div><div class="rcal-day bronze sz-xl br-sq">17</div><div class="rcal-day soft sz-md br-pill">18</div><div class="rcal-day soft sz-lg br-round">19</div><div class="rcal-day soft sz-sm br-sq">20</div><div class="rcal-day empty sz-sm br-round">21</div>
+          </div>
+          <p class="rcal-foot">Avg time to notice meaningful changes after starting GLP-1.</p>
+        </div>
       </div>
       <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="20.2% results">
         <span class="ts-stat-label">Not a fad. Real change.</span>
@@ -6397,6 +6498,53 @@ modal.addEventListener('keydown', function(e){
   else          { if(document.activeElement===last) {e.preventDefault();first.focus();} }
 });
 
+})();
+</script>
+
+<script>
+/* ── RYLO CALENDAR ANIMATION ── */
+(function(){
+  var cals = document.querySelectorAll('.rylo-cal');
+  if(!cals.length) return;
+  var calObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting || entry.target.dataset.animated) return;
+      entry.target.dataset.animated = '1';
+      animateCal(entry.target);
+      calObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+  cals.forEach(function(c){ calObs.observe(c); });
+
+  function animateCal(cal){
+    var head   = cal.querySelector('.rcal-head');
+    var labels = cal.querySelectorAll('.rcal-label');
+    var days   = cal.querySelectorAll('.rcal-day');
+    /* 1. heading */
+    head.classList.add('rcal-in');
+    /* 2. labels */
+    labels.forEach(function(l){ l.classList.add('rcal-in'); });
+    /* 3. circles — staggered L→R, row by row */
+    days.forEach(function(day, i){
+      var delay = 400 + i * 40; /* ms */
+      setTimeout(function(){
+        day.style.transition =
+          'opacity 0.4s cubic-bezier(0.22,1,0.36,1) ,' +
+          'transform 0.4s cubic-bezier(0.22,1,0.36,1),' +
+          'box-shadow 0.2s ease';
+        day.classList.add('rcal-in');
+        /* 4. bronze pulse after reveal */
+        if(day.classList.contains('bronze')){
+          setTimeout(function(){
+            day.classList.add('rcal-pulse');
+            day.addEventListener('animationend', function(){
+              day.classList.remove('rcal-pulse');
+            }, { once: true });
+          }, 420);
+        }
+      }, delay);
+    });
+  }
 })();
 </script>
 
