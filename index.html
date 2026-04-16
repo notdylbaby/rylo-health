@@ -4309,6 +4309,154 @@
 .ts-slide-up { transform: translateY(30px); }
 .ts-slide-up.in-view { transform: translateY(0); }
 
+
+/* ══════════════════════════════════════════════
+   INTERACTIVE CARDS — IC System
+   ══════════════════════════════════════════════ */
+
+/* Side margins on desktop grids */
+.ts-desktop-grid {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 48px 12px !important;
+  gap: 12px !important;
+}
+.ts-head { max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+/* Card border-radius update */
+.ts-stat-card-tall, .ts-stat-card-sm, .ts-dark-card,
+.ts-img-card-desktop, .ts-box-card { border-radius: 12px !important; }
+
+/* + icon */
+.ic { position: relative; }
+.ic[tabindex] { cursor: pointer; }
+.ic-btn {
+  position: absolute; top: 12px; right: 12px; z-index: 10;
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65);
+  font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background 0.2s ease;
+}
+.ic-light .ic-btn {
+  border-color: rgba(26,26,26,0.18);
+  background: rgba(0,0,0,0.04);
+  color: rgba(26,26,26,0.4);
+}
+
+/* Desktop hover */
+@media(min-width:769px) {
+  .ic {
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.4s cubic-bezier(0.22,1,0.36,1) !important;
+  }
+  .ic:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06) !important;
+    z-index: 2;
+  }
+  .ic:hover .ic-btn { transform: rotate(45deg); background: rgba(255,255,255,0.16); }
+  .ic-light:hover .ic-btn { background: rgba(0,0,0,0.07); }
+  .ic-expand {
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease 0.05s;
+  }
+  .ic:hover .ic-expand { max-height: 260px; opacity: 1; }
+}
+
+/* Expand content */
+.ic-expand-inner { padding-top: 14px; border-top: 1px solid rgba(128,128,128,0.12); margin-top: 14px; }
+.ic-expand-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; line-height: 1.7; margin-bottom: 12px;
+}
+.ic-expand-desc.is-light { color: rgba(26,26,26,0.48); }
+.ic-expand-desc.is-dark  { color: rgba(255,255,255,0.45); }
+.ic-expand-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.ic-expand-bullets li {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  display: flex; align-items: center; gap: 8px;
+}
+.ic-expand-bullets.is-light li { color: rgba(26,26,26,0.4); }
+.ic-expand-bullets.is-dark  li { color: rgba(255,255,255,0.38); }
+.ic-expand-bullets li::before {
+  content: ''; width: 12px; height: 1px; background: #B8945F; flex-shrink: 0;
+}
+
+/* ── MOBILE MODAL ── */
+.ic-overlay {
+  display: none; position: fixed; inset: 0; z-index: 9998;
+  background: rgba(0,0,0,0.38);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.ic-overlay.open { opacity: 1; }
+.ic-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #faf7f2; overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateY(100%); opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1),
+              opacity 0.5s cubic-bezier(0.22,1,0.36,1);
+  pointer-events: none;
+}
+.ic-modal.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.ic-modal-close {
+  position: absolute;
+  top: calc(20px + env(safe-area-inset-top)); right: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(184,148,95,0.1); border: 1px solid rgba(184,148,95,0.22);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 2;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.ic-modal-close:hover { transform: scale(1.05); background: rgba(184,148,95,0.2); }
+.ic-modal-close svg {
+  width: 18px; height: 18px; stroke: #B8945F;
+  stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round;
+}
+.ic-modal-body {
+  padding: calc(80px + env(safe-area-inset-top)) 24px calc(40px + env(safe-area-inset-bottom));
+}
+.ic-modal-eyebrow {
+  display: block; font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(26,26,26,0.35); margin-bottom: 10px;
+}
+.ic-modal-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px; font-weight: 400; color: #1a1a1a;
+  line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 14px;
+}
+.ic-modal-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; color: rgba(26,26,26,0.6); line-height: 1.75;
+  max-width: 420px; margin-bottom: 20px;
+}
+.ic-modal-img {
+  width: 100%; border-radius: 12px; max-height: 260px;
+  object-fit: cover; display: block; margin-bottom: 20px;
+}
+.ic-modal-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.ic-modal-bullets li {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.55);
+  display: flex; align-items: center; gap: 12px;
+}
+.ic-modal-bullets li::before {
+  content: ''; width: 20px; height: 1px; background: #B8945F; flex-shrink: 0;
+}
+
+/* Mobile overrides */
+@media(max-width:768px) {
+  .ts-mobile-stack { gap: 12px !important; padding: 0 20px 12px !important; }
+  .ts-stat-card, .ts-dark-card, .ts-img-card, .ts-horiz-card { border-radius: 12px; }
+  .ic .ic-expand { display: none !important; }
+}
+
 /* ── iPHONE SPECIFIC (390px) ── */
 @media(max-width:430px){
   /* Hero — typed word was clipping */
@@ -4361,7 +4509,7 @@
     <!-- LEFT: stats stacked -->
     <div class="ts-col">
       <!-- 2-4 weeks -->
-      <div class="ts-stat-card-tall ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <div class="ts-stat-card-tall ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="Learn more about 2–4 week results">
         <span class="ts-stat-label">Visible results in</span>
         <span class="ts-stat-num-lg">2–4 <em>weeks</em></span>
         <div class="ts-cal-dots" id="tsDots">
@@ -4372,7 +4520,7 @@
         <p class="ts-stat-sub-text">Avg time for patients to notice meaningful changes after starting GLP-1.</p>
       </div>
       <!-- 20.2% -->
-      <div class="ts-stat-card-sm ts-animate ts-slide-up" style="transition-delay:0.1s">
+      <div class="ts-stat-card-sm ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="Learn more about 20.2% results">
         <span class="ts-stat-label">Not a fad. Real change.</span>
         <span class="ts-stat-num-lg">20.2%</span>
         <p class="ts-stat-sub-text">Tirzepatide patients lost an average of <strong>20.2% body weight</strong> in trials.</p>
@@ -4393,7 +4541,7 @@
 
     <!-- RIGHT: 48hrs + Finally stacked -->
     <div class="ts-col">
-      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="hrs-48" tabindex="0" role="button" aria-label="Learn more about 48-hour response">
         <img src="aiwomancomputer.png" alt="48 hour response" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
@@ -4402,7 +4550,7 @@
           <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
         </div>
       </div>
-      <div class="ts-dark-card ts-animate" style="transition-delay:0.12s">
+      <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.12s" data-ic="finally" tabindex="0" role="button" aria-label="Learn more">
         <p class="ts-dark-title-serif"><em>Finally.</em></p>
         <p class="ts-dark-sub-h">Something that actually works.</p>
         <p class="ts-dark-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</p>
@@ -4423,18 +4571,18 @@
       </div>
     </div>
     <div class="ts-stats-row">
-      <div class="ts-stat-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="2–4 week results">
         <span class="ts-stat-label">Visible results in</span>
         <span class="ts-stat-num">2–4 weeks</span>
         <span class="ts-stat-sub">Avg time to notice meaningful changes</span>
       </div>
-      <div class="ts-stat-card ts-animate ts-slide-up" style="transition-delay:0.1s">
+      <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="20.2% results">
         <span class="ts-stat-label">Not a fad. Real change.</span>
         <span class="ts-stat-num">20.2%</span>
         <span class="ts-stat-sub">Average body weight lost in trials</span>
       </div>
     </div>
-    <div class="ts-img-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+    <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="hrs-48" tabindex="0" role="button" aria-label="48-hour response">
       <img src="aiwomancomputer.png" alt="48 hour response" />
       <div class="ts-img-overlay"></div>
       <div class="ts-img-text">
@@ -4442,7 +4590,7 @@
         <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
       </div>
     </div>
-    <div class="ts-dark-card ts-animate" style="transition-delay:0.05s">
+    <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.05s" data-ic="finally" tabindex="0" role="button" aria-label="Learn more">
       <p class="ts-dark-title"><em>Finally.</em> Something that actually works.</p>
       <p class="ts-dark-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</p>
       <span class="ts-dark-note">If you're not approved, you don't pay.</span>
@@ -4468,7 +4616,7 @@
 
     <!-- LEFT: clinician + price -->
     <div class="ts-col">
-      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="clinician" tabindex="0" role="button" aria-label="Learn more about board-certified clinicians">
         <img src="doctor.png" alt="Board-certified clinician" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
@@ -4476,7 +4624,7 @@
           <span class="ts-img-p">Reviewed by a licensed US provider — not an algorithm.</span>
         </div>
       </div>
-      <div class="ts-dark-card ts-animate" style="transition-delay:0.1s">
+      <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.1s" data-ic="flat-price" tabindex="0" role="button" aria-label="Learn more about pricing">
         <p class="ts-dark-title">One flat <em>price.</em></p>
         <p class="ts-dark-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
       </div>
@@ -4493,7 +4641,7 @@
 
     <!-- RIGHT: pharmacy + 1-on-1 -->
     <div class="ts-col">
-      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="pharmacy" tabindex="0" role="button" aria-label="Learn more about our pharmacy">
         <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
@@ -4501,7 +4649,7 @@
           <span class="ts-img-p">FDA-registered. Third-party tested.</span>
         </div>
       </div>
-      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.1s">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.1s" data-ic="one-on-one" tabindex="0" role="button" aria-label="Learn more about 1-on-1 care">
         <img src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
@@ -4516,7 +4664,7 @@
   <!-- MOBILE STACK -->
   <div class="ts-mobile-stack">
     <div class="ts-hero-placeholder ts-animate ts-slide-up">Add family-hero.jpg</div>
-    <div class="ts-img-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+    <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="clinician" tabindex="0" role="button" aria-label="Board-certified clinician">
       <img src="doctor.png" alt="Board-certified clinician" />
       <div class="ts-img-overlay"></div>
       <div class="ts-img-text">
@@ -4524,11 +4672,11 @@
         <span class="ts-img-p">Reviewed by a licensed US provider — not an algorithm.</span>
       </div>
     </div>
-    <div class="ts-dark-card ts-animate" style="transition-delay:0.05s">
+    <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.05s" data-ic="flat-price" tabindex="0" role="button" aria-label="Pricing">
       <p class="ts-dark-title">One flat <em>price.</em></p>
       <p class="ts-dark-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
     </div>
-    <div class="ts-img-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+    <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="pharmacy" tabindex="0" role="button" aria-label="Licensed US pharmacy">
       <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
       <div class="ts-img-overlay"></div>
       <div class="ts-img-text">
@@ -4536,7 +4684,7 @@
         <span class="ts-img-p">FDA-registered. Third-party tested.</span>
       </div>
     </div>
-    <div class="ts-horiz-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+    <div class="ts-horiz-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="one-on-one" tabindex="0" role="button" aria-label="1-on-1 care">
       <img class="ts-horiz-img" src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
       <div class="ts-horiz-text">
         <span class="ts-horiz-big">1-on-1</span>
@@ -4549,7 +4697,7 @@
 </section>
 
 <!-- ─── RYLO BOX FULL WIDTH ─── -->
-<div class="ts-box-card ts-animate ts-slide-up">
+<div class="ts-box-card ts-animate ts-slide-up ic ic-dark" data-ic="free-ship" tabindex="0" role="button" aria-label="Free shipping">
   <img src="rylohealthpackage.png" alt="Free monthly shipping" />
   <div class="ts-box-overlay"></div>
   <div class="ts-box-text">
@@ -6074,5 +6222,174 @@
   });
 })();
 </script>
+
+<!-- ── IC MODAL ── -->
+<div class="ic-overlay" id="icOverlay" aria-hidden="true"></div>
+<div class="ic-modal" id="icModal" role="dialog" aria-modal="true" aria-label="Card detail" aria-hidden="true">
+  <button class="ic-modal-close" id="icModalClose" aria-label="Close">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="ic-modal-body" id="icModalBody"></div>
+</div>
+<script>
+(function(){
+
+var IC = {
+  'weeks-2-4': {
+    eyebrow:'VISIBLE RESULTS', heading:'2–4 weeks',
+    desc:'Most patients notice meaningful changes within the first month. Appetite quiets, cravings fade, and the scale starts to move.',
+    img:null,
+    bullets:['Average first results: 2–4 weeks','Appetite reduction typically first','Weight loss follows shortly after']
+  },
+  'pct-20': {
+    eyebrow:'CLINICAL RESULTS', heading:'20.2% body weight',
+    desc:'In clinical trials, tirzepatide patients lost an average of 20.2% of their body weight over 72 weeks. Individual results vary significantly.',
+    img:null,
+    bullets:['Based on published clinical trial data','Results depend on dose and adherence','Paired with lifestyle adjustments']
+  },
+  'hrs-48': {
+    eyebrow:'RESPONSE TIME', heading:'48 hours',
+    desc:'Every message answered by a real human on your care team within 48 hours. No chatbots, no FAQ mazes.',
+    img:'aiwomancomputer.png',
+    bullets:['Licensed US providers','Direct messaging with your team','Dose adjustments reviewed quickly']
+  },
+  'finally': {
+    eyebrow:'THE TRUTH', heading:'Finally. Something that works.',
+    desc:'If you’ve tried everything and nothing has stuck, this is why. GLP-1s work at the brain level, not willpower. Your biology finally cooperates.',
+    img:null,
+    bullets:['Reduces food noise','Slows gastric emptying','Regulates appetite hormones']
+  },
+  'clinician': {
+    eyebrow:'CLINICAL QUALITY', heading:'Board-certified clinician',
+    desc:'Your treatment plan is reviewed by a board-certified US provider — never an algorithm. They see your full profile and make decisions based on your body.',
+    img:'doctor.png',
+    bullets:['Licensed in your state','Reviews your medical history','Adjusts your dose as you progress']
+  },
+  'flat-price': {
+    eyebrow:'PRICING', heading:'One flat price.',
+    desc:'No surprise charges when your dose increases. No hidden fees. The price you start at is the price you pay at every stage.',
+    img:null,
+    bullets:['Flat monthly rate','No hidden fees','Cancel anytime']
+  },
+  'pharmacy': {
+    eyebrow:'PHARMACY', heading:'Licensed US pharmacy',
+    desc:'Your medication is compounded by a licensed US pharmacy that’s FDA-registered and third-party tested for purity and potency.',
+    img:'pharmacyimage.png',
+    bullets:['FDA-registered facility','Third-party potency testing','Cold-chain shipping']
+  },
+  'one-on-one': {
+    eyebrow:'PROVIDER CARE', heading:'A provider who knows you',
+    desc:'One clinician follows your journey from the start. They know your history, your goals, and adjust your plan as your body changes.',
+    img:'DOCTORTALKINGPHONE - Edited.png',
+    bullets:['Same provider throughout','Direct messaging access','Quarterly check-ins']
+  },
+  'free-ship': {
+    eyebrow:'DELIVERY', heading:'Free shipping, every month',
+    desc:'Your medication ships free to your door in discreet, temperature-controlled packaging. Same price at every dose.',
+    img:'rylohealthpackage.png',
+    bullets:['Free shipping included','Discreet packaging','Temperature-controlled']
+  }
+};
+
+/* ── BUILD CARDS ── */
+var lastFocused = null;
+
+document.querySelectorAll('[data-ic]').forEach(function(card){
+  var id = card.dataset.ic;
+  var data = IC[id];
+  if(!data) return;
+
+  /* + button */
+  var btn = document.createElement('span');
+  btn.className = 'ic-btn';
+  btn.setAttribute('aria-hidden','true');
+  btn.textContent = '+';
+  card.appendChild(btn);
+
+  /* desktop expand */
+  var isDark = card.classList.contains('ic-dark');
+  var expand = document.createElement('div');
+  expand.className = 'ic-expand';
+  expand.innerHTML = '<div class="ic-expand-inner">' +
+    '<p class="ic-expand-desc '+(isDark?'is-dark':'is-light')+'">'+data.desc+'</p>' +
+    '<ul class="ic-expand-bullets '+(isDark?'is-dark':'is-light')+'">' +
+    data.bullets.map(function(b){return '<li>'+b+'</li>';}).join('') +
+    '</ul></div>';
+  card.appendChild(expand);
+
+  /* mobile tap */
+  function onOpen(e){
+    if(window.innerWidth > 768) return;
+    e.preventDefault(); e.stopPropagation();
+    lastFocused = card;
+    openModal(data);
+  }
+  card.addEventListener('click', onOpen);
+  card.addEventListener('keydown', function(e){
+    if(e.key==='Enter'||e.key===' ') onOpen(e);
+    if(e.key==='Escape') closeModal();
+  });
+});
+
+/* ── MODAL ── */
+var overlay  = document.getElementById('icOverlay');
+var modal    = document.getElementById('icModal');
+var closeBtn = document.getElementById('icModalClose');
+var body     = document.getElementById('icModalBody');
+
+overlay.style.display = 'none';
+
+function openModal(data){
+  var imgHtml = data.img ? '<img class="ic-modal-img" src="'+data.img+'" alt="" loading="lazy">' : '';
+  var bullets = data.bullets.map(function(b){return '<li>'+b+'</li>';}).join('');
+  body.innerHTML =
+    '<span class="ic-modal-eyebrow">'+data.eyebrow+'</span>'+
+    '<h2 class="ic-modal-heading">'+data.heading+'</h2>'+
+    '<p class="ic-modal-desc">'+data.desc+'</p>'+
+    imgHtml+
+    '<ul class="ic-modal-bullets">'+bullets+'</ul>';
+
+  overlay.style.display = 'block';
+  modal.setAttribute('aria-hidden','false');
+  overlay.setAttribute('aria-hidden','false');
+  requestAnimationFrame(function(){
+    overlay.classList.add('open');
+    modal.classList.add('open');
+  });
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ closeBtn.focus(); }, 320);
+}
+
+function closeModal(){
+  overlay.classList.remove('open');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+  setTimeout(function(){
+    overlay.style.display = 'none';
+    body.innerHTML = '';
+    if(lastFocused){ lastFocused.focus(); lastFocused = null; }
+  }, 520);
+}
+
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape' && modal.classList.contains('open')) closeModal();
+});
+
+/* focus trap */
+modal.addEventListener('keydown', function(e){
+  if(e.key!=='Tab') return;
+  var els = modal.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])');
+  var first = els[0], last = els[els.length-1];
+  if(e.shiftKey){ if(document.activeElement===first){e.preventDefault();last.focus();} }
+  else          { if(document.activeElement===last) {e.preventDefault();first.focus();} }
+});
+
+})();
+</script>
+
 </body>
 </html>
