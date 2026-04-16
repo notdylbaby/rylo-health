@@ -1647,6 +1647,7 @@
     .prod-cat { display: none; }
     .prod-mobile { display: none; }
     .bento-mobile { display: none; }
+    .ts-mobile-stack { display: none; }
 
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
@@ -2351,288 +2352,208 @@
         border-radius: 0;
       }
 
-      /* ── BENTO — hide desktop, show mobile rebuild ── */
+      /* ── THEMED BENTO SECTIONS ── */
       .why-section { display: none !important; }
-      .bento-mobile { display: block !important; background: #faf7f2; }
+      .bento-mobile { display: none !important; }
+      /* Show mobile stacks, hide desktop grids */
+      .ts-desktop-grid { display: none !important; }
+      .ts-mobile-stack { display: flex !important; flex-direction: column; gap: 3px; }
+      .outcomes-section, .difference-section { background: #faf7f2; }
+      .ts-section-gap { height: 60px; background: #faf7f2; }
+      .ts-box-card { height: 200px; }
+      .ts-box-text { padding: 20px; }
+      .ts-box-big { font-size: 32px; }
+      .ts-box-h { font-size: 13px; }
+      .ts-trust-wrap { background: #faf7f2; padding: 32px 20px 48px; }
+      .ts-head { padding: 48px 20px 24px; }
+      .ts-title { font-size: 32px; }
 
-      /* Bento mobile: section heading */
-      .bm-head {
-        padding: 48px 20px 28px; text-align: center;
-      }
-      .bm-title {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 28px; font-weight: 400; color: #1a1a1a; line-height: 1.15;
-      }
-      .bm-title em {
-        font-style: italic; color: #C4724A;
-      }
-
-      /* Animation base */
-      .bento-animate {
+      /* Shared card animation */
+      .ts-animate {
         opacity: 0;
         transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
       }
-      .bento-animate.in-view { opacity: 1; }
-      .bento-slide-up { transform: translateY(30px); }
-      .bento-slide-up.in-view { transform: translateY(0); }
-      .bento-slide-left { transform: translateX(-30px); }
-      .bento-slide-left.in-view { transform: translateX(0); }
-      .bento-slide-right { transform: translateX(30px); }
-      .bento-slide-right.in-view { transform: translateX(0); }
-      .bento-scale { transform: scale(1.05); }
-      .bento-scale.in-view { transform: scale(1); }
+      .ts-animate.in-view { opacity: 1; }
+      .ts-slide-up { transform: translateY(30px); }
+      .ts-slide-up.in-view { transform: translateY(0); }
 
-      /* Card 1 — 48 hours image card */
-      .bm-c1 {
-        position: relative; height: 300px; overflow: hidden;
+      /* Section shells */
+      .outcomes-section, .difference-section {
+        background: #faf7f2; padding: 0 0 8px;
       }
-      .bm-c1-img {
-        width: 100%; height: 100%; object-fit: cover; display: block;
+
+      /* Section headings */
+      .ts-head { padding: 48px 20px 24px; text-align: center; }
+      .ts-eyebrow {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+        color: rgba(26,26,26,0.35); display: block; margin-bottom: 12px;
       }
-      .bm-c1-overlay {
+      .ts-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 32px; font-weight: 400; color: #1a1a1a; line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+      .ts-title em { font-style: italic; color: rgba(26,26,26,0.4); }
+      .ts-title-terra em { font-style: italic; color: #C4724A; }
+
+      /* Mobile card stack */
+      .ts-mobile-stack { display: flex; flex-direction: column; gap: 3px; }
+
+      /* Hero image card */
+      .ts-hero-img {
+        position: relative; height: 320px; overflow: hidden; flex-shrink: 0;
+      }
+      .ts-hero-img img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+      }
+      .ts-hero-img-overlay {
         position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+        background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%);
       }
-      .bm-c1-text {
-        position: absolute; bottom: 0; left: 0; padding: 24px 20px;
+      .ts-hero-img-label {
+        position: absolute; bottom: 0; left: 0; padding: 20px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: rgba(255,255,255,0.6);
       }
-      .bm-c1-big {
+      .ts-hero-img-num {
+        display: block;
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 36px; font-style: italic; color: #fff;
-        line-height: 1; display: block; margin-bottom: 4px;
-      }
-      .bm-c1-h {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 13px; font-weight: 600; color: #fff; display: block; margin-bottom: 3px;
-      }
-      .bm-c1-p {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 11px; color: rgba(255,255,255,0.5); display: block;
+        font-size: 28px; color: #fff; line-height: 1;
       }
 
-      /* Card 2 — one flat price */
-      .bm-c2 {
-        background: #1a1a1a; padding: 32px 20px;
-      }
-      .bm-c2-title {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 28px; font-weight: 400; color: #fff; line-height: 1.1;
-      }
-      .bm-c2-title em { font-style: italic; color: #B8945F; }
-      .bm-c2-p {
+      /* Placeholder hero (no image) */
+      .ts-hero-placeholder {
+        height: 320px;
+        background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
+        display: flex; align-items: center; justify-content: center;
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 10px; line-height: 1.6;
+        font-size: 12px; color: rgba(0,0,0,0.15);
       }
 
-      /* Card 3 — lifestyle image breather */
-      .bm-c3 {
-        height: 220px; overflow: hidden; position: relative;
-      }
-      .bm-c3 img {
-        width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
-        transition: transform 1.2s ease;
-      }
-      .bm-c3.in-view img { transform: scale(1) !important; }
-
-      /* Card 4 — clinician */
-      .bm-c4 {
+      /* Image card (medium) */
+      .ts-img-card {
         position: relative; height: 260px; overflow: hidden;
       }
-      .bm-c4 img {
+      .ts-img-card img {
         width: 100%; height: 100%; object-fit: cover; display: block;
       }
-      .bm-c4-overlay {
+      .ts-img-overlay {
         position: absolute; inset: 0;
         background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
       }
-      .bm-c4-text {
-        position: absolute; bottom: 0; left: 0; padding: 24px 20px;
+      .ts-img-text {
+        position: absolute; bottom: 0; left: 0; padding: 20px;
       }
-      .bm-c4-h {
+      .ts-img-h {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; font-weight: 600; color: #fff; display: block; margin-bottom: 4px;
+        font-size: 14px; font-weight: 600; color: #fff; display: block; margin-bottom: 3px;
       }
-      .bm-c4-p {
+      .ts-img-p {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 12px; color: rgba(255,255,255,0.55); display: block;
       }
 
-      /* Card 5 — split stats */
-      .bm-c5 {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+      /* Stat cards */
+      .ts-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+      .ts-stat-card {
+        background: #fff; padding: 24px 16px;
       }
-      .bm-c5-half {
-        padding: 28px 16px; background: #faf7f2;
-        border: 1px solid rgba(0,0,0,0.05);
-      }
-      .bm-c5-label {
+      .ts-stat-label {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
         color: rgba(26,26,26,0.3); display: block; margin-bottom: 6px;
       }
-      .bm-c5-num {
+      .ts-stat-num {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 26px; font-weight: 400; color: #1a1a1a;
-        display: block; margin-bottom: 6px; line-height: 1;
+        font-size: 30px; font-weight: 400; color: #1a1a1a;
+        display: block; line-height: 1; margin-bottom: 6px;
       }
-      .bm-c5-sub {
+      .ts-stat-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 10px; color: rgba(26,26,26,0.35); line-height: 1.5;
       }
 
-      /* Card 6 — pharmacy */
-      .bm-c6 {
-        position: relative; height: 260px; overflow: hidden;
-      }
-      .bm-c6 img {
-        width: 100%; height: 100%; object-fit: cover; display: block;
-      }
-      .bm-c6-overlay {
-        position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
-      }
-      .bm-c6-text {
-        position: absolute; bottom: 0; right: 0; padding: 24px 20px; text-align: right;
-      }
-      .bm-c6-h {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; font-weight: 600; color: #fff; display: block; margin-bottom: 4px;
-      }
-      .bm-c6-p {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(255,255,255,0.55); display: block;
-      }
-
-      /* Card 7 — 1-on-1 */
-      .bm-c7 {
-        height: 120px; display: flex; background: #fff; overflow: hidden;
-      }
-      .bm-c7-img {
-        width: 40%; object-fit: cover; display: block; flex-shrink: 0;
-      }
-      .bm-c7-text {
-        flex: 1; padding: 20px;
-      }
-      .bm-c7-big {
+      /* Dark text card */
+      .ts-dark-card { background: #1a1a1a; padding: 32px 20px; }
+      .ts-dark-title {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 24px; font-style: italic; color: #1a1a1a; display: block;
+        font-size: 28px; font-weight: 400; color: #fff; line-height: 1.1;
       }
-      .bm-c7-h {
+      .ts-dark-title em { font-style: italic; color: #B8945F; }
+      .ts-dark-p {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; font-weight: 600; color: #1a1a1a;
-        display: block; margin-top: 4px;
+        font-size: 13px; color: rgba(255,255,255,0.5);
+        margin-top: 10px; line-height: 1.6;
       }
-      .bm-c7-p {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 11px; color: rgba(26,26,26,0.4); display: block; margin-top: 4px;
-      }
-
-      /* Card 8 — rylo box */
-      .bm-c8 {
-        position: relative; height: 280px; overflow: hidden;
-      }
-      .bm-c8 img {
-        width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
-      }
-      .bm-c8-overlay {
-        position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
-      }
-      .bm-c8-text {
-        position: absolute; bottom: 0; left: 0; padding: 24px 20px;
-      }
-      .bm-c8-big {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 32px; font-style: italic; color: #fff; display: block; margin-bottom: 4px;
-      }
-      .bm-c8-h {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 13px; font-weight: 600; color: #fff; display: block; margin-bottom: 3px;
-      }
-      .bm-c8-p {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 11px; color: rgba(255,255,255,0.5); display: block;
-      }
-
-      /* Card 9 — Finally */
-      .bm-c9 {
-        background: #1a1a1a; padding: 40px 20px;
-      }
-      .bm-c9-big {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 34px; font-style: italic; color: #fff; display: block; margin-bottom: 8px;
-      }
-      .bm-c9-h {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; font-weight: 600; color: #fff; display: block;
-      }
-      .bm-c9-p {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(255,255,255,0.45);
-        line-height: 1.6; margin-top: 10px; max-width: 300px; display: block;
-      }
-      .bm-c9-note {
+      .ts-dark-note {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 12px; color: rgba(255,255,255,0.6);
         font-weight: 500; margin-top: 12px; display: block;
       }
 
-      /* Gap between cards */
-      .bm-cards { display: flex; flex-direction: column; gap: 3px; }
+      /* 1-on-1 horizontal card */
+      .ts-horiz-card {
+        height: 120px; display: flex; background: #fff; overflow: hidden;
+      }
+      .ts-horiz-img {
+        width: 40%; object-fit: cover; display: block; flex-shrink: 0;
+      }
+      .ts-horiz-text { flex: 1; padding: 18px; }
+      .ts-horiz-big {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 22px; font-style: italic; color: #1a1a1a; display: block;
+      }
+      .ts-horiz-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; font-weight: 600; color: #1a1a1a;
+        display: block; margin-top: 4px;
+      }
+      .ts-horiz-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; color: rgba(26,26,26,0.4); display: block; margin-top: 4px;
+      }
 
-      /* ── BENTO old desktop — hidden, legacy rules no longer needed ── */
-      .why-inner { overflow: hidden; }
-      .why-top { padding: 0 24px 32px; text-align: center; }
-      .why-title {
-        font-size: 28px !important; text-align: center;
-        color: #1a1a1a; line-height: 1.1;
-      }
-      .why-title em { color: #C4724A !important; font-style: italic; }
-      .why-eyebrow { color: rgba(26,26,26,0.3); }
+      /* Gap between sections */
+      .ts-section-gap { height: 60px; background: #faf7f2; }
 
-      /* Bento grid → single stacked list */
-      .why-bento {
-        display: block !important; grid-template-columns: unset !important;
-        gap: 0 !important;
+      /* Full-width Rylo box card */
+      .ts-box-card {
+        position: relative; height: 200px; overflow: hidden;
       }
-      /* Hide all images inside bento */
-      .why-section img { display: none !important; }
-      /* Hide calendar widget */
-      .wc-cal-grid, .wc-cal-days, .wc-cal-dates, .wc-cal-sub { display: none !important; }
-      /* Reset all wc card styles to plain text blocks */
-      .wc, .wc-woman, .wc-clin, .wc-pharm, .wc-247,
-      .wc-price, .wc-cal, .wc-stat, .wb, .wb-prov, .wb-dark, .wb-hsa {
-        background: transparent !important; border: none !important;
-        box-shadow: none !important; border-radius: 0 !important;
-        position: relative !important; overflow: visible !important;
-        grid-column: unset !important; grid-row: unset !important;
-        min-height: 0 !important; height: auto !important;
-        display: block !important;
-        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-        padding: 24px !important;
+      .ts-box-card img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
       }
-      .wc:last-child, .wc-stat:last-child, .wb-hsa { border-bottom: none !important; }
-      /* Overlay text blocks: static, dark text */
-      .ov { position: static !important; padding: 0 !important; background: none !important; }
-      .ov h3, .ov p { color: #1a1a1a !important; }
-      .ww, .wc-stat-inner { color: #1a1a1a !important; }
-      /* Stat numbers */
-      .big { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 36px !important; color: #1a1a1a !important; margin-bottom: 4px; display: block; }
-      .ov h3, .wb-prov .prov-text .big, .wb-dark .big, .wb-hsa .big { font-size: 36px !important; font-family: 'Cormorant Garamond', Georgia, serif !important; color: #1a1a1a !important; }
-      .ov h3 { font-size: 14px !important; font-weight: 500 !important; margin-bottom: 4px !important; }
-      .ov p, .hrw-desc, .wb-prov .prov-text p, .wb-dark p, .wb-hsa p { font-size: 13px !important; color: rgba(26,26,26,0.4) !important; line-height: 1.5 !important; }
-      /* Stat card specific */
-      .stat-label { font-size: 14px !important; font-weight: 500 !important; color: #1a1a1a !important; }
-      .stat-label-em { font-size: 13px !important; color: rgba(26,26,26,0.4) !important; }
-      .wsc-num { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 36px !important; color: #1a1a1a !important; }
-      .ww-num { font-size: 28px !important; color: #1a1a1a !important; }
-      .wc-cal-label { font-size: 12px !important; color: rgba(26,26,26,0.3) !important; }
-      .wc-cal-headline { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 36px !important; color: #1a1a1a !important; }
-      /* Bottom row */
-      .why-bot { display: block !important; padding: 0 !important; margin-bottom: 0 !important; }
-      .why-strip { display: none; }
-      .why-cta-wrap { padding: 24px; }
-      .why-cta { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+      .ts-box-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+      }
+      .ts-box-text { position: absolute; bottom: 0; left: 0; padding: 20px; }
+      .ts-box-big {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 32px; font-style: italic; color: #fff; display: block; line-height: 1;
+      }
+      .ts-box-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px; font-weight: 600; color: #fff; display: block; margin-top: 4px;
+      }
+
+      /* Trust badges + CTA */
+      .ts-trust-wrap { background: #faf7f2; padding: 32px 20px 48px; text-align: center; }
+      .ts-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 24px; }
+      .ts-badge {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+        padding: 7px 12px; border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 100px; color: rgba(26,26,26,0.45);
+      }
+      .ts-cta {
+        display: inline-block; background: #1a1a1a; color: #fff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 500; padding: 14px 32px;
+        text-decoration: none; border-radius: 0;
+      }
 
       /* ── CLOSING CTA ── */
       .closing-section { padding: 0; background: transparent; }
@@ -4183,6 +4104,211 @@
   .why-strip-item{font-size:12px;padding:7px 14px}
 }
 
+/* ════════════════════════════════════
+   THEMED SECTIONS — DESKTOP
+   ════════════════════════════════════ */
+.outcomes-section, .difference-section {
+  background: #EEE8DF;
+  padding: 0 0 8px;
+}
+.ts-head {
+  padding: 80px 48px 48px; text-align: center;
+}
+.ts-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(26,26,26,0.35); display: block; margin-bottom: 16px;
+}
+.ts-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 52px; font-weight: 400; color: #1a1a1a;
+  line-height: 1.0; letter-spacing: -0.02em;
+}
+.ts-title em { font-style: italic; color: rgba(26,26,26,0.4); }
+.ts-title-terra em { font-style: italic; color: #C4724A; }
+
+/* Desktop: hide mobile stack, show desktop grid */
+.ts-desktop-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; padding: 0 8px 8px; }
+.ts-mobile-stack { display: none; }
+.ts-col { display: flex; flex-direction: column; gap: 8px; }
+
+/* Center column tall image */
+.ts-center-col { position: relative; }
+.ts-center-img-wrap {
+  position: relative; height: 100%; min-height: 560px;
+  border-radius: 16px; overflow: hidden;
+}
+.ts-center-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+}
+.ts-center-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+}
+.ts-center-widget {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(255,255,255,0.12); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 14px 20px;
+}
+.ts-ww-label {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.05em;
+}
+.ts-ww-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px; color: #fff; line-height: 1;
+}
+.ts-ww-unit { font-size: 20px; }
+
+/* Family placeholder */
+.ts-family-img {
+  width: 100%; height: 100%; min-height: 560px;
+  background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
+  border-radius: 16px;
+}
+
+/* Desktop image cards */
+.ts-img-card-desktop {
+  position: relative; flex: 1; min-height: 240px;
+  border-radius: 16px; overflow: hidden;
+}
+.ts-img-card-desktop img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.ts-img-big {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px; font-style: italic; color: #fff;
+  display: block; line-height: 1; margin-bottom: 4px;
+}
+.ts-img-h {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 600; color: #fff; display: block; margin-bottom: 3px;
+}
+.ts-img-p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; color: rgba(255,255,255,0.55); display: block;
+}
+.ts-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
+}
+.ts-img-text { position: absolute; bottom: 0; left: 0; padding: 24px; }
+
+/* Desktop dark text card */
+.ts-dark-card {
+  background: #1a1a1a; padding: 36px 28px; border-radius: 16px;
+}
+.ts-dark-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px; font-weight: 400; color: #fff; line-height: 1.05;
+}
+.ts-dark-title em { font-style: italic; color: #B8945F; }
+.ts-dark-title-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34px; font-weight: 400; color: #fff; line-height: 1.05; margin-bottom: 6px;
+}
+.ts-dark-title-serif em { font-style: italic; color: rgba(255,255,255,0.6); }
+.ts-dark-sub-h {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 600; color: #fff;
+}
+.ts-dark-p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 10px; line-height: 1.6;
+}
+.ts-dark-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500; margin-top: 12px; display: block;
+}
+
+/* Desktop stat cards */
+.ts-stat-card-tall {
+  flex: 1; background: #fff; border-radius: 16px; padding: 36px 28px;
+}
+.ts-stat-card-sm {
+  background: #fff; border-radius: 16px; padding: 36px 28px;
+}
+.ts-stat-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,26,0.3); display: block; margin-bottom: 8px;
+}
+.ts-stat-num-lg {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 56px; font-weight: 400; color: #1a1a1a;
+  display: block; line-height: 1; margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.ts-stat-num-lg em { font-style: italic; color: rgba(26,26,26,0.35); }
+.ts-stat-sub-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; color: rgba(26,26,26,0.4); line-height: 1.6;
+}
+.ts-cal-dots {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.ts-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(0,0,0,0.07);
+  transition: background 0.4s ease;
+}
+.ts-dot.animated.ts-dot-fill { background: #C4724A; }
+.ts-dot.animated.ts-dot-active { background: #1a1a1a; transform: scale(1.3); }
+
+/* Section gap */
+.ts-section-gap { height: 100px; background: #EEE8DF; }
+
+/* Rylo box full width */
+.ts-box-card {
+  position: relative; height: 240px; overflow: hidden;
+}
+.ts-box-card img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+}
+.ts-box-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+}
+.ts-box-text { position: absolute; bottom: 0; left: 0; padding: 32px 48px; }
+.ts-box-big {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 40px; font-style: italic; color: #fff; display: block; line-height: 1;
+}
+.ts-box-h {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 600; color: #fff; display: block; margin-top: 6px;
+}
+
+/* Trust + CTA */
+.ts-trust-wrap {
+  background: #EEE8DF; padding: 56px 48px; text-align: center;
+}
+.ts-badges {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px;
+}
+.ts-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 14px; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 100px; color: rgba(26,26,26,0.45);
+}
+.ts-cta {
+  display: inline-block; background: #1a1a1a; color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 500; padding: 14px 32px;
+  text-decoration: none; border-radius: 0;
+  transition: opacity 0.2s ease;
+}
+.ts-cta:hover { opacity: 0.85; }
+
+/* Animation */
+.ts-animate {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.ts-animate.in-view { opacity: 1; }
+.ts-slide-up { transform: translateY(30px); }
+.ts-slide-up.in-view { transform: translateY(0); }
+
 /* ── iPHONE SPECIFIC (390px) ── */
 @media(max-width:430px){
   /* Hero — typed word was clipping */
@@ -4220,180 +4346,228 @@
 }
 </style>
 
-<section class="why-section animate-in">
-<div class="why-inner">
+<!-- ─── SECTION 1: REAL CHANGE. REAL PEOPLE. ─── -->
+<section class="outcomes-section">
 
-  <!-- HEADLINE -->
-  <div class="why-top">
-    <p class="why-eyebrow">The Rylo Difference</p>
-    <h2 class="why-title">Everything they charge extra for.<br><em>Included.</em></h2>
+  <!-- HEADING -->
+  <div class="ts-head ts-animate ts-slide-up">
+    <span class="ts-eyebrow">The Outcomes</span>
+    <h2 class="ts-title">Real change.<br><em>Real people.</em></h2>
   </div>
 
-  <!-- ═══════ BENTO ═══════ -->
-  <div class="why-bento">
+  <!-- DESKTOP 3-COL GRID -->
+  <div class="ts-desktop-grid outcomes-grid">
 
-    <!-- 24/7 -->
-    <div class="wc wc-247 animate-in" data-delay="1">
+    <!-- LEFT: stats stacked -->
+    <div class="ts-col">
+      <!-- 2-4 weeks -->
+      <div class="ts-stat-card-tall ts-animate ts-slide-up" style="transition-delay:0.05s">
+        <span class="ts-stat-label">Visible results in</span>
+        <span class="ts-stat-num-lg">2–4 <em>weeks</em></span>
+        <div class="ts-cal-dots" id="tsDots">
+          <span class="ts-dot ts-dot-fill" data-d="0"></span><span class="ts-dot ts-dot-fill" data-d="80"></span>
+          <span class="ts-dot ts-dot-active" data-d="160"></span><span class="ts-dot ts-dot-fill" data-d="240"></span>
+          <span class="ts-dot"></span><span class="ts-dot"></span><span class="ts-dot ts-dot-active" data-d="320"></span>
+        </div>
+        <p class="ts-stat-sub-text">Avg time for patients to notice meaningful changes after starting GLP-1.</p>
+      </div>
+      <!-- 20.2% -->
+      <div class="ts-stat-card-sm ts-animate ts-slide-up" style="transition-delay:0.1s">
+        <span class="ts-stat-label">Not a fad. Real change.</span>
+        <span class="ts-stat-num-lg">20.2%</span>
+        <p class="ts-stat-sub-text">Tirzepatide patients lost an average of <strong>20.2% body weight</strong> in trials.</p>
+      </div>
+    </div>
+
+    <!-- CENTER: woman jeans tall -->
+    <div class="ts-col ts-center-col">
+      <div class="ts-center-img-wrap ts-animate" style="transition-delay:0.08s">
+        <img src="asianwomanjeans.png" alt="Rylo patient" />
+        <div class="ts-center-overlay"></div>
+        <div class="ts-center-widget">
+          <div class="ts-ww-label">Weight lost</div>
+          <div class="ts-ww-num">&#8595; 26 <span class="ts-ww-unit">lbs</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: 48hrs + Finally stacked -->
+    <div class="ts-col">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.05s">
+        <img src="aiwomancomputer.png" alt="48 hour response" />
+        <div class="ts-img-overlay"></div>
+        <div class="ts-img-text">
+          <span class="ts-img-big">48 hours</span>
+          <span class="ts-img-h">Real responses. Real people.</span>
+          <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
+        </div>
+      </div>
+      <div class="ts-dark-card ts-animate" style="transition-delay:0.12s">
+        <p class="ts-dark-title-serif"><em>Finally.</em></p>
+        <p class="ts-dark-sub-h">Something that actually works.</p>
+        <p class="ts-dark-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</p>
+        <span class="ts-dark-note">If you're not approved, you don't pay.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MOBILE STACK -->
+  <div class="ts-mobile-stack">
+    <div class="ts-hero-img ts-animate ts-slide-up">
+      <img src="asianwomanjeans.png" alt="Rylo patient" />
+      <div class="ts-hero-img-overlay"></div>
+      <div class="ts-hero-img-label">
+        <span class="ts-hero-img-num">&#8595; 26 lbs</span>
+        Weight lost
+      </div>
+    </div>
+    <div class="ts-stats-row">
+      <div class="ts-stat-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+        <span class="ts-stat-label">Visible results in</span>
+        <span class="ts-stat-num">2–4 weeks</span>
+        <span class="ts-stat-sub">Avg time to notice meaningful changes</span>
+      </div>
+      <div class="ts-stat-card ts-animate ts-slide-up" style="transition-delay:0.1s">
+        <span class="ts-stat-label">Not a fad. Real change.</span>
+        <span class="ts-stat-num">20.2%</span>
+        <span class="ts-stat-sub">Average body weight lost in trials</span>
+      </div>
+    </div>
+    <div class="ts-img-card ts-animate ts-slide-up" style="transition-delay:0.05s">
       <img src="aiwomancomputer.png" alt="48 hour response" />
-      <div class="ov">
-        <div class="big">48 hours</div>
-        <h3>Real responses. Real people.</h3>
+      <div class="ts-img-overlay"></div>
+      <div class="ts-img-text">
+        <span class="ts-img-h">48 hours — Real responses. Real people.</span>
+        <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
       </div>
     </div>
-
-    <!-- CENTER WOMAN + glow + widget -->
-    <div class="wc-woman animate-in" data-delay="2">
-      <!-- Replace src with your yoga lady image filename -->
-      <img src="asianwomanjeans.png" alt="Rylo patient"
-           onerror="this.style.display='none'" />
-      <div class="ww">
-        <div class="ww-label">Weight lost</div>
-        <div class="ww-num">↓ 26 <span class="ww-unit">lbs</span></div>
-        <div class="ww-bar"><div class="ww-fill"></div></div>
-      </div>
+    <div class="ts-dark-card ts-animate" style="transition-delay:0.05s">
+      <p class="ts-dark-title"><em>Finally.</em> Something that actually works.</p>
+      <p class="ts-dark-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</p>
+      <span class="ts-dark-note">If you're not approved, you don't pay.</span>
     </div>
-
-    <!-- CLINICIAN — full bleed -->
-    <div class="wc wc-clin animate-in" data-delay="3">
-      <img src="doctor.png" alt="Board-certified clinician"
-           onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#c8c2bc,#b8b2ab)'" />
-      <div class="ov">
-        <h3>Board-certified clinician</h3>
-        <p>Reviewed by a licensed US provider — not an algorithm.</p>
-      </div>
-    </div>
-
-    <!-- CALENDAR CARD -->
-    <div class="wc wc-cal animate-in" data-delay="1" id="wcCal">
-      <div class="wc-cal-label">Visible results in</div>
-      <div class="wc-cal-headline">2–4 <em>weeks</em></div>
-      <div class="wc-cal-grid">
-        <div class="wc-cal-days">
-          <span>M</span><span>T</span><span>W</span><span>Th</span><span>F</span><span>Sa</span><span>Su</span>
-        </div>
-        <div class="wc-cal-dates">
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot wc-cal-fill" data-delay="0"></div>
-          <div class="wc-cal-dot wc-cal-fill" data-delay="80"></div>
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot wc-cal-num">7</div>
-
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot wc-cal-num">9</div>
-          <div class="wc-cal-dot wc-cal-dark" data-delay="160">10</div>
-          <div class="wc-cal-dot wc-cal-active" data-delay="240">11</div>
-          <div class="wc-cal-dot wc-cal-fill" data-delay="320"></div>
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot"></div>
-
-          <div class="wc-cal-dot wc-cal-num">15</div>
-          <div class="wc-cal-dot wc-cal-dark" data-delay="400">16</div>
-          <div class="wc-cal-dot wc-cal-active" data-delay="480">17</div>
-          <div class="wc-cal-dot wc-cal-dark" data-delay="560">18</div>
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot"></div>
-          <div class="wc-cal-dot wc-cal-num">21</div>
-        </div>
-      </div>
-      <p class="wc-cal-sub">Avg time for patients to notice meaningful changes after starting GLP-1.</p>
-    </div>
-
-    <script>
-    (function(){
-      const cal = document.getElementById('wcCal');
-      if(!cal) return;
-      const dots = cal.querySelectorAll('.wc-cal-fill, .wc-cal-active, .wc-cal-dark');
-      const obs = new IntersectionObserver((entries) => {
-        if(entries[0].isIntersecting){
-          dots.forEach(dot => {
-            const delay = parseInt(dot.dataset.delay || 0);
-            setTimeout(() => dot.classList.add('animated'), delay);
-          });
-          obs.disconnect();
-        }
-      }, { threshold: 0.4 });
-      obs.observe(cal);
-    })();
-    </script>
-
-    <!-- PHARMACY — full bleed + gradient overlay -->
-    <div class="wc wc-pharm animate-in" data-delay="2">
-      <img src="pharmacyimage.png" alt="Licensed US pharmacy"
-           onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#d8d2cb,#c8c2bc)'" />
-      <div class="ov">
-        <h3>Licensed US pharmacy</h3>
-        <p>FDA-registered. Third-party tested.</p>
-      </div>
-    </div>
-
-    <!-- STAT: 20.2% -->
-    <div class="wc wc-stat wc-stat-editorial animate-in" data-delay="3">
-      <div class="stat-label">Not a fad.</div>
-      <div class="stat-label-em">Real change.</div>
-      <div class="num">20.2%</div>
-      <p class="desc">Tirzepatide patients lost an average of <strong>20.2% body weight</strong> in trials.</p>
-    </div>
-
-    <!-- ONE FLAT PRICE -->
-    <div class="wc wc-price">
-      <h3>One flat <em>price.</em></h3>
-      <p>No surprise charges on dose increases. Same monthly rate at every stage, no matter what.</p>
-    </div>
-
   </div>
 
-  <!-- ═══════ BOTTOM ROW ═══════ -->
-  <div class="why-bot">
-
-    <!-- 1-ON-1 — image left half, text right -->
-    <div class="wb wb-prov">
-      <img class="prov-img" src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
-      <div class="prov-text">
-        <div class="big">1-on-1</div>
-        <h3>A provider who actually knows you</h3>
-        <p>A board-certified clinician reviews your health, adjusts your dose, and answers your questions directly.</p>
-      </div>
-    </div>
-
-    <!-- DARK — Free shipping -->
-    <div class="wb wb-dark">
-      <div class="wb-photo">
-        <img src="rylohealthpackage.png" alt="Free monthly shipping" />
-      </div>
-      <div class="wb-text">
-        <div class="big">Free</div>
-        <h3>Free shipping, every month</h3>
-        <p>Ships monthly from a licensed US pharmacy. Same price at every dose.</p>
-      </div>
-    </div>
-
-    <div class="wb wb-hsa">
-      <div class="big">Finally.</div>
-      <h3>Something that actually works.</h3>
-      <p>If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower. If you're not approved, you don't pay.</p>
-    </div>
-
-  </div>
-
-  <!-- TRUST STRIP -->
-  <div class="why-strip">
-    <span>Free shipping</span>
-    <span>HIPAA secure</span>
-    <span>HSA &amp; FSA accepted</span>
-    <span>No insurance needed</span>
-  </div>
-
-  <!-- CTA -->
-  <div class="why-cta-wrap">
-    <a href="intake.html" class="why-cta">Start now →</a>
-  </div>
-
-</div>
 </section>
 
-<!-- ─── BENTO — MOBILE VERSION ─── -->
+<!-- ─── SECTION GAP ─── -->
+<div class="ts-section-gap"></div>
+
+<!-- ─── SECTION 2: CARE THAT SHOWS UP. ─── -->
+<section class="difference-section">
+
+  <!-- HEADING -->
+  <div class="ts-head ts-animate ts-slide-up">
+    <span class="ts-eyebrow">The Rylo Difference</span>
+    <h2 class="ts-title ts-title-terra">Care that<br><em>shows up.</em></h2>
+  </div>
+
+  <!-- DESKTOP 3-COL GRID -->
+  <div class="ts-desktop-grid difference-grid">
+
+    <!-- LEFT: clinician + price -->
+    <div class="ts-col">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.05s">
+        <img src="doctor.png" alt="Board-certified clinician" />
+        <div class="ts-img-overlay"></div>
+        <div class="ts-img-text">
+          <span class="ts-img-h">Board-certified clinician</span>
+          <span class="ts-img-p">Reviewed by a licensed US provider — not an algorithm.</span>
+        </div>
+      </div>
+      <div class="ts-dark-card ts-animate" style="transition-delay:0.1s">
+        <p class="ts-dark-title">One flat <em>price.</em></p>
+        <p class="ts-dark-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
+      </div>
+    </div>
+
+    <!-- CENTER: family image -->
+    <div class="ts-col ts-center-col">
+      <div class="ts-center-img-wrap ts-animate" style="transition-delay:0.08s">
+        <div class="ts-family-img">
+          <div style="display:flex;align-items:center;justify-content:center;height:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(0,0,0,0.15);">Add family-hero.jpg</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: pharmacy + 1-on-1 -->
+    <div class="ts-col">
+      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.05s">
+        <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
+        <div class="ts-img-overlay"></div>
+        <div class="ts-img-text">
+          <span class="ts-img-h">Licensed US pharmacy</span>
+          <span class="ts-img-p">FDA-registered. Third-party tested.</span>
+        </div>
+      </div>
+      <div class="ts-img-card-desktop ts-animate ts-slide-up" style="transition-delay:0.1s">
+        <img src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
+        <div class="ts-img-overlay"></div>
+        <div class="ts-img-text">
+          <span class="ts-img-h">1-on-1 care</span>
+          <span class="ts-img-p">A provider who actually knows you.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MOBILE STACK -->
+  <div class="ts-mobile-stack">
+    <div class="ts-hero-placeholder ts-animate ts-slide-up">Add family-hero.jpg</div>
+    <div class="ts-img-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <img src="doctor.png" alt="Board-certified clinician" />
+      <div class="ts-img-overlay"></div>
+      <div class="ts-img-text">
+        <span class="ts-img-h">Board-certified clinician</span>
+        <span class="ts-img-p">Reviewed by a licensed US provider — not an algorithm.</span>
+      </div>
+    </div>
+    <div class="ts-dark-card ts-animate" style="transition-delay:0.05s">
+      <p class="ts-dark-title">One flat <em>price.</em></p>
+      <p class="ts-dark-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
+    </div>
+    <div class="ts-img-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
+      <div class="ts-img-overlay"></div>
+      <div class="ts-img-text">
+        <span class="ts-img-h">Licensed US pharmacy</span>
+        <span class="ts-img-p">FDA-registered. Third-party tested.</span>
+      </div>
+    </div>
+    <div class="ts-horiz-card ts-animate ts-slide-up" style="transition-delay:0.05s">
+      <img class="ts-horiz-img" src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
+      <div class="ts-horiz-text">
+        <span class="ts-horiz-big">1-on-1</span>
+        <span class="ts-horiz-h">A provider who actually knows you</span>
+        <span class="ts-horiz-p">Reviews your health, adjusts your dose, answers directly.</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ─── RYLO BOX FULL WIDTH ─── -->
+<div class="ts-box-card ts-animate ts-slide-up">
+  <img src="rylohealthpackage.png" alt="Free monthly shipping" />
+  <div class="ts-box-overlay"></div>
+  <div class="ts-box-text">
+    <span class="ts-box-big">Free</span>
+    <span class="ts-box-h">Free shipping, every month.</span>
+  </div>
+</div>
+
+<!-- ─── TRUST BADGES + CTA ─── -->
+<div class="ts-trust-wrap ts-animate ts-slide-up">
+  <div class="ts-badges">
+    <span class="ts-badge">Free Shipping</span>
+    <span class="ts-badge">HIPAA Secure</span>
+    <span class="ts-badge">HSA &amp; FSA Accepted</span>
+    <span class="ts-badge">No Insurance Needed</span>
+  </div>
+  <a href="intake.html" class="ts-cta">Start now &#8594;</a>
+</div>
 <section class="bento-mobile" id="bentoMobile" aria-hidden="true">
 
   <div class="bm-head bento-animate bento-slide-up">
@@ -5834,13 +6008,8 @@
 </script>
 
 <script>
-/* ── BENTO MOBILE SCROLL ANIMATIONS ── */
+/* ── THEMED SECTIONS SCROLL ANIMATIONS ── */
 (function () {
-  if (window.innerWidth > 768) return;
-  var section = document.getElementById('bentoMobile');
-  if (!section) return;
-  section.removeAttribute('aria-hidden');
-
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -5850,9 +6019,23 @@
     });
   }, { threshold: 0.15 });
 
-  section.querySelectorAll('.bento-animate').forEach(function (el) {
+  document.querySelectorAll('.ts-animate').forEach(function (el) {
     observer.observe(el);
   });
+
+  /* Calendar dot animation for desktop */
+  var dotContainer = document.getElementById('tsDots');
+  if (dotContainer) {
+    var dotObs = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      dotContainer.querySelectorAll('.ts-dot[data-d]').forEach(function (dot) {
+        var delay = parseInt(dot.getAttribute('data-d') || '0', 10);
+        setTimeout(function () { dot.classList.add('animated'); }, delay);
+      });
+      dotObs.disconnect();
+    }, { threshold: 0.4 });
+    dotObs.observe(dotContainer);
+  }
 })();
 </script>
 
