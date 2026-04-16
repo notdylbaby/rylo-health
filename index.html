@@ -2122,7 +2122,7 @@
       /* Product grids — single column, edge-to-edge */
       .prod-grid-top, .prod-grid-bottom { grid-template-columns: 1fr; gap: 2px; }
       .prod-card.tall, .prod-card.short {
-        height: auto; min-height: 280px;
+        height: 260px; min-height: 260px;
         width: 100%; border-radius: 0;
       }
       .prod-card-meta { top: 16px; left: 16px; right: 16px; }
@@ -2135,9 +2135,9 @@
         padding: 24px 24px 0;
         justify-content: flex-end;
       }
-      .prod-name.xl { font-size: 32px; margin-bottom: 4px; }
+      .prod-name.xl { font-size: 28px; margin-bottom: 4px; }
       .prod-name.md { font-size: 28px; margin-bottom: 4px; }
-      .prod-price { font-size: 22px; }
+      .prod-price { font-size: 20px; }
       .prod-save { font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 0; }
       .prod-card-footer {
         flex-direction: column; gap: 8px;
@@ -2779,11 +2779,11 @@
 
   @media (max-width: 768px) {
     .prod-card.tall,
-    .prod-card.short { height: 380px; min-height: 300px; }
+    .prod-card.short { height: 260px; min-height: 260px; }
     .prod-card-content { padding: 0 20px 24px; }
     .prod-card-meta { top: 20px; left: 20px; right: 20px; }
-    .prod-name.xl { font-size: clamp(36px, 10vw, 52px); }
-    .prod-name.md { font-size: clamp(28px, 8vw, 40px); }
+    .prod-name.xl { font-size: 28px; }
+    .prod-name.md { font-size: 28px; }
     .prod-desc { font-size: 13px; }
     .prod-btn {
       width: 100%;
