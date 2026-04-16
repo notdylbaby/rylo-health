@@ -1644,6 +1644,7 @@
     .rn-mobile-menu { display: none; }
     .hero-eligibility-pill { display: none; }
     .hrw-mobile { display: none; }
+    .prod-cat { display: none; }
 
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
@@ -2104,60 +2105,8 @@
       }
 
       /* ── TREATMENTS SECTION ── */
+      /* (detailed card overrides live in the products-section inline <style>) */
       .products-section { padding-top: 0; background: #faf7f2; }
-      .prod-header {
-        padding: 48px 24px 0; margin-bottom: 0;
-        flex-direction: column; align-items: center;
-        justify-content: center; text-align: center; gap: 6px;
-      }
-      .prod-eyebrow {
-        font-size: 10px; letter-spacing: 0.15em;
-        color: rgba(26,26,26,0.3); text-align: center; margin-bottom: 0;
-      }
-      .prod-title { font-size: 32px; text-align: center; margin-bottom: 8px; }
-      .prod-header-note { font-size: 13px; color: rgba(26,26,26,0.4); text-align: center; margin-bottom: 32px; }
-
-      /* Product grids — single column, edge-to-edge */
-      .prod-grid-top, .prod-grid-bottom { grid-template-columns: 1fr; gap: 2px; }
-      .prod-card.tall, .prod-card.short {
-        height: 260px; min-height: 260px;
-        width: 100%; border-radius: 0;
-      }
-      .prod-card-meta { top: 16px; left: 16px; right: 16px; }
-      .prod-badge {
-        font-size: 9px; letter-spacing: 0.1em;
-        background: rgba(184,148,95,0.9); padding: 4px 10px;
-      }
-      .prod-stock { font-size: 9px; }
-      .prod-card-content {
-        padding: 24px 24px 0;
-        justify-content: flex-end;
-      }
-      .prod-name.xl { font-size: 28px; margin-bottom: 4px; }
-      .prod-name.md { font-size: 28px; margin-bottom: 4px; }
-      .prod-price { font-size: 20px; }
-      .prod-save { font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 0; }
-      .prod-card-footer {
-        flex-direction: column; gap: 8px;
-        align-items: flex-start; margin-bottom: 0;
-      }
-      .prod-btn {
-        display: block; width: calc(100% + 48px);
-        margin-left: -24px; margin-right: -24px;
-        margin-top: 12px;
-        padding: 14px; text-align: center;
-        background: rgba(255,255,255,0.95); color: #1a1a1a;
-        font-size: 13px; font-weight: 500;
-        border: none; box-sizing: border-box;
-        border-radius: 0;
-      }
-      /* WELLNESS divider */
-      .prod-divider { padding: 24px 0 12px; }
-      .prod-divider-text {
-        font-size: 10px; letter-spacing: 0.15em;
-        color: rgba(26,26,26,0.25); text-align: center;
-      }
-      .prod-divider-line { display: none; }
 
       /* ── HOW RYLO WORKS — hide desktop version, show mobile version ── */
       .hrw { display: none !important; }
@@ -2840,21 +2789,109 @@
   }
 
   @media (max-width: 768px) {
-    .prod-card.tall,
-    .prod-card.short { height: 260px; min-height: 260px; }
-    .prod-card-content { padding: 0 20px 24px; }
-    .prod-card-meta { top: 20px; left: 20px; right: 20px; }
-    .prod-name.xl { font-size: 28px; }
-    .prod-name.md { font-size: 28px; }
-    .prod-desc { font-size: 13px; }
-    .prod-btn {
-      width: 100%;
-      text-align: center;
-      display: block;
-      box-sizing: border-box;
+    /* Grid */
+    .prod-grid-top, .prod-grid-bottom { grid-template-columns: 1fr; gap: 2px; margin-bottom: 2px; }
+
+    /* Card shell */
+    .prod-card.tall, .prod-card.short {
+      height: 340px; min-height: 340px;
+      position: relative; width: 100%; overflow: hidden; border-radius: 0;
     }
-    .prod-divider { padding: 20px 20px 0; }
-    .prod-footnote { padding: 24px 20px 0; }
+
+    /* Gradient — lighter, cinematic */
+    .prod-card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75) 0%,
+        rgba(0,0,0,0.3) 40%,
+        rgba(0,0,0,0.05) 70%
+      ) !important;
+    }
+
+    /* Badges — top strip */
+    .prod-card-meta { top: 16px; left: 20px; right: 20px; }
+    .prod-tag { display: none; }
+    .prod-badge {
+      font-size: 8px; letter-spacing: 0.12em; padding: 4px 10px;
+      background: #B8945F; color: #fff; border-radius: 0;
+    }
+    .prod-stock {
+      font-size: 8px; background: transparent; border: none;
+      color: rgba(255,255,255,0.7); padding: 0; gap: 5px;
+    }
+
+    /* Content — bottom-left */
+    .prod-card-content {
+      position: absolute; inset: 0;
+      padding: 0 20px 20px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      z-index: 2;
+    }
+
+    /* Category label — mobile only */
+    .prod-cat {
+      display: block !important;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Hide "Joined by" */
+    .prod-joined { display: none !important; }
+
+    /* Product name */
+    .prod-name.xl, .prod-name.md {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 34px; font-weight: 400;
+      color: #fff; line-height: 1.0;
+      letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+
+    /* Card footer — price left only (button is absolute) */
+    .prod-card-footer {
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 0;
+      padding-right: 140px; /* clear space for abs button */
+    }
+
+    /* Price */
+    .prod-price.xl, .prod-price.md {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px; font-weight: 500;
+      color: #fff; letter-spacing: -0.01em; line-height: 1;
+    }
+    .prod-price-mo { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; }
+    .prod-desc { display: none; }
+
+    /* Save line */
+    .prod-save {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.5);
+      margin-top: 4px; font-weight: 400;
+    }
+    .prod-save strong { color: #B8945F; font-weight: 500; }
+
+    /* Button — absolute bottom-right */
+    .prod-btn {
+      position: absolute !important;
+      bottom: 20px; right: 20px;
+      width: auto !important; display: inline-block !important;
+      padding: 10px 20px !important;
+      background: rgba(255,255,255,0.95) !important; color: #1a1a1a !important;
+      font-size: 12px !important; font-weight: 500;
+      border-radius: 0; margin: 0 !important;
+      white-space: nowrap;
+    }
+
+    /* Divider */
+    .prod-divider { padding: 20px 20px 8px; }
+    .prod-divider-text {
+      font-size: 10px; letter-spacing: 0.15em;
+      color: rgba(26,26,26,0.25); text-align: left;
+    }
+    .prod-divider-line { display: none; }
+
+    .prod-footnote { padding: 24px 20px; }
   }
 </style>
 
@@ -2868,8 +2905,9 @@
         <span class="prod-badge">Most popular</span>
       </div>
       <div class="prod-card-content">
+        <div class="prod-cat">GLP-1 + GIP · Weekly</div>
         <div class="prod-name xl">Tirzepatide</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;text-transform:none;margin-bottom:16px;font-family:var(--font);">Joined by 2,400+ patients</div>
+        <div class="prod-joined" style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;text-transform:none;margin-bottom:16px;font-family:var(--font);">Joined by 2,400+ patients</div>
         <div class="prod-card-footer">
           <div>
             <div class="prod-price xl">$179<span class="prod-price-mo">/mo</span></div>
@@ -2888,6 +2926,7 @@
         <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
       </div>
       <div class="prod-card-content">
+        <div class="prod-cat">GLP-1 · Weekly</div>
         <div class="prod-name xl">Semaglutide</div>
         <div class="prod-card-footer">
           <div>
@@ -2916,6 +2955,7 @@
         <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
       </div>
       <div class="prod-card-content">
+        <div class="prod-cat">Growth hormone</div>
         <div class="prod-name md">Sermorelin</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$159<span class="prod-price-mo">/mo</span></div>
@@ -2932,6 +2972,7 @@
         <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
       </div>
       <div class="prod-card-content">
+        <div class="prod-cat">Detox · Immune</div>
         <div class="prod-name md">Glutathione</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$89<span class="prod-price-mo">/mo</span></div>
@@ -2948,6 +2989,7 @@
         <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
       </div>
       <div class="prod-card-content">
+        <div class="prod-cat">Cellular repair</div>
         <div class="prod-name md">NAD+</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$139<span class="prod-price-mo">/mo</span></div>
