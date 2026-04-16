@@ -1646,6 +1646,7 @@
     .rn-hamburger { display: none; }
     .rn-mobile-menu { display: none; }
     .hero-eligibility-pill { display: none; }
+    .hrw-mobile { display: none; }
 
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
@@ -2161,51 +2162,134 @@
       }
       .prod-divider-line { display: none; }
 
-      /* ── HOW RYLO WORKS ── */
-      /* Overrides the internal HRW responsive block */
-      .hrw { padding: 56px 24px !important; background: #faf7f2 !important; }
-      .hrw-h2 {
-        font-family: 'Cormorant Garamond', Georgia, serif !important;
-        font-size: 32px !important; text-align: center !important;
-        color: #1a1a1a !important; margin-bottom: 8px !important;
+      /* ── HOW RYLO WORKS — hide desktop version, show mobile version ── */
+      .hrw { display: none !important; }
+      .hrw-mobile { display: block !important; }
+
+      /* ── HRW MOBILE LAYOUT ── */
+      .hrw-mobile {
+        background: #faf7f2;
+        padding: 0;
       }
-      .hrw-h2 em { color: #1a1a1a !important; }
-      .hrw-eyebrow {
-        font-size: 13px !important; text-align: center !important;
-        color: rgba(26,26,26,0.4) !important; margin-bottom: 40px !important; max-width: 100% !important;
+      .hrw-mobile-head {
+        padding: 56px 24px 32px;
+        text-align: center;
       }
-      .hrw-step {
-        padding: 24px 0 !important; border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+      .hrw-mobile-eyebrow {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 10px; letter-spacing: 0.14em;
+        color: rgba(26,26,26,0.3); text-transform: uppercase;
+        margin-bottom: 10px;
       }
-      .hrw-step:last-child { border-bottom: none !important; }
-      .hrw-card {
-        flex-direction: column !important;
-        background: transparent !important; border: none !important;
-        backdrop-filter: none !important;
+      .hrw-mobile-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 36px; font-weight: 400;
+        color: #1a1a1a; line-height: 1.1;
+        letter-spacing: -0.02em; margin-bottom: 10px;
       }
-      .hrw-left {
-        flex: none !important; border: none !important;
-        padding: 0 0 6px !important;
+      .hrw-mobile-sub {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px; color: rgba(26,26,26,0.4);
+        line-height: 1.6; max-width: 280px; margin: 0 auto;
       }
-      .hrw-right { padding: 0 !important; }
-      .hrw-num {
-        font-family: 'Cormorant Garamond', Georgia, serif !important;
-        font-size: 14px !important; color: rgba(26,26,26,0.2) !important;
-        margin-bottom: 8px !important;
+      /* Scroll steps container */
+      .hrw-mobile-body {
+        display: flex;
+        padding: 0 24px 0 0;
+        position: relative;
       }
-      .hrw-title {
-        font-family: 'Plus Jakarta Sans', sans-serif !important;
-        font-size: 18px !important; font-weight: 600 !important;
-        color: #1a1a1a !important; margin-bottom: 6px !important;
-        line-height: 1.2 !important;
+      /* Left progress track */
+      .hrw-progress-track {
+        width: 40px;
+        flex-shrink: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-      .hrw-desc {
-        font-size: 14px !important; line-height: 1.6 !important;
-        color: rgba(26,26,26,0.45) !important;
+      .hrw-progress-line-bg {
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 50%; transform: translateX(-50%);
+        width: 2px;
+        background: rgba(0,0,0,0.07);
+        z-index: 0;
       }
-      .hrw-cta-mobile {
-        display: block !important;
-        width: 100%; padding: 16px; margin-top: 32px;
+      .hrw-progress-line-fill {
+        position: absolute;
+        top: 0; left: 50%; transform: translateX(-50%);
+        width: 2px;
+        background: #1a1a1a;
+        height: 0%;
+        z-index: 1;
+        transition: height 0.4s ease;
+      }
+      .hrw-dot-wrap {
+        position: absolute;
+        left: 50%; transform: translateX(-50%);
+        z-index: 2;
+      }
+      .hrw-dot {
+        width: 12px; height: 12px;
+        border-radius: 50%;
+        border: 2px solid rgba(0,0,0,0.1);
+        background: #faf7f2;
+        transition: background 0.4s ease, border-color 0.4s ease;
+        display: block;
+      }
+      .hrw-dot.active {
+        background: #1a1a1a;
+        border-color: #1a1a1a;
+      }
+      /* Right steps */
+      .hrw-mobile-steps {
+        flex: 1;
+      }
+      .hrw-mobile-step {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px 0 40px 24px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .hrw-mobile-step.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hrw-mobile-step-num {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; letter-spacing: 0.12em;
+        color: rgba(26,26,26,0.25);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+      .hrw-mobile-step-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 26px; font-weight: 400;
+        color: #1a1a1a; line-height: 1.2;
+        margin-bottom: 8px;
+      }
+      .hrw-mobile-step-desc {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; color: rgba(26,26,26,0.4);
+        line-height: 1.7; max-width: 300px;
+      }
+      .hrw-mobile-step-img {
+        width: 100%; height: 200px;
+        background: rgba(0,0,0,0.04);
+        border-radius: 12px;
+        margin-top: 20px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(0,0,0,0.15);
+      }
+      .hrw-mobile-cta {
+        display: block;
+        margin: 0 24px 56px;
+        padding: 16px;
         background: #1a1a1a; color: #fff;
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 14px; font-weight: 500;
@@ -3213,6 +3297,48 @@
     </div>
     <!-- Mobile-only CTA (hidden on desktop via CSS) -->
     <a href="intake.html" class="hrw-cta-mobile" style="display:none;">Start your free assessment →</a>
+</section>
+
+<!-- ─── HOW RYLO WORKS — MOBILE VERSION ─── -->
+<section class="hrw-mobile" id="how-it-works-mobile" aria-hidden="true">
+  <div class="hrw-mobile-head">
+    <div class="hrw-mobile-eyebrow">The Process</div>
+    <h2 class="hrw-mobile-title">How it works</h2>
+    <p class="hrw-mobile-sub">A quick, guided process to get your treatment.</p>
+  </div>
+
+  <div class="hrw-mobile-body">
+    <!-- Left: progress track -->
+    <div class="hrw-progress-track" id="hrwProgressTrack">
+      <div class="hrw-progress-line-bg"></div>
+      <div class="hrw-progress-line-fill" id="hrwLineFill"></div>
+      <!-- Dots injected by JS -->
+    </div>
+
+    <!-- Right: steps -->
+    <div class="hrw-mobile-steps">
+      <div class="hrw-mobile-step" data-step="0">
+        <div class="hrw-mobile-step-num">01</div>
+        <h3 class="hrw-mobile-step-title">Complete your assessment</h3>
+        <p class="hrw-mobile-step-desc">Answer a few questions about your health, goals, and medical history. Takes about 3 minutes.</p>
+        <div class="hrw-mobile-step-img">Image</div>
+      </div>
+      <div class="hrw-mobile-step" data-step="1">
+        <div class="hrw-mobile-step-num">02</div>
+        <h3 class="hrw-mobile-step-title">Provider review</h3>
+        <p class="hrw-mobile-step-desc">A licensed provider reviews your profile and determines the right treatment plan for you.</p>
+        <div class="hrw-mobile-step-img">Image</div>
+      </div>
+      <div class="hrw-mobile-step" data-step="2">
+        <div class="hrw-mobile-step-num">03</div>
+        <h3 class="hrw-mobile-step-title">Medication ships to you</h3>
+        <p class="hrw-mobile-step-desc">If approved, your prescription is filled by a licensed US pharmacy and shipped free to your door.</p>
+        <div class="hrw-mobile-step-img">Image</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="intake.html" class="hrw-mobile-cta">Start your assessment →</a>
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -5068,6 +5194,80 @@
   }
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
+})();
+</script>
+
+<script>
+/* ── MOBILE HRW STICKY PROGRESS ── */
+(function () {
+  if (window.innerWidth > 768) return;
+
+  var steps = document.querySelectorAll('.hrw-mobile-step');
+  var track = document.getElementById('hrwProgressTrack');
+  var lineFill = document.getElementById('hrwLineFill');
+  if (!steps.length || !track || !lineFill) return;
+
+  /* Build dots — one per step, positioned proportionally */
+  var dots = [];
+  var stepCount = steps.length;
+  steps.forEach(function (step, i) {
+    var wrap = document.createElement('div');
+    wrap.className = 'hrw-dot-wrap';
+    /* Position at 1/6, 3/6, 5/6 of full height — centred in each step third */
+    wrap.style.top = ((i / stepCount) * 100 + (100 / stepCount / 2)) + '%';
+    var dot = document.createElement('span');
+    dot.className = 'hrw-dot';
+    wrap.appendChild(dot);
+    track.appendChild(wrap);
+    dots.push({ wrap: wrap, dot: dot });
+  });
+
+  var activeUpTo = -1;
+
+  function setActive(upTo) {
+    if (upTo === activeUpTo) return;
+    activeUpTo = upTo;
+    dots.forEach(function (d, i) {
+      if (i <= upTo) {
+        d.dot.classList.add('active');
+      } else {
+        d.dot.classList.remove('active');
+      }
+    });
+    /* Fill line to centre of last active dot */
+    if (upTo < 0) {
+      lineFill.style.height = '0%';
+    } else {
+      var pct = (upTo / stepCount) * 100 + (100 / stepCount / 2);
+      lineFill.style.height = pct + '%';
+    }
+  }
+
+  /* IntersectionObserver for each step */
+  var stepActive = new Array(stepCount).fill(false);
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var idx = parseInt(entry.target.dataset.step, 10);
+      stepActive[idx] = entry.isIntersecting;
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active');
+      }
+    });
+    /* Highest active index drives the progress line */
+    var highest = -1;
+    stepActive.forEach(function (active, i) { if (active) highest = i; });
+    /* Also keep previously seen steps permanently filled */
+    setActive(highest);
+  }, { threshold: 0.5 });
+
+  steps.forEach(function (step) { obs.observe(step); });
+
+  /* Also make the mobile section visible to aria */
+  var mobileSection = document.getElementById('how-it-works-mobile');
+  if (mobileSection) mobileSection.removeAttribute('aria-hidden');
 })();
 </script>
 
