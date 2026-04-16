@@ -1646,6 +1646,7 @@
     .hrw-mobile { display: none; }
     .prod-cat { display: none; }
     .prod-mobile { display: none; }
+    .bento-mobile { display: none; }
 
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
@@ -2350,8 +2351,236 @@
         border-radius: 0;
       }
 
-      /* ── BENTO — text-only stacked list ── */
-      .why-section { background: #faf7f2 !important; padding: 56px 0 40px !important; }
+      /* ── BENTO — hide desktop, show mobile rebuild ── */
+      .why-section { display: none !important; }
+      .bento-mobile { display: block !important; background: #faf7f2; }
+
+      /* Bento mobile: section heading */
+      .bm-head {
+        padding: 48px 20px 28px; text-align: center;
+      }
+      .bm-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 28px; font-weight: 400; color: #1a1a1a; line-height: 1.15;
+      }
+      .bm-title em {
+        font-style: italic; color: #C4724A;
+      }
+
+      /* Animation base */
+      .bento-animate {
+        opacity: 0;
+        transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      }
+      .bento-animate.in-view { opacity: 1; }
+      .bento-slide-up { transform: translateY(30px); }
+      .bento-slide-up.in-view { transform: translateY(0); }
+      .bento-slide-left { transform: translateX(-30px); }
+      .bento-slide-left.in-view { transform: translateX(0); }
+      .bento-slide-right { transform: translateX(30px); }
+      .bento-slide-right.in-view { transform: translateX(0); }
+      .bento-scale { transform: scale(1.05); }
+      .bento-scale.in-view { transform: scale(1); }
+
+      /* Card 1 — 48 hours image card */
+      .bm-c1 {
+        position: relative; height: 300px; overflow: hidden;
+      }
+      .bm-c1-img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+      }
+      .bm-c1-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      }
+      .bm-c1-text {
+        position: absolute; bottom: 0; left: 0; padding: 24px 20px;
+      }
+      .bm-c1-big {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 36px; font-style: italic; color: #fff;
+        line-height: 1; display: block; margin-bottom: 4px;
+      }
+      .bm-c1-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px; font-weight: 600; color: #fff; display: block; margin-bottom: 3px;
+      }
+      .bm-c1-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; color: rgba(255,255,255,0.5); display: block;
+      }
+
+      /* Card 2 — one flat price */
+      .bm-c2 {
+        background: #1a1a1a; padding: 32px 20px;
+      }
+      .bm-c2-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 28px; font-weight: 400; color: #fff; line-height: 1.1;
+      }
+      .bm-c2-title em { font-style: italic; color: #B8945F; }
+      .bm-c2-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 10px; line-height: 1.6;
+      }
+
+      /* Card 3 — lifestyle image breather */
+      .bm-c3 {
+        height: 220px; overflow: hidden; position: relative;
+      }
+      .bm-c3 img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+        transition: transform 1.2s ease;
+      }
+      .bm-c3.in-view img { transform: scale(1) !important; }
+
+      /* Card 4 — clinician */
+      .bm-c4 {
+        position: relative; height: 260px; overflow: hidden;
+      }
+      .bm-c4 img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+      }
+      .bm-c4-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+      }
+      .bm-c4-text {
+        position: absolute; bottom: 0; left: 0; padding: 24px 20px;
+      }
+      .bm-c4-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 600; color: #fff; display: block; margin-bottom: 4px;
+      }
+      .bm-c4-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(255,255,255,0.55); display: block;
+      }
+
+      /* Card 5 — split stats */
+      .bm-c5 {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+      }
+      .bm-c5-half {
+        padding: 28px 16px; background: #faf7f2;
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+      .bm-c5-label {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+        color: rgba(26,26,26,0.3); display: block; margin-bottom: 6px;
+      }
+      .bm-c5-num {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 26px; font-weight: 400; color: #1a1a1a;
+        display: block; margin-bottom: 6px; line-height: 1;
+      }
+      .bm-c5-sub {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 10px; color: rgba(26,26,26,0.35); line-height: 1.5;
+      }
+
+      /* Card 6 — pharmacy */
+      .bm-c6 {
+        position: relative; height: 260px; overflow: hidden;
+      }
+      .bm-c6 img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+      }
+      .bm-c6-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+      }
+      .bm-c6-text {
+        position: absolute; bottom: 0; right: 0; padding: 24px 20px; text-align: right;
+      }
+      .bm-c6-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 600; color: #fff; display: block; margin-bottom: 4px;
+      }
+      .bm-c6-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(255,255,255,0.55); display: block;
+      }
+
+      /* Card 7 — 1-on-1 */
+      .bm-c7 {
+        height: 120px; display: flex; background: #fff; overflow: hidden;
+      }
+      .bm-c7-img {
+        width: 40%; object-fit: cover; display: block; flex-shrink: 0;
+      }
+      .bm-c7-text {
+        flex: 1; padding: 20px;
+      }
+      .bm-c7-big {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 24px; font-style: italic; color: #1a1a1a; display: block;
+      }
+      .bm-c7-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; font-weight: 600; color: #1a1a1a;
+        display: block; margin-top: 4px;
+      }
+      .bm-c7-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; color: rgba(26,26,26,0.4); display: block; margin-top: 4px;
+      }
+
+      /* Card 8 — rylo box */
+      .bm-c8 {
+        position: relative; height: 280px; overflow: hidden;
+      }
+      .bm-c8 img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+      }
+      .bm-c8-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      }
+      .bm-c8-text {
+        position: absolute; bottom: 0; left: 0; padding: 24px 20px;
+      }
+      .bm-c8-big {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 32px; font-style: italic; color: #fff; display: block; margin-bottom: 4px;
+      }
+      .bm-c8-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 13px; font-weight: 600; color: #fff; display: block; margin-bottom: 3px;
+      }
+      .bm-c8-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; color: rgba(255,255,255,0.5); display: block;
+      }
+
+      /* Card 9 — Finally */
+      .bm-c9 {
+        background: #1a1a1a; padding: 40px 20px;
+      }
+      .bm-c9-big {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 34px; font-style: italic; color: #fff; display: block; margin-bottom: 8px;
+      }
+      .bm-c9-h {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 600; color: #fff; display: block;
+      }
+      .bm-c9-p {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(255,255,255,0.45);
+        line-height: 1.6; margin-top: 10px; max-width: 300px; display: block;
+      }
+      .bm-c9-note {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 12px; color: rgba(255,255,255,0.6);
+        font-weight: 500; margin-top: 12px; display: block;
+      }
+
+      /* Gap between cards */
+      .bm-cards { display: flex; flex-direction: column; gap: 3px; }
+
+      /* ── BENTO old desktop — hidden, legacy rules no longer needed ── */
       .why-inner { overflow: hidden; }
       .why-top { padding: 0 24px 32px; text-align: center; }
       .why-title {
@@ -4164,6 +4393,104 @@
 </div>
 </section>
 
+<!-- ─── BENTO — MOBILE VERSION ─── -->
+<section class="bento-mobile" id="bentoMobile" aria-hidden="true">
+
+  <div class="bm-head bento-animate bento-slide-up">
+    <p class="bm-title">Everything they charge extra for.<br><em>Included.</em></p>
+  </div>
+
+  <div class="bm-cards">
+
+    <!-- Card 1: 48 hours -->
+    <div class="bm-c1 bento-animate bento-slide-up">
+      <img class="bm-c1-img" src="aiwomancomputer.png" alt="48 hour response" />
+      <div class="bm-c1-overlay"></div>
+      <div class="bm-c1-text">
+        <span class="bm-c1-big">48 hours</span>
+        <span class="bm-c1-h">Real responses. Real people.</span>
+        <span class="bm-c1-p">Questions answered by your care team — not a chatbot.</span>
+      </div>
+    </div>
+
+    <!-- Card 2: One flat price -->
+    <div class="bm-c2 bento-animate" style="transition-delay:0.05s">
+      <p class="bm-c2-title">One flat <em>price.</em></p>
+      <p class="bm-c2-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
+    </div>
+
+    <!-- Card 3: Lifestyle image -->
+    <div class="bm-c3 bento-animate bento-scale">
+      <img src="asianwomanjeans.png" alt="Rylo patient" style="transform:scale(1.05);" />
+    </div>
+
+    <!-- Card 4: Clinician -->
+    <div class="bm-c4 bento-animate bento-slide-up" style="transition-delay:0.05s">
+      <img src="doctor.png" alt="Board-certified clinician" />
+      <div class="bm-c4-overlay"></div>
+      <div class="bm-c4-text">
+        <span class="bm-c4-h">Board-certified clinician</span>
+        <span class="bm-c4-p">Reviewed by a licensed US provider — not an algorithm.</span>
+      </div>
+    </div>
+
+    <!-- Card 5: Split stats -->
+    <div class="bm-c5">
+      <div class="bm-c5-half bento-animate bento-slide-left">
+        <span class="bm-c5-label">Visible results in</span>
+        <span class="bm-c5-num">2–4 weeks</span>
+        <span class="bm-c5-sub">Avg time to notice meaningful changes</span>
+      </div>
+      <div class="bm-c5-half bento-animate bento-slide-right" style="transition-delay:0.15s">
+        <span class="bm-c5-label">Not a fad. Real change.</span>
+        <span class="bm-c5-num">20.2%</span>
+        <span class="bm-c5-sub">Average body weight lost in trials</span>
+      </div>
+    </div>
+
+    <!-- Card 6: Pharmacy -->
+    <div class="bm-c6 bento-animate bento-slide-up" style="transition-delay:0.05s">
+      <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
+      <div class="bm-c6-overlay"></div>
+      <div class="bm-c6-text">
+        <span class="bm-c6-h">Licensed US pharmacy</span>
+        <span class="bm-c6-p">FDA-registered. Third-party tested.</span>
+      </div>
+    </div>
+
+    <!-- Card 7: 1-on-1 -->
+    <div class="bm-c7 bento-animate bento-slide-left" style="transition-delay:0.05s">
+      <img class="bm-c7-img" src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
+      <div class="bm-c7-text">
+        <span class="bm-c7-big">1-on-1</span>
+        <span class="bm-c7-h">A provider who actually knows you</span>
+        <span class="bm-c7-p">Reviews your health, adjusts your dose, answers directly.</span>
+      </div>
+    </div>
+
+    <!-- Card 8: Rylo box / free shipping -->
+    <div class="bm-c8 bento-animate bento-scale" style="transition-delay:0.05s">
+      <img src="rylohealthpackage.png" alt="Free monthly shipping" />
+      <div class="bm-c8-overlay"></div>
+      <div class="bm-c8-text">
+        <span class="bm-c8-big">Free</span>
+        <span class="bm-c8-h">Free shipping, every month.</span>
+        <span class="bm-c8-p">Same price at every dose. Licensed US pharmacy.</span>
+      </div>
+    </div>
+
+    <!-- Card 9: Finally -->
+    <div class="bm-c9 bento-animate" style="transition-delay:0.05s; transition-duration:1s">
+      <span class="bm-c9-big">Finally.</span>
+      <span class="bm-c9-h">Something that actually works.</span>
+      <span class="bm-c9-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</span>
+      <span class="bm-c9-note">If you're not approved, you don't pay.</span>
+    </div>
+
+  </div>
+
+</section>
+
 <!-- ─── BEFORE/AFTER + CALCULATOR ─── -->
 <style>
   .bac-section {
@@ -5502,6 +5829,29 @@
     setTimeout(function () {
       el.classList.add('pm-visible');
     }, delays[idx] || 300);
+  });
+})();
+</script>
+
+<script>
+/* ── BENTO MOBILE SCROLL ANIMATIONS ── */
+(function () {
+  if (window.innerWidth > 768) return;
+  var section = document.getElementById('bentoMobile');
+  if (!section) return;
+  section.removeAttribute('aria-hidden');
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  section.querySelectorAll('.bento-animate').forEach(function (el) {
+    observer.observe(el);
   });
 })();
 </script>
