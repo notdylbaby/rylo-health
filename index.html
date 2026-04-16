@@ -120,7 +120,7 @@
     .rylo-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,3vw,48px);overflow:visible;background:transparent;border-bottom:1px solid transparent;transition:background 0.5s cubic-bezier(0.22,1,0.36,1),border-color 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s cubic-bezier(0.22,1,0.36,1)}
     .rylo-nav.scrolled{background:rgba(250,247,242,0.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:rgba(0,0,0,0.07);box-shadow:0 1px 12px rgba(0,0,0,0.03)}
     .rn-logo{text-decoration:none;display:flex;align-items:center;flex-shrink:0}
-    .rn-logo img{height:120px;width:auto;transition:filter 0.5s cubic-bezier(0.22,1,0.36,1),opacity 0.3s}
+    .rn-logo img{height:160px;width:auto;transition:filter 0.5s cubic-bezier(0.22,1,0.36,1),opacity 0.3s}
     .rn-logo-white{display:block}.rn-logo-dark{display:none}
     .rylo-nav.scrolled .rn-logo-white{display:none}
     .rylo-nav.scrolled .rn-logo-dark{display:block}
@@ -1656,7 +1656,7 @@
       padding-bottom: 40px;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .footer-brand img { height: 100px; width: auto; opacity: 0.7; margin-bottom: 10px; display: block; }
+    .footer-brand img { height: 140px; width: auto; opacity: 0.8; margin-bottom: 10px; display: block; }
     .footer-brand .footer-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.3); margin-bottom: 10px; display: block; }
     .footer-brand p { font-size: 13px; line-height: 1.7; font-weight: 400; color: rgba(255,255,255,0.45); max-width: 280px; }
     .footer-col-title { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
@@ -1956,7 +1956,7 @@
         backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(0,0,0,0.05) !important;
       }
-      .rn-logo img { height: 22px; }
+      .rn-logo img { height: 48px; }
       .rn-logo-white { display: block !important; }
       .rn-logo-dark { display: none !important; }
       .rylo-nav.scrolled .rn-logo-white { display: none !important; }
@@ -2226,25 +2226,24 @@
         padding: 0;
       }
       .hrw-mobile-head {
-        padding: 56px 24px 32px;
+        padding: 64px 24px 40px;
         text-align: center;
       }
-      .hrw-mobile-eyebrow {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 10px; letter-spacing: 0.14em;
-        color: rgba(26,26,26,0.3); text-transform: uppercase;
-        margin-bottom: 10px;
+      .hrw-mobile-logo {
+        display: block; margin: 0 auto 20px;
+        height: 56px; width: auto; opacity: 0.85;
       }
+      .hrw-mobile-eyebrow { display: none; }
       .hrw-mobile-title {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 36px; font-weight: 400;
-        color: #1a1a1a; line-height: 1.1;
-        letter-spacing: -0.02em; margin-bottom: 10px;
+        font-size: 44px; font-weight: 400; font-style: italic;
+        color: #1a1a1a; line-height: 1.05;
+        letter-spacing: -0.02em; margin-bottom: 14px;
       }
       .hrw-mobile-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 13px; color: rgba(26,26,26,0.4);
-        line-height: 1.6; max-width: 280px; margin: 0 auto;
+        line-height: 1.7; max-width: 260px; margin: 0 auto;
       }
       /* Scroll steps container */
       .hrw-mobile-body {
@@ -2438,7 +2437,7 @@
       /* ── FOOTER ── */
       .footer-inner { padding: 48px 24px 100px; }
       .footer-top { grid-template-columns: 1fr; gap: 0; text-align: center; }
-      .footer-brand img { height: 20px; margin: 0 auto 12px; }
+      .footer-brand img { height: 80px; margin: 0 auto 12px; opacity: 0.8; }
       .footer-brand .footer-tagline { font-size: 13px; text-align: center; font-style: italic; color: rgba(255,255,255,0.3); }
       .footer-brand p { display: none; } /* hide long description on mobile */
       .footer-col-title { font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.25); margin-top: 28px; }
@@ -3499,8 +3498,9 @@
 <section class="hrw-mobile" id="how-it-works-mobile" aria-hidden="true">
   <div class="hrw-mobile-head">
     <div class="hrw-mobile-eyebrow">The Process</div>
-    <h2 class="hrw-mobile-title">How it works</h2>
-    <p class="hrw-mobile-sub">A quick, guided process to get your treatment.</p>
+    <img class="hrw-mobile-logo" src="blackrylologoofficial.png" alt="Rylo Health" />
+    <h2 class="hrw-mobile-title">How <em>rylo</em> works</h2>
+    <p class="hrw-mobile-sub">A quick, guided process to receive personalized treatment and your medication in just a few days.</p>
   </div>
 
   <div class="hrw-mobile-body">
