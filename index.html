@@ -24,8 +24,8 @@
       --ivory-dark:  #E4DACE;
       --charcoal:    #1A1A1A;
       --charcoal-80: rgba(26,26,26,0.80);
-      --charcoal-60: rgba(26,26,26,0.55);
-      --charcoal-40: rgba(26,26,26,0.35);
+      --charcoal-60: rgba(26,26,26,0.68);
+      --charcoal-40: rgba(26,26,26,0.5);
       --charcoal-20: rgba(26,26,26,0.10);
       --soft-gray:   #F0EBE1;
       --sage:        #3d5c35;
@@ -51,7 +51,7 @@
       color: var(--charcoal-80);
       font-size: 1rem;
       line-height: 1.4;
-      font-weight: 300;
+      font-weight:400;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
@@ -98,7 +98,7 @@
       font-family: var(--font);
       font-size: 11px;
       font-weight: 400;
-      color: rgba(26,26,26,0.3);
+      color: rgba(26,26,26,0.45);
       padding: 0 20px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -159,12 +159,12 @@
     .rn-dd-item[data-product="glut"]
     .rn-dd-body{flex:1;min-width:0}
     .rn-dd-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;margin-bottom:2px}
-    .rn-dd-desc{font-size:12px;font-weight:400;color:rgba(26,26,26,0.4);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rn-dd-item[data-product="tirz"] .rn-dd-name{color:#C4724A}.rn-dd-item[data-product="sema"] .rn-dd-name{color:#7AADC5}.rn-dd-item[data-product="serm"] .rn-dd-name{color:#8FA976}.rn-dd-item[data-product="nad"] .rn-dd-name{color:#9B8BB4}.rn-dd-item[data-product="glut"] .rn-dd-name{color:#B5727A}
+    .rn-dd-desc{font-size:12px;font-weight:400;color:rgba(26,26,26,0.68);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rn-dd-item[data-product="tirz"] .rn-dd-name{color:#C4724A}.rn-dd-item[data-product="sema"] .rn-dd-name{color:#7AADC5}.rn-dd-item[data-product="serm"] .rn-dd-name{color:#8FA976}.rn-dd-item[data-product="nad"] .rn-dd-name{color:#9B8BB4}.rn-dd-item[data-product="glut"] .rn-dd-name{color:#B5727A}
     .rn-dd-price{font-family:'DM Sans','Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#1a1a1a;white-space:nowrap;flex-shrink:0;min-width:75px;text-align:right}
-    .rn-dd-price span{font-weight:300;color:rgba(26,26,26,0.3)}
+    .rn-dd-price span{font-weight:400;color:rgba(26,26,26,0.45)}
     .rn-dd-divider{height:1px;background:rgba(0,0,0,0.05);margin:4px 16px}
     .rn-dd-footer{display:flex;align-items:center;justify-content:center;padding:12px 16px 6px}
-    .rn-dd-footer a{font-size:12px;font-weight:500;color:rgba(26,26,26,0.35);text-decoration:none;transition:color 0.2s}
+    .rn-dd-footer a{font-size:12px;font-weight:500;color:rgba(26,26,26,0.5);text-decoration:none;transition:color 0.2s}
     .rn-dd-footer a:hover{color:#1a1a1a}
     @media(max-width:768px){.rn-links{display:none}.rn-ghost{display:none}}
 
@@ -307,9 +307,9 @@
     .hero h1 {
       font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
       font-size: clamp(3.2rem, 5.5vw, 5.2rem);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.08;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       color: #fff;
       text-shadow: 0 2px 32px rgba(0,0,0,0.22);
       margin-bottom: 22px;
@@ -327,8 +327,9 @@
       display: block;
       font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
       font-size: clamp(3.4rem, 6vw, 6rem);
-      font-weight: 400;
-      line-height: 1.05;
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
       color: #fff;
     }
 
@@ -336,17 +337,17 @@
       display: block;
       font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
       font-size: clamp(2.2rem, 4vw, 4rem);
-      font-weight: 400;
+      font-weight: 500;
       font-style: italic;
       line-height: 1.15;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.85);
       margin-top: 6px;
     }
 
     .hero-sub {
       font-family: var(--font);
       font-size: clamp(14px, 1.4vw, 17px);
-      font-weight: 300;
+      font-weight:400;
       color: rgba(255,255,255,0.80);
       line-height: 1.75;
       max-width: 420px;
@@ -581,19 +582,20 @@
 
     .how-left-h2 {
       font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 300;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
       color: var(--charcoal);
       margin-bottom: 20px;
     }
 
-    .how-left-h2 em { font-style: italic; color: var(--sage); font-weight: 300; }
+    .how-left-h2 em { font-style: italic; color: var(--sage); font-weight: 500; }
 
     .how-left-p {
-      font-size: 0.9rem;
+      font-size: 1rem;
+      font-weight: 500;
       color: var(--charcoal-60);
-      line-height: 1.78;
+      line-height: 1.75;
       max-width: 320px;
       margin-bottom: 36px;
     }
@@ -606,7 +608,7 @@
       color: var(--charcoal);
       font-family: var(--font);
       font-size: 0.72rem;
-      font-weight: 300;
+      font-weight:400;
       letter-spacing: 0.10em;
       text-transform: uppercase;
       text-decoration: none;
@@ -690,7 +692,7 @@
 
     .how-list-desc {
       font-size: 0.92rem;
-      font-weight: 300;
+      font-weight:400;
       color: var(--charcoal-60);
       line-height: 1.75;
     }
@@ -710,17 +712,17 @@
     }
 
     .section-h2 {
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-      font-weight: 300;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
       color: var(--charcoal);
       margin-bottom: 16px;
     }
 
-    .section-h2 em { font-style: italic; color: var(--sage); font-weight: 300; }
+    .section-h2 em { font-style: italic; color: var(--sage); font-weight: 500; }
 
-    .section-p { font-size: 0.94rem; font-weight: 300; color: var(--charcoal-60); line-height: 1.8; max-width: 460px; letter-spacing: 0.01em; }
+    .section-p { font-size: 1rem; font-weight: 400; color: var(--charcoal-60); line-height: 1.8; max-width: 460px; letter-spacing: 0.005em; }
 
     /* ─── CALCULATOR ─── */
     .calc-card {
@@ -761,7 +763,7 @@
 
     .calc-num-unit {
       font-size: 1.5rem;
-      font-weight: 300;
+      font-weight:400;
       color: var(--charcoal-40);
       letter-spacing: -0.01em;
       margin-left: 4px;
@@ -804,7 +806,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 0.66rem;
-      font-weight: 300;
+      font-weight:400;
       color: var(--charcoal-40);
       margin-top: 6px;
       margin-bottom: 32px;
@@ -884,7 +886,7 @@
 
     .calc-milestone-unit {
       font-size: 0.64rem;
-      font-weight: 300;
+      font-weight:400;
       color: var(--charcoal-40);
     }
 
@@ -1255,7 +1257,7 @@
       align-items: center;
       justify-content: center;
       font-size: 1.1rem;
-      font-weight: 300;
+      font-weight:400;
       color: var(--charcoal);
       transition: background 0.2s ease, transform 0.35s cubic-bezier(0.34,1.4,0.64,1);
       line-height: 1;
@@ -1282,7 +1284,7 @@
       padding: 0 20px 16px;
       font-family: var(--font);
       font-size: 0.85rem;
-      font-weight: 300;
+      font-weight:400;
       color: var(--charcoal-60);
       line-height: 1.7;
       max-width: 600px;
@@ -1786,7 +1788,7 @@
     .modal-step.going-back { animation: step-back 0.4s cubic-bezier(0.34,1.2,0.64,1); }
 
     .modal-step-eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
-    .modal-step-heading { font-size: 1.65rem; font-weight: 300; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
+    .modal-step-heading { font-size: 1.65rem; font-weight:400; color: var(--charcoal); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
     .modal-step-sub { font-size: 0.88rem; color: var(--charcoal-60); line-height: 1.6; margin-bottom: 28px; }
 
     .modal-big-input {
@@ -2000,12 +2002,12 @@
       }
       .rn-mobile-menu-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(26,26,26,0.35); letter-spacing: 0.06em;
+        font-size: 12px; color: rgba(26,26,26,0.5); letter-spacing: 0.06em;
         text-decoration: none; padding: 8px 0; display: block; margin-top: 4px;
       }
       .rn-mobile-menu-login {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 13px; color: rgba(26,26,26,0.4);
+        font-size: 13px; color: rgba(26,26,26,0.68);
         text-decoration: none; padding: 16px 0; display: block;
         margin-top: 8px;
       }
@@ -2034,7 +2036,7 @@
       }
       .trust-signal {
         font-size: 10px; font-weight: 400;
-        color: rgba(26,26,26,0.3); letter-spacing: 0.08em;
+        color: rgba(26,26,26,0.45); letter-spacing: 0.08em;
         white-space: nowrap; display: inline;
       }
       .trust-signal svg { display: none; }
@@ -2067,20 +2069,20 @@
       .hero-content { padding-left: 0; width: 100%; max-width: 100%; }
       .hero-line1 {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 46px; font-weight: 400;
-        line-height: 1.0; color: #fff; letter-spacing: -0.02em;
+        font-size: 50px; font-weight: 600;
+        line-height: 0.98; color: #fff; letter-spacing: -0.03em;
         text-shadow: 0 2px 20px rgba(0,0,0,0.2);
       }
       .hero-line2 {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 30px; font-weight: 400; font-style: italic;
-        color: rgba(255,255,255,0.6); margin-top: 4px; line-height: 1.1;
+        font-size: 32px; font-weight: 500; font-style: italic;
+        color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.1;
       }
-      .hero h1 em { font-style: italic; color: rgba(255,255,255,0.6); }
+      .hero h1 em { font-style: italic; color: rgba(255,255,255,0.85); }
       .hero h1 { margin-bottom: 0; text-shadow: none; }
       .hero-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6;
+        font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.72); line-height: 1.6;
         margin-top: 12px; margin-bottom: 0; max-width: 300px;
       }
       .hero-cta-wrap { width: 100%; margin-top: 24px; }
@@ -2111,15 +2113,14 @@
       /* Hide desktop products section, show mobile version */
       .products-section { display: none !important; }
       .prod-mobile { display: block !important; background: #faf7f2; padding: 0 0 8px; }
-      .prod-mobile[aria-hidden="true"] { display: none !important; }
 
-      /* Hero grid */
+      /* ── TOP 2: Tirzepatide + Semaglutide — full-bleed image cards ── */
       .pm-hero-grid {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-        padding: 16px 16px 0;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+        padding: 0;
       }
       .pm-hero-card {
-        position: relative; height: 280px; border-radius: 16px;
+        position: relative; height: 280px; border-radius: 0;
         overflow: hidden; display: block; text-decoration: none;
         opacity: 0; transform: translateY(15px);
         transition: opacity 0.5s ease, transform 0.5s ease;
@@ -2131,18 +2132,18 @@
       }
       .pm-hero-overlay {
         position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 80%);
+        background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 55%, transparent 80%);
       }
       .pm-popular-badge {
         position: absolute; top: 12px; left: 12px;
         background: #B8945F; color: #fff;
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase;
-        padding: 3px 8px; border-radius: 8px; z-index: 2;
+        padding: 3px 8px; border-radius: 4px; z-index: 2;
       }
       .pm-hero-body {
         position: absolute; bottom: 0; left: 0; right: 0;
-        padding: 16px; z-index: 2;
+        padding: 14px 14px 16px; z-index: 2;
       }
       .pm-hero-cat {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -2151,69 +2152,89 @@
       }
       .pm-hero-name {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 22px; font-weight: 400; color: #fff;
-        line-height: 1.1; margin-bottom: 3px;
+        font-size: 24px; font-weight: 600; color: #fff;
+        line-height: 1.05; margin-bottom: 6px; letter-spacing: -0.02em;
       }
       .pm-hero-price {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 16px; font-weight: 500; color: #fff;
+        font-size: 18px; font-weight: 600; color: #fff;
+        letter-spacing: -0.01em;
       }
       .pm-mo { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; }
       .pm-hero-arrow {
-        position: absolute; bottom: 16px; right: 16px; z-index: 2;
-        width: 32px; height: 32px; border-radius: 50%;
-        background: rgba(255,255,255,0.2);
+        position: absolute; top: 14px; right: 14px; z-index: 2;
+        width: 26px; height: 26px;
         display: flex; align-items: center; justify-content: center;
-        color: #fff; font-size: 14px;
+        color: rgba(255,255,255,0.5); font-size: 16px;
       }
 
-      /* Peptide list */
-      .pm-list {
-        display: flex; flex-direction: column; gap: 6px;
-        padding: 8px 16px 0;
+      /* ── BOTTOM 3: Sermorelin, Glutathione, NAD — thin full-bleed image rows ── */
+      .pm-thin-list {
+        display: flex; flex-direction: column;
+        gap: 2px;
       }
-      .pm-row {
-        height: 80px; border-radius: 14px;
-        background: #fff; border: 1px solid rgba(0,0,0,0.06);
-        display: flex; align-items: center; padding: 0 16px; gap: 14px;
-        text-decoration: none;
-        opacity: 0; transform: translateY(15px);
-        transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+      .pm-thin-row {
+        position: relative; height: 112px;
+        display: flex; align-items: center;
+        text-decoration: none; overflow: hidden;
+        opacity: 0; transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
       }
-      .pm-row.pm-visible { opacity: 1; transform: translateY(0); }
-      .pm-row:active { background: rgba(0,0,0,0.02); }
-      .pm-row-img {
-        width: 56px; height: 56px; border-radius: 10px;
-        background-size: cover; background-position: center;
-        flex-shrink: 0;
+      .pm-thin-row.pm-visible { opacity: 1; transform: translateY(0); }
+      .pm-thin-bg {
+        position: absolute; inset: 0;
+        background-size: cover; background-position: center top;
       }
-      .pm-row-text { flex: 1; min-width: 0; }
-      .pm-row-name {
+      .pm-thin-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(105deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.2) 100%);
+      }
+      .pm-thin-inner {
+        position: relative; z-index: 2;
+        display: flex; align-items: center; justify-content: space-between;
+        width: 100%; padding: 0 20px 0 20px;
+      }
+      .pm-thin-body { flex: 1; min-width: 0; }
+      .pm-thin-name {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 24px; font-weight: 600; color: #fff;
+        line-height: 1.1; letter-spacing: -0.02em;
+      }
+      .pm-thin-meta {
+        display: flex; align-items: baseline; gap: 6px;
+        margin-top: 4px;
+      }
+      .pm-thin-price {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 15px; font-weight: 600; color: #1a1a1a;
-        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9);
       }
-      .pm-row-cat {
+      .pm-thin-mo { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 400; }
+      .pm-thin-sep {
+        font-size: 10px; color: rgba(255,255,255,0.2);
+      }
+      .pm-thin-cat {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 11px; color: rgba(26,26,26,0.4);
-        margin-top: 2px;
+        font-size: 10px; font-weight: 500;
+        color: rgba(255,255,255,0.38); letter-spacing: 0.02em;
       }
-      .pm-row-right {
-        display: flex; align-items: center; gap: 10px; flex-shrink: 0;
-      }
-      .pm-row-price {
+      .pm-thin-cta {
+        flex-shrink: 0; margin-left: 12px;
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; font-weight: 500; color: #1a1a1a;
-      }
-      .pm-row-arrow {
-        font-size: 14px; color: rgba(26,26,26,0.25);
+        font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+        color: #fff;
+        padding: 9px 18px;
+        border: 1px solid rgba(255,255,255,0.3);
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-radius: 100px;
+        white-space: nowrap;
       }
 
       /* View all link */
       .pm-view-all {
         display: block; text-align: center;
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(26,26,26,0.35);
+        font-size: 12px; color: rgba(26,26,26,0.5);
         padding: 16px 0; text-decoration: underline;
         text-underline-offset: 3px;
       }
@@ -2244,7 +2265,7 @@
       }
       .hrw-mobile-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 13px; color: rgba(26,26,26,0.4);
+        font-size: 13px; color: rgba(26,26,26,0.68);
         line-height: 1.7; max-width: 260px; margin: 0 auto;
       }
       /* Scroll steps container */
@@ -2329,7 +2350,7 @@
       }
       .hrw-mobile-step-desc {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 14px; color: rgba(26,26,26,0.4);
+        font-size: 14px; color: rgba(26,26,26,0.68);
         line-height: 1.7; max-width: 300px;
       }
       .hrw-mobile-step-img {
@@ -2387,14 +2408,14 @@
       .ts-eyebrow {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-        color: rgba(26,26,26,0.35); display: block; margin-bottom: 12px;
+        color: rgba(26,26,26,0.5); display: block; margin-bottom: 12px;
       }
       .ts-title {
         font-family: 'Cormorant Garamond', Georgia, serif;
         font-size: 32px; font-weight: 400; color: #1a1a1a; line-height: 1.05;
         letter-spacing: -0.02em;
       }
-      .ts-title em { font-style: italic; color: rgba(26,26,26,0.4); }
+      .ts-title em { font-style: italic; color: rgba(26,26,26,0.68); }
       .ts-title-terra em { font-style: italic; color: #C4724A; }
 
       /* Mobile card stack */
@@ -2423,13 +2444,29 @@
         font-size: 28px; color: #fff; line-height: 1;
       }
 
-      /* Placeholder hero (no image) */
+      /* Family hero image — mobile */
       .ts-hero-placeholder {
-        height: 320px;
-        background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
-        display: flex; align-items: center; justify-content: center;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(0,0,0,0.15);
+        position: relative; height: 340px;
+        border-radius: 12px; overflow: hidden;
+        margin: 0 20px;
+        opacity: 0; transform: scale(1.03);
+        transition: opacity 1.2s cubic-bezier(0.22,1,0.36,1), transform 1.2s cubic-bezier(0.22,1,0.36,1);
+      }
+      .ts-hero-placeholder.ts-family-revealed { opacity: 1; transform: scale(1); }
+      .ts-hero-placeholder::before {
+        content: ''; position: absolute; inset: 0; z-index: 1;
+        background: rgba(184,148,95,0.06);
+        mix-blend-mode: multiply; pointer-events: none;
+      }
+      .ts-hero-placeholder::after {
+        content: ''; position: absolute; inset: 0; z-index: 2;
+        background: linear-gradient(to bottom, rgba(250,247,242,0.5) 0%, rgba(250,247,242,0.1) 25%, transparent 45%, transparent 75%, rgba(250,247,242,0.15) 100%);
+        pointer-events: none;
+      }
+      .ts-hero-placeholder img {
+        width: 100%; height: 100%; display: block;
+        object-fit: cover; object-position: center bottom;
+        filter: saturate(0.85) contrast(1.05);
       }
 
       /* Image card (medium) */
@@ -2462,35 +2499,35 @@
       }
       .ts-stat-label {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-        color: rgba(26,26,26,0.3); display: block; margin-bottom: 6px;
+        font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+        color: rgba(26,26,26,0.6); display: block; margin-bottom: 6px;
       }
       .ts-stat-num {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 30px; font-weight: 400; color: #1a1a1a;
-        display: block; line-height: 1; margin-bottom: 6px;
+        font-size: 34px; font-weight: 600; color: #1a1a1a;
+        display: block; line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em;
       }
       .ts-stat-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 10px; color: rgba(26,26,26,0.35); line-height: 1.5;
+        font-size: 11px; font-weight: 500; color: rgba(26,26,26,0.62); line-height: 1.55;
       }
 
       /* Dark text card */
       .ts-dark-card { background: #1a1a1a; padding: 32px 20px; }
       .ts-dark-title {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 28px; font-weight: 400; color: #fff; line-height: 1.1;
+        font-size: 30px; font-weight: 600; color: #fff; line-height: 1.08; letter-spacing: -0.02em;
       }
       .ts-dark-title em { font-style: italic; color: #B8945F; }
       .ts-dark-p {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 13px; color: rgba(255,255,255,0.5);
-        margin-top: 10px; line-height: 1.6;
+        font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.68);
+        margin-top: 10px; line-height: 1.65;
       }
       .ts-dark-note {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(255,255,255,0.6);
-        font-weight: 500; margin-top: 12px; display: block;
+        font-size: 13px; color: rgba(255,255,255,0.75);
+        font-weight: 600; margin-top: 12px; display: block;
       }
 
       /* 1-on-1 horizontal card */
@@ -2512,7 +2549,7 @@
       }
       .ts-horiz-p {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 11px; color: rgba(26,26,26,0.4); display: block; margin-top: 4px;
+        font-size: 11px; color: rgba(26,26,26,0.68); display: block; margin-top: 4px;
       }
 
       /* Gap between sections */
@@ -2790,7 +2827,7 @@
   .prod-title {
     font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
     font-size: clamp(52px, 6vw, 88px);
-    font-weight: 300;
+    font-weight:400;
     color: #1a1a1a;
     line-height: 0.92;
     letter-spacing: -0.02em;
@@ -2937,7 +2974,7 @@
 
   .prod-name {
     font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-    font-weight: 300;
+    font-weight:400;
     color: #fff;
     line-height: 0.92;
     letter-spacing: -0.02em;
@@ -2965,7 +3002,7 @@
 
   .prod-price {
     font-family: var(--font);
-    font-weight: 300;
+    font-weight:400;
     color: #fff;
     line-height: 1;
     letter-spacing: -0.02em;
@@ -3117,7 +3154,7 @@
       font-size: 18px; font-weight: 500;
       color: #fff; letter-spacing: -0.01em; line-height: 1;
     }
-    .prod-price-mo { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; }
+    .prod-price-mo { font-size: 13px; color: rgba(255,255,255,0.5); font-weight:400; }
     .prod-desc { display: none; }
 
     /* Save line */
@@ -3264,9 +3301,9 @@
 </section>
 
 <!-- ─── PRODUCTS — MOBILE LAYOUT ─── -->
-<div class="prod-mobile" id="prodMobile" aria-hidden="true">
+<div class="prod-mobile" id="prodMobile">
 
-  <!-- Hero tier: Tirzepatide + Semaglutide -->
+  <!-- Top 2: full-bleed image cards, square corners -->
   <div class="pm-hero-grid">
 
     <a href="tirzepatide-product.html" class="pm-hero-card pm-anim" data-pm-delay="0">
@@ -3278,7 +3315,7 @@
         <div class="pm-hero-name">Tirzepatide</div>
         <div class="pm-hero-price">$179<span class="pm-mo">/mo</span></div>
       </div>
-      <div class="pm-hero-arrow">&#8594;</div>
+      <div class="pm-hero-arrow">&#8599;</div>
     </a>
 
     <a href="semaglutide-product.html" class="pm-hero-card pm-anim" data-pm-delay="1">
@@ -3289,47 +3326,59 @@
         <div class="pm-hero-name">Semaglutide</div>
         <div class="pm-hero-price">$129<span class="pm-mo">/mo</span></div>
       </div>
-      <div class="pm-hero-arrow">&#8594;</div>
+      <div class="pm-hero-arrow">&#8599;</div>
     </a>
 
   </div>
 
-  <!-- Peptide tier: list rows -->
-  <div class="pm-list">
+  <!-- Bottom 3: thin full-bleed image rows -->
+  <div class="pm-thin-list">
 
-    <a href="sermorelin-product.html" class="pm-row pm-anim" data-pm-delay="2">
-      <div class="pm-row-img" style="background-image:url('./SERMORELIN PRODUCT CARD .png');"></div>
-      <div class="pm-row-text">
-        <div class="pm-row-name">Sermorelin</div>
-        <div class="pm-row-cat">Growth Hormone · Recovery</div>
-      </div>
-      <div class="pm-row-right">
-        <span class="pm-row-price">$159<span class="pm-mo">/mo</span></span>
-        <span class="pm-row-arrow">&#8594;</span>
+    <a href="sermorelin-product.html" class="pm-thin-row pm-anim" data-pm-delay="2">
+      <div class="pm-thin-bg" style="background-image:url('./SERMORELIN PRODUCT CARD .png');"></div>
+      <div class="pm-thin-overlay"></div>
+      <div class="pm-thin-inner">
+        <div class="pm-thin-body">
+          <div class="pm-thin-name">Sermorelin</div>
+          <div class="pm-thin-meta">
+            <span class="pm-thin-price">$159<span class="pm-thin-mo">/mo</span></span>
+            <span class="pm-thin-sep">·</span>
+            <span class="pm-thin-cat">Recovery</span>
+          </div>
+        </div>
+        <span class="pm-thin-cta">Get started</span>
       </div>
     </a>
 
-    <a href="glutathione-product.html" class="pm-row pm-anim" data-pm-delay="3">
-      <div class="pm-row-img" style="background-image:url('./Glutathione Product Card.png');"></div>
-      <div class="pm-row-text">
-        <div class="pm-row-name">Glutathione</div>
-        <div class="pm-row-cat">Detox · Immune</div>
-      </div>
-      <div class="pm-row-right">
-        <span class="pm-row-price">$89<span class="pm-mo">/mo</span></span>
-        <span class="pm-row-arrow">&#8594;</span>
+    <a href="glutathione-product.html" class="pm-thin-row pm-anim" data-pm-delay="3">
+      <div class="pm-thin-bg" style="background-image:url('./Glutathione Product Card.png');"></div>
+      <div class="pm-thin-overlay"></div>
+      <div class="pm-thin-inner">
+        <div class="pm-thin-body">
+          <div class="pm-thin-name">Glutathione</div>
+          <div class="pm-thin-meta">
+            <span class="pm-thin-price">$89<span class="pm-thin-mo">/mo</span></span>
+            <span class="pm-thin-sep">·</span>
+            <span class="pm-thin-cat">Detox &amp; Immune</span>
+          </div>
+        </div>
+        <span class="pm-thin-cta">Get started</span>
       </div>
     </a>
 
-    <a href="nad-product.html" class="pm-row pm-anim" data-pm-delay="4">
-      <div class="pm-row-img" style="background-image:url('./NAD PRODUCT CARD.png');"></div>
-      <div class="pm-row-text">
-        <div class="pm-row-name">NAD+</div>
-        <div class="pm-row-cat">Cellular Repair · Anti-aging</div>
-      </div>
-      <div class="pm-row-right">
-        <span class="pm-row-price">$139<span class="pm-mo">/mo</span></span>
-        <span class="pm-row-arrow">&#8594;</span>
+    <a href="nad-product.html" class="pm-thin-row pm-anim" data-pm-delay="4">
+      <div class="pm-thin-bg" style="background-image:url('./NAD PRODUCT CARD.png');background-position:center 30%;"></div>
+      <div class="pm-thin-overlay"></div>
+      <div class="pm-thin-inner">
+        <div class="pm-thin-body">
+          <div class="pm-thin-name">NAD+</div>
+          <div class="pm-thin-meta">
+            <span class="pm-thin-price">$139<span class="pm-thin-mo">/mo</span></span>
+            <span class="pm-thin-sep">·</span>
+            <span class="pm-thin-cat">Anti-aging</span>
+          </div>
+        </div>
+        <span class="pm-thin-cta">Get started</span>
       </div>
     </a>
 
@@ -3338,6 +3387,129 @@
   <a href="#treatments" class="pm-view-all">View all treatments</a>
 
 </div>
+
+<!-- ─── VIAL REVEAL — MOBILE ONLY ─── -->
+<section class="vr-section" id="vialReveal">
+  <div class="vr-glow"></div>
+  <div class="vr-img-wrap">
+    <img src="./holdingvial.png" class="vr-img" alt="Compounded vial">
+  </div>
+  <div class="vr-copy">
+    <span class="vr-tag">FDA-registered compounding pharmacy</span>
+    <p class="vr-headline">Precision medicine.<br><em>In your hands.</em></p>
+    <p class="vr-sub">Physician-prescribed. Pharmacy-prepared.<br>Delivered to your door monthly.</p>
+  </div>
+</section>
+
+<style>
+@media (max-width: 768px) {
+  .vr-section {
+    display: block;
+    position: relative;
+    background: #0d0d0d;
+    overflow: hidden;
+    padding-bottom: 56px;
+  }
+
+  /* Glow — blooms in slow after image settles */
+  .vr-glow {
+    position: absolute;
+    top: 5%; left: 50%;
+    transform: translateX(-50%);
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,114,74,0.28) 0%, rgba(196,114,74,0.06) 50%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s ease 0.9s;
+  }
+  .vr-section.vr-revealed .vr-glow {
+    opacity: 1;
+  }
+
+  /* Image — slides in from right, full width, no bounce */
+  .vr-img-wrap {
+    width: 100%;
+    transform: translateX(100%);
+    opacity: 0;
+    transition:
+      transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 1.0s ease 0.1s;
+  }
+  .vr-section.vr-revealed .vr-img-wrap {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .vr-img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Copy — fades up slowly after image */
+  .vr-copy {
+    padding: 30px 24px 0;
+    transform: translateY(18px);
+    opacity: 0;
+    transition:
+      transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.55s,
+      opacity 1.0s ease 0.55s;
+  }
+  .vr-section.vr-revealed .vr-copy {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .vr-tag {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: #C4724A;
+    margin-bottom: 16px;
+  }
+
+  .vr-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 46px; font-weight: 600;
+    color: #fff; line-height: 1.03;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .vr-headline em {
+    font-style: italic;
+    color: rgba(255,255,255,0.48);
+    font-weight: 500;
+  }
+
+  .vr-sub {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.42);
+    line-height: 1.8;
+  }
+}
+
+@media (min-width: 769px) {
+  .vr-section { display: none; }
+}
+</style>
+
+<script>
+(function () {
+  var section = document.getElementById('vialReveal');
+  if (!section || window.innerWidth > 768) return;
+  var done = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !done) {
+      done = true;
+      section.classList.add('vr-revealed');
+      obs.disconnect();
+    }
+  }, { threshold: 0.2 });
+  obs.observe(section);
+})();
+</script>
 
 <!-- ─── HOW IT WORKS ─── -->
 <section class="hrw animate-in" id="how-it-works">
@@ -3796,7 +3968,7 @@
 
 /* ── Headline ── */
 .why-top{text-align:center;margin-bottom:32px;position:relative;z-index:1}
-.why-eyebrow{font-size:9px;font-weight:600;letter-spacing:.15em;color:rgba(26,26,26,0.4);text-transform:uppercase;margin-bottom:10px}
+.why-eyebrow{font-size:9px;font-weight:600;letter-spacing:.15em;color:rgba(26,26,26,0.68);text-transform:uppercase;margin-bottom:10px}
 .why-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,3.5vw,48px);font-weight:400;color:#1a1a1a;line-height:1.08}
 .why-title em{font-style:italic;display:block;color:#C4724A}
 
@@ -3874,7 +4046,7 @@
 }
 @keyframes wFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .ww-label{font-size:8px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(26,26,26,0.45);margin-bottom:5px}
-.ww-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#1a1a1a;line-height:1;letter-spacing:-.02em}
+.ww-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#1a1a1a;line-height:1;letter-spacing:-.02em}
 .ww-unit{font-size:12px;font-weight:400;color:#999}
 .ww-bar{height:2px;background:#f0ede8;border-radius:100px;margin-top:7px;overflow:hidden;width:80px}
 .ww-fill{height:100%;width:65%;background:#C4724A;border-radius:100px}
@@ -3886,7 +4058,7 @@
 
 /* ── CALENDAR CARD ── */
 .wc-cal{grid-column:3;grid-row:1;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:center;gap:4px;background:#faf7f2;}
-.wc-cal-label{font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(26,26,26,0.4);margin-bottom:2px}
+.wc-cal-label{font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(26,26,26,0.68);margin-bottom:2px}
 .wc-cal-headline{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#1a1a1a;line-height:1;margin-bottom:8px;}
 .wc-cal-headline em{font-style:italic;color:#C4724A;}
 .wc-cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px;}
@@ -3903,10 +4075,10 @@
 .wc-cal-dot:not(.animated).wc-cal-active{background:#ede9e3;color:#bbb;}
 .wc-cal-dot:not(.animated).wc-cal-dark{background:#ede9e3;color:#bbb;}
 .wc-cal-dot:not(.animated).wc-cal-fill{background:#ede9e3;}
-.wc-cal-sub{font-size:11px;color:rgba(26,26,26,0.4);line-height:1.5;margin-top:6px;}
+.wc-cal-sub{font-size:11px;color:rgba(26,26,26,0.68);line-height:1.5;margin-top:6px;}
 .wc-stat-editorial{justify-content:space-between}
-.wc-stat-editorial .stat-label{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:rgba(26,26,26,0.5);line-height:1.1;margin-bottom:1px}
-.wc-stat-editorial .stat-label-em{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;font-style:italic;color:#C4724A;line-height:1.1;margin-bottom:10px}
+.wc-stat-editorial .stat-label{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:rgba(26,26,26,0.7);line-height:1.1;margin-bottom:1px}
+.wc-stat-editorial .stat-label-em{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;font-style:italic;color:#C4724A;line-height:1.1;margin-bottom:10px}
 .wc-stat-editorial .num{font-size:42px;color:#1a1a1a;margin-bottom:6px}
 .wc-stat-editorial .desc strong{color:#1a1a1a;font-weight:500}
 .wc-stat-editorial .desc{color:rgba(26,26,26,0.5)}
@@ -3923,7 +4095,7 @@
 /* ── FLAT PRICE ── */
 .wc-price{grid-column:1;grid-row:3;border-radius:16px;padding:20px 18px;display:flex;flex-direction:column;justify-content:center;background:#faf7f2}
 .wc-price h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#1a1a1a;line-height:1.1;margin-bottom:8px}
-.wc-price h3 em{font-style:italic;color:rgba(26,26,26,0.3)}
+.wc-price h3 em{font-style:italic;color:rgba(26,26,26,0.45)}
 .wc-price p{font-size:12px;color:rgba(26,26,26,0.5);line-height:1.6;font-weight:400}
 
 /* ════════════════════════════════════
@@ -4117,14 +4289,14 @@
 .ts-eyebrow {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: rgba(26,26,26,0.35); display: block; margin-bottom: 16px;
+  color: rgba(26,26,26,0.5); display: block; margin-bottom: 16px;
 }
 .ts-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 52px; font-weight: 400; color: #1a1a1a;
   line-height: 1.0; letter-spacing: -0.02em;
 }
-.ts-title em { font-style: italic; color: rgba(26,26,26,0.4); }
+.ts-title em { font-style: italic; color: rgba(26,26,26,0.68); }
 .ts-title-terra em { font-style: italic; color: #C4724A; }
 
 /* Desktop: hide mobile stack, show desktop grid */
@@ -4160,11 +4332,28 @@
 }
 .ts-ww-unit { font-size: 20px; }
 
-/* Family placeholder */
-.ts-family-img {
-  width: 100%; height: 100%; min-height: 560px;
-  background: linear-gradient(135deg, #e8ddd0 0%, #d4c4b0 100%);
-  border-radius: 16px;
+/* Family hero image — desktop center column */
+.ts-family-img-wrap {
+  position: relative; height: 100%; min-height: 500px;
+  border-radius: 12px; overflow: hidden;
+  opacity: 0; transform: scale(1.03);
+  transition: opacity 1.2s cubic-bezier(0.22,1,0.36,1), transform 1.2s cubic-bezier(0.22,1,0.36,1);
+}
+.ts-family-img-wrap.ts-family-revealed { opacity: 1; transform: scale(1); }
+.ts-family-img-wrap::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: rgba(184,148,95,0.06);
+  mix-blend-mode: multiply; pointer-events: none;
+}
+.ts-family-img-wrap::after {
+  content: ''; position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(to bottom, rgba(250,247,242,0.5) 0%, rgba(250,247,242,0.1) 25%, transparent 45%, transparent 75%, rgba(250,247,242,0.15) 100%);
+  pointer-events: none;
+}
+.ts-family-img-wrap img {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover; object-position: center bottom;
+  filter: saturate(0.85) contrast(1.05);
 }
 
 /* Desktop image cards */
@@ -4230,18 +4419,18 @@
 }
 .ts-stat-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(26,26,26,0.3); display: block; margin-bottom: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(26,26,26,0.55); display: block; margin-bottom: 8px;
 }
 .ts-stat-num-lg {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 56px; font-weight: 400; color: #1a1a1a;
-  display: block; line-height: 1; margin-bottom: 16px; letter-spacing: -0.02em;
+  font-size: 60px; font-weight: 600; color: #1a1a1a;
+  display: block; line-height: 1; margin-bottom: 16px; letter-spacing: -0.03em;
 }
-.ts-stat-num-lg em { font-style: italic; color: rgba(26,26,26,0.35); }
+.ts-stat-num-lg em { font-style: italic; color: rgba(26,26,26,0.6); }
 .ts-stat-sub-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px; color: rgba(26,26,26,0.4); line-height: 1.6;
+  font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.72); line-height: 1.65;
 }
 .ts-cal-dots {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
@@ -4336,7 +4525,7 @@
   border: 1px solid rgba(255,255,255,0.45);
   background: rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65);
+  font-size: 15px; font-weight:400; color: rgba(255,255,255,0.65);
   font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1;
   pointer-events: none;
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background 0.2s ease;
@@ -4344,7 +4533,7 @@
 .ic-light .ic-btn {
   border-color: rgba(26,26,26,0.18);
   background: rgba(0,0,0,0.04);
-  color: rgba(26,26,26,0.4);
+  color: rgba(26,26,26,0.68);
 }
 
 /* Desktop hover */
@@ -4377,7 +4566,7 @@
   font-size: 12px; font-weight: 500;
   display: flex; align-items: center; gap: 8px;
 }
-.ic-expand-bullets.is-light li { color: rgba(26,26,26,0.4); }
+.ic-expand-bullets.is-light li { color: rgba(26,26,26,0.68); }
 .ic-expand-bullets.is-dark  li { color: rgba(255,255,255,0.38); }
 .ic-expand-bullets li::before {
   content: ''; width: 12px; height: 1px; background: #B8945F; flex-shrink: 0;
@@ -4429,7 +4618,7 @@
 .ic-modal-eyebrow {
   display: block; font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: rgba(26,26,26,0.35); margin-bottom: 10px;
+  color: rgba(26,26,26,0.5); margin-bottom: 10px;
 }
 .ic-modal-heading {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -4448,7 +4637,7 @@
 .ic-modal-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .ic-modal-bullets li {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.55);
+  font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.68);
   display: flex; align-items: center; gap: 12px;
 }
 .ic-modal-bullets li::before {
@@ -4483,7 +4672,7 @@
 .rcal-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 9px; font-weight: 600; letter-spacing: 0.04em;
-  color: rgba(26,26,26,0.35); text-align: center;
+  color: rgba(26,26,26,0.5); text-align: center;
   opacity: 0; transition: opacity 0.4s ease 0.2s;
 }
 .rcal-label.rcal-in { opacity: 1; }
@@ -4537,7 +4726,7 @@
 
 .rcal-foot {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px; color: rgba(26,26,26,0.4);
+  font-size: 11px; color: rgba(26,26,26,0.68);
   margin: 14px 0 0; line-height: 1.5;
 }
 
@@ -4738,10 +4927,8 @@
 
     <!-- CENTER: family image -->
     <div class="ts-col ts-center-col">
-      <div class="ts-center-img-wrap ts-animate" style="transition-delay:0.08s">
-        <div class="ts-family-img">
-          <div style="display:flex;align-items:center;justify-content:center;height:100%;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(0,0,0,0.15);">Add family-hero.jpg</div>
-        </div>
+      <div class="ts-family-img-wrap" id="familyImgDesktop">
+        <img src="family-hero.jpg" alt="Family" />
       </div>
     </div>
 
@@ -4769,7 +4956,9 @@
 
   <!-- MOBILE STACK -->
   <div class="ts-mobile-stack">
-    <div class="ts-hero-placeholder ts-animate ts-slide-up">Add family-hero.jpg</div>
+    <div class="ts-hero-placeholder" id="familyImgMobile">
+      <img src="family-hero.jpg" alt="Family" />
+    </div>
     <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="clinician" tabindex="0" role="button" aria-label="Board-certified clinician">
       <img src="doctor.png" alt="Board-certified clinician" />
       <div class="ts-img-overlay"></div>
@@ -5058,7 +5247,7 @@
   .bac-weight-num .bac-unit {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(18px, 2.5vw, 26px);
-    font-weight: 300;
+    font-weight:400;
     color: #999;
     letter-spacing: 0;
     margin-left: 6px;
@@ -5133,7 +5322,7 @@
   .bac-result-num .bac-unit {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(18px, 2.5vw, 26px);
-    font-weight: 300;
+    font-weight:400;
     color: #999;
     letter-spacing: 0;
     margin-left: 6px;
@@ -5375,7 +5564,7 @@
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
-  .results-headline h2 em { font-style: italic; color: rgba(26,26,26,0.55); }
+  .results-headline h2 em { font-style: italic; color: rgba(26,26,26,0.68); }
   .results-cta {
     position: absolute;
     top: 28px;
@@ -5438,7 +5627,7 @@
   .results-disclaimer {
     text-align: center;
     font-size: 13px;
-    color: rgba(26,26,26,0.4);
+    color: rgba(26,26,26,0.68);
     padding: 16px 24px 24px;
     position: relative;
     z-index: 2;
@@ -6241,13 +6430,29 @@
 </script>
 
 <script>
+/* ── FAMILY HERO IMAGE REVEAL ── */
+(function () {
+  var targets = ['familyImgDesktop', 'familyImgMobile'].map(function(id) {
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if (!targets.length) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('ts-family-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  targets.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+<script>
 /* ── MOBILE PRODUCT CARDS ANIMATION ── */
 (function () {
-  if (window.innerWidth > 768) return;
-
   var mobileSection = document.getElementById('prodMobile');
   if (!mobileSection) return;
-  mobileSection.removeAttribute('aria-hidden');
 
   var delays = [300, 380, 460, 540, 620]; /* ms */
   var items = mobileSection.querySelectorAll('.pm-anim');
