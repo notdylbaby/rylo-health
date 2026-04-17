@@ -28,8 +28,8 @@
       --charcoal-40: rgba(26,26,26,0.5);
       --charcoal-20: rgba(26,26,26,0.10);
       --soft-gray:   #F0EBE1;
-      --sage:        #3d5c35;
-      --sage-pale:   #3d5c35;
+      --sage:        #C4724A;
+      --sage-pale:   #C4724A;
       --gold:        #B8965A;
       --gold-light:  #D4B07A;
       --border:      rgba(26,26,26,0.10);
@@ -2043,15 +2043,21 @@
       .trust-signal::after { content: ' · '; color: rgba(26,26,26,0.2); }
       .trust-signal:last-child::after { content: ''; }
 
-      /* ── HERO — video background, full height ── */
-      .hero-video-bg { display: block !important; position: absolute; inset: 0; }
-      .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+      /* ── HERO — static image on mobile, video hidden ── */
+      .hero-video-bg video { display: none !important; }
+      .hero-video-bg {
+        display: block !important; position: absolute; inset: 0;
+        background-image: url('./RYLOMOBILEHERO.png');
+        background-size: 160%;
+        background-position: center 28%;
+      }
       .hero-video-overlay {
         display: block !important;
         background: linear-gradient(to bottom,
-          rgba(0,0,0,0.25) 0%,
-          rgba(0,0,0,0.1) 35%,
-          rgba(0,0,0,0.55) 100%) !important;
+          rgba(0,0,0,0.15) 0%,
+          rgba(0,0,0,0.05) 30%,
+          rgba(0,0,0,0.4) 55%,
+          rgba(0,0,0,0.82) 100%) !important;
       }
       .hero-outer {
         background: #111;
@@ -2069,21 +2075,23 @@
       .hero-content { padding-left: 0; width: 100%; max-width: 100%; }
       .hero-line1 {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 50px; font-weight: 600;
-        line-height: 0.98; color: #fff; letter-spacing: -0.03em;
-        text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        font-size: 56px; font-weight: 600;
+        line-height: 0.96; color: #fff; letter-spacing: -0.03em;
+        text-shadow: 0 2px 32px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.4);
       }
       .hero-line2 {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 32px; font-weight: 500; font-style: italic;
-        color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.1;
+        font-size: 36px; font-weight: 500; font-style: italic;
+        color: #fff; margin-top: 4px; line-height: 1.05;
+        text-shadow: 0 2px 24px rgba(0,0,0,0.5);
       }
-      .hero h1 em { font-style: italic; color: rgba(255,255,255,0.85); }
-      .hero h1 { margin-bottom: 0; text-shadow: none; }
+      .hero h1 em { font-style: italic; color: #fff; }
+      .hero h1 { margin-bottom: 0; }
       .hero-sub {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.72); line-height: 1.6;
-        margin-top: 12px; margin-bottom: 0; max-width: 300px;
+        font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.88); line-height: 1.6;
+        margin-top: 14px; margin-bottom: 0; max-width: 300px;
+        text-shadow: 0 1px 8px rgba(0,0,0,0.5);
       }
       .hero-cta-wrap { width: 100%; margin-top: 24px; }
       .btn-hero-start { display: none !important; }
@@ -2112,7 +2120,7 @@
       /* ── TREATMENTS SECTION ── */
       /* Hide desktop products section, show mobile version */
       .products-section { display: none !important; }
-      .prod-mobile { display: block !important; background: #faf7f2; padding: 0 0 8px; }
+      .prod-mobile { display: block !important; background: #faf7f2; padding: 32px 0 8px; }
 
       /* ── TOP 2: Tirzepatide + Semaglutide — full-bleed image cards ── */
       .pm-hero-grid {
@@ -2172,6 +2180,7 @@
       .pm-thin-list {
         display: flex; flex-direction: column;
         gap: 2px;
+        margin-top: 32px;
       }
       .pm-thin-row {
         position: relative; height: 112px;
@@ -2444,11 +2453,18 @@
         font-size: 28px; color: #fff; line-height: 1;
       }
 
-      /* Family hero image — mobile */
+      /* ── CARE THAT SHOWS UP — full mobile redesign ── */
+
+      /* Hide the heading — it lives inside the image now */
+      .difference-section .ts-head { display: none !important; }
+
+      /* Mobile stack gap */
+      .difference-section .ts-mobile-stack { gap: 2px; }
+
+      /* Family hero — full bleed, tall, heading overlaid */
       .ts-hero-placeholder {
-        position: relative; height: 340px;
-        border-radius: 12px; overflow: hidden;
-        margin: 0 20px;
+        position: relative; height: 460px;
+        border-radius: 0; overflow: hidden; margin: 0;
         opacity: 0; transform: scale(1.03);
         transition: opacity 1.2s cubic-bezier(0.22,1,0.36,1), transform 1.2s cubic-bezier(0.22,1,0.36,1);
       }
@@ -2460,14 +2476,126 @@
       }
       .ts-hero-placeholder::after {
         content: ''; position: absolute; inset: 0; z-index: 2;
-        background: linear-gradient(to bottom, rgba(250,247,242,0.5) 0%, rgba(250,247,242,0.1) 25%, transparent 45%, transparent 75%, rgba(250,247,242,0.15) 100%);
+        background: linear-gradient(to bottom,
+          rgba(10,10,10,0.45) 0%,
+          rgba(10,10,10,0.1) 30%,
+          transparent 55%,
+          rgba(10,10,10,0.55) 100%);
         pointer-events: none;
       }
       .ts-hero-placeholder img {
         width: 100%; height: 100%; display: block;
-        object-fit: cover; object-position: center bottom;
+        object-fit: cover; object-position: center 30%;
         filter: saturate(0.85) contrast(1.05);
       }
+      /* Heading overlay inside family image */
+      .fh-text {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        padding: 28px 24px; z-index: 3;
+      }
+      .fh-eyebrow {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+        text-transform: uppercase; color: rgba(255,255,255,0.55);
+        display: block; margin-bottom: 8px;
+      }
+      .fh-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 46px; font-weight: 600; color: #fff;
+        line-height: 1.0; letter-spacing: -0.03em; margin: 0;
+      }
+      .fh-title em { font-style: italic; color: #C4724A; font-weight: 500; }
+
+      /* Hide IC plus buttons on mobile entirely */
+      .ic-btn { display: none !important; }
+
+      /* ── EDITORIAL CARDS — Care that shows up ── */
+
+      /* Base card animation: each card slides up independently */
+      .dc-anim {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.9s cubic-bezier(0.16,1,0.3,1) var(--dc-delay, 0s),
+          transform 0.9s cubic-bezier(0.16,1,0.3,1) var(--dc-delay, 0s);
+      }
+      .dc-anim.dc-in { opacity: 1; transform: translateY(0); }
+
+      /* Text elements inside each card stagger */
+      .dc-eyebrow { opacity: 0; transform: translateY(10px); transition: opacity 0.6s ease var(--dc-delay,0s), transform 0.6s cubic-bezier(0.16,1,0.3,1) var(--dc-delay,0s); }
+      .dc-headline { opacity: 0; transform: translateY(12px); transition: opacity 0.7s ease calc(var(--dc-delay,0s) + 0.1s), transform 0.7s cubic-bezier(0.16,1,0.3,1) calc(var(--dc-delay,0s) + 0.1s); }
+      .dc-body     { opacity: 0; transform: translateY(10px); transition: opacity 0.7s ease calc(var(--dc-delay,0s) + 0.2s), transform 0.7s cubic-bezier(0.16,1,0.3,1) calc(var(--dc-delay,0s) + 0.2s); }
+      .dc-mini-num { opacity: 0; transform: translateY(12px); transition: opacity 0.7s ease calc(var(--dc-delay,0s) + 0.08s), transform 0.7s cubic-bezier(0.16,1,0.3,1) calc(var(--dc-delay,0s) + 0.08s); }
+      .dc-mini-label { opacity: 0; transform: translateY(8px); transition: opacity 0.6s ease calc(var(--dc-delay,0s) + 0.18s), transform 0.6s cubic-bezier(0.16,1,0.3,1) calc(var(--dc-delay,0s) + 0.18s); }
+      .dc-anim.dc-in .dc-eyebrow,
+      .dc-anim.dc-in .dc-headline,
+      .dc-anim.dc-in .dc-body,
+      .dc-anim.dc-in .dc-mini-num,
+      .dc-anim.dc-in .dc-mini-label { opacity: 1; transform: translateY(0); }
+
+      /* Light card */
+      .dc-card-light {
+        background: #fff; padding: 36px 24px;
+      }
+      /* Dark card */
+      .dc-card-dark {
+        background: #1a1a1a; padding: 36px 24px;
+      }
+      /* Warm oat card */
+      .dc-card-oat {
+        background: #f0ebe1; padding: 28px 20px;
+      }
+
+      /* 2-col mini grid */
+      .dc-mini-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+      }
+
+      /* Typography */
+      .dc-eyebrow {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
+        text-transform: uppercase; color: rgba(26,26,26,0.4);
+        display: block; margin-bottom: 14px;
+      }
+      .dc-eyebrow-light { color: rgba(255,255,255,0.35); }
+
+      .dc-headline {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 40px; font-weight: 600; color: #1a1a1a;
+        line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 14px;
+      }
+      .dc-headline em { font-style: italic; color: #C4724A; font-weight: 500; }
+      .dc-headline-light { color: #fff; }
+      .dc-headline-light em { color: #B8945F; }
+
+      .dc-body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 14px; font-weight: 500;
+        color: rgba(26,26,26,0.55); line-height: 1.7;
+      }
+      .dc-body-light { color: rgba(255,255,255,0.5); }
+
+      /* Mini stat card content */
+      .dc-mini-num {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 48px; font-weight: 600; color: #1a1a1a;
+        line-height: 1; letter-spacing: -0.03em; display: block;
+        margin-bottom: 8px;
+      }
+      .dc-mini-label {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 11px; font-weight: 500;
+        color: rgba(26,26,26,0.5); line-height: 1.4; display: block;
+      }
+
+      /* Divider line accent */
+      .dc-rule {
+        width: 32px; height: 1px;
+        background: rgba(196,114,74,0.4);
+        display: block; margin-bottom: 20px;
+      }
+      .dc-rule-light { background: rgba(184,148,95,0.5); }
 
       /* Image card (medium) */
       .ts-img-card {
@@ -2687,8 +2815,7 @@
     <video autoplay muted playsinline preload="auto" id="heroVideo">
       <source src="0406(1).mp4" type="video/mp4" />
     </video>
-    <!-- Mobile fallback image (hidden on desktop, shown on mobile via CSS) -->
-    <img class="hero-mobile-img" src="asianwomanjeans.png" alt="" style="display:none;" />
+    <script>if(window.innerWidth<=768){var v=document.getElementById('heroVideo');if(v)v.parentNode.removeChild(v);}</script>
   </div>
   <div class="hero-video-overlay"></div>
 
@@ -2819,7 +2946,7 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #3d5c35;
+    color: #C4724A;
     margin-bottom: 14px;
     font-family: var(--font);
   }
@@ -4956,37 +5083,52 @@
 
   <!-- MOBILE STACK -->
   <div class="ts-mobile-stack">
+
+    <!-- 1. Family image — full bleed, heading overlaid -->
     <div class="ts-hero-placeholder" id="familyImgMobile">
       <img src="family-hero.jpg" alt="Family" />
-    </div>
-    <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="clinician" tabindex="0" role="button" aria-label="Board-certified clinician">
-      <img src="doctor.png" alt="Board-certified clinician" />
-      <div class="ts-img-overlay"></div>
-      <div class="ts-img-text">
-        <span class="ts-img-h">Board-certified clinician</span>
-        <span class="ts-img-p">Reviewed by a licensed US provider — not an algorithm.</span>
+      <div class="fh-text">
+        <span class="fh-eyebrow">The Rylo Difference</span>
+        <h2 class="fh-title">Care that<br><em>shows up.</em></h2>
       </div>
     </div>
-    <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.05s" data-ic="flat-price" tabindex="0" role="button" aria-label="Pricing">
-      <p class="ts-dark-title">One flat <em>price.</em></p>
-      <p class="ts-dark-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
+
+    <!-- 2. Physician-reviewed — light card -->
+    <div class="dc-card-light dc-anim" style="--dc-delay:0s">
+      <span class="dc-eyebrow">Clinical oversight</span>
+      <span class="dc-rule"></span>
+      <p class="dc-headline">Physician-<em>reviewed.</em></p>
+      <p class="dc-body">Every Rylo prescription is reviewed by a board-certified US provider — not a chatbot, not an algorithm.</p>
     </div>
-    <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="pharmacy" tabindex="0" role="button" aria-label="Licensed US pharmacy">
-      <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
-      <div class="ts-img-overlay"></div>
-      <div class="ts-img-text">
-        <span class="ts-img-h">Licensed US pharmacy</span>
-        <span class="ts-img-p">FDA-registered. Third-party tested.</span>
+
+    <!-- 3. Two mini stat cards -->
+    <div class="dc-mini-grid">
+      <div class="dc-card-oat dc-anim" style="--dc-delay:0.04s">
+        <span class="dc-mini-num">FDA</span>
+        <span class="dc-mini-label">Registered compounding pharmacy</span>
+      </div>
+      <div class="dc-card-oat dc-anim" style="--dc-delay:0.1s">
+        <span class="dc-mini-num">US</span>
+        <span class="dc-mini-label">Licensed providers only</span>
       </div>
     </div>
-    <div class="ts-horiz-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="one-on-one" tabindex="0" role="button" aria-label="1-on-1 care">
-      <img class="ts-horiz-img" src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
-      <div class="ts-horiz-text">
-        <span class="ts-horiz-big">1-on-1</span>
-        <span class="ts-horiz-h">A provider who actually knows you</span>
-        <span class="ts-horiz-p">Reviews your health, adjusts your dose, answers directly.</span>
-      </div>
+
+    <!-- 4. One flat price — dark card -->
+    <div class="dc-card-dark dc-anim" style="--dc-delay:0s">
+      <span class="dc-eyebrow dc-eyebrow-light">Transparent pricing</span>
+      <span class="dc-rule dc-rule-light"></span>
+      <p class="dc-headline dc-headline-light">One flat <em>price.</em></p>
+      <p class="dc-body dc-body-light">No surprise charges on dose increases. Same monthly rate at every stage of your treatment.</p>
     </div>
+
+    <!-- 5. 1-on-1 care — light card -->
+    <div class="dc-card-light dc-anim" style="--dc-delay:0s">
+      <span class="dc-eyebrow">Ongoing support</span>
+      <span class="dc-rule"></span>
+      <p class="dc-headline">1-on-1 <em>care.</em></p>
+      <p class="dc-body">A provider who actually knows your history. Adjusts your dose, checks in, and answers directly — every step.</p>
+    </div>
+
   </div>
 
 </section>
@@ -5120,7 +5262,7 @@
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.16em;
-    color: #3d5c35;
+    color: #C4724A;
     text-transform: uppercase;
     margin-bottom: 14px;
   }
@@ -6426,6 +6568,23 @@
   document.querySelectorAll('.animate-in').forEach(function (el) {
     observer.observe(el);
   });
+})();
+</script>
+
+<script>
+/* ── EDITORIAL CARDS REVEAL — Care that shows up ── */
+(function () {
+  var cards = document.querySelectorAll('.dc-anim');
+  if (!cards.length) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('dc-in');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18 });
+  cards.forEach(function (el) { obs.observe(el); });
 })();
 </script>
 
