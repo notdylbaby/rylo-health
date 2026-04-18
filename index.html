@@ -30,6 +30,8 @@
       --soft-gray:   #F0EBE1;
       --sage:        #C4724A;
       --sage-pale:   #C4724A;
+      --matcha:      #A8C5A0;
+      --matcha-deep: #7A9E72;
       --gold:        #B8965A;
       --gold-light:  #D4B07A;
       --border:      rgba(26,26,26,0.10);
@@ -1626,7 +1628,9 @@
       background: #faf7f2;
       border-top: 1px solid rgba(0,0,0,0.06);
     }
-    @media (max-width: 768px) { .sticky-mobile-cta { display: block; } }
+    @media (max-width: 768px) { .sticky-mobile-cta { display: none !important; } }
+
+    @media (max-width: 768px) { .ts-box-card { display: none !important; } }
     .sticky-mobile-cta a {
       display: flex; align-items: center; justify-content: center;
       width: 100%;
@@ -2047,7 +2051,7 @@
       .hero-video-bg video { display: none !important; }
       .hero-video-bg {
         display: block !important; position: absolute; inset: 0;
-        background-image: url('./RYLOMOBILEHERO.png');
+        background-image: url('./RYLOMOBILEHERO.jpg');
         background-size: 160%;
         background-position: center 28%;
       }
@@ -2150,8 +2154,8 @@
         padding: 3px 8px; border-radius: 4px; z-index: 2;
       }
       .pm-hero-body {
-        position: absolute; bottom: 0; left: 0; right: 0;
-        padding: 14px 14px 16px; z-index: 2;
+        position: absolute; bottom: 42px; left: 0; right: 0;
+        padding: 14px 14px 10px; z-index: 2;
       }
       .pm-hero-cat {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -2169,11 +2173,34 @@
         letter-spacing: -0.01em;
       }
       .pm-mo { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; }
-      .pm-hero-arrow {
-        position: absolute; top: 14px; right: 14px; z-index: 2;
-        width: 26px; height: 26px;
-        display: flex; align-items: center; justify-content: center;
-        color: rgba(255,255,255,0.5); font-size: 16px;
+      /* Hero card CTA — editorial underline style */
+      .pm-hero-arrow { display: none; }
+      .pm-hero-cta-strip {
+        position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 12px 16px;
+        border-top: 1px solid rgba(255,255,255,0.14);
+        background: rgba(0,0,0,0.22);
+        backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      }
+      .pm-hero-cta-strip-text {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 15px; font-weight: 400; font-style: italic;
+        color: rgba(255,255,255,0.82);
+        letter-spacing: 0.01em;
+      }
+      .pm-hero-cta-strip-arrow {
+        width: 18px; height: 1px;
+        background: rgba(255,255,255,0.4);
+        position: relative; flex-shrink: 0;
+      }
+      .pm-hero-cta-strip-arrow::after {
+        content: '';
+        position: absolute; right: 0; top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 5px; height: 5px;
+        border-top: 1px solid rgba(255,255,255,0.4);
+        border-right: 1px solid rgba(255,255,255,0.4);
       }
 
       /* ── BOTTOM 3: Sermorelin, Glutathione, NAD — thin full-bleed image rows ── */
@@ -2196,7 +2223,7 @@
       }
       .pm-thin-overlay {
         position: absolute; inset: 0;
-        background: linear-gradient(105deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.2) 100%);
+        background: linear-gradient(105deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.25) 100%);
       }
       .pm-thin-inner {
         position: relative; z-index: 2;
@@ -2218,26 +2245,34 @@
         font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9);
       }
       .pm-thin-mo { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 400; }
-      .pm-thin-sep {
-        font-size: 10px; color: rgba(255,255,255,0.2);
-      }
+      .pm-thin-sep { font-size: 10px; color: rgba(255,255,255,0.2); }
       .pm-thin-cat {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 10px; font-weight: 500;
-        color: rgba(255,255,255,0.38); letter-spacing: 0.02em;
+        letter-spacing: 0.04em;
       }
+      /* Per-card color identities */
+      .pm-thin-row--serm .pm-thin-cat { color: #A8C5A0; }
+      .pm-thin-row--glut .pm-thin-cat { color: #C4B07A; }
+      .pm-thin-row--nad  .pm-thin-cat { color: #C4724A; }
+
+      /* Thin row CTA — minimal serif italic + accent line */
       .pm-thin-cta {
-        flex-shrink: 0; margin-left: 12px;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
-        color: #fff;
-        padding: 9px 18px;
-        border: 1px solid rgba(255,255,255,0.3);
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        border-radius: 100px;
-        white-space: nowrap;
+        flex-shrink: 0; margin-left: 16px;
+        display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
       }
+      .pm-thin-cta-label {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 13px; font-weight: 400; font-style: italic;
+        color: rgba(255,255,255,0.7);
+        white-space: nowrap; display: block;
+      }
+      .pm-thin-cta-line {
+        display: block; height: 1px; width: 28px;
+      }
+      .pm-thin-row--serm .pm-thin-cta-line { background: #A8C5A0; }
+      .pm-thin-row--glut .pm-thin-cta-line { background: #C4B07A; }
+      .pm-thin-row--nad  .pm-thin-cta-line { background: #C4724A; }
 
       /* View all link */
       .pm-view-all {
@@ -2254,7 +2289,7 @@
 
       /* ── HRW MOBILE LAYOUT ── */
       .hrw-mobile {
-        background: #faf7f2;
+        background: linear-gradient(200deg, rgba(181,201,160,0.06) 0%, #faf7f2 50%, rgba(184,148,95,0.04) 100%);
         padding: 0;
       }
       .hrw-mobile-head {
@@ -2388,7 +2423,8 @@
       /* Show mobile stacks, hide desktop grids */
       .ts-desktop-grid { display: none !important; }
       .ts-mobile-stack { display: flex !important; flex-direction: column; gap: 3px; }
-      .outcomes-section, .difference-section { background: #faf7f2; }
+      .outcomes-section { background: linear-gradient(140deg, #faf7f2 0%, rgba(181,201,160,0.08) 30%, rgba(232,223,202,0.1) 60%, #faf7f2 100%); }
+      .difference-section { background: #faf7f2; }
       .ts-section-gap { height: 60px; background: #faf7f2; }
       .ts-box-card { height: 200px; }
       .ts-box-text { padding: 20px; }
@@ -2408,7 +2444,10 @@
       .ts-slide-up.in-view { transform: translateY(0); }
 
       /* Section shells */
-      .outcomes-section, .difference-section {
+      .outcomes-section {
+        background: linear-gradient(140deg, #faf7f2 0%, rgba(181,201,160,0.08) 30%, rgba(232,223,202,0.1) 60%, #faf7f2 100%); padding: 0 0 8px;
+      }
+      .difference-section {
         background: #faf7f2; padding: 0 0 8px;
       }
 
@@ -2417,14 +2456,14 @@
       .ts-eyebrow {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-        color: rgba(26,26,26,0.5); display: block; margin-bottom: 12px;
+        color: var(--matcha-deep); display: block; margin-bottom: 12px;
       }
       .ts-title {
         font-family: 'Cormorant Garamond', Georgia, serif;
         font-size: 32px; font-weight: 400; color: #1a1a1a; line-height: 1.05;
         letter-spacing: -0.02em;
       }
-      .ts-title em { font-style: italic; color: rgba(26,26,26,0.68); }
+      .ts-title em { font-style: italic; color: var(--matcha-deep); }
       .ts-title-terra em { font-style: italic; color: #C4724A; }
 
       /* Mobile card stack */
@@ -2657,6 +2696,15 @@
         font-size: 13px; color: rgba(255,255,255,0.75);
         font-weight: 600; margin-top: 12px; display: block;
       }
+      /* Finally image card — mobile */
+      .ts-finally-card {
+        width: 100%; height: 320px;
+        padding: 0 !important; background: #111 !important;
+        border-radius: 0;
+      }
+      .ts-finally-card .ts-fc-text { padding: 24px 20px; }
+      .ts-finally-card .ts-fc-title { font-size: 28px; }
+      .ts-finally-card .ts-fc-body { font-size: 12px; max-width: 100%; }
 
       /* 1-on-1 horizontal card */
       .ts-horiz-card {
@@ -2771,18 +2819,18 @@
 <!-- ─── NAV ─── -->
 <nav class="rylo-nav" id="ryloNav">
   <a href="index.html" class="rn-logo">
-    <img class="rn-logo-white" src="whiterylologoofficial.png" alt="Rylo Health" />
-    <img class="rn-logo-dark" src="blackrylologoofficial.png" alt="Rylo Health" />
+    <img class="rn-logo-white" src="whiterylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
+    <img class="rn-logo-dark" src="blackrylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
   </a>
   <ul class="rn-links">
     <li class="rn-dd-wrap">
       <a class="rn-link">Treatments <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="rn-dd">
-        <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Significant weight loss</div></div><div class="rn-dd-price">$179<span>/mo</span></div></a>
-        <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$129<span>/mo</span></div></a>
-        <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Recovery &amp; vitality</div></div><div class="rn-dd-price">$159<span>/mo</span></div></a>
-        <a href="nad-product.html" class="rn-dd-item" data-product="nad"><div class="rn-dd-body"><div class="rn-dd-name">NAD+</div><div class="rn-dd-desc">Cellular energy &middot; Anti-aging support</div></div><div class="rn-dd-price">$139<span>/mo</span></div></a>
-        <a href="glutathione-product.html" class="rn-dd-item" data-product="glut"><div class="rn-dd-body"><div class="rn-dd-name">Glutathione</div><div class="rn-dd-desc">Antioxidant &middot; Detox &amp; immune support</div></div><div class="rn-dd-price">$89<span>/mo</span></div></a>
+        <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Significant weight loss</div></div><div class="rn-dd-price">$179<span>/month</span></div></a>
+        <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$129<span>/month</span></div></a>
+        <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Recovery &amp; vitality</div></div><div class="rn-dd-price">$159<span>/month</span></div></a>
+        <a href="nad-product.html" class="rn-dd-item" data-product="nad"><div class="rn-dd-body"><div class="rn-dd-name">NAD+</div><div class="rn-dd-desc">Cellular energy &middot; Anti-aging support</div></div><div class="rn-dd-price">$139<span>/month</span></div></a>
+        <a href="glutathione-product.html" class="rn-dd-item" data-product="glut"><div class="rn-dd-body"><div class="rn-dd-name">Glutathione</div><div class="rn-dd-desc">Antioxidant &middot; Detox &amp; immune support</div></div><div class="rn-dd-price">$89<span>/month</span></div></a>
         <div class="rn-dd-divider"></div>
         <div class="rn-dd-footer"><a href="index.html#treatments">View all treatments →</a></div>
       </div>
@@ -2825,7 +2873,7 @@
         <span class="hero-line1">Prescription weight loss.</span>
         <span class="hero-line2"><em>The way it should be.</em></span>
       </h1>
-      <p class="hero-sub">GLP-1 and peptide therapy from licensed US providers. Starting at $89/mo.</p>
+      <p class="hero-sub">GLP-1 and peptide therapy from licensed US providers. Starting at $89 per month.</p>
       <div class="hero-cta-wrap">
         <a href="intake.html" class="btn-hero-start">Start now →</a>
         <span class="hero-fine-mobile" style="display:none;">No commitment · Cancel anytime</span>
@@ -2839,6 +2887,53 @@
     </div>
   </div>
 </div>
+
+<!-- ─── TRUST STRIP (mobile only) ─── -->
+<style>
+  .sp-strip { display: none; }
+  @media (max-width: 768px) {
+    .sp-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #faf7f2;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 14px 20px;
+      opacity: 0;
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .sp-strip.sp-visible { opacity: 1; }
+    .sp-trust-line {
+      font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.055em;
+      color: rgba(26,26,26,0.48);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .sp-trust-dot {
+      margin: 0 7px;
+      color: rgba(26,26,26,0.18);
+    }
+  }
+</style>
+<div class="sp-strip" id="spStrip" aria-hidden="true">
+  <p class="sp-trust-line">
+    Physician-prescribed<span class="sp-trust-dot">&#183;</span>FDA-registered pharmacy<span class="sp-trust-dot">&#183;</span>No insurance required
+  </p>
+</div>
+<script>
+(function() {
+  var strip = document.getElementById('spStrip');
+  if (!strip) return;
+  if (window.innerWidth > 768) return;
+  var io = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) { strip.classList.add('sp-visible'); io.disconnect(); }
+  }, { threshold: 0.2 });
+  io.observe(strip);
+})();
+</script>
 
 <!-- ─── TICKER ─── -->
 <div class="ticker-bar" aria-hidden="true">
@@ -2923,7 +3018,7 @@
 <section class="products-section animate-in" id="treatments">
 <style>
   .products-section {
-    background: #EEE8DF;
+    background: linear-gradient(160deg, #faf7f2 0%, rgba(181,201,160,0.07) 40%, #faf7f2 70%, rgba(232,223,202,0.08) 100%);
     padding: 100px 0 0;
     width: 100%;
     max-width: none;
@@ -3319,7 +3414,7 @@
   <div class="prod-grid-top">
 
     <div class="prod-card tall animate-in" data-delay="1" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Tirzepatide Product Card .png'); background-position: center top;"></div>
+      <div class="prod-card-photo" style="background-image: url('./Tirzepatide-Product-Card.jpg'); background-position: center top;"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">GLP-1 + GIP · Weekly</span>
@@ -3331,8 +3426,8 @@
         <div class="prod-joined" style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;text-transform:none;margin-bottom:16px;font-family:var(--font);">Joined by 2,400+ patients</div>
         <div class="prod-card-footer">
           <div>
-            <div class="prod-price xl">$179<span class="prod-price-mo">/mo</span></div>
-            <div class="prod-save">3 months — $149/mo · <strong>Save $90</strong></div>
+            <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
+            <div class="prod-save">3 months — $149 per month · <strong>Save $90</strong></div>
           </div>
           <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
         </div>
@@ -3340,7 +3435,7 @@
     </div>
 
     <div class="prod-card tall animate-in" data-delay="2" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Semaglutide Product Card.png');"></div>
+      <div class="prod-card-photo" style="background-image: url('./Semaglutide-Product-Card.jpg');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">GLP-1 · Weekly</span>
@@ -3351,8 +3446,8 @@
         <div class="prod-name xl">Semaglutide</div>
         <div class="prod-card-footer">
           <div>
-            <div class="prod-price xl">$129<span class="prod-price-mo">/mo</span></div>
-            <div class="prod-save">3 months — $99/mo · <strong>Save $90</strong></div>
+            <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
+            <div class="prod-save">3 months — $99 per month · <strong>Save $90</strong></div>
           </div>
           <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
         </div>
@@ -3369,7 +3464,7 @@
   <div class="prod-grid-bottom" style="margin-top:4px;">
 
     <div class="prod-card short animate-in" data-delay="1" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./SERMORELIN PRODUCT CARD .png');"></div>
+      <div class="prod-card-photo" style="background-image: url('./SERMORELIN-Product-Card.jpg');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">Growth hormone</span>
@@ -3379,14 +3474,14 @@
         <div class="prod-cat">Growth hormone</div>
         <div class="prod-name md">Sermorelin</div>
         <div class="prod-card-footer">
-          <div class="prod-price md">$159<span class="prod-price-mo">/mo</span></div>
+          <div class="prod-price md">$159<span class="prod-price-mo">/month</span></div>
           <a href="sermorelin-product.html" class="prod-btn solid">Check my eligibility →</a>
         </div>
       </div>
     </div>
 
     <div class="prod-card short animate-in" data-delay="2" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Glutathione Product Card.png');"></div>
+      <div class="prod-card-photo" style="background-image: url('./Glutathione-Product-Card.jpg');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">Detox · Immune</span>
@@ -3396,14 +3491,14 @@
         <div class="prod-cat">Detox · Immune</div>
         <div class="prod-name md">Glutathione</div>
         <div class="prod-card-footer">
-          <div class="prod-price md">$89<span class="prod-price-mo">/mo</span></div>
+          <div class="prod-price md">$89<span class="prod-price-mo">/month</span></div>
           <a href="glutathione-product.html" class="prod-btn solid">Check my eligibility →</a>
         </div>
       </div>
     </div>
 
     <div class="prod-card short animate-in" data-delay="3" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./NAD PRODUCT CARD.png');"></div>
+      <div class="prod-card-photo" style="background-image: url('./NAD-Product-Card.jpg');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">Cellular repair</span>
@@ -3413,7 +3508,7 @@
         <div class="prod-cat">Cellular repair</div>
         <div class="prod-name md">NAD+</div>
         <div class="prod-card-footer">
-          <div class="prod-price md">$139<span class="prod-price-mo">/mo</span></div>
+          <div class="prod-price md">$139<span class="prod-price-mo">/month</span></div>
           <a href="nad-product.html" class="prod-btn solid">Check my eligibility →</a>
         </div>
       </div>
@@ -3433,27 +3528,33 @@
   <!-- Top 2: full-bleed image cards, square corners -->
   <div class="pm-hero-grid">
 
-    <a href="tirzepatide-product.html" class="pm-hero-card pm-anim" data-pm-delay="0">
-      <div class="pm-hero-img" style="background-image:url('./Tirzepatide Product Card .png');background-position:center top;"></div>
+    <a href="tirzepatide-product.html" class="pm-hero-card pm-hero-card--tirz pm-anim" data-pm-delay="0">
+      <div class="pm-hero-img" style="background-image:url('./Tirzepatide-Product-Card.jpg');background-position:center top;"></div>
       <div class="pm-hero-overlay"></div>
       <div class="pm-popular-badge">Most Popular</div>
       <div class="pm-hero-body">
         <div class="pm-hero-cat">GLP-1 + GIP · Weekly</div>
         <div class="pm-hero-name">Tirzepatide</div>
-        <div class="pm-hero-price">$179<span class="pm-mo">/mo</span></div>
+        <div class="pm-hero-price">$179<span class="pm-mo">/month</span></div>
       </div>
-      <div class="pm-hero-arrow">&#8599;</div>
+      <div class="pm-hero-cta-strip">
+        <span class="pm-hero-cta-strip-text">Begin your assessment</span>
+        <span class="pm-hero-cta-strip-arrow"></span>
+      </div>
     </a>
 
-    <a href="semaglutide-product.html" class="pm-hero-card pm-anim" data-pm-delay="1">
-      <div class="pm-hero-img" style="background-image:url('./Semaglutide Product Card.png');"></div>
+    <a href="semaglutide-product.html" class="pm-hero-card pm-hero-card--sema pm-anim" data-pm-delay="1">
+      <div class="pm-hero-img" style="background-image:url('./Semaglutide-Product-Card.jpg');"></div>
       <div class="pm-hero-overlay"></div>
       <div class="pm-hero-body">
         <div class="pm-hero-cat">GLP-1 · Weekly</div>
         <div class="pm-hero-name">Semaglutide</div>
-        <div class="pm-hero-price">$129<span class="pm-mo">/mo</span></div>
+        <div class="pm-hero-price">$129<span class="pm-mo">/month</span></div>
       </div>
-      <div class="pm-hero-arrow">&#8599;</div>
+      <div class="pm-hero-cta-strip">
+        <span class="pm-hero-cta-strip-text">Begin your assessment</span>
+        <span class="pm-hero-cta-strip-arrow"></span>
+      </div>
     </a>
 
   </div>
@@ -3461,51 +3562,60 @@
   <!-- Bottom 3: thin full-bleed image rows -->
   <div class="pm-thin-list">
 
-    <a href="sermorelin-product.html" class="pm-thin-row pm-anim" data-pm-delay="2">
-      <div class="pm-thin-bg" style="background-image:url('./SERMORELIN PRODUCT CARD .png');"></div>
+    <a href="sermorelin-product.html" class="pm-thin-row pm-thin-row--serm pm-anim" data-pm-delay="2">
+      <div class="pm-thin-bg" style="background-image:url('./SERMORELIN-Product-Card.jpg');"></div>
       <div class="pm-thin-overlay"></div>
       <div class="pm-thin-inner">
         <div class="pm-thin-body">
           <div class="pm-thin-name">Sermorelin</div>
           <div class="pm-thin-meta">
-            <span class="pm-thin-price">$159<span class="pm-thin-mo">/mo</span></span>
+            <span class="pm-thin-price">$159<span class="pm-thin-mo">/month</span></span>
             <span class="pm-thin-sep">·</span>
             <span class="pm-thin-cat">Recovery</span>
           </div>
         </div>
-        <span class="pm-thin-cta">Get started</span>
+        <span class="pm-thin-cta">
+          <span class="pm-thin-cta-label">Explore</span>
+          <span class="pm-thin-cta-line"></span>
+        </span>
       </div>
     </a>
 
-    <a href="glutathione-product.html" class="pm-thin-row pm-anim" data-pm-delay="3">
-      <div class="pm-thin-bg" style="background-image:url('./Glutathione Product Card.png');"></div>
+    <a href="glutathione-product.html" class="pm-thin-row pm-thin-row--glut pm-anim" data-pm-delay="3">
+      <div class="pm-thin-bg" style="background-image:url('./Glutathione-Product-Card.jpg');"></div>
       <div class="pm-thin-overlay"></div>
       <div class="pm-thin-inner">
         <div class="pm-thin-body">
           <div class="pm-thin-name">Glutathione</div>
           <div class="pm-thin-meta">
-            <span class="pm-thin-price">$89<span class="pm-thin-mo">/mo</span></span>
+            <span class="pm-thin-price">$89<span class="pm-thin-mo">/month</span></span>
             <span class="pm-thin-sep">·</span>
             <span class="pm-thin-cat">Detox &amp; Immune</span>
           </div>
         </div>
-        <span class="pm-thin-cta">Get started</span>
+        <span class="pm-thin-cta">
+          <span class="pm-thin-cta-label">Explore</span>
+          <span class="pm-thin-cta-line"></span>
+        </span>
       </div>
     </a>
 
-    <a href="nad-product.html" class="pm-thin-row pm-anim" data-pm-delay="4">
-      <div class="pm-thin-bg" style="background-image:url('./NAD PRODUCT CARD.png');background-position:center 30%;"></div>
+    <a href="nad-product.html" class="pm-thin-row pm-thin-row--nad pm-anim" data-pm-delay="4">
+      <div class="pm-thin-bg" style="background-image:url('./NAD-Product-Card.jpg');background-position:center 30%;"></div>
       <div class="pm-thin-overlay"></div>
       <div class="pm-thin-inner">
         <div class="pm-thin-body">
           <div class="pm-thin-name">NAD+</div>
           <div class="pm-thin-meta">
-            <span class="pm-thin-price">$139<span class="pm-thin-mo">/mo</span></span>
+            <span class="pm-thin-price">$139<span class="pm-thin-mo">/month</span></span>
             <span class="pm-thin-sep">·</span>
             <span class="pm-thin-cat">Anti-aging</span>
           </div>
         </div>
-        <span class="pm-thin-cta">Get started</span>
+        <span class="pm-thin-cta">
+          <span class="pm-thin-cta-label">Explore</span>
+          <span class="pm-thin-cta-line"></span>
+        </span>
       </div>
     </a>
 
@@ -3515,11 +3625,234 @@
 
 </div>
 
+<!-- ─── PRICING COMPARISON ─── -->
+<style>
+  .price-compare-section {
+    background: #1a1a1a;
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-compare-section::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(196,114,74,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .pc-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .pc-eyebrow {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #C4724A;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .pc-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 52px;
+  }
+  .pc-headline em { font-style: italic; color: rgba(255,255,255,0.45); }
+  .pc-table-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 0 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 6px;
+  }
+  .pc-table-head span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .pc-table-head span:nth-child(2) { text-align: center; }
+  .pc-table-head span:nth-child(3) { text-align: right; color: #C4724A; }
+  .pc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    align-items: center;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1) var(--row-delay, 0s),
+                transform 0.7s cubic-bezier(0.16,1,0.3,1) var(--row-delay, 0s);
+  }
+  .pc-row.pc-visible { opacity: 1; transform: translateY(0); }
+  .pc-drug-name {
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+  .pc-drug-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .pc-brand-price {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.28);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.15);
+  }
+  .pc-rylo-price {
+    text-align: right;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #C4724A;
+  }
+  .pc-rylo-price .pc-mo { font-size: 13px; color: rgba(196,114,74,0.65); font-family: var(--font); }
+  .pc-savings-badge {
+    display: inline-block;
+    background: rgba(168,197,160,0.15);
+    border: 1px solid rgba(168,197,160,0.25);
+    color: #A8C5A0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 0;
+    margin-top: 6px;
+  }
+  .pc-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .pc-disclaimer {
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+    line-height: 1.6;
+    max-width: 420px;
+    font-style: italic;
+  }
+  .pc-cta-btn {
+    display: inline-block;
+    background: #C4724A;
+    color: #fff;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 14px 32px;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .pc-cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .pc-cta-btn:active { opacity: 0.75; transform: translateY(0); }
+  @media (max-width: 768px) {
+    .price-compare-section { padding: 60px 20px; }
+    .pc-table-head span:nth-child(2) { display: none; }
+    .pc-row { grid-template-columns: 1fr auto; gap: 8px; }
+    .pc-brand-price { display: none; }
+    .pc-rylo-price { font-size: 20px; }
+    .pc-footer-row { flex-direction: column; align-items: flex-start; }
+    .pc-cta-btn { width: 100%; text-align: center; }
+  }
+</style>
+
+<section class="price-compare-section" id="priceCompare">
+  <div class="pc-inner">
+    <span class="pc-eyebrow">The Rylo Difference</span>
+    <h2 class="pc-headline">Same medication.<br><em>A fraction of the price.</em></h2>
+
+    <div class="pc-table-head">
+      <span>Treatment</span>
+      <span>Brand-name retail</span>
+      <span>With Rylo</span>
+    </div>
+
+    <div class="pc-row" style="--row-delay:0s">
+      <div>
+        <div class="pc-drug-name">Tirzepatide</div>
+        <div class="pc-drug-sub">Same active ingredient as Zepbound</div>
+        <div class="pc-savings-badge">Save up to $1,000 per month</div>
+      </div>
+      <div class="pc-brand-price">~$1,200 per month</div>
+      <div>
+        <div class="pc-rylo-price">$179<span class="pc-mo"> per month</span></div>
+      </div>
+    </div>
+
+    <div class="pc-row" style="--row-delay:0.1s">
+      <div>
+        <div class="pc-drug-name">Semaglutide</div>
+        <div class="pc-drug-sub">Same active ingredient as Wegovy</div>
+        <div class="pc-savings-badge">Save up to $1,200 per month</div>
+      </div>
+      <div class="pc-brand-price">~$1,400 per month</div>
+      <div>
+        <div class="pc-rylo-price">$129<span class="pc-mo"> per month</span></div>
+      </div>
+    </div>
+
+    <div class="pc-row" style="--row-delay:0.18s">
+      <div>
+        <div class="pc-drug-name">Sermorelin</div>
+        <div class="pc-drug-sub">Recovery &amp; lean muscle support</div>
+      </div>
+      <div class="pc-brand-price">$400–600 per month</div>
+      <div>
+        <div class="pc-rylo-price">$159<span class="pc-mo"> per month</span></div>
+      </div>
+    </div>
+
+    <div class="pc-footer-row">
+      <p class="pc-disclaimer">Compounded medications are not FDA-approved. Brand-name prices are approximate retail estimates and may vary by pharmacy and insurance. Individual results vary.</p>
+      <a href="intake.html" class="pc-cta-btn">Start free assessment &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var rows = document.querySelectorAll('.pc-row');
+  if (!rows.length) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('pc-visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  rows.forEach(function(r) { io.observe(r); });
+})();
+</script>
+
 <!-- ─── VIAL REVEAL — MOBILE ONLY ─── -->
 <section class="vr-section" id="vialReveal">
   <div class="vr-glow"></div>
   <div class="vr-img-wrap">
-    <img src="./holdingvial.png" class="vr-img" alt="Compounded vial">
+    <img src="./holdingvial.png" loading="lazy" class="vr-img" alt="Compounded vial">
   </div>
   <div class="vr-copy">
     <span class="vr-tag">FDA-registered compounding pharmacy</span>
@@ -3644,6 +3977,7 @@
         .hrw {
             position: relative;
             overflow: hidden;
+            background: linear-gradient(200deg, rgba(181,201,160,0.06) 0%, #faf7f2 50%, rgba(184,148,95,0.04) 100%);
         }
 
         /* ── BACKGROUND — sticky so it pins while cards scroll over it ── */
@@ -3888,7 +4222,7 @@
 
     <!-- BACKGROUND IMAGE -->
     <div class="hrw-bg">
-        <img class="hrw-bg-img" src="hf_20260330_035324_f85d67f6-2eff-491e-81ce-54247e3399a6.png" alt="">
+        <img class="hrw-bg-img" src="hf-bg.jpg" loading="lazy" alt="">
         <div class="hrw-bg-overlay"></div>
     </div>
 
@@ -3947,7 +4281,7 @@
 <section class="hrw-mobile" id="how-it-works-mobile" aria-hidden="true">
   <div class="hrw-mobile-head">
     <div class="hrw-mobile-eyebrow">The Process</div>
-    <img class="hrw-mobile-logo" src="blackrylologoofficial.png" alt="Rylo Health" />
+    <img class="hrw-mobile-logo" src="blackrylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
     <h2 class="hrw-mobile-title">How <em>rylo</em> works</h2>
     <p class="hrw-mobile-sub">A quick, guided process to receive personalized treatment and your medication in just a few days.</p>
   </div>
@@ -3966,19 +4300,25 @@
         <div class="hrw-mobile-step-num">01</div>
         <h3 class="hrw-mobile-step-title">Complete your assessment</h3>
         <p class="hrw-mobile-step-desc">Answer a few questions about your health, goals, and medical history. Takes about 3 minutes.</p>
-        <div class="hrw-mobile-step-img">Image</div>
+        <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
+          <img src="Rylointakeform.jpg" loading="lazy" alt="Complete your health intake" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:0;" loading="lazy" />
+        </div>
       </div>
       <div class="hrw-mobile-step" data-step="1">
         <div class="hrw-mobile-step-num">02</div>
         <h3 class="hrw-mobile-step-title">Provider review</h3>
         <p class="hrw-mobile-step-desc">A licensed provider reviews your profile and determines the right treatment plan for you.</p>
-        <div class="hrw-mobile-step-img">Image</div>
+        <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
+          <img src="doctorreview.jpg" loading="lazy" alt="Provider reviews your case" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
+        </div>
       </div>
       <div class="hrw-mobile-step" data-step="2">
         <div class="hrw-mobile-step-num">03</div>
         <h3 class="hrw-mobile-step-title">Medication ships to you</h3>
         <p class="hrw-mobile-step-desc">If approved, your prescription is filled by a licensed US pharmacy and shipped free to your door.</p>
-        <div class="hrw-mobile-step-img">Image</div>
+        <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
+          <img src="fatbitchpackage.jpg" loading="lazy" alt="Medication ships to your door" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
+        </div>
       </div>
     </div>
   </div>
@@ -4062,7 +4402,7 @@
   
   IMAGES NEEDED (already in your project):
   - yoglady - Edited.png (center woman)
-  - DOCTORTALKINGPHONE - Edited.png (phone mockup)
+  - DOCTORTALKINGPHONE.jpg (phone mockup)
   - patientavatar1.png (clinician photo — or swap for a better one)
   - pharmacy-photo.png (swap in a pharmacy/compounding shot)
   - shipping box photo (optional — currently using your Rylo box if you have one)
@@ -4406,8 +4746,12 @@
 /* ════════════════════════════════════
    THEMED SECTIONS — DESKTOP
    ════════════════════════════════════ */
-.outcomes-section, .difference-section {
-  background: #EEE8DF;
+.outcomes-section {
+  background: linear-gradient(140deg, #faf7f2 0%, rgba(181,201,160,0.08) 30%, rgba(232,223,202,0.1) 60%, #faf7f2 100%);
+  padding: 0 0 8px;
+}
+.difference-section {
+  background: #faf7f2;
   padding: 0 0 8px;
 }
 .ts-head {
@@ -4416,14 +4760,14 @@
 .ts-eyebrow {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: rgba(26,26,26,0.5); display: block; margin-bottom: 16px;
+  color: var(--matcha-deep); display: block; margin-bottom: 16px;
 }
 .ts-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 52px; font-weight: 400; color: #1a1a1a;
   line-height: 1.0; letter-spacing: -0.02em;
 }
-.ts-title em { font-style: italic; color: rgba(26,26,26,0.68); }
+.ts-title em { font-style: italic; color: var(--matcha-deep); }
 .ts-title-terra em { font-style: italic; color: #C4724A; }
 
 /* Desktop: hide mobile stack, show desktop grid */
@@ -4537,6 +4881,45 @@
   font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500; margin-top: 12px; display: block;
 }
 
+/* ── FINALLY IMAGE CARD — desktop ── */
+.ts-finally-card {
+  position: relative; overflow: hidden;
+  padding: 0 !important;
+  background: #111 !important;
+  border-radius: 16px;
+  min-height: 300px;
+}
+.ts-finally-card .ts-fc-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+  filter: saturate(0.85) contrast(1.05);
+}
+.ts-finally-card .ts-fc-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.05) 70%);
+}
+.ts-finally-card .ts-fc-text {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px;
+}
+.ts-finally-card .ts-fc-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px; font-weight: 400; font-style: italic;
+  color: #fff; line-height: 1.05;
+}
+.ts-finally-card .ts-fc-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 600; color: #fff;
+  margin-top: 6px;
+}
+.ts-finally-card .ts-fc-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; color: rgba(255,255,255,0.55);
+  line-height: 1.6; margin-top: 8px; max-width: 280px;
+}
+
 /* Desktop stat cards */
 .ts-stat-card-tall {
   flex: 1; background: #fff; border-radius: 16px; padding: 36px 28px;
@@ -4572,6 +4955,15 @@
 
 /* Section gap */
 .ts-section-gap { height: 100px; background: #EEE8DF; }
+.gradient-divider {
+  height: 120px;
+  background: linear-gradient(135deg, rgba(181,201,160,0.12) 0%, rgba(250,247,242,1) 50%, rgba(184,148,95,0.08) 100%);
+  width: 100%;
+  display: block;
+}
+@media (max-width: 768px) {
+  .gradient-divider { height: 80px; }
+}
 
 /* Rylo box full width */
 .ts-box-card {
@@ -4604,8 +4996,8 @@
 .ts-badge {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 8px 14px; border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 100px; color: rgba(26,26,26,0.45);
+  padding: 8px 14px; border: 1px solid rgba(168,197,160,0.45);
+  border-radius: 100px; color: var(--matcha-deep); background: rgba(168,197,160,0.08);
 }
 .ts-cta {
   display: inline-block; background: #1a1a1a; color: #fff;
@@ -4783,90 +5175,95 @@
    RYLO ANIMATED CALENDAR
    ══════════════════════════════════════════════ */
 .rylo-cal {
-  background: #faf7f2; border-radius: 12px; padding: 20px;
+  background: #fff; border-radius: 16px; padding: 22px 18px 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
 }
 .rcal-head {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px; font-weight: 500; color: #1a1a1a;
-  margin: 0 0 14px; line-height: 1.4;
-  opacity: 0; transition: opacity 0.4s ease;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px; font-weight: 600; color: #1a1a1a;
+  letter-spacing: -0.02em; line-height: 1.2;
+  margin: 0 0 4px;
+  opacity: 0; transition: opacity 0.5s ease;
 }
 .rcal-head.rcal-in { opacity: 1; }
+.rcal-subhead {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 500; color: rgba(26,26,26,0.4);
+  letter-spacing: 0.02em; display: block; margin-bottom: 16px;
+  opacity: 0; transition: opacity 0.5s ease 0.1s;
+}
+.rcal-subhead.rcal-in { opacity: 1; }
 .rcal-grid {
   display: grid; grid-template-columns: repeat(7, 1fr);
-  gap: 6px; align-items: center; justify-items: center;
+  gap: 5px; align-items: center; justify-items: center;
 }
 .rcal-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 9px; font-weight: 600; letter-spacing: 0.04em;
-  color: rgba(26,26,26,0.5); text-align: center;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.05em;
+  color: rgba(26,26,26,0.3); text-align: center;
   opacity: 0; transition: opacity 0.4s ease 0.2s;
 }
 .rcal-label.rcal-in { opacity: 1; }
 
-/* Base circle — starts hidden for animation */
+/* All days — clean uniform circles, Apple-style */
 .rcal-day {
+  width: 26px; height: 26px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 500;
-  opacity: 0; transform: scale(0.6);
-  /* hover transition only — animation-in is set by JS */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 500;
+  opacity: 0; transform: scale(0.7);
   transition: box-shadow 0.2s ease;
 }
 .rcal-day.rcal-in { opacity: 1; transform: scale(1); }
 
-/* Asymmetric sizes */
-.sz-sm { width: 20px; height: 22px; font-size: 9px; }
-.sz-md { width: 24px; height: 24px; font-size: 9px; }
-.sz-lg { width: 27px; height: 25px; font-size: 10px; }
-.sz-xl { width: 29px; height: 27px; font-size: 10px; }
+/* Remove all asymmetric size/radius classes — uniform now */
+.sz-sm, .sz-md, .sz-lg, .sz-xl { width: 26px; height: 26px; font-size: 10px; }
+.br-round, .br-pill, .br-sq { border-radius: 50%; }
 
-/* Border-radius variants */
-.br-round { border-radius: 50%; }
-.br-pill  { border-radius: 40%; }
-.br-sq    { border-radius: 30%; }
-
-/* Types */
+/* Types — clean, minimal palette */
 .rcal-day.dark   { background: #1a1a1a; color: #fff; }
-.rcal-day.empty  { background: #fff; border: 1px solid rgba(0,0,0,0.08); color: #1a1a1a; }
-.rcal-day.soft   { background: #E8DDD0; color: #1a1a1a; }
-.rcal-day.hatch  {
-  background: repeating-linear-gradient(
-    45deg, rgba(196,114,74,0.3) 0px, rgba(196,114,74,0.3) 2px,
-    transparent 2px, transparent 6px);
-  border: 1px solid rgba(0,0,0,0.08); color: rgba(26,26,26,0.45);
-}
-.rcal-day.bronze { background: #B8945F; color: #fff; }
-
-/* Desktop hover */
-@media(min-width:769px) {
-  .rcal-day.rcal-in { cursor: default; }
-  .rcal-day.rcal-in:hover { transform: scale(1.1) !important; }
-  .rcal-day.bronze.rcal-in:hover { box-shadow: 0 0 0 4px rgba(184,148,95,0.2); }
-}
+.rcal-day.empty  { background: rgba(0,0,0,0.04); color: rgba(26,26,26,0.35); }
+.rcal-day.soft   { background: #f0ebe1; color: rgba(26,26,26,0.5); }
+.rcal-day.hatch  { background: rgba(196,114,74,0.1); color: rgba(196,114,74,0.6); }
+.rcal-day.bronze { background: #C4724A; color: #fff; }
 
 /* Bronze milestone pulse */
 @keyframes rcal-pulse {
   0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.08); }
+  50%       { transform: scale(1.12); box-shadow: 0 0 0 6px rgba(196,114,74,0.15); }
 }
-.rcal-day.bronze.rcal-pulse { animation: rcal-pulse 0.6s ease; }
+.rcal-day.bronze.rcal-pulse { animation: rcal-pulse 0.7s cubic-bezier(0.22,1,0.36,1); }
+
+.rcal-legend {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 14px; flex-wrap: wrap;
+}
+.rcal-legend-item {
+  display: flex; align-items: center; gap: 5px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px; font-weight: 500; color: rgba(26,26,26,0.4);
+}
+.rcal-legend-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
 
 .rcal-foot {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px; color: rgba(26,26,26,0.68);
-  margin: 14px 0 0; line-height: 1.5;
+  font-size: 10px; color: rgba(26,26,26,0.35);
+  margin: 14px 0 0; line-height: 1.6;
+  font-style: italic;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 12px;
 }
 
 /* Mobile */
 @media(max-width:768px) {
-  .rcal-grid { gap: 5px; }
-  .sz-sm { width: 17px; height: 18px; font-size: 8px; }
-  .sz-md { width: 20px; height: 20px; font-size: 8px; }
-  .sz-lg { width: 23px; height: 21px; font-size: 9px; }
-  .sz-xl { width: 25px; height: 23px; font-size: 9px; }
-  .rcal-head { font-size: 12px; }
+  .rcal-grid { gap: 4px; }
+  .rcal-day,
+  .sz-sm, .sz-md, .sz-lg, .sz-xl { width: 22px; height: 22px; font-size: 9px; }
+  .rcal-head { font-size: 14px; }
   .rcal-label { font-size: 8px; }
-  .rcal-foot { font-size: 10px; }
+  .rcal-foot { font-size: 9px; }
   .ts-stats-row { grid-template-columns: 1fr !important; }
 }
 
@@ -4907,6 +5304,247 @@
 }
 </style>
 
+<!-- ─── MOLECULAR WELLNESS — ROLLING TICKER ─── -->
+<style>
+  /* ─── Section shell ─── */
+  .mw-section {
+    background: #faf7f2;
+    overflow: hidden;
+    position: relative;
+    height: 280px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ─── Track: paused by default, starts on scroll-in ─── */
+  .mw-track {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    animation: mw-scroll 26s linear infinite;
+    animation-play-state: paused;   /* starts paused */
+    will-change: transform;
+    flex-shrink: 0;
+  }
+  .mw-section.mw-active .mw-track { animation-play-state: running; }
+
+  /* Hover pauses everything */
+  .mw-section:hover .mw-track      { animation-play-state: paused; }
+  .mw-section:hover .mw-roll-layer { animation-play-state: paused; }
+
+  /* ─── Keyframes ─── */
+  @keyframes mw-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes mw-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+  }
+
+  /* ─── Ball base ─── */
+  .mw-ball {
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 0.5px solid rgba(26,26,26,0.14);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    /* Scroll-in fade — each ball has --fd delay set inline */
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1) var(--fd,0s),
+                transform 0.42s cubic-bezier(0.22,1,0.36,1);
+  }
+  /* When section activates: balls fade in */
+  .mw-section.mw-active .mw-ball { opacity: 1; }
+  .mw-ball:hover { transform: scale(1.08); }
+
+  /* ─── Brand palette per ball ─── */
+  /* navy — Ralph Lauren authority */
+  .mw-ball.c-navy   { background: #1B2B3A; }
+  /* forest — hunting estate, members green */
+  .mw-ball.c-forest { background: #2C4A3E; }
+  /* stone — aged leather, warm neutral */
+  .mw-ball.c-stone  { background: #D4C9B8; }
+  /* champ — understated champagne gold */
+  .mw-ball.c-champ  { background: #E8DEC8; }
+  /* ecru — fine linen, good stationery */
+  .mw-ball.c-ecru   { background: #F2EDE4; }
+  /* coal — near-black anchor */
+  .mw-ball.c-coal   { background: #1E1C19; }
+  .mw-ball.c-navy .mw-label,
+  .mw-ball.c-forest .mw-label,
+  .mw-ball.c-coal .mw-label  { color: rgba(242,237,228,0.72); }
+
+  /* ─── Roll gloss layer ─── */
+  .mw-roll-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    animation: mw-spin var(--spin-dur,8s) linear infinite;
+    animation-play-state: paused;
+    pointer-events: none;
+  }
+  .mw-section.mw-active .mw-roll-layer { animation-play-state: running; }
+  .mw-section:hover .mw-roll-layer     { animation-play-state: paused;  }
+
+  /* Orbiting specular highlight */
+  .mw-roll-layer::before {
+    content: '';
+    position: absolute;
+    top: 11%; left: 13%;
+    width: 34%; height: 26%;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.38);
+    filter: blur(6px);
+  }
+  /* Depth shadow */
+  .mw-roll-layer::after {
+    content: '';
+    position: absolute;
+    bottom: 13%; right: 14%;
+    width: 26%; height: 20%;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.06);
+    filter: blur(5px);
+  }
+
+  /* ─── Label ─── */
+  .mw-label {
+    font-family: var(--font);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: rgba(26,26,26,0.62);
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* ─── Sizes ─── */
+  .mw-ball.sz-lg { width: 164px; height: 164px; }
+  .mw-ball.sz-md { width: 128px; height: 128px; }
+  .mw-ball.sz-sm { width: 104px; height: 104px; }
+
+  /* ─── Vertical stagger ─── */
+  .mw-ball.ot-0 { margin-top: 0;     }
+  .mw-ball.ot-a { margin-top: -48px; }
+  .mw-ball.ot-b { margin-top: 42px;  }
+  .mw-ball.ot-c { margin-top: -24px; }
+  .mw-ball.ot-d { margin-top: 52px;  }
+  .mw-ball.ot-e { margin-top: -40px; }
+
+  /* ─── Mobile ─── */
+  @media (max-width: 768px) {
+    .mw-section   { height: 200px; }
+    .mw-ball.sz-lg { width: 114px; height: 114px; }
+    .mw-ball.sz-md { width:  89px; height:  89px; }
+    .mw-ball.sz-sm { width:  72px; height:  72px; }
+    .mw-ball.ot-a { margin-top: -33px; }
+    .mw-ball.ot-b { margin-top:  29px; }
+    .mw-ball.ot-c { margin-top: -17px; }
+    .mw-ball.ot-d { margin-top:  36px; }
+    .mw-ball.ot-e { margin-top: -28px; }
+    .mw-track     { gap: 18px; }
+    .mw-label     { font-size: 0.68rem; }
+  }
+</style>
+
+<section class="mw-section" id="mwSection" aria-label="Molecular Wellness">
+  <div class="mw-track" id="mwTrack">
+
+    <!-- ── Set 1 ── spin-dur = π × diameter ÷ speed (speed=loopPx/26s) -->
+    <!-- Approximate @ 1100px loop → 42.3px/s: 164px→12.2s 128px→9.5s 104px→7.7s -->
+    <div class="mw-ball sz-lg ot-0 c-ecru"   style="--spin-dur:12.2s;--fd:0s"   ><div class="mw-roll-layer"></div><span class="mw-label">sculpt</span></div>
+    <div class="mw-ball sz-md ot-a c-navy"   style="--spin-dur:9.5s; --fd:0.07s"><div class="mw-roll-layer"></div><span class="mw-label">reclaim</span></div>
+    <div class="mw-ball sz-lg ot-b c-stone"  style="--spin-dur:12.2s;--fd:0.14s"><div class="mw-roll-layer"></div><span class="mw-label">longevity</span></div>
+    <div class="mw-ball sz-sm ot-c c-forest" style="--spin-dur:7.7s; --fd:0.21s"><div class="mw-roll-layer"></div><span class="mw-label">refine</span></div>
+    <div class="mw-ball sz-md ot-d c-champ"  style="--spin-dur:9.5s; --fd:0.28s"><div class="mw-roll-layer"></div><span class="mw-label">restore</span></div>
+    <div class="mw-ball sz-lg ot-e c-coal"   style="--spin-dur:12.2s;--fd:0.35s"><div class="mw-roll-layer"></div><span class="mw-label">ascend</span></div>
+
+    <!-- ── Set 2 (loop duplicate) ── -->
+    <div class="mw-ball sz-lg ot-0 c-ecru"   style="--spin-dur:12.2s;--fd:0.04s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">sculpt</span></div>
+    <div class="mw-ball sz-md ot-a c-navy"   style="--spin-dur:9.5s; --fd:0.11s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">reclaim</span></div>
+    <div class="mw-ball sz-lg ot-b c-stone"  style="--spin-dur:12.2s;--fd:0.18s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">longevity</span></div>
+    <div class="mw-ball sz-sm ot-c c-forest" style="--spin-dur:7.7s; --fd:0.25s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">refine</span></div>
+    <div class="mw-ball sz-md ot-d c-champ"  style="--spin-dur:9.5s; --fd:0.32s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">restore</span></div>
+    <div class="mw-ball sz-lg ot-e c-coal"   style="--spin-dur:12.2s;--fd:0.39s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">ascend</span></div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  var section = document.getElementById('mwSection');
+  var track   = document.getElementById('mwTrack');
+  if (!section || !track) return;
+
+  /* ─── 1. Precise seamless-loop calibration ─────────────
+     Measure real offsetLeft of ball[6] (set 2 start) and
+     inject an exact px keyframe — eliminates any seam. */
+  function calibrateLoop() {
+    var balls = track.querySelectorAll('.mw-ball');
+    if (balls.length < 7) return;
+    var loopPx = balls[6].offsetLeft;
+    if (!loopPx || loopPx < 10) return;
+    var s = document.createElement('style');
+    s.textContent =
+      '@keyframes mw-scroll{' +
+        'from{transform:translateX(0)}' +
+        'to{transform:translateX(-' + loopPx + 'px)}' +
+      '}';
+    document.head.appendChild(s);
+
+    /* Recalculate physically correct spin durations now we know speed */
+    var speed = loopPx / 26;   /* px/s */
+    balls.forEach(function (b) {
+      var d = b.offsetWidth;
+      if (!d) return;
+      var dur = (Math.PI * d / speed).toFixed(2);
+      b.style.setProperty('--spin-dur', dur + 's');
+    });
+  }
+
+  /* ─── 2. Scroll-triggered entry: fade + start ───────────
+     IntersectionObserver fires the moment the top edge of the
+     section enters the bottom of the viewport (threshold:0). */
+  var activated = false;
+  var io = new IntersectionObserver(function (entries) {
+    if (activated) return;
+    if (!entries[0].isIntersecting) return;
+    activated = true;
+    io.disconnect();
+
+    /* Calibrate loop first (layout must be complete) */
+    calibrateLoop();
+
+    /* Tiny rAF so the keyframe injection is painted before play */
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        section.classList.add('mw-active');
+      });
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+
+  io.observe(section);
+
+  /* ─── 3. Resize recalibration ─── */
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(calibrateLoop, 120);
+  });
+
+})();
+</script>
+
 <!-- ─── SECTION 1: REAL CHANGE. REAL PEOPLE. ─── -->
 <section class="outcomes-section">
 
@@ -4924,14 +5562,20 @@
       <!-- 2-4 weeks -->
       <div class="ts-stat-card-tall ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="Learn more about 2–4 week results">
         <div class="rylo-cal" id="ryloCalDesktop">
-          <p class="rcal-head">Visible results in 2–4 weeks</p>
+          <p class="rcal-head">Results within weeks</p>
+          <span class="rcal-subhead">Typical patient timeline after starting treatment</span>
           <div class="rcal-grid">
             <span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">Th</span><span class="rcal-label">F</span><span class="rcal-label">Sa</span><span class="rcal-label">Su</span>
             <div class="rcal-day dark sz-lg br-round">1</div><div class="rcal-day empty sz-sm br-pill">2</div><div class="rcal-day hatch sz-md br-sq">3</div><div class="rcal-day hatch sz-lg br-round">4</div><div class="rcal-day soft sz-sm br-round">5</div><div class="rcal-day empty sz-md br-pill">6</div><div class="rcal-day empty sz-sm br-sq">7</div>
             <div class="rcal-day soft sz-lg br-pill">8</div><div class="rcal-day empty sz-sm br-round">9</div><div class="rcal-day soft sz-md br-sq">10</div><div class="rcal-day empty sz-md br-round">11</div><div class="rcal-day hatch sz-sm br-round">12</div><div class="rcal-day hatch sz-lg br-sq">13</div><div class="rcal-day hatch sz-md br-pill">14</div>
             <div class="rcal-day empty sz-md br-round">15</div><div class="rcal-day bronze sz-xl br-round">16</div><div class="rcal-day bronze sz-xl br-sq">17</div><div class="rcal-day soft sz-md br-pill">18</div><div class="rcal-day soft sz-lg br-round">19</div><div class="rcal-day soft sz-sm br-sq">20</div><div class="rcal-day empty sz-sm br-round">21</div>
           </div>
-          <p class="rcal-foot">Avg time to notice meaningful changes after starting GLP-1.</p>
+          <div class="rcal-legend">
+            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#1a1a1a"></span>Start</span>
+            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:rgba(196,114,74,0.2)"></span>Adjusting</span>
+            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#A8C5A0"></span>Noticeable change</span>
+          </div>
+          <p class="rcal-foot">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</p>
         </div>
       </div>
       <!-- 20.2% -->
@@ -4945,7 +5589,7 @@
     <!-- CENTER: woman jeans tall -->
     <div class="ts-col ts-center-col">
       <div class="ts-center-img-wrap ts-animate" style="transition-delay:0.08s">
-        <img src="asianwomanjeans.png" alt="Rylo patient" />
+        <img src="jeansweight.jpg" loading="lazy" alt="Rylo patient" style="object-position:center 18%;" />
         <div class="ts-center-overlay"></div>
         <div class="ts-center-widget">
           <div class="ts-ww-label">Weight lost</div>
@@ -4957,7 +5601,7 @@
     <!-- RIGHT: 48hrs + Finally stacked -->
     <div class="ts-col">
       <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="hrs-48" tabindex="0" role="button" aria-label="Learn more about 48-hour response">
-        <img src="aiwomancomputer.png" alt="48 hour response" />
+        <img src="aiwomancomputer.jpg" loading="lazy" alt="48 hour response" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
           <span class="ts-img-big">48 hours</span>
@@ -4965,11 +5609,14 @@
           <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
         </div>
       </div>
-      <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.12s" data-ic="finally" tabindex="0" role="button" aria-label="Learn more">
-        <p class="ts-dark-title-serif"><em>Finally.</em></p>
-        <p class="ts-dark-sub-h">Something that actually works.</p>
-        <p class="ts-dark-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</p>
-        <span class="ts-dark-note">If you're not approved, you don't pay.</span>
+      <div class="ts-dark-card ts-finally-card ts-animate ts-slide-up" style="transition-delay:0.12s;transition-duration:0.8s;" data-ic="finally">
+        <img class="ts-fc-img" src="finally-image.jpg" loading="lazy" alt="Weight loss results" />
+        <div class="ts-fc-overlay"></div>
+        <div class="ts-fc-text">
+          <p class="ts-fc-title">Finally.</p>
+          <p class="ts-fc-sub">Something that actually works.</p>
+          <p class="ts-fc-body">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower. If you're not approved, you don't pay.</p>
+        </div>
       </div>
     </div>
 
@@ -4978,7 +5625,7 @@
   <!-- MOBILE STACK -->
   <div class="ts-mobile-stack">
     <div class="ts-hero-img ts-animate ts-slide-up">
-      <img src="asianwomanjeans.png" alt="Rylo patient" />
+      <img src="jeansweight.jpg" loading="lazy" alt="Rylo patient" style="object-position:center 18%;" />
       <div class="ts-hero-img-overlay"></div>
       <div class="ts-hero-img-label">
         <span class="ts-hero-img-num">&#8595; 26 lbs</span>
@@ -4988,14 +5635,20 @@
     <div class="ts-stats-row">
       <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="2–4 week results">
         <div class="rylo-cal" id="ryloCalMobile">
-          <p class="rcal-head">Visible results in 2–4 weeks</p>
+          <p class="rcal-head">Results within weeks</p>
+          <span class="rcal-subhead">Typical patient timeline after starting treatment</span>
           <div class="rcal-grid">
             <span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">Th</span><span class="rcal-label">F</span><span class="rcal-label">Sa</span><span class="rcal-label">Su</span>
             <div class="rcal-day dark sz-lg br-round">1</div><div class="rcal-day empty sz-sm br-pill">2</div><div class="rcal-day hatch sz-md br-sq">3</div><div class="rcal-day hatch sz-lg br-round">4</div><div class="rcal-day soft sz-sm br-round">5</div><div class="rcal-day empty sz-md br-pill">6</div><div class="rcal-day empty sz-sm br-sq">7</div>
             <div class="rcal-day soft sz-lg br-pill">8</div><div class="rcal-day empty sz-sm br-round">9</div><div class="rcal-day soft sz-md br-sq">10</div><div class="rcal-day empty sz-md br-round">11</div><div class="rcal-day hatch sz-sm br-round">12</div><div class="rcal-day hatch sz-lg br-sq">13</div><div class="rcal-day hatch sz-md br-pill">14</div>
             <div class="rcal-day empty sz-md br-round">15</div><div class="rcal-day bronze sz-xl br-round">16</div><div class="rcal-day bronze sz-xl br-sq">17</div><div class="rcal-day soft sz-md br-pill">18</div><div class="rcal-day soft sz-lg br-round">19</div><div class="rcal-day soft sz-sm br-sq">20</div><div class="rcal-day empty sz-sm br-round">21</div>
           </div>
-          <p class="rcal-foot">Avg time to notice meaningful changes after starting GLP-1.</p>
+          <div class="rcal-legend">
+            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#1a1a1a"></span>Start</span>
+            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:rgba(196,114,74,0.2)"></span>Adjusting</span>
+            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#A8C5A0"></span>Noticeable change</span>
+          </div>
+          <p class="rcal-foot">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</p>
         </div>
       </div>
       <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="20.2% results">
@@ -5004,18 +5657,14 @@
         <span class="ts-stat-sub">Average body weight lost in trials</span>
       </div>
     </div>
-    <div class="ts-img-card ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="hrs-48" tabindex="0" role="button" aria-label="48-hour response">
-      <img src="aiwomancomputer.png" alt="48 hour response" />
-      <div class="ts-img-overlay"></div>
-      <div class="ts-img-text">
-        <span class="ts-img-h">48 hours — Real responses. Real people.</span>
-        <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
+    <div class="ts-dark-card ts-finally-card ts-animate ts-slide-up" style="transition-delay:0.05s;transition-duration:0.8s;" data-ic="finally">
+      <img class="ts-fc-img" src="finally-image.jpg" loading="lazy" alt="Weight loss results" />
+      <div class="ts-fc-overlay"></div>
+      <div class="ts-fc-text">
+        <p class="ts-fc-title">Finally.</p>
+        <p class="ts-fc-sub">Something that actually works.</p>
+        <p class="ts-fc-body">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower. If you're not approved, you don't pay.</p>
       </div>
-    </div>
-    <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.05s" data-ic="finally" tabindex="0" role="button" aria-label="Learn more">
-      <p class="ts-dark-title"><em>Finally.</em> Something that actually works.</p>
-      <p class="ts-dark-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</p>
-      <span class="ts-dark-note">If you're not approved, you don't pay.</span>
     </div>
   </div>
 
@@ -5023,6 +5672,7 @@
 
 <!-- ─── SECTION GAP ─── -->
 <div class="ts-section-gap"></div>
+<div class="gradient-divider" aria-hidden="true"></div>
 
 <!-- ─── SECTION 2: CARE THAT SHOWS UP. ─── -->
 <section class="difference-section">
@@ -5039,7 +5689,7 @@
     <!-- LEFT: clinician + price -->
     <div class="ts-col">
       <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="clinician" tabindex="0" role="button" aria-label="Learn more about board-certified clinicians">
-        <img src="doctor.png" alt="Board-certified clinician" />
+        <img src="doctor.jpg" loading="lazy" alt="Board-certified clinician" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
           <span class="ts-img-h">Board-certified clinician</span>
@@ -5062,7 +5712,7 @@
     <!-- RIGHT: pharmacy + 1-on-1 -->
     <div class="ts-col">
       <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="pharmacy" tabindex="0" role="button" aria-label="Learn more about our pharmacy">
-        <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
+        <img src="pharmacyimage.jpg" loading="lazy" alt="Licensed US pharmacy" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
           <span class="ts-img-h">Licensed US pharmacy</span>
@@ -5070,7 +5720,7 @@
         </div>
       </div>
       <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.1s" data-ic="one-on-one" tabindex="0" role="button" aria-label="Learn more about 1-on-1 care">
-        <img src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
+        <img src="DOCTORTALKINGPHONE.jpg" loading="lazy" alt="1-on-1 provider" />
         <div class="ts-img-overlay"></div>
         <div class="ts-img-text">
           <span class="ts-img-h">1-on-1 care</span>
@@ -5135,7 +5785,7 @@
 
 <!-- ─── RYLO BOX FULL WIDTH ─── -->
 <div class="ts-box-card ts-animate ts-slide-up ic ic-dark" data-ic="free-ship" tabindex="0" role="button" aria-label="Free shipping">
-  <img src="rylohealthpackage.png" alt="Free monthly shipping" />
+  <img src="rylohealthpackage.jpg" loading="lazy" alt="Free monthly shipping" />
   <div class="ts-box-overlay"></div>
   <div class="ts-box-text">
     <span class="ts-box-big">Free</span>
@@ -5151,105 +5801,8 @@
     <span class="ts-badge">HSA &amp; FSA Accepted</span>
     <span class="ts-badge">No Insurance Needed</span>
   </div>
-  <a href="intake.html" class="ts-cta">Start now &#8594;</a>
+  <a href="intake.html" class="ts-cta">Start free assessment &#8594;</a>
 </div>
-<section class="bento-mobile" id="bentoMobile" aria-hidden="true">
-
-  <div class="bm-head bento-animate bento-slide-up">
-    <p class="bm-title">Everything they charge extra for.<br><em>Included.</em></p>
-  </div>
-
-  <div class="bm-cards">
-
-    <!-- Card 1: 48 hours -->
-    <div class="bm-c1 bento-animate bento-slide-up">
-      <img class="bm-c1-img" src="aiwomancomputer.png" alt="48 hour response" />
-      <div class="bm-c1-overlay"></div>
-      <div class="bm-c1-text">
-        <span class="bm-c1-big">48 hours</span>
-        <span class="bm-c1-h">Real responses. Real people.</span>
-        <span class="bm-c1-p">Questions answered by your care team — not a chatbot.</span>
-      </div>
-    </div>
-
-    <!-- Card 2: One flat price -->
-    <div class="bm-c2 bento-animate" style="transition-delay:0.05s">
-      <p class="bm-c2-title">One flat <em>price.</em></p>
-      <p class="bm-c2-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
-    </div>
-
-    <!-- Card 3: Lifestyle image -->
-    <div class="bm-c3 bento-animate bento-scale">
-      <img src="asianwomanjeans.png" alt="Rylo patient" style="transform:scale(1.05);" />
-    </div>
-
-    <!-- Card 4: Clinician -->
-    <div class="bm-c4 bento-animate bento-slide-up" style="transition-delay:0.05s">
-      <img src="doctor.png" alt="Board-certified clinician" />
-      <div class="bm-c4-overlay"></div>
-      <div class="bm-c4-text">
-        <span class="bm-c4-h">Board-certified clinician</span>
-        <span class="bm-c4-p">Reviewed by a licensed US provider — not an algorithm.</span>
-      </div>
-    </div>
-
-    <!-- Card 5: Split stats -->
-    <div class="bm-c5">
-      <div class="bm-c5-half bento-animate bento-slide-left">
-        <span class="bm-c5-label">Visible results in</span>
-        <span class="bm-c5-num">2–4 weeks</span>
-        <span class="bm-c5-sub">Avg time to notice meaningful changes</span>
-      </div>
-      <div class="bm-c5-half bento-animate bento-slide-right" style="transition-delay:0.15s">
-        <span class="bm-c5-label">Not a fad. Real change.</span>
-        <span class="bm-c5-num">20.2%</span>
-        <span class="bm-c5-sub">Average body weight lost in trials</span>
-      </div>
-    </div>
-
-    <!-- Card 6: Pharmacy -->
-    <div class="bm-c6 bento-animate bento-slide-up" style="transition-delay:0.05s">
-      <img src="pharmacyimage.png" alt="Licensed US pharmacy" />
-      <div class="bm-c6-overlay"></div>
-      <div class="bm-c6-text">
-        <span class="bm-c6-h">Licensed US pharmacy</span>
-        <span class="bm-c6-p">FDA-registered. Third-party tested.</span>
-      </div>
-    </div>
-
-    <!-- Card 7: 1-on-1 -->
-    <div class="bm-c7 bento-animate bento-slide-left" style="transition-delay:0.05s">
-      <img class="bm-c7-img" src="DOCTORTALKINGPHONE - Edited.png" alt="1-on-1 provider" />
-      <div class="bm-c7-text">
-        <span class="bm-c7-big">1-on-1</span>
-        <span class="bm-c7-h">A provider who actually knows you</span>
-        <span class="bm-c7-p">Reviews your health, adjusts your dose, answers directly.</span>
-      </div>
-    </div>
-
-    <!-- Card 8: Rylo box / free shipping -->
-    <div class="bm-c8 bento-animate bento-scale" style="transition-delay:0.05s">
-      <img src="rylohealthpackage.png" alt="Free monthly shipping" />
-      <div class="bm-c8-overlay"></div>
-      <div class="bm-c8-text">
-        <span class="bm-c8-big">Free</span>
-        <span class="bm-c8-h">Free shipping, every month.</span>
-        <span class="bm-c8-p">Same price at every dose. Licensed US pharmacy.</span>
-      </div>
-    </div>
-
-    <!-- Card 9: Finally -->
-    <div class="bm-c9 bento-animate" style="transition-delay:0.05s; transition-duration:1s">
-      <span class="bm-c9-big">Finally.</span>
-      <span class="bm-c9-h">Something that actually works.</span>
-      <span class="bm-c9-p">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower.</span>
-      <span class="bm-c9-note">If you're not approved, you don't pay.</span>
-    </div>
-
-  </div>
-
-</section>
-
 <!-- ─── BEFORE/AFTER + CALCULATOR ─── -->
 <style>
   .bac-section {
@@ -5874,14 +6427,14 @@
 <section class="closing-section animate-in" id="start">
   <div class="closing-card">
     <div class="closing-photo-wrap">
-      <img src="closingimagefinal.png" alt="Rylo Health member" class="closing-photo" />
+      <img src="closingimagefinal.jpg" loading="lazy" alt="Rylo Health member" class="closing-photo" />
     </div>
     <div class="closing-left">
       <p class="closing-eyebrow">Clinician-prescribed. Delivered to your door.</p>
-      <h2 class="closing-heading">Your body knows<br /><em>the way home.</em></h2>
-      <p class="closing-sub">Complete a 3-minute assessment. A licensed provider will review your profile within 48 hours.</p>
+      <h2 class="closing-heading">Ready to start<br /><em>losing weight?</em></h2>
+      <p class="closing-sub">Complete a free 3-minute assessment. A licensed US provider will review your profile within 48 hours — and if you're not approved, you pay nothing.</p>
       <div class="closing-cta-row">
-        <a href="intake.html" class="closing-btn">Check my eligibility →</a>
+        <a href="intake.html" class="closing-btn">Start free assessment &#8594;</a>
         <span class="closing-fine">No commitment · Cancel anytime</span>
       </div>
     </div>
@@ -5893,7 +6446,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="whiterylologoofficial.png" alt="Rylo Health" />
+        <img src="whiterylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
         <span class="footer-tagline">The way it should be.</span>
         <p>Clinician-guided GLP-1 and peptide therapy. Delivered to your door.</p>
       </div>
@@ -6720,7 +7273,7 @@ var IC = {
   'hrs-48': {
     eyebrow:'RESPONSE TIME', heading:'48 hours',
     desc:'Every message answered by a real human on your care team within 48 hours. No chatbots, no FAQ mazes.',
-    img:'aiwomancomputer.png',
+    img:'aiwomancomputer.jpg',
     bullets:['Licensed US providers','Direct messaging with your team','Dose adjustments reviewed quickly']
   },
   'finally': {
@@ -6732,7 +7285,7 @@ var IC = {
   'clinician': {
     eyebrow:'CLINICAL QUALITY', heading:'Board-certified clinician',
     desc:'Your treatment plan is reviewed by a board-certified US provider — never an algorithm. They see your full profile and make decisions based on your body.',
-    img:'doctor.png',
+    img:'doctor.jpg',
     bullets:['Licensed in your state','Reviews your medical history','Adjusts your dose as you progress']
   },
   'flat-price': {
@@ -6744,19 +7297,19 @@ var IC = {
   'pharmacy': {
     eyebrow:'PHARMACY', heading:'Licensed US pharmacy',
     desc:'Your medication is compounded by a licensed US pharmacy that’s FDA-registered and third-party tested for purity and potency.',
-    img:'pharmacyimage.png',
+    img:'pharmacyimage.jpg',
     bullets:['FDA-registered facility','Third-party potency testing','Cold-chain shipping']
   },
   'one-on-one': {
     eyebrow:'PROVIDER CARE', heading:'A provider who knows you',
     desc:'One clinician follows your journey from the start. They know your history, your goals, and adjust your plan as your body changes.',
-    img:'DOCTORTALKINGPHONE - Edited.png',
+    img:'DOCTORTALKINGPHONE.jpg',
     bullets:['Same provider throughout','Direct messaging access','Quarterly check-ins']
   },
   'free-ship': {
     eyebrow:'DELIVERY', heading:'Free shipping, every month',
     desc:'Your medication ships free to your door in discreet, temperature-controlled packaging. Same price at every dose.',
-    img:'rylohealthpackage.png',
+    img:'rylohealthpackage.jpg',
     bullets:['Free shipping included','Discreet packaging','Temperature-controlled']
   }
 };
@@ -6877,11 +7430,13 @@ modal.addEventListener('keydown', function(e){
   cals.forEach(function(c){ calObs.observe(c); });
 
   function animateCal(cal){
-    var head   = cal.querySelector('.rcal-head');
-    var labels = cal.querySelectorAll('.rcal-label');
-    var days   = cal.querySelectorAll('.rcal-day');
-    /* 1. heading */
+    var head    = cal.querySelector('.rcal-head');
+    var subhead = cal.querySelector('.rcal-subhead');
+    var labels  = cal.querySelectorAll('.rcal-label');
+    var days    = cal.querySelectorAll('.rcal-day');
+    /* 1. heading + subhead */
     head.classList.add('rcal-in');
+    if(subhead) subhead.classList.add('rcal-in');
     /* 2. labels */
     labels.forEach(function(l){ l.classList.add('rcal-in'); });
     /* 3. circles — staggered L→R, row by row */

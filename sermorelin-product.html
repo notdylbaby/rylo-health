@@ -120,7 +120,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 /* HOW IT WORKS */
 .how{background:var(--oat);padding:72px 48px}
 .how-header{text-align:center;margin-bottom:64px}
-.section-eyebrow{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:16px;display:block}
+.section-eyebrow{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--matcha-deep);margin-bottom:16px;display:block}
 .section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:600;color:var(--text);line-height:1;letter-spacing:-0.02em}
 .section-title em{font-style:italic;color:rgba(26,26,26,0.65)}
 .how-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:1200px;margin:0 auto}
@@ -130,7 +130,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .how-card-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.7s cubic-bezier(0.22,1,0.36,1)}
 .how-card:hover .how-card-photo{transform:scale(1.05)}
 .how-card-body{padding:28px 30px 32px;display:flex;flex-direction:column;gap:0}
-.how-card-num{font-family:var(--serif);font-size:13px;font-weight:400;font-style:italic;color:var(--clay);letter-spacing:0.06em;margin-bottom:10px}
+.how-card-num{font-family:var(--serif);font-size:48px;font-weight:300;font-style:italic;color:var(--clay);letter-spacing:-0.03em;line-height:1;margin-bottom:12px}
 .how-card-title{font-family:var(--serif);font-size:clamp(20px,1.8vw,24px);font-weight:400;color:var(--dark);line-height:1.2;letter-spacing:-0.02em;margin-bottom:10px}
 .how-card-desc{font-size:13.5px;font-weight:500;color:rgba(26,26,26,0.48);line-height:1.72}
 .how-card-overlay{display:none}
@@ -213,7 +213,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .how{padding:56px 20px}
   .how-header{margin-bottom:36px}
   .how-grid{grid-template-columns:1fr;gap:12px}
-  .how-card{aspect-ratio:unset;height:auto;flex-direction:column;border-radius:16px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.04);overflow:hidden}.how-card-photo-wrap{height:200px;flex-shrink:0}.how-card-body{padding:20px;display:flex;flex-direction:column}.how-card-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(26,26,26,0.45);letter-spacing:0.12em;margin-bottom:8px;font-style:normal;text-transform:uppercase;font-weight:400}.how-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:600;color:#1a1a1a;margin-bottom:6px;letter-spacing:0;font-style:normal}.how-card-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:rgba(26,26,26,0.62);line-height:1.65}.section-eyebrow{text-align:center}.how-header .section-title{font-size:32px;text-align:center}.sticky-bar-note{display:none}.sticky-bar{padding:12px 16px!important}.sticky-bar-inner{height:auto}.sticky-bar-left{flex:1;gap:8px}.sticky-bar-name{font-size:14px}.sticky-bar-price{font-size:13px}.sticky-bar-cta{padding:10px 16px!important;font-size:12px!important;background:#fff!important;color:#1a1a1a!important;white-space:nowrap}
+  .how-card{aspect-ratio:unset;height:auto;flex-direction:column;border-radius:16px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.04);overflow:hidden}.how-card-photo-wrap{height:200px;flex-shrink:0}.how-card-body{padding:20px;display:flex;flex-direction:column}.how-card-num{font-family:var(--serif)!important;font-size:36px!important;font-weight:300!important;font-style:italic!important;color:var(--clay)!important;letter-spacing:-0.03em!important;line-height:1!important;margin-bottom:8px!important;text-transform:none!important}.how-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:600;color:#1a1a1a;margin-bottom:6px;letter-spacing:0;font-style:normal}.how-card-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:rgba(26,26,26,0.62);line-height:1.65}.section-eyebrow{text-align:center}.how-header .section-title{font-size:32px;text-align:center}.sticky-bar-note{display:none}.sticky-bar{padding:12px 16px!important}.sticky-bar-inner{height:auto}.sticky-bar-left{flex:1;gap:8px}.sticky-bar-name{font-size:14px}.sticky-bar-price{font-size:13px}.sticky-bar-cta{padding:10px 16px!important;font-size:12px!important;background:#fff!important;color:#1a1a1a!important;white-space:nowrap}
   .how-card-title{font-size:22px}
   .includes{padding:56px 20px}
   .includes-inner{grid-template-columns:1fr;gap:32px}
@@ -328,6 +328,64 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     white-space:nowrap;flex-shrink:0;border-radius:0;
   }
 }
+
+/* ── MOBILE HERO LAYOUT FIX ── */
+@media(max-width:768px){
+  /* Hero flows naturally — no 100vh trap */
+  .hero{
+    height:auto;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    overflow:visible;
+  }
+  .hero-content{
+    flex:1;
+    height:auto;
+    min-height:0;
+    padding:20px 20px 24px;
+    gap:16px;
+    align-items:start;
+  }
+  /* Vial: compact, centered */
+  .hero-left{justify-content:center}
+  .hero-vial-wrap{max-width:160px;margin:0 auto}
+  /* Text */
+  .hero-right{gap:0}
+  .hero-eyebrow{font-size:10px;margin-bottom:10px;flex-wrap:wrap;line-height:1.5}
+  .hero-title{font-size:clamp(36px,10vw,52px);margin-bottom:10px}
+  .hero-sub{font-size:14px;margin-bottom:10px;line-height:1.6}
+  /* Price block */
+  .hero-price-block{padding:12px 0;margin-bottom:10px;gap:8px}
+  /* CTA full width */
+  .hero-cta{display:block;text-align:center;padding:16px 20px;font-size:14px}
+  /* Trust bar: de-absolute, horizontal scroll */
+  .hero .trust-bar{
+    position:static!important;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    flex-wrap:nowrap!important;
+    padding:14px 20px;
+    gap:22px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+  .hero .trust-bar::-webkit-scrollbar{display:none}
+  .hero .trust-bar .trust-item{
+    flex-shrink:0;
+    font-size:10px;
+    letter-spacing:0.05em;
+    white-space:nowrap;
+    gap:7px;
+  }
+  .hero .trust-bar .trust-check{
+    width:16px;height:16px;font-size:9px;flex-shrink:0;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -426,17 +484,17 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
         <img class="how-card-photo" src="step1image-opt.png" alt="Complete your health intake" loading="lazy" />
       </div>
       <div class="how-card-body">
-        <div class="how-card-num">Step 01</div>
+        <div class="how-card-num">01</div>
         <h3 class="how-card-title">Complete your health intake</h3>
         <p class="how-card-desc">Answer questions about your health history, current medications, and goals. Takes under 5 minutes. No video call. No waiting room. 100% HIPAA-secure.</p>
       </div>
     </div>
     <div class="how-card">
       <div class="how-card-photo-wrap">
-        <img class="how-card-photo" src="step2image-opt.png" alt="Provider reviews your case" loading="lazy" />
+        <img class="how-card-photo" src="doctor gradient.png" alt="Provider reviews your case" loading="lazy" />
       </div>
       <div class="how-card-body">
-        <div class="how-card-num">Step 02</div>
+        <div class="how-card-num">02</div>
         <h3 class="how-card-title">A provider reviews your case</h3>
         <p class="how-card-desc">A board-certified clinician reviews your intake and determines if compounded sermorelin is clinically appropriate for you. Not a chatbot. Not an algorithm.</p>
       </div>
@@ -446,7 +504,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
         <img class="how-card-photo" src="step3image-opt.png" alt="Medication ships to your door" loading="lazy" />
       </div>
       <div class="how-card-body">
-        <div class="how-card-num">Step 03</div>
+        <div class="how-card-num">03</div>
         <h3 class="how-card-title">Your medication ships to you</h3>
         <p class="how-card-desc">If approved, your prescription is filled by a licensed compounding pharmacy and shipped in discreet packaging within 3&ndash;5 business days. Free every month.</p>
       </div>
