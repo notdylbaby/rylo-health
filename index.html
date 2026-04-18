@@ -1649,9 +1649,9 @@
     .rn-hamburger { display: none; }
     .rn-mobile-menu { display: none; }
     .hero-eligibility-pill { display: none; }
-    .hrw-mobile { display: none; }
+    .hrw-mobile { display: block; }
     .prod-cat { display: none; }
-    .prod-mobile { display: none; }
+    .prod-mobile { display: block; background: #faf7f2; padding: 80px 0 0; }
     .bento-mobile { display: none; }
     .ts-mobile-stack { display: none; }
 
@@ -1918,11 +1918,25 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* Global scroll fade-in system */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Hero text entrance */
     .hero-line1 { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0s both; }
     .hero-line2 { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.15s both; }
     .hero-sub   { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
     .hero-cta-wrap { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.45s both; }
+
+    /* Override: hero fade-in elements use animation not intersection observer */
+    .hero-outer .fade-in { opacity: 1; transform: none; transition: none; }
 
     /* Scroll-triggered fade-in */
     .animate-in {
@@ -2870,112 +2884,18 @@
   <div class="hero">
     <div class="hero-content">
       <h1>
-        <span class="hero-line1">Prescription weight loss.</span>
-        <span class="hero-line2"><em>The way it should be.</em></span>
+        <span class="hero-line1 fade-in" style="transition-delay:0s">Prescription weight loss.</span>
+        <span class="hero-line2 fade-in" style="transition-delay:0.15s"><em>The way it should be.</em></span>
       </h1>
-      <p class="hero-sub">GLP-1 and peptide therapy from licensed US providers. Starting at $89 per month.</p>
-      <div class="hero-cta-wrap">
+      <p class="hero-sub fade-in" style="transition-delay:0.3s">GLP-1 and peptide therapy from licensed US providers. Starting at $89 per month.</p>
+      <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
         <a href="intake.html" class="btn-hero-start">Start now →</a>
-        <span class="hero-fine-mobile" style="display:none;">No commitment · Cancel anytime</span>
-        <div class="hero-eligibility-pill">
-          <a href="intake.html">
-            Check your eligibility
-            <span class="hero-eligibility-pill-arrow">&#8594;</span>
-          </a>
-        </div>
+        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);margin-top:12px;letter-spacing:0.02em;">No commitment &middot; Cancel anytime</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ─── TRUST STRIP (mobile only) ─── -->
-<style>
-  .sp-strip { display: none; }
-  @media (max-width: 768px) {
-    .sp-strip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #faf7f2;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      padding: 14px 20px;
-      opacity: 0;
-      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-    .sp-strip.sp-visible { opacity: 1; }
-    .sp-trust-line {
-      font-family: 'DM Sans', 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.055em;
-      color: rgba(26,26,26,0.48);
-      text-align: center;
-      line-height: 1.5;
-    }
-    .sp-trust-dot {
-      margin: 0 7px;
-      color: rgba(26,26,26,0.18);
-    }
-  }
-</style>
-<div class="sp-strip" id="spStrip" aria-hidden="true">
-  <p class="sp-trust-line">
-    Physician-prescribed<span class="sp-trust-dot">&#183;</span>FDA-registered pharmacy<span class="sp-trust-dot">&#183;</span>No insurance required
-  </p>
-</div>
-<script>
-(function() {
-  var strip = document.getElementById('spStrip');
-  if (!strip) return;
-  if (window.innerWidth > 768) return;
-  var io = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) { strip.classList.add('sp-visible'); io.disconnect(); }
-  }, { threshold: 0.2 });
-  io.observe(strip);
-})();
-</script>
-
-<!-- ─── TICKER ─── -->
-<div class="ticker-bar" aria-hidden="true">
-  <div class="ticker-track">
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1L1.5 3v3.5c0 2.8 2.2 4.6 5 5 2.8-.4 5-2.2 5-5V3L6.5 1z"/><path d="M4.5 6.5l1.5 1.5 2.5-2.5"/></svg></span>FDA-registered pharmacy</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4.5" width="11" height="7" rx="0.8"/><path d="M1 7.5h11"/><path d="M4 4.5L5.5 1.5h2L9 4.5"/></svg></span>Free shipping, every month</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><line x1="6.5" y1="1" x2="6.5" y2="12"/><path d="M9 3.2C9 2.5 7.9 2 6.5 2S4 2.5 4 3.2c0 2.8 5.5 1.4 5.5 4.3 0 1.2-1.3 1.8-3 1.8s-3-.6-3-1.8"/></svg></span>No hidden fees — ever</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="4" r="2.5"/><path d="M2 12c0-2.5 2-4.5 4.5-4.5S11 9.5 11 12"/><path d="M9 5.5c.8.3 1.5 1 1.5 2a1.5 1.5 0 001.5 1.5"/></svg></span>Licensed clinicians on call</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="6.5" r="5"/><path d="M4.5 6.5l1.5 1.5 2.5-2.5"/></svg></span>Cancel anytime, no questions</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="11" height="7.5" rx="1"/><line x1="1" y1="6" x2="12" y2="6"/><line x1="3.5" y1="9" x2="5.5" y2="9"/></svg></span>HSA / FSA accepted</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><polygon points="6.5,1.5 8,5 12,5.5 9,8.5 9.8,12.5 6.5,10.5 3.2,12.5 4,8.5 1,5.5 5,5"/></svg></span>4.9 rated · 2,400+ members</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><circle cx="6.5" cy="6.5" r="5"/><path d="M1.5 6.5h10M6.5 1.5c-1.5 1.5-2.5 3-2.5 5s1 3.5 2.5 5c1.5-1.5 2.5-3 2.5-5s-1-3.5-2.5-5z"/></svg></span>$65 for your first month</span>
-    <span class="ticker-pipe"></span>
-    <!-- duplicate for seamless loop -->
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 1L1.5 3v3.5c0 2.8 2.2 4.6 5 5 2.8-.4 5-2.2 5-5V3L6.5 1z"/><path d="M4.5 6.5l1.5 1.5 2.5-2.5"/></svg></span>FDA-registered pharmacy</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4.5" width="11" height="7" rx="0.8"/><path d="M1 7.5h11"/><path d="M4 4.5L5.5 1.5h2L9 4.5"/></svg></span>Free shipping, every month</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><line x1="6.5" y1="1" x2="6.5" y2="12"/><path d="M9 3.2C9 2.5 7.9 2 6.5 2S4 2.5 4 3.2c0 2.8 5.5 1.4 5.5 4.3 0 1.2-1.3 1.8-3 1.8s-3-.6-3-1.8"/></svg></span>No hidden fees — ever</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="4" r="2.5"/><path d="M2 12c0-2.5 2-4.5 4.5-4.5S11 9.5 11 12"/><path d="M9 5.5c.8.3 1.5 1 1.5 2a1.5 1.5 0 001.5 1.5"/></svg></span>Licensed clinicians on call</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="6.5" r="5"/><path d="M4.5 6.5l1.5 1.5 2.5-2.5"/></svg></span>Cancel anytime, no questions</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="11" height="7.5" rx="1"/><line x1="1" y1="6" x2="12" y2="6"/><line x1="3.5" y1="9" x2="5.5" y2="9"/></svg></span>HSA / FSA accepted</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><polygon points="6.5,1.5 8,5 12,5.5 9,8.5 9.8,12.5 6.5,10.5 3.2,12.5 4,8.5 1,5.5 5,5"/></svg></span>4.9 rated · 2,400+ members</span>
-    <span class="ticker-pipe"></span>
-    <span class="ticker-item"><span class="ticker-icon"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><circle cx="6.5" cy="6.5" r="5"/><path d="M1.5 6.5h10M6.5 1.5c-1.5 1.5-2.5 3-2.5 5s1 3.5 2.5 5c1.5-1.5 2.5-3 2.5-5s-1-3.5-2.5-5z"/></svg></span>$65 for your first month</span>
-    <span class="ticker-pipe"></span>
-  </div>
-</div>
-
-<!-- ─── SECTION DIVIDER ─── -->
-<div style="border-top:1px solid rgba(0,0,0,0.06); margin:0; padding:0;"></div>
 
 <!-- ─── PRODUCT CARD ADDONS CSS ─── -->
 <style>
@@ -3014,515 +2934,174 @@
 }
 </style>
 
-<!-- ─── PRODUCTS SECTION ─── -->
-<section class="products-section animate-in" id="treatments">
+
+<!-- ─── PRODUCTS SECTION (unified) ─── -->
 <style>
-  .products-section {
-    background: linear-gradient(160deg, #faf7f2 0%, rgba(181,201,160,0.07) 40%, #faf7f2 70%, rgba(232,223,202,0.08) 100%);
-    padding: 100px 0 0;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-  }
+/* Base card styles (needed on all screen sizes) */
+.pm-hero-card {
+  position: relative; overflow: hidden; display: block; text-decoration: none;
+  border-radius: 0;
+  opacity: 0; transform: translateY(15px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.pm-hero-card.pm-visible { opacity: 1; transform: translateY(0); }
+.pm-hero-img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+}
+.pm-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 55%, transparent 80%);
+}
+.pm-thin-row {
+  position: relative; display: flex; align-items: center;
+  text-decoration: none; overflow: hidden;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.pm-thin-row.pm-visible { opacity: 1; transform: translateY(0); }
+.pm-thin-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center top;
+}
+.pm-thin-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.25) 100%);
+}
 
-  .prod-header {
-    padding: 0 64px;
-    margin-bottom: 56px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+/* Desktop layout for prod-mobile */
+@media (min-width: 769px) {
+  .prod-mobile {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 48px 0 !important;
+    background: #faf7f2 !important;
   }
-
-  .prod-eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #C4724A;
-    margin-bottom: 14px;
-    font-family: var(--font);
+  .pm-hero-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    padding: 0 !important;
   }
-
-  .prod-title {
-    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-    font-size: clamp(52px, 6vw, 88px);
-    font-weight:400;
-    color: #1a1a1a;
-    line-height: 0.92;
-    letter-spacing: -0.02em;
+  .pm-hero-card { height: 340px !important; }
+  .pm-thin-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
   }
+  .pm-thin-row { height: 120px !important; }
+  .pm-view-all { display: block; text-align: center; padding: 20px 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: rgba(26,26,26,0.5); text-decoration: underline; text-underline-offset: 3px; }
+}
+.prod-disclaimer {
+  text-align: center;
+  font-size: 10px;
+  color: rgba(26,26,26,0.3);
+  padding: 24px 20px 40px;
+  line-height: 1.6;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-  .prod-title em {
+/* Desktop layout for hrw-mobile section */
+@media (min-width: 769px) {
+  .hrw-mobile {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 48px 80px;
+    background: none;
+  }
+  .hrw-mobile-head {
+    text-align: center;
+    padding: 0 0 56px;
+  }
+  .hrw-mobile-logo {
+    display: block;
+    height: 48px;
+    width: auto;
+    margin: 0 auto 20px;
+    opacity: 0.8;
+  }
+  .hrw-mobile-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 48px;
+    font-weight: 400;
     font-style: italic;
-    color: #888;
+    color: #1a1a1a;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
   }
-
-  .prod-header-note {
+  .hrw-mobile-sub {
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 15px;
-    font-weight: 500;
-    color: #666;
-    line-height: 1.8;
-    text-align: right;
-    padding-bottom: 8px;
-    font-family: var(--font);
+    color: rgba(26,26,26,0.55);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
   }
-
-  .prod-grid-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px;
-    margin-bottom: 4px;
-    width: 100%;
+  .hrw-mobile-body {
+    display: block;
   }
-
-  .prod-grid-bottom {
+  .hrw-progress-track { display: none; }
+  .hrw-mobile-steps {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
-    width: 100%;
+    gap: 24px;
   }
-
-  .prod-card {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .prod-card.tall { height: 620px; }
-  .prod-card.short { height: 420px; }
-
-  .prod-card-photo {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s ease;
-    filter: saturate(0.85) brightness(0.9);
-  }
-
-  .prod-card:hover .prod-card-photo {
-    transform: scale(1.04);
-    filter: saturate(1) brightness(1.05);
-  }
-
-  .prod-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(10,10,10,0.92) 0%,
-      rgba(10,10,10,0.55) 35%,
-      rgba(10,10,10,0.15) 65%,
-      transparent 100%
-    );
-    transition: opacity 0.7s ease;
-  }
-
-  .prod-card:hover .prod-card-overlay {
-    opacity: 0.85;
-  }
-
-  .prod-card-meta {
-    position: absolute;
-    top: 28px;
-    left: 32px;
-    right: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 3;
-  }
-
-  .prod-tag {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
-  }
-
-  .prod-badge {
-    background: #B8945F;
-    border: none;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 5px 13px;
-    border-radius: 0;
-    font-family: var(--font);
-  }
-
-  .prod-stock {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 500;
-    color: #fff;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 4px 10px;
-  }
-
-  .prod-stock-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #7AE68C;
-    flex-shrink: 0;
-    box-shadow: 0 0 6px rgba(122,230,140,0.8);
-    animation: prod-pulse 2.5s ease infinite;
-  }
-
-  @keyframes prod-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-
-  .prod-card-content {
-    position: absolute;
-    inset: 0;
-    padding: 32px 24px 24px 32px;
+  .hrw-mobile-step {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    z-index: 2;
   }
-
-  .prod-name {
-    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-    font-weight:400;
-    color: #fff;
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    margin-bottom: 10px;
-  }
-
-  .prod-name.xl { font-size: clamp(56px, 6vw, 88px); }
-  .prod-name.md { font-size: clamp(36px, 4vw, 54px); }
-
-  .prod-desc {
+  .hrw-mobile-step-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.65;
-    margin-bottom: 24px;
-    max-width: 400px;
-    font-family: var(--font);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: rgba(26,26,26,0.3);
+    margin-bottom: 12px;
   }
-
-  .prod-card-footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .prod-price {
-    font-family: var(--font);
-    font-weight:400;
-    color: #fff;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .prod-price.xl { font-size: 52px; }
-  .prod-price.md { font-size: 34px; }
-
-  .prod-price-mo {
-    font-family: var(--font);
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    font-weight: 400;
-  }
-
-  .prod-save {
-    font-size: 13px;
-    color: rgba(255,255,255,0.85);
-    margin-top: 5px;
-    font-family: var(--font);
-  }
-  .prod-save strong {
-    color: #B8945F;
+  .hrw-mobile-step-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
     font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    line-height: 1.15;
   }
-
-  .prod-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:12px 28px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
-
-  .prod-btn.solid{background:#fff;color:#1a1a1a;border:none}
-
-  .prod-btn.solid:hover{background:#1a1a1a;color:#fff}
-
-  .prod-btn.ghost{background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.3)}
-
-  .prod-btn.ghost:hover{background:#fff;color:#1a1a1a;border-color:#fff}
-
-  .prod-divider {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 36px 64px 0;
-  }
-
-  .prod-divider-text {
+  .hrw-mobile-step-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #999;
-    white-space: nowrap;
-    font-family: var(--font);
+    color: rgba(26,26,26,0.55);
+    line-height: 1.6;
+    margin-bottom: 16px;
   }
-
-  .prod-divider-line {
+  .hrw-mobile-step-img {
     flex: 1;
-    height: 1px;
-    background: rgba(0,0,0,0.08);
+    min-height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
   }
-
-  .prod-footnote {
-    text-align: center;
-    padding: 40px 64px 0;
+  .hrw-mobile-step-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hrw-mobile-cta {
+    display: inline-block;
+    margin-top: 48px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
-    color: #999;
-    line-height: 1.8;
-    font-family: var(--font);
+    font-weight: 500;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(26,26,26,0.3);
+    padding-bottom: 2px;
   }
-
-  @media (max-width: 900px) {
-    .prod-grid-top { grid-template-columns: 1fr; }
-    .prod-grid-bottom { grid-template-columns: 1fr; }
-    .prod-card.tall { height: 480px; }
-    .prod-card.short { height: 320px; }
-    .prod-header { padding: 0 24px; flex-direction: column; gap: 16px; }
-    .prod-header-note { text-align: left; }
-    .prod-divider { padding: 24px 24px 0; }
-    .prod-footnote { padding: 32px 24px 0; }
-  }
-
-  @media (max-width: 768px) {
-    /* Grid */
-    .prod-grid-top, .prod-grid-bottom { grid-template-columns: 1fr; gap: 2px; margin-bottom: 2px; }
-
-    /* Card shell */
-    .prod-card.tall, .prod-card.short {
-      height: 340px; min-height: 340px;
-      position: relative; width: 100%; overflow: hidden; border-radius: 0;
-    }
-
-    /* Gradient — lighter, cinematic */
-    .prod-card-overlay {
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.75) 0%,
-        rgba(0,0,0,0.3) 40%,
-        rgba(0,0,0,0.05) 70%
-      ) !important;
-    }
-
-    /* Badges — top strip */
-    .prod-card-meta { top: 16px; left: 20px; right: 20px; }
-    .prod-tag { display: none; }
-    .prod-badge {
-      font-size: 8px; letter-spacing: 0.12em; padding: 4px 10px;
-      background: #B8945F; color: #fff; border-radius: 0;
-    }
-    .prod-stock {
-      font-size: 8px; background: transparent; border: none;
-      color: rgba(255,255,255,0.7); padding: 0; gap: 5px;
-    }
-
-    /* Content — bottom-left */
-    .prod-card-content {
-      position: absolute; inset: 0;
-      padding: 0 20px 20px;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      z-index: 2;
-    }
-
-    /* Category label — mobile only */
-    .prod-cat {
-      display: block !important;
-      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45); margin-bottom: 6px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    /* Hide "Joined by" */
-    .prod-joined { display: none !important; }
-
-    /* Product name */
-    .prod-name.xl, .prod-name.md {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 34px; font-weight: 400;
-      color: #fff; line-height: 1.0;
-      letter-spacing: -0.02em; margin-bottom: 4px;
-    }
-
-    /* Card footer — price left only (button is absolute) */
-    .prod-card-footer {
-      display: flex; flex-direction: column;
-      align-items: flex-start; gap: 0;
-      padding-right: 140px; /* clear space for abs button */
-    }
-
-    /* Price */
-    .prod-price.xl, .prod-price.md {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 18px; font-weight: 500;
-      color: #fff; letter-spacing: -0.01em; line-height: 1;
-    }
-    .prod-price-mo { font-size: 13px; color: rgba(255,255,255,0.5); font-weight:400; }
-    .prod-desc { display: none; }
-
-    /* Save line */
-    .prod-save {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 11px; color: rgba(255,255,255,0.5);
-      margin-top: 4px; font-weight: 400;
-    }
-    .prod-save strong { color: #B8945F; font-weight: 500; }
-
-    /* Button — absolute bottom-right */
-    .prod-btn {
-      position: absolute !important;
-      bottom: 20px; right: 20px;
-      width: auto !important; display: inline-block !important;
-      padding: 10px 20px !important;
-      background: rgba(255,255,255,0.95) !important; color: #1a1a1a !important;
-      font-size: 12px !important; font-weight: 500;
-      border-radius: 0; margin: 0 !important;
-      white-space: nowrap;
-    }
-
-    /* Divider */
-    .prod-divider { padding: 20px 20px 8px; }
-    .prod-divider-text {
-      font-size: 10px; letter-spacing: 0.15em;
-      color: rgba(26,26,26,0.25); text-align: left;
-    }
-    .prod-divider-line { display: none; }
-
-    .prod-footnote { padding: 24px 20px; }
-  }
+}
 </style>
 
-  <div class="prod-grid-top">
-
-    <div class="prod-card tall animate-in" data-delay="1" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Tirzepatide-Product-Card.jpg'); background-position: center top;"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">GLP-1 + GIP · Weekly</span>
-        <span class="prod-badge">Most popular</span>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">GLP-1 + GIP · Weekly</div>
-        <div class="prod-name xl">Tirzepatide</div>
-        <div class="prod-joined" style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;text-transform:none;margin-bottom:16px;font-family:var(--font);">Joined by 2,400+ patients</div>
-        <div class="prod-card-footer">
-          <div>
-            <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
-            <div class="prod-save">3 months — $149 per month · <strong>Save $90</strong></div>
-          </div>
-          <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card tall animate-in" data-delay="2" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Semaglutide-Product-Card.jpg');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">GLP-1 · Weekly</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">GLP-1 · Weekly</div>
-        <div class="prod-name xl">Semaglutide</div>
-        <div class="prod-card-footer">
-          <div>
-            <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
-            <div class="prod-save">3 months — $99 per month · <strong>Save $90</strong></div>
-          </div>
-          <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="prod-divider">
-    <span class="prod-divider-text">Wellness</span>
-    <div class="prod-divider-line"></div>
-  </div>
-
-  <div class="prod-grid-bottom" style="margin-top:4px;">
-
-    <div class="prod-card short animate-in" data-delay="1" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./SERMORELIN-Product-Card.jpg');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">Growth hormone</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">Growth hormone</div>
-        <div class="prod-name md">Sermorelin</div>
-        <div class="prod-card-footer">
-          <div class="prod-price md">$159<span class="prod-price-mo">/month</span></div>
-          <a href="sermorelin-product.html" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card short animate-in" data-delay="2" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Glutathione-Product-Card.jpg');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">Detox · Immune</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">Detox · Immune</div>
-        <div class="prod-name md">Glutathione</div>
-        <div class="prod-card-footer">
-          <div class="prod-price md">$89<span class="prod-price-mo">/month</span></div>
-          <a href="glutathione-product.html" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card short animate-in" data-delay="3" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./NAD-Product-Card.jpg');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">Cellular repair</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">Cellular repair</div>
-        <div class="prod-name md">NAD+</div>
-        <div class="prod-card-footer">
-          <div class="prod-price md">$139<span class="prod-price-mo">/month</span></div>
-          <a href="nad-product.html" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="prod-footnote">
-    All treatments require a valid prescription from a licensed US provider · Compounded medications are not FDA-approved
-  </div>
-
-</section>
-
-<!-- ─── PRODUCTS — MOBILE LAYOUT ─── -->
 <div class="prod-mobile" id="prodMobile">
 
   <!-- Top 2: full-bleed image cards, square corners -->
@@ -3621,660 +3200,121 @@
 
   </div>
 
-  <a href="#treatments" class="pm-view-all">View all treatments</a>
+  <p class="prod-disclaimer">All treatments require a valid prescription from a licensed US provider. Compounded medications are not FDA-approved.</p>
 
 </div>
 
-<!-- ─── PRICING COMPARISON ─── -->
+<!-- ─── VIAL SECTION ─── -->
 <style>
-  .price-compare-section {
-    background: #1a1a1a;
-    padding: 80px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-  .price-compare-section::before {
-    content: '';
-    position: absolute;
-    top: -120px; left: 50%;
-    transform: translateX(-50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(196,114,74,0.12) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .pc-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-  .pc-eyebrow {
-    font-family: var(--font);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #C4724A;
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .pc-headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(34px, 4vw, 52px);
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    margin-bottom: 52px;
-  }
-  .pc-headline em { font-style: italic; color: rgba(255,255,255,0.45); }
-  .pc-table-head {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 0 0 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 6px;
-  }
-  .pc-table-head span {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-  }
-  .pc-table-head span:nth-child(2) { text-align: center; }
-  .pc-table-head span:nth-child(3) { text-align: right; color: #C4724A; }
-  .pc-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    align-items: center;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1) var(--row-delay, 0s),
-                transform 0.7s cubic-bezier(0.16,1,0.3,1) var(--row-delay, 0s);
-  }
-  .pc-row.pc-visible { opacity: 1; transform: translateY(0); }
-  .pc-drug-name {
-    font-family: var(--font);
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.85);
-  }
-  .pc-drug-sub {
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    display: block;
-    margin-top: 2px;
-    font-weight: 400;
-  }
-  .pc-brand-price {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.28);
-    text-decoration: line-through;
-    text-decoration-color: rgba(255,255,255,0.15);
-  }
-  .pc-rylo-price {
-    text-align: right;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: #C4724A;
-  }
-  .pc-rylo-price .pc-mo { font-size: 13px; color: rgba(196,114,74,0.65); font-family: var(--font); }
-  .pc-savings-badge {
-    display: inline-block;
-    background: rgba(168,197,160,0.15);
-    border: 1px solid rgba(168,197,160,0.25);
-    color: #A8C5A0;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 0;
-    margin-top: 6px;
-  }
-  .pc-footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .pc-disclaimer {
-    font-size: 11px;
-    color: rgba(255,255,255,0.22);
-    line-height: 1.6;
-    max-width: 420px;
-    font-style: italic;
-  }
-  .pc-cta-btn {
-    display: inline-block;
-    background: #C4724A;
-    color: #fff;
-    font-family: var(--font);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    padding: 14px 32px;
-    text-decoration: none;
-    white-space: nowrap;
-    border: none;
-    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1);
-  }
-  .pc-cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-  .pc-cta-btn:active { opacity: 0.75; transform: translateY(0); }
-  @media (max-width: 768px) {
-    .price-compare-section { padding: 60px 20px; }
-    .pc-table-head span:nth-child(2) { display: none; }
-    .pc-row { grid-template-columns: 1fr auto; gap: 8px; }
-    .pc-brand-price { display: none; }
-    .pc-rylo-price { font-size: 20px; }
-    .pc-footer-row { flex-direction: column; align-items: flex-start; }
-    .pc-cta-btn { width: 100%; text-align: center; }
-  }
-</style>
-
-<section class="price-compare-section" id="priceCompare">
-  <div class="pc-inner">
-    <span class="pc-eyebrow">The Rylo Difference</span>
-    <h2 class="pc-headline">Same medication.<br><em>A fraction of the price.</em></h2>
-
-    <div class="pc-table-head">
-      <span>Treatment</span>
-      <span>Brand-name retail</span>
-      <span>With Rylo</span>
-    </div>
-
-    <div class="pc-row" style="--row-delay:0s">
-      <div>
-        <div class="pc-drug-name">Tirzepatide</div>
-        <div class="pc-drug-sub">Same active ingredient as Zepbound</div>
-        <div class="pc-savings-badge">Save up to $1,000 per month</div>
-      </div>
-      <div class="pc-brand-price">~$1,200 per month</div>
-      <div>
-        <div class="pc-rylo-price">$179<span class="pc-mo"> per month</span></div>
-      </div>
-    </div>
-
-    <div class="pc-row" style="--row-delay:0.1s">
-      <div>
-        <div class="pc-drug-name">Semaglutide</div>
-        <div class="pc-drug-sub">Same active ingredient as Wegovy</div>
-        <div class="pc-savings-badge">Save up to $1,200 per month</div>
-      </div>
-      <div class="pc-brand-price">~$1,400 per month</div>
-      <div>
-        <div class="pc-rylo-price">$129<span class="pc-mo"> per month</span></div>
-      </div>
-    </div>
-
-    <div class="pc-row" style="--row-delay:0.18s">
-      <div>
-        <div class="pc-drug-name">Sermorelin</div>
-        <div class="pc-drug-sub">Recovery &amp; lean muscle support</div>
-      </div>
-      <div class="pc-brand-price">$400–600 per month</div>
-      <div>
-        <div class="pc-rylo-price">$159<span class="pc-mo"> per month</span></div>
-      </div>
-    </div>
-
-    <div class="pc-footer-row">
-      <p class="pc-disclaimer">Compounded medications are not FDA-approved. Brand-name prices are approximate retail estimates and may vary by pharmacy and insurance. Individual results vary.</p>
-      <a href="intake.html" class="pc-cta-btn">Start free assessment &#8594;</a>
-    </div>
-  </div>
-</section>
-
-<script>
-(function() {
-  var rows = document.querySelectorAll('.pc-row');
-  if (!rows.length) return;
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('pc-visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.15 });
-  rows.forEach(function(r) { io.observe(r); });
-})();
-</script>
-
-<!-- ─── VIAL REVEAL — MOBILE ONLY ─── -->
-<section class="vr-section" id="vialReveal">
-  <div class="vr-glow"></div>
-  <div class="vr-img-wrap">
-    <img src="./holdingvial.png" loading="lazy" class="vr-img" alt="Compounded vial">
-  </div>
-  <div class="vr-copy">
-    <span class="vr-tag">FDA-registered compounding pharmacy</span>
-    <p class="vr-headline">Precision medicine.<br><em>In your hands.</em></p>
-    <p class="vr-sub">Physician-prescribed. Pharmacy-prepared.<br>Delivered to your door monthly.</p>
-  </div>
-</section>
-
-<style>
+.vial-section {
+  background: #faf7f2;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.vial-section-img {
+  width: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  min-height: 400px;
+}
+.vial-section-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.vial-section-text {
+  width: 50%;
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vial-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #C4724A;
+  margin-bottom: 20px;
+  display: block;
+}
+.vial-headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+.vial-subline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(26,26,26,0.4);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.vial-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(26,26,26,0.5);
+  line-height: 1.7;
+}
 @media (max-width: 768px) {
-  .vr-section {
-    display: block;
-    position: relative;
-    background: #0d0d0d;
-    overflow: hidden;
-    padding-bottom: 56px;
-  }
-
-  /* Glow — blooms in slow after image settles */
-  .vr-glow {
-    position: absolute;
-    top: 5%; left: 50%;
-    transform: translateX(-50%);
-    width: 420px; height: 420px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(196,114,74,0.28) 0%, rgba(196,114,74,0.06) 50%, transparent 70%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 2s ease 0.9s;
-  }
-  .vr-section.vr-revealed .vr-glow {
-    opacity: 1;
-  }
-
-  /* Image — slides in from right, full width, no bounce */
-  .vr-img-wrap {
-    width: 100%;
-    transform: translateX(100%);
-    opacity: 0;
-    transition:
-      transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 1.0s ease 0.1s;
-  }
-  .vr-section.vr-revealed .vr-img-wrap {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  .vr-img {
-    width: 100%;
-    display: block;
-  }
-
-  /* Copy — fades up slowly after image */
-  .vr-copy {
-    padding: 30px 24px 0;
-    transform: translateY(18px);
-    opacity: 0;
-    transition:
-      transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.55s,
-      opacity 1.0s ease 0.55s;
-  }
-  .vr-section.vr-revealed .vr-copy {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .vr-tag {
-    display: block;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 9px; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: #C4724A;
-    margin-bottom: 16px;
-  }
-
-  .vr-headline {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 46px; font-weight: 600;
-    color: #fff; line-height: 1.03;
-    letter-spacing: -0.03em;
-    margin-bottom: 16px;
-  }
-  .vr-headline em {
-    font-style: italic;
-    color: rgba(255,255,255,0.48);
-    font-weight: 500;
-  }
-
-  .vr-sub {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px; font-weight: 500;
-    color: rgba(255,255,255,0.42);
-    line-height: 1.8;
-  }
-}
-
-@media (min-width: 769px) {
-  .vr-section { display: none; }
+  .vial-section { flex-direction: column; }
+  .vial-section-img { width: 100%; height: 280px; min-height: 0; }
+  .vial-section-img img { height: 280px; }
+  .vial-section-text { width: 100%; padding: 32px 20px; }
+  .vial-headline, .vial-subline { font-size: 30px; }
 }
 </style>
+<section class="vial-section fade-in" id="vialReveal">
+  <div class="vial-section-img">
+    <img src="./holdingvial.png" loading="lazy" alt="Compounded medication vial" />
+  </div>
+  <div class="vial-section-text">
+    <span class="vial-eyebrow">FDA-REGISTERED COMPOUNDING PHARMACY</span>
+    <p class="vial-headline">Your medication.</p>
+    <p class="vial-subline">Compounded and delivered.</p>
+    <p class="vial-desc">Physician-prescribed. Prepared by a licensed US pharmacy. Delivered to your door monthly.</p>
+  </div>
+</section>
 
-<script>
-(function () {
-  var section = document.getElementById('vialReveal');
-  if (!section || window.innerWidth > 768) return;
-  var done = false;
-  var obs = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting && !done) {
-      done = true;
-      section.classList.add('vr-revealed');
-      obs.disconnect();
-    }
-  }, { threshold: 0.2 });
-  obs.observe(section);
-})();
-</script>
-
-<!-- ─── HOW IT WORKS ─── -->
-<section class="hrw animate-in" id="how-it-works">
-    <style>
-        .hrw {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(200deg, rgba(181,201,160,0.06) 0%, #faf7f2 50%, rgba(184,148,95,0.04) 100%);
-        }
-
-        /* ── BACKGROUND — sticky so it pins while cards scroll over it ── */
-        .hrw-bg {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            z-index: 0;
-        }
-        .hrw-bg-img {
-            position: absolute;
-            top: -20%;
-            left: 0;
-            width: 100%;
-            height: 150%;
-            object-fit: cover;
-            object-position: center center;
-            will-change: transform;
-        }
-        .hrw-bg-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(0,0,0,0.32) 0%,
-                rgba(0,0,0,0.12) 35%,
-                rgba(17,20,19,0.85) 85%,
-                #111413 100%
-            );
-        }
-
-        /* ── HEADER — top left, inside sticky bg ── */
-        .hrw-header {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            padding: 56px 48px 0;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .hrw-eyebrow {
-            font-family: var(--font);
-            font-size: 13px;
-            font-weight: 400;
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 14px;
-            max-width: 380px;
-            line-height: 1.5;
-        }
-        .hrw-h2 {
-            font-family: var(--font);
-            font-size: clamp(52px, 8vw, 92px);
-            font-weight: 700;
-            color: #fff;
-            line-height: 0.92;
-            letter-spacing: -0.05em;
-        }
-        .hrw-h2 em {
-            font-family: 'EB Garamond', Georgia, serif;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        /* ── STEPS — overlap bg, section height = bg + steps - overlap ── */
-        .hrw-steps {
-            position: relative;
-            z-index: 3;
-            margin-top: -78vh;
-            padding: 0 0 100px;
-        }
-
-        /* ── INDIVIDUAL STEP ── */
-        .hrw-step {
-            width: 100%;
-            position: relative;
-            will-change: transform, opacity;
-        }
-
-        /* Staircase left/right offsets */
-        .hrw-step:nth-child(1) { padding-left: 48px; padding-right: 45%; }
-        .hrw-step:nth-child(2) { padding-left: 28%; padding-right: 18%; }
-        .hrw-step:nth-child(3) { padding-left: 50%; padding-right: 48px; }
-
-        /* ── CARD ── */
-        .hrw-card {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255,255,255,0.08);
-            display: flex;
-            align-items: stretch;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        /* Left column */
-        .hrw-left {
-            flex: 0 0 280px;
-            padding: 40px 36px;
-            border-right: 1px dashed rgba(255,255,255,0.08);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .hrw-num {
-            font-family: var(--font);
-            font-size: 12px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.2);
-            letter-spacing: 0.06em;
-            margin-bottom: 14px;
-        }
-        .hrw-title {
-            font-family: var(--font);
-            font-size: 30px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-        }
-
-        /* Right column */
-        .hrw-right {
-            flex: 1;
-            padding: 40px 36px;
-            display: flex;
-            align-items: center;
-        }
-        .hrw-desc {
-            font-family: var(--font);
-            font-size: 16px;
-            font-weight: 400;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.65;
-        }
-
-
-
-        .hrw-right {
-            flex: 1;
-            padding: 40px 36px;
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 900px) {
-            .hrw-bg { height: 88vh; }
-            .hrw-header { padding: 36px 24px 0; }
-            .hrw-steps { margin-top: -58vh; padding: 0 0 60px; }
-            .hrw-step:nth-child(1),
-            .hrw-step:nth-child(2),
-            .hrw-step:nth-child(3) { padding-left: 0; padding-right: 0; }
-            .hrw-h2 { font-size: clamp(40px, 12vw, 64px); }
-            .hrw-left { flex: 0 0 180px; padding: 24px; }
-            .hrw-right { padding: 24px; }
-            .hrw-title { font-size: 22px; }
-            .hrw-desc { font-size: 14px; }
-        }
-        @media (max-width: 768px) {
-            /* Kill the sticky parallax — become a plain dark section */
-            .hrw { overflow: visible; background: #111413; }
-            .hrw-bg {
-                position: relative !important;
-                top: auto !important;
-                height: auto !important;
-                min-height: 0 !important;
-                overflow: visible;
-            }
-            /* Hide background image entirely */
-            .hrw-bg-img { display: none !important; }
-            .hrw-bg-overlay { display: none !important; }
-
-            /* Header flows in document now */
-            .hrw-header {
-                position: relative !important;
-                top: auto !important; left: auto !important; right: auto !important;
-                padding: 56px 24px 32px;
-                pointer-events: auto;
-                text-align: center;
-            }
-            .hrw-eyebrow { margin: 0 auto 14px; }
-            .hrw-h2 { font-size: 32px !important; line-height: 1.1; text-align: center; }
-
-            /* Steps stack below header, no negative margin */
-            .hrw-steps {
-                margin-top: 0 !important;
-                padding: 0 16px 56px;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-            .hrw-step:nth-child(1),
-            .hrw-step:nth-child(2),
-            .hrw-step:nth-child(3) {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                width: 100% !important;
-            }
-
-            /* Cards: single column, text only */
-            .hrw-card {
-                flex-direction: column;
-                background: rgba(255,255,255,0.06);
-                border: 1px solid rgba(255,255,255,0.08);
-            }
-            .hrw-left {
-                flex: none;
-                border-right: none;
-                border-bottom: 1px dashed rgba(255,255,255,0.08);
-                padding: 32px 24px 20px;
-            }
-            .hrw-right { padding: 20px 24px 32px; }
-            .hrw-num { font-size: 11px; margin-bottom: 10px; }
-            .hrw-title { font-size: 24px; }
-            .hrw-desc { font-size: 14px; line-height: 1.6; }
-
-            /* Full-width CTA button */
-            .hrw-cta-mobile {
-                display: block !important;
-                width: calc(100% - 32px);
-                margin: 0 16px 56px;
-                padding: 16px;
-                background: #fff;
-                color: #1a1a1a;
-                text-align: center;
-                text-decoration: none;
-                font-family: var(--font);
-                font-size: 13px;
-                font-weight: 500;
-                letter-spacing: 0.02em;
-                border-radius: 0;
-            }
-        }
-        @media (max-width: 540px) {
-            .hrw-left { padding: 28px 20px 16px; }
-            .hrw-right { padding: 16px 20px 28px; }
-        }
-    </style>
-
-    <!-- BACKGROUND IMAGE -->
-    <div class="hrw-bg">
-        <img class="hrw-bg-img" src="hf-bg.jpg" loading="lazy" alt="">
-        <div class="hrw-bg-overlay"></div>
-    </div>
-
-    <!-- HEADER — top of image -->
-    <div class="hrw-header">
-        <div class="hrw-eyebrow">A quick, guided process to receive personalized treatment and your medication in just a few days.</div>
-        <h2 class="hrw-h2">How <em>rylo</em> works</h2>
-    </div>
-
-    <!-- STAIRCASE STEPS -->
-    <div class="hrw-steps">
-
-        <div class="hrw-step animate-in" data-delay="1">
-            <div class="hrw-card">
-                <div class="hrw-left">
-                    <div class="hrw-num">[ 01 ]</div>
-                    <div class="hrw-title">Simple<br>Questionnaire</div>
-                </div>
-                <div class="hrw-right">
-                    <div class="hrw-desc">Choose the plan that fits your needs, then complete a free medical intake and health history form for review by a licensed provider.</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hrw-step animate-in" data-delay="2">
-            <div class="hrw-card">
-                <div class="hrw-left">
-                    <div class="hrw-num">[ 02 ]</div>
-                    <div class="hrw-title">Provider<br>Evaluation</div>
-                </div>
-                <div class="hrw-right">
-                    <div class="hrw-desc">Our licensed medical provider will review your medical history and determine if the medication is right for you and your needs.</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hrw-step animate-in" data-delay="3">
-            <div class="hrw-card">
-
-                <div class="hrw-left">
-                    <div class="hrw-num">[ 03 ]</div>
-                    <div class="hrw-title">Approved<br>&amp; Delivered</div>
-                </div>
-                <div class="hrw-right">
-                    <div class="hrw-desc">Your prescription gets approved and ships straight to your door in discreet packaging within 3–5 business days.</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- Mobile-only CTA (hidden on desktop via CSS) -->
-    <a href="intake.html" class="hrw-cta-mobile" style="display:none;">Start your free assessment →</a>
+<!-- ─── TRUST LINES SECTION ─── -->
+<style>
+.trust-lines {
+  padding: 80px 20px;
+  text-align: center;
+  background: #faf7f2;
+}
+.trust-lines-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.tl-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+@media (max-width: 768px) {
+  .tl-line { font-size: 22px; }
+}
+</style>
+<section class="trust-lines">
+  <div class="trust-lines-inner">
+    <p class="tl-line fade-in" style="transition-delay:0s">Board-certified US providers.</p>
+    <p class="tl-line fade-in" style="transition-delay:0.2s">Licensed, FDA-registered pharmacy.</p>
+    <p class="tl-line fade-in" style="transition-delay:0.4s">One flat price. Every dose.</p>
+    <p class="tl-line fade-in" style="transition-delay:0.6s">Free shipping. Every month.</p>
+    <hr style="border:none;border-top:1px solid rgba(0,0,0,0.06);max-width:100px;margin:32px auto;">
+    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:rgba(26,26,26,0.35);">No hidden fees. No insurance required. Cancel anytime.</p>
+  </div>
 </section>
 
 <!-- ─── HOW RYLO WORKS — MOBILE VERSION ─── -->
@@ -4296,7 +3336,7 @@
 
     <!-- Right: steps -->
     <div class="hrw-mobile-steps">
-      <div class="hrw-mobile-step" data-step="0">
+      <div class="hrw-mobile-step fade-in" data-step="0" style="transition-delay:0.1s">
         <div class="hrw-mobile-step-num">01</div>
         <h3 class="hrw-mobile-step-title">Complete your assessment</h3>
         <p class="hrw-mobile-step-desc">Answer a few questions about your health, goals, and medical history. Takes about 3 minutes.</p>
@@ -4304,7 +3344,7 @@
           <img src="Rylointakeform.jpg" loading="lazy" alt="Complete your health intake" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:0;" loading="lazy" />
         </div>
       </div>
-      <div class="hrw-mobile-step" data-step="1">
+      <div class="hrw-mobile-step fade-in" data-step="1" style="transition-delay:0.2s">
         <div class="hrw-mobile-step-num">02</div>
         <h3 class="hrw-mobile-step-title">Provider review</h3>
         <p class="hrw-mobile-step-desc">A licensed provider reviews your profile and determines the right treatment plan for you.</p>
@@ -4312,12 +3352,12 @@
           <img src="doctorreview.jpg" loading="lazy" alt="Provider reviews your case" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
         </div>
       </div>
-      <div class="hrw-mobile-step" data-step="2">
+      <div class="hrw-mobile-step fade-in" data-step="2" style="transition-delay:0.3s">
         <div class="hrw-mobile-step-num">03</div>
         <h3 class="hrw-mobile-step-title">Medication ships to you</h3>
         <p class="hrw-mobile-step-desc">If approved, your prescription is filled by a licensed US pharmacy and shipped free to your door.</p>
         <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
-          <img src="fatbitchpackage.jpg" loading="lazy" alt="Medication ships to your door" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
+          <img src="delivery-package.jpg" loading="lazy" alt="Medication ships to your door" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
         </div>
       </div>
     </div>
@@ -4770,10 +3810,118 @@
 .ts-title em { font-style: italic; color: var(--matcha-deep); }
 .ts-title-terra em { font-style: italic; color: #C4724A; }
 
-/* Desktop: hide mobile stack, show desktop grid */
-.ts-desktop-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; padding: 0 8px 8px; }
-.ts-mobile-stack { display: none; }
+/* Desktop: show mobile stack with desktop layout overrides */
+.ts-desktop-grid { display: none; }
+.ts-mobile-stack { display: flex; flex-direction: column; gap: 8px; max-width: 900px; margin: 0 auto; padding: 0 48px 48px; }
 .ts-col { display: flex; flex-direction: column; gap: 8px; }
+
+/* Desktop outcomes — side-by-side stats row */
+.outcomes-section .ts-mobile-stack { flex-direction: column; }
+.ts-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* Desktop difference — cards in 2-col grid below hero */
+.difference-section .ts-mobile-stack .dc-mini-grid { grid-template-columns: 1fr 1fr; }
+.difference-section .ts-mobile-stack .dc-card-light,
+.difference-section .ts-mobile-stack .dc-card-dark { border-radius: 12px; }
+
+/* Desktop: show the heading in difference section */
+.difference-section .ts-head { display: block !important; }
+
+/* Desktop stat cards */
+.ts-stat-card {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.ts-stat-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,26,0.6); display: block; margin-bottom: 6px;
+}
+.ts-stat-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 64px; font-weight: 400; color: #1a1a1a;
+  display: block; line-height: 1; margin-bottom: 8px; letter-spacing: -0.03em;
+}
+.ts-stat-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px; font-weight: 400; color: rgba(26,26,26,0.55); line-height: 1.55;
+}
+
+/* Desktop hero image in outcomes */
+.outcomes-section .ts-hero-img {
+  display: none;
+}
+/* Hide the finally card from outcomes on desktop — separate section exists */
+.outcomes-section .ts-finally-card {
+  display: none;
+}
+
+/* Desktop difference section hero image */
+.difference-section .ts-hero-placeholder {
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  opacity: 1 !important;
+  transform: none !important;
+}
+.difference-section .ts-hero-placeholder img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block;
+}
+
+/* Desktop dc cards */
+.dc-card-light {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 12px;
+}
+.dc-card-dark {
+  background: #1a1a1a;
+  padding: 28px 24px;
+  border-radius: 12px;
+}
+.dc-card-oat {
+  background: #f5f1ea;
+  padding: 20px;
+  border-radius: 12px;
+}
+.dc-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,26,0.5); display: block; margin-bottom: 10px;
+}
+.dc-eyebrow-light { color: rgba(255,255,255,0.45); }
+.dc-rule { display: block; width: 24px; height: 1px; background: rgba(26,26,26,0.15); margin-bottom: 12px; }
+.dc-rule-light { background: rgba(255,255,255,0.18); }
+.dc-headline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px; font-weight: 400; color: #1a1a1a; line-height: 1.1;
+  margin-bottom: 10px;
+}
+.dc-headline em { font-style: italic; color: var(--matcha-deep); }
+.dc-headline-light { color: #fff; }
+.dc-headline-light em { color: rgba(255,255,255,0.6); }
+.dc-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; color: rgba(26,26,26,0.6); line-height: 1.65;
+}
+.dc-body-light { color: rgba(255,255,255,0.5); }
+.dc-mini-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px; font-weight: 400; color: #1a1a1a;
+  display: block; line-height: 1; margin-bottom: 4px;
+}
+.dc-mini-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; color: rgba(26,26,26,0.55); line-height: 1.5;
+}
+.dc-mini-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
 
 /* Center column tall image */
 .ts-center-col { position: relative; }
@@ -5304,322 +4452,13 @@
 }
 </style>
 
-<!-- ─── MOLECULAR WELLNESS — ROLLING TICKER ─── -->
-<style>
-  /* ─── Section shell ─── */
-  .mw-section {
-    background: #faf7f2;
-    overflow: hidden;
-    position: relative;
-    height: 280px;
-    display: flex;
-    align-items: center;
-  }
-
-  /* ─── Track: paused by default, starts on scroll-in ─── */
-  .mw-track {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    animation: mw-scroll 26s linear infinite;
-    animation-play-state: paused;   /* starts paused */
-    will-change: transform;
-    flex-shrink: 0;
-  }
-  .mw-section.mw-active .mw-track { animation-play-state: running; }
-
-  /* Hover pauses everything */
-  .mw-section:hover .mw-track      { animation-play-state: paused; }
-  .mw-section:hover .mw-roll-layer { animation-play-state: paused; }
-
-  /* ─── Keyframes ─── */
-  @keyframes mw-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  @keyframes mw-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(-360deg); }
-  }
-
-  /* ─── Ball base ─── */
-  .mw-ball {
-    flex-shrink: 0;
-    border-radius: 50%;
-    border: 0.5px solid rgba(26,26,26,0.14);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    /* Scroll-in fade — each ball has --fd delay set inline */
-    opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1) var(--fd,0s),
-                transform 0.42s cubic-bezier(0.22,1,0.36,1);
-  }
-  /* When section activates: balls fade in */
-  .mw-section.mw-active .mw-ball { opacity: 1; }
-  .mw-ball:hover { transform: scale(1.08); }
-
-  /* ─── Brand palette per ball ─── */
-  /* navy — Ralph Lauren authority */
-  .mw-ball.c-navy   { background: #1B2B3A; }
-  /* forest — hunting estate, members green */
-  .mw-ball.c-forest { background: #2C4A3E; }
-  /* stone — aged leather, warm neutral */
-  .mw-ball.c-stone  { background: #D4C9B8; }
-  /* champ — understated champagne gold */
-  .mw-ball.c-champ  { background: #E8DEC8; }
-  /* ecru — fine linen, good stationery */
-  .mw-ball.c-ecru   { background: #F2EDE4; }
-  /* coal — near-black anchor */
-  .mw-ball.c-coal   { background: #1E1C19; }
-  .mw-ball.c-navy .mw-label,
-  .mw-ball.c-forest .mw-label,
-  .mw-ball.c-coal .mw-label  { color: rgba(242,237,228,0.72); }
-
-  /* ─── Roll gloss layer ─── */
-  .mw-roll-layer {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    animation: mw-spin var(--spin-dur,8s) linear infinite;
-    animation-play-state: paused;
-    pointer-events: none;
-  }
-  .mw-section.mw-active .mw-roll-layer { animation-play-state: running; }
-  .mw-section:hover .mw-roll-layer     { animation-play-state: paused;  }
-
-  /* Orbiting specular highlight */
-  .mw-roll-layer::before {
-    content: '';
-    position: absolute;
-    top: 11%; left: 13%;
-    width: 34%; height: 26%;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.38);
-    filter: blur(6px);
-  }
-  /* Depth shadow */
-  .mw-roll-layer::after {
-    content: '';
-    position: absolute;
-    bottom: 13%; right: 14%;
-    width: 26%; height: 20%;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.06);
-    filter: blur(5px);
-  }
-
-  /* ─── Label ─── */
-  .mw-label {
-    font-family: var(--font);
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: rgba(26,26,26,0.62);
-    position: relative;
-    z-index: 2;
-    pointer-events: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  /* ─── Sizes ─── */
-  .mw-ball.sz-lg { width: 164px; height: 164px; }
-  .mw-ball.sz-md { width: 128px; height: 128px; }
-  .mw-ball.sz-sm { width: 104px; height: 104px; }
-
-  /* ─── Vertical stagger ─── */
-  .mw-ball.ot-0 { margin-top: 0;     }
-  .mw-ball.ot-a { margin-top: -48px; }
-  .mw-ball.ot-b { margin-top: 42px;  }
-  .mw-ball.ot-c { margin-top: -24px; }
-  .mw-ball.ot-d { margin-top: 52px;  }
-  .mw-ball.ot-e { margin-top: -40px; }
-
-  /* ─── Mobile ─── */
-  @media (max-width: 768px) {
-    .mw-section   { height: 200px; }
-    .mw-ball.sz-lg { width: 114px; height: 114px; }
-    .mw-ball.sz-md { width:  89px; height:  89px; }
-    .mw-ball.sz-sm { width:  72px; height:  72px; }
-    .mw-ball.ot-a { margin-top: -33px; }
-    .mw-ball.ot-b { margin-top:  29px; }
-    .mw-ball.ot-c { margin-top: -17px; }
-    .mw-ball.ot-d { margin-top:  36px; }
-    .mw-ball.ot-e { margin-top: -28px; }
-    .mw-track     { gap: 18px; }
-    .mw-label     { font-size: 0.68rem; }
-  }
-</style>
-
-<section class="mw-section" id="mwSection" aria-label="Molecular Wellness">
-  <div class="mw-track" id="mwTrack">
-
-    <!-- ── Set 1 ── spin-dur = π × diameter ÷ speed (speed=loopPx/26s) -->
-    <!-- Approximate @ 1100px loop → 42.3px/s: 164px→12.2s 128px→9.5s 104px→7.7s -->
-    <div class="mw-ball sz-lg ot-0 c-ecru"   style="--spin-dur:12.2s;--fd:0s"   ><div class="mw-roll-layer"></div><span class="mw-label">sculpt</span></div>
-    <div class="mw-ball sz-md ot-a c-navy"   style="--spin-dur:9.5s; --fd:0.07s"><div class="mw-roll-layer"></div><span class="mw-label">reclaim</span></div>
-    <div class="mw-ball sz-lg ot-b c-stone"  style="--spin-dur:12.2s;--fd:0.14s"><div class="mw-roll-layer"></div><span class="mw-label">longevity</span></div>
-    <div class="mw-ball sz-sm ot-c c-forest" style="--spin-dur:7.7s; --fd:0.21s"><div class="mw-roll-layer"></div><span class="mw-label">refine</span></div>
-    <div class="mw-ball sz-md ot-d c-champ"  style="--spin-dur:9.5s; --fd:0.28s"><div class="mw-roll-layer"></div><span class="mw-label">restore</span></div>
-    <div class="mw-ball sz-lg ot-e c-coal"   style="--spin-dur:12.2s;--fd:0.35s"><div class="mw-roll-layer"></div><span class="mw-label">ascend</span></div>
-
-    <!-- ── Set 2 (loop duplicate) ── -->
-    <div class="mw-ball sz-lg ot-0 c-ecru"   style="--spin-dur:12.2s;--fd:0.04s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">sculpt</span></div>
-    <div class="mw-ball sz-md ot-a c-navy"   style="--spin-dur:9.5s; --fd:0.11s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">reclaim</span></div>
-    <div class="mw-ball sz-lg ot-b c-stone"  style="--spin-dur:12.2s;--fd:0.18s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">longevity</span></div>
-    <div class="mw-ball sz-sm ot-c c-forest" style="--spin-dur:7.7s; --fd:0.25s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">refine</span></div>
-    <div class="mw-ball sz-md ot-d c-champ"  style="--spin-dur:9.5s; --fd:0.32s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">restore</span></div>
-    <div class="mw-ball sz-lg ot-e c-coal"   style="--spin-dur:12.2s;--fd:0.39s" aria-hidden="true"><div class="mw-roll-layer"></div><span class="mw-label">ascend</span></div>
-
-  </div>
-</section>
-
-<script>
-(function () {
-  'use strict';
-
-  var section = document.getElementById('mwSection');
-  var track   = document.getElementById('mwTrack');
-  if (!section || !track) return;
-
-  /* ─── 1. Precise seamless-loop calibration ─────────────
-     Measure real offsetLeft of ball[6] (set 2 start) and
-     inject an exact px keyframe — eliminates any seam. */
-  function calibrateLoop() {
-    var balls = track.querySelectorAll('.mw-ball');
-    if (balls.length < 7) return;
-    var loopPx = balls[6].offsetLeft;
-    if (!loopPx || loopPx < 10) return;
-    var s = document.createElement('style');
-    s.textContent =
-      '@keyframes mw-scroll{' +
-        'from{transform:translateX(0)}' +
-        'to{transform:translateX(-' + loopPx + 'px)}' +
-      '}';
-    document.head.appendChild(s);
-
-    /* Recalculate physically correct spin durations now we know speed */
-    var speed = loopPx / 26;   /* px/s */
-    balls.forEach(function (b) {
-      var d = b.offsetWidth;
-      if (!d) return;
-      var dur = (Math.PI * d / speed).toFixed(2);
-      b.style.setProperty('--spin-dur', dur + 's');
-    });
-  }
-
-  /* ─── 2. Scroll-triggered entry: fade + start ───────────
-     IntersectionObserver fires the moment the top edge of the
-     section enters the bottom of the viewport (threshold:0). */
-  var activated = false;
-  var io = new IntersectionObserver(function (entries) {
-    if (activated) return;
-    if (!entries[0].isIntersecting) return;
-    activated = true;
-    io.disconnect();
-
-    /* Calibrate loop first (layout must be complete) */
-    calibrateLoop();
-
-    /* Tiny rAF so the keyframe injection is painted before play */
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        section.classList.add('mw-active');
-      });
-    });
-  }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
-
-  io.observe(section);
-
-  /* ─── 3. Resize recalibration ─── */
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(calibrateLoop, 120);
-  });
-
-})();
-</script>
-
 <!-- ─── SECTION 1: REAL CHANGE. REAL PEOPLE. ─── -->
 <section class="outcomes-section">
 
   <!-- HEADING -->
   <div class="ts-head ts-animate ts-slide-up">
-    <span class="ts-eyebrow">The Outcomes</span>
+    <span class="ts-eyebrow">CLINICAL DATA</span>
     <h2 class="ts-title">Real change.<br><em>Real people.</em></h2>
-  </div>
-
-  <!-- DESKTOP 3-COL GRID -->
-  <div class="ts-desktop-grid outcomes-grid">
-
-    <!-- LEFT: stats stacked -->
-    <div class="ts-col">
-      <!-- 2-4 weeks -->
-      <div class="ts-stat-card-tall ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="Learn more about 2–4 week results">
-        <div class="rylo-cal" id="ryloCalDesktop">
-          <p class="rcal-head">Results within weeks</p>
-          <span class="rcal-subhead">Typical patient timeline after starting treatment</span>
-          <div class="rcal-grid">
-            <span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">Th</span><span class="rcal-label">F</span><span class="rcal-label">Sa</span><span class="rcal-label">Su</span>
-            <div class="rcal-day dark sz-lg br-round">1</div><div class="rcal-day empty sz-sm br-pill">2</div><div class="rcal-day hatch sz-md br-sq">3</div><div class="rcal-day hatch sz-lg br-round">4</div><div class="rcal-day soft sz-sm br-round">5</div><div class="rcal-day empty sz-md br-pill">6</div><div class="rcal-day empty sz-sm br-sq">7</div>
-            <div class="rcal-day soft sz-lg br-pill">8</div><div class="rcal-day empty sz-sm br-round">9</div><div class="rcal-day soft sz-md br-sq">10</div><div class="rcal-day empty sz-md br-round">11</div><div class="rcal-day hatch sz-sm br-round">12</div><div class="rcal-day hatch sz-lg br-sq">13</div><div class="rcal-day hatch sz-md br-pill">14</div>
-            <div class="rcal-day empty sz-md br-round">15</div><div class="rcal-day bronze sz-xl br-round">16</div><div class="rcal-day bronze sz-xl br-sq">17</div><div class="rcal-day soft sz-md br-pill">18</div><div class="rcal-day soft sz-lg br-round">19</div><div class="rcal-day soft sz-sm br-sq">20</div><div class="rcal-day empty sz-sm br-round">21</div>
-          </div>
-          <div class="rcal-legend">
-            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#1a1a1a"></span>Start</span>
-            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:rgba(196,114,74,0.2)"></span>Adjusting</span>
-            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#A8C5A0"></span>Noticeable change</span>
-          </div>
-          <p class="rcal-foot">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</p>
-        </div>
-      </div>
-      <!-- 20.2% -->
-      <div class="ts-stat-card-sm ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="Learn more about 20.2% results">
-        <span class="ts-stat-label">Not a fad. Real change.</span>
-        <span class="ts-stat-num-lg">20.2%</span>
-        <p class="ts-stat-sub-text">Tirzepatide patients lost an average of <strong>20.2% body weight</strong> in trials.</p>
-      </div>
-    </div>
-
-    <!-- CENTER: woman jeans tall -->
-    <div class="ts-col ts-center-col">
-      <div class="ts-center-img-wrap ts-animate" style="transition-delay:0.08s">
-        <img src="jeansweight.jpg" loading="lazy" alt="Rylo patient" style="object-position:center 18%;" />
-        <div class="ts-center-overlay"></div>
-        <div class="ts-center-widget">
-          <div class="ts-ww-label">Weight lost</div>
-          <div class="ts-ww-num">&#8595; 26 <span class="ts-ww-unit">lbs</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT: 48hrs + Finally stacked -->
-    <div class="ts-col">
-      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="hrs-48" tabindex="0" role="button" aria-label="Learn more about 48-hour response">
-        <img src="aiwomancomputer.jpg" loading="lazy" alt="48 hour response" />
-        <div class="ts-img-overlay"></div>
-        <div class="ts-img-text">
-          <span class="ts-img-big">48 hours</span>
-          <span class="ts-img-h">Real responses. Real people.</span>
-          <span class="ts-img-p">Questions answered by your care team — not a chatbot.</span>
-        </div>
-      </div>
-      <div class="ts-dark-card ts-finally-card ts-animate ts-slide-up" style="transition-delay:0.12s;transition-duration:0.8s;" data-ic="finally">
-        <img class="ts-fc-img" src="finally-image.jpg" loading="lazy" alt="Weight loss results" />
-        <div class="ts-fc-overlay"></div>
-        <div class="ts-fc-text">
-          <p class="ts-fc-title">Finally.</p>
-          <p class="ts-fc-sub">Something that actually works.</p>
-          <p class="ts-fc-body">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower. If you're not approved, you don't pay.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- MOBILE STACK -->
@@ -5627,10 +4466,6 @@
     <div class="ts-hero-img ts-animate ts-slide-up">
       <img src="jeansweight.jpg" loading="lazy" alt="Rylo patient" style="object-position:center 18%;" />
       <div class="ts-hero-img-overlay"></div>
-      <div class="ts-hero-img-label">
-        <span class="ts-hero-img-num">&#8595; 26 lbs</span>
-        Weight lost
-      </div>
     </div>
     <div class="ts-stats-row">
       <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="2–4 week results">
@@ -5670,6 +4505,11 @@
 
 </section>
 
+<!-- ─── JEANS WEIGHT IMAGE STRIP ─── -->
+<div style="max-width:900px;margin:32px auto;padding:0 20px;">
+  <img src="jeansweight.jpg" loading="lazy" alt="Results" style="width:100%;height:300px;object-fit:cover;object-position:center 18%;border-radius:12px;display:block;" />
+</div>
+
 <!-- ─── SECTION GAP ─── -->
 <div class="ts-section-gap"></div>
 <div class="gradient-divider" aria-hidden="true"></div>
@@ -5681,54 +4521,6 @@
   <div class="ts-head ts-animate ts-slide-up">
     <span class="ts-eyebrow">The Rylo Difference</span>
     <h2 class="ts-title ts-title-terra">Care that<br><em>shows up.</em></h2>
-  </div>
-
-  <!-- DESKTOP 3-COL GRID -->
-  <div class="ts-desktop-grid difference-grid">
-
-    <!-- LEFT: clinician + price -->
-    <div class="ts-col">
-      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="clinician" tabindex="0" role="button" aria-label="Learn more about board-certified clinicians">
-        <img src="doctor.jpg" loading="lazy" alt="Board-certified clinician" />
-        <div class="ts-img-overlay"></div>
-        <div class="ts-img-text">
-          <span class="ts-img-h">Board-certified clinician</span>
-          <span class="ts-img-p">Reviewed by a licensed US provider — not an algorithm.</span>
-        </div>
-      </div>
-      <div class="ts-dark-card ts-animate ic ic-dark" style="transition-delay:0.1s" data-ic="flat-price" tabindex="0" role="button" aria-label="Learn more about pricing">
-        <p class="ts-dark-title">One flat <em>price.</em></p>
-        <p class="ts-dark-p">No surprise charges on dose increases. Same monthly rate at every stage.</p>
-      </div>
-    </div>
-
-    <!-- CENTER: family image -->
-    <div class="ts-col ts-center-col">
-      <div class="ts-family-img-wrap" id="familyImgDesktop">
-        <img src="family-hero.jpg" alt="Family" />
-      </div>
-    </div>
-
-    <!-- RIGHT: pharmacy + 1-on-1 -->
-    <div class="ts-col">
-      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.05s" data-ic="pharmacy" tabindex="0" role="button" aria-label="Learn more about our pharmacy">
-        <img src="pharmacyimage.jpg" loading="lazy" alt="Licensed US pharmacy" />
-        <div class="ts-img-overlay"></div>
-        <div class="ts-img-text">
-          <span class="ts-img-h">Licensed US pharmacy</span>
-          <span class="ts-img-p">FDA-registered. Third-party tested.</span>
-        </div>
-      </div>
-      <div class="ts-img-card-desktop ts-animate ts-slide-up ic ic-dark" style="transition-delay:0.1s" data-ic="one-on-one" tabindex="0" role="button" aria-label="Learn more about 1-on-1 care">
-        <img src="DOCTORTALKINGPHONE.jpg" loading="lazy" alt="1-on-1 provider" />
-        <div class="ts-img-overlay"></div>
-        <div class="ts-img-text">
-          <span class="ts-img-h">1-on-1 care</span>
-          <span class="ts-img-p">A provider who actually knows you.</span>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <!-- MOBILE STACK -->
@@ -5794,15 +4586,94 @@
 </div>
 
 <!-- ─── TRUST BADGES + CTA ─── -->
-<div class="ts-trust-wrap ts-animate ts-slide-up">
-  <div class="ts-badges">
-    <span class="ts-badge">Free Shipping</span>
-    <span class="ts-badge">HIPAA Secure</span>
-    <span class="ts-badge">HSA &amp; FSA Accepted</span>
-    <span class="ts-badge">No Insurance Needed</span>
+<!-- ─── FINALLY SECTION ─── -->
+<style>
+.finally-section {
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+}
+.finally-img-wrap {
+  width: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  min-height: 420px;
+}
+.finally-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.9) contrast(1.05);
+}
+.finally-text {
+  width: 50%;
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.finally-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.finally-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.finally-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+.finally-cta {
+  display: inline-block;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.22,1,0.36,1);
+}
+.finally-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.finally-cta:active { opacity: 0.75; transform: translateY(0); }
+@media (max-width: 768px) {
+  .finally-section { flex-direction: column; }
+  .finally-img-wrap { width: 100%; height: 280px; min-height: 0; }
+  .finally-img-wrap img { height: 280px; }
+  .finally-text { width: 100%; padding: 40px 24px; }
+  .finally-title { font-size: 30px; }
+}
+</style>
+<section class="finally-section fade-in" id="finally">
+  <div class="finally-img-wrap">
+    <img src="finally-image.jpg" loading="lazy" alt="Rylo Health results" />
   </div>
-  <a href="intake.html" class="ts-cta">Start free assessment &#8594;</a>
-</div>
+  <div class="finally-text">
+    <p class="finally-title">Finally.</p>
+    <p class="finally-sub">Care that puts you first.</p>
+    <p class="finally-body">If you've tried everything and nothing has stuck — GLP-1 medications may help by working at the brain level to reduce appetite. If you're not approved, you don't pay.</p>
+    <a href="intake.html" class="finally-cta">Check my eligibility →</a>
+  </div>
+</section>
+
 <!-- ─── BEFORE/AFTER + CALCULATOR ─── -->
 <style>
   .bac-section {
@@ -6151,9 +5022,9 @@
         <hr class="bac-rule" />
         <span class="bac-result-label">You could lose</span>
         <div class="bac-result-num" id="bacLoseNum">40<span class="bac-unit">lbs</span></div>
-        <p class="bac-result-sub" id="bacResultSub">That could be you by this summer.</p>
+        <p class="bac-result-sub" id="bacResultSub">Based on published clinical data. Individual results vary.</p>
         <p class="bac-result-meta">Based on published GLP-1 clinical data</p>
-        <p style="font-family:'Instrument Serif',serif;font-size:clamp(16px,1.8vw,22px);font-style:italic;color:rgba(255,255,255,0.6);line-height:1.5;margin-bottom:24px;">"Most patients feel different within 2 weeks. Many wish they started sooner."</p>
+
         <div class="bac-months">
           <div class="bac-month">
             <span class="bac-month-label">3 months</span>
@@ -7462,6 +6333,44 @@ modal.addEventListener('keydown', function(e){
   }
 })();
 </script>
+
+<script>
+/* ─── GLOBAL FADE-IN INTERSECTION OBSERVER ─── */
+(function() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+<!-- ─── STICKY BOTTOM CTA (mobile) ─── -->
+<style>
+@media (max-width: 768px) {
+  .sticky-bottom-cta {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #1a1a1a; z-index: 9999;
+    padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  }
+  .sticky-bottom-cta a {
+    display: block; width: 100%; text-align: center;
+    background: #fff; color: #1a1a1a;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; font-weight: 600;
+    padding: 14px; text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .sticky-bottom-cta a:active { opacity: 0.85; }
+}
+@media (min-width: 769px) {
+  .sticky-bottom-cta { display: none; }
+}
+</style>
+<div class="sticky-bottom-cta" id="stickyBottomCta">
+  <a href="intake.html">Start now →</a>
+</div>
 
 </body>
 </html>
