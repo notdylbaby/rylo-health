@@ -1651,7 +1651,7 @@
     .hero-eligibility-pill { display: none; }
     .hrw-mobile { display: block; }
     .prod-cat { display: none; }
-    .prod-mobile { display: block; background: #faf7f2; padding: 80px 0 0; }
+    .prod-mobile { display: none; }
     .bento-mobile { display: none; }
     .ts-mobile-stack { display: none; }
 
@@ -2935,7 +2935,229 @@
 </style>
 
 
-<!-- ─── PRODUCTS SECTION (unified) ─── -->
+<!-- ─── PRODUCTS SECTION — DESKTOP ─── -->
+<section class="products-section animate-in" id="treatments">
+<style>
+  .products-section {
+    background: linear-gradient(160deg, #faf7f2 0%, rgba(181,201,160,0.07) 40%, #faf7f2 70%, rgba(232,223,202,0.08) 100%);
+    padding: 100px 0 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .prod-grid-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 4px;
+    width: 100%;
+  }
+  .prod-grid-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    width: 100%;
+  }
+  .prod-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .prod-card.tall { height: 620px; }
+  .prod-card.short { height: 420px; }
+  .prod-card-photo {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s ease;
+    filter: saturate(0.85) brightness(0.9);
+  }
+  .prod-card:hover .prod-card-photo {
+    transform: scale(1.04);
+    filter: saturate(1) brightness(1.05);
+  }
+  .prod-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 35%, rgba(10,10,10,0.15) 65%, transparent 100%);
+    transition: opacity 0.7s ease;
+  }
+  .prod-card:hover .prod-card-overlay { opacity: 0.85; }
+  .prod-card-meta {
+    position: absolute;
+    top: 28px; left: 32px; right: 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 3;
+  }
+  .prod-tag {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  }
+  .prod-badge {
+    background: #B8945F; border: none; color: #fff;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 13px; border-radius: 0; font-family: var(--font);
+  }
+  .prod-stock {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.06em; text-transform: uppercase;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); padding: 4px 10px;
+  }
+  .prod-stock-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #7AE68C; flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(122,230,140,0.8); animation: prod-pulse 2.5s ease infinite;
+  }
+  @keyframes prod-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  .prod-card-content {
+    position: absolute; inset: 0; padding: 32px 24px 24px 32px;
+    display: flex; flex-direction: column; justify-content: flex-end; z-index: 2;
+  }
+  .prod-name {
+    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+    font-weight: 400; color: #fff; line-height: 0.92;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .prod-name.xl { font-size: clamp(56px, 6vw, 88px); }
+  .prod-name.md { font-size: clamp(36px, 4vw, 54px); }
+  .prod-desc {
+    font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.65;
+    margin-bottom: 24px; max-width: 400px; font-family: var(--font);
+  }
+  .prod-card-footer {
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+  }
+  .prod-price { font-family: var(--font); font-weight: 400; color: #fff; line-height: 1; letter-spacing: -0.02em; }
+  .prod-price.xl { font-size: 52px; }
+  .prod-price.md { font-size: 34px; }
+  .prod-price-mo { font-family: var(--font); font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; }
+  .prod-save { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 5px; font-family: var(--font); }
+  .prod-save strong { color: #B8945F; font-weight: 600; }
+  .prod-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:12px 28px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
+  .prod-btn.solid{background:#fff;color:#1a1a1a;border:none}
+  .prod-btn.solid:hover{background:#1a1a1a;color:#fff}
+  .prod-divider { display: flex; align-items: center; gap: 20px; padding: 36px 64px 0; }
+  .prod-divider-text { font-size: 13px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #999; white-space: nowrap; font-family: var(--font); }
+  .prod-divider-line { flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
+  .prod-footnote { text-align: center; padding: 40px 64px; font-size: 13px; color: #999; line-height: 1.8; font-family: var(--font); }
+  @media (max-width: 900px) {
+    .prod-grid-top { grid-template-columns: 1fr; }
+    .prod-grid-bottom { grid-template-columns: 1fr; }
+    .prod-card.tall { height: 480px; }
+    .prod-card.short { height: 320px; }
+    .prod-divider { padding: 24px 24px 0; }
+    .prod-footnote { padding: 32px 24px; }
+  }
+</style>
+
+  <div class="prod-grid-top">
+    <div class="prod-card tall animate-in" data-delay="1" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
+      <div class="prod-card-photo" style="background-image: url('./Tirzepatide-Product-Card.jpg'); background-position: center top;"></div>
+      <div class="prod-card-overlay"></div>
+      <div class="prod-card-meta">
+        <span class="prod-tag">GLP-1 + GIP · Weekly</span>
+        <span class="prod-badge">Most popular</span>
+      </div>
+      <div class="prod-card-content">
+        <div class="prod-cat">GLP-1 + GIP · Weekly</div>
+        <div class="prod-name xl">Tirzepatide</div>
+        <div class="prod-joined" style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;text-transform:none;margin-bottom:16px;font-family:var(--font);">Joined by 2,400+ patients</div>
+        <div class="prod-card-footer">
+          <div>
+            <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
+            <div class="prod-save">3 months — $149 per month · <strong>Save $90</strong></div>
+          </div>
+          <a href="intake.html" class="prod-btn solid">Check my eligibility →</a>
+        </div>
+      </div>
+    </div>
+    <div class="prod-card tall animate-in" data-delay="2" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
+      <div class="prod-card-photo" style="background-image: url('./Semaglutide-Product-Card.jpg');"></div>
+      <div class="prod-card-overlay"></div>
+      <div class="prod-card-meta">
+        <span class="prod-tag">GLP-1 · Weekly</span>
+        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
+      </div>
+      <div class="prod-card-content">
+        <div class="prod-cat">GLP-1 · Weekly</div>
+        <div class="prod-name xl">Semaglutide</div>
+        <div class="prod-card-footer">
+          <div>
+            <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
+            <div class="prod-save">3 months — $99 per month · <strong>Save $90</strong></div>
+          </div>
+          <a href="intake.html" class="prod-btn solid">Check my eligibility →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-divider">
+    <span class="prod-divider-text">Wellness</span>
+    <div class="prod-divider-line"></div>
+  </div>
+
+  <div class="prod-grid-bottom" style="margin-top:4px;">
+    <div class="prod-card short animate-in" data-delay="1" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
+      <div class="prod-card-photo" style="background-image: url('./SERMORELIN-Product-Card.jpg');"></div>
+      <div class="prod-card-overlay"></div>
+      <div class="prod-card-meta">
+        <span class="prod-tag">Growth hormone</span>
+        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
+      </div>
+      <div class="prod-card-content">
+        <div class="prod-cat">Growth hormone</div>
+        <div class="prod-name md">Sermorelin</div>
+        <div class="prod-card-footer">
+          <div class="prod-price md">$159<span class="prod-price-mo">/month</span></div>
+          <a href="sermorelin-product.html" class="prod-btn solid">Check my eligibility →</a>
+        </div>
+      </div>
+    </div>
+    <div class="prod-card short animate-in" data-delay="2" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
+      <div class="prod-card-photo" style="background-image: url('./Glutathione-Product-Card.jpg');"></div>
+      <div class="prod-card-overlay"></div>
+      <div class="prod-card-meta">
+        <span class="prod-tag">Detox · Immune</span>
+        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
+      </div>
+      <div class="prod-card-content">
+        <div class="prod-cat">Detox · Immune</div>
+        <div class="prod-name md">Glutathione</div>
+        <div class="prod-card-footer">
+          <div class="prod-price md">$89<span class="prod-price-mo">/month</span></div>
+          <a href="glutathione-product.html" class="prod-btn solid">Check my eligibility →</a>
+        </div>
+      </div>
+    </div>
+    <div class="prod-card short animate-in" data-delay="3" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
+      <div class="prod-card-photo" style="background-image: url('./NAD-Product-Card.jpg');"></div>
+      <div class="prod-card-overlay"></div>
+      <div class="prod-card-meta">
+        <span class="prod-tag">Cellular repair</span>
+        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
+      </div>
+      <div class="prod-card-content">
+        <div class="prod-cat">Cellular repair</div>
+        <div class="prod-name md">NAD+</div>
+        <div class="prod-card-footer">
+          <div class="prod-price md">$139<span class="prod-price-mo">/month</span></div>
+          <a href="nad-product.html" class="prod-btn solid">Check my eligibility →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-footnote">
+    All treatments require a valid prescription from a licensed US provider · Compounded medications are not FDA-approved
+  </div>
+
+</section>
+
+<!-- ─── PRODUCTS — MOBILE LAYOUT ─── -->
 <style>
 /* Base card styles (needed on all screen sizes) */
 .pm-hero-card {
@@ -2969,30 +3191,6 @@
   background: linear-gradient(105deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.25) 100%);
 }
 
-/* Desktop layout for prod-mobile */
-@media (min-width: 769px) {
-  .prod-mobile {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 48px 0 !important;
-    background: #faf7f2 !important;
-  }
-  .pm-hero-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    padding: 0 !important;
-  }
-  .pm-hero-card { height: 340px !important; }
-  .pm-thin-list {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    margin-top: 12px !important;
-  }
-  .pm-thin-row { height: 120px !important; }
-  .pm-view-all { display: block; text-align: center; padding: 20px 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; color: rgba(26,26,26,0.5); text-decoration: underline; text-underline-offset: 3px; }
-}
 .prod-disclaimer {
   text-align: center;
   font-size: 10px;
