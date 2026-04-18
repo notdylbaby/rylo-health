@@ -44,7 +44,7 @@
       --site-margin: clamp(1rem, 5vw, 5rem);
     }
 
-    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: hidden; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: clip; }
     *, *::before, *::after { box-sizing: border-box; }
     img, video, svg { max-width: 100%; }
 
@@ -56,7 +56,7 @@
       font-weight:400;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      overflow-x: clip;
       background: var(--ivory);
     }
 
@@ -1650,6 +1650,7 @@
     .rn-mobile-menu { display: none; }
     .hero-eligibility-pill { display: none; }
     .hrw-mobile { display: block; }
+    .hrw-desktop-track { display: none; } /* desktop progress track — hidden below 769px */
     .prod-cat { display: none; }
     .prod-mobile { display: none; }
     .bento-mobile { display: none; }
@@ -1959,7 +1960,7 @@
     @media (max-width: 768px) {
 
       /* ── GLOBAL ── */
-      html, body { overflow-x: hidden; width: 100%; }
+      html, body { overflow-x: clip; width: 100%; }
       body { padding-bottom: 68px; }
       * { box-sizing: border-box; }
 
@@ -2416,9 +2417,10 @@
         background: rgba(0,0,0,0.04);
         border-radius: 12px;
         margin-top: 20px;
-        display: flex; align-items: center; justify-content: center;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 12px; color: rgba(0,0,0,0.15);
+        overflow: hidden;
+      }
+      .hrw-mobile-step-img img {
+        width: 100%; height: 100%; object-fit: cover; display: block;
       }
       .hrw-mobile-cta {
         display: block;
@@ -3200,103 +3202,213 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Desktop layout for hrw-mobile section */
 @media (min-width: 769px) {
+  /* ── Outer section ── */
   .hrw-mobile {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 80px 48px 80px;
-    background: none;
+    display: flex;
+    align-items: flex-start;
+    background: #faf7f2;
+    padding: 0;
+    max-width: none;
   }
+
+  /* ── Left: sticky panel ── */
   .hrw-mobile-head {
-    text-align: center;
-    padding: 0 0 56px;
+    position: sticky;
+    top: 0;
+    width: 35%;
+    flex-shrink: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 48px 0 80px;
+    text-align: left;
+    background: transparent;
   }
-  .hrw-mobile-logo {
-    display: block;
-    height: 48px;
-    width: auto;
-    margin: 0 auto 20px;
-    opacity: 0.8;
-  }
+  /* Hide logo and eyebrow on desktop */
+  .hrw-mobile-logo { display: none; }
+  .hrw-mobile-eyebrow { display: none; }
+
   .hrw-mobile-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 400;
     font-style: italic;
     color: #1a1a1a;
     line-height: 1.05;
     letter-spacing: -0.02em;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   .hrw-mobile-sub {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 15px;
-    color: rgba(26,26,26,0.55);
-    line-height: 1.6;
-    max-width: 520px;
-    margin: 0 auto;
+    font-size: 16px;
+    color: rgba(26,26,26,0.45);
+    line-height: 1.7;
+    max-width: 300px;
+    margin: 0 0 40px;
   }
+
+  /* CTA link */
+  .hrw-dp-cta {
+    display: inline-block;
+    margin-top: 32px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(26,26,26,0.3);
+    padding-bottom: 4px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s ease;
+  }
+  .hrw-dp-cta:hover { border-color: #1a1a1a; }
+  .hrw-dp-cta.hrw-dp-cta-visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Right: scrollable steps ── */
   .hrw-mobile-body {
     display: block;
+    flex: 1;
+    padding: 0 80px 0 68px; /* left padding accommodates 40px track + 28px clearance */
+    min-width: 0;
+    position: relative;
   }
   .hrw-progress-track { display: none; }
-  .hrw-mobile-steps {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+
+  /* ── Desktop progress track: left edge of right column ── */
+  .hrw-desktop-track {
+    display: block;
+    position: absolute;
+    left: 14px; /* horizontally centered in the 68px left padding zone */
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 10;
   }
-  .hrw-mobile-step {
+  .hrw-desktop-line-bg {
+    position: absolute;
+    left: 19px; /* center the 2px line in the 40px track: (40-2)/2 = 19 */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(26,26,26,0.08);
+    border-radius: 2px;
+  }
+  .hrw-desktop-line-fill {
+    position: absolute;
+    left: 19px;
+    top: 0;
+    width: 2px;
+    height: 0%;
+    background: #1a1a1a;
+    border-radius: 2px;
+  }
+  .hrw-mobile-steps {
     display: flex;
     flex-direction: column;
   }
+  .hrw-mobile-step {
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    grid-template-rows: auto auto auto;
+    column-gap: 48px;
+    align-items: center;
+    padding: 80px 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hrw-mobile-step.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Grid placement for step children */
+  .hrw-mobile-step-num  { grid-column: 1; grid-row: 1; align-self: end; }
+  .hrw-mobile-step-title { grid-column: 1; grid-row: 2; }
+  .hrw-mobile-step-desc  { grid-column: 1; grid-row: 3; align-self: start; }
+  .hrw-mobile-step-img   { grid-column: 2; grid-row: 1 / 4; align-self: center; }
+
+  /* Giant watermark number — desktop only */
+  .hrw-step-watermark {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 180px;
+    font-weight: 300;
+    color: rgba(26,26,26,0.04);
+    position: absolute;
+    top: 40px;
+    left: -40px;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1);
+    transition-delay: 0s;
+  }
+
   .hrw-mobile-step-num {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: rgba(26,26,26,0.3);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: #B8945F;
     margin-bottom: 12px;
+    display: block;
+    position: relative;
+    z-index: 2;
+    transition-delay: 0.1s;
   }
   .hrw-mobile-step-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 400;
     color: #1a1a1a;
-    margin-bottom: 8px;
-    line-height: 1.15;
+    margin-bottom: 12px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
+    transition-delay: 0.1s;
   }
   .hrw-mobile-step-desc {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
-    color: rgba(26,26,26,0.55);
-    line-height: 1.6;
-    margin-bottom: 16px;
+    font-size: 16px;
+    color: rgba(26,26,26,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+    transition-delay: 0.15s;
   }
   .hrw-mobile-step-img {
-    flex: 1;
-    min-height: 200px;
-    border-radius: 12px;
+    width: 100%; /* fills the 380px grid column */
+    height: 360px;
+    border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+    transition-delay: 0.2s;
   }
   .hrw-mobile-step-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transform: scale(1.03);
+    transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
   }
-  .hrw-mobile-cta {
-    display: inline-block;
-    margin-top: 48px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: #1a1a1a;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    border-bottom: 1px solid rgba(26,26,26,0.3);
-    padding-bottom: 2px;
+  .hrw-mobile-step.active .hrw-mobile-step-img img {
+    transform: scale(1);
   }
+
+  /* Hide mobile-only CTA */
+  .hrw-mobile-cta { display: none; }
 }
 </style>
 
@@ -3404,83 +3516,228 @@
 
 <!-- ─── VIAL SECTION ─── -->
 <style>
+/* ── Shared (mobile-first) ── */
 .vial-section {
-  background: #faf7f2;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-.vial-section-img {
-  width: 50%;
-  flex-shrink: 0;
-  overflow: hidden;
-  min-height: 400px;
-}
-.vial-section-img img {
+  background: #1a1a1a;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.vial-section-text {
-  width: 50%;
-  padding: 80px 64px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 64px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/* Mobile: image on top, text below */
+.vial-img-col { order: 1; }
+.vial-text-col { order: 2; }
+
+.vial-img-col {
+  position: relative;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+.vial-img-col::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,140,50,0.3) 0%, rgba(196,114,74,0.18) 25%, rgba(184,148,95,0.08) 45%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22,1,0.36,1) 0.2s;
+}
+.vial-section.vial-animated .vial-img-col::before { opacity: 1; }
+
+.vial-img-col img {
+  max-height: 320px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1);
+}
+.vial-section.vial-animated .vial-img-col img {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.vial-text-col {
+  text-align: center;
+  max-width: 480px;
+  padding-top: 28px;
 }
 .vial-eyebrow {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #C4724A;
-  margin-bottom: 20px;
+  color: #B8945F;
+  margin-bottom: 14px;
   display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0s;
 }
 .vial-headline {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 400;
-  color: #1a1a1a;
+  color: #fff;
   line-height: 1.1;
-  margin-bottom: 0;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s;
 }
 .vial-subline {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 400;
   font-style: italic;
-  color: rgba(26,26,26,0.4);
+  color: rgba(255,255,255,0.4);
   line-height: 1.1;
-  margin-bottom: 24px;
+  margin: 0 0 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s;
 }
 .vial-desc {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  color: rgba(26,26,26,0.5);
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
   line-height: 1.7;
+  margin: 0 0 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s;
 }
-@media (max-width: 768px) {
-  .vial-section { flex-direction: column; }
-  .vial-section-img { width: 100%; height: 280px; min-height: 0; }
-  .vial-section-img img { height: 280px; }
-  .vial-section-text { width: 100%; padding: 32px 20px; }
-  .vial-headline, .vial-subline { font-size: 30px; }
+.vial-cta {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 32px;
+  border-radius: 0;
+  background: transparent;
+  transition: background 0.2s ease, opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.vial-cta:hover { background: rgba(255,255,255,0.1); }
+.vial-section.vial-animated .vial-eyebrow,
+.vial-section.vial-animated .vial-headline,
+.vial-section.vial-animated .vial-subline,
+.vial-section.vial-animated .vial-desc,
+.vial-section.vial-animated .vial-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Desktop override ── */
+@media (min-width: 769px) {
+  .vial-section {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    min-height: 100vh;
+    /* Let image extend past right edge — body overflow-x:clip handles viewport clipping */
+    overflow: visible;
+  }
+  .vial-img-col { order: 2; }
+  .vial-text-col { order: 1; }
+
+  .vial-text-col {
+    width: 45%;
+    flex-shrink: 0;
+    padding: 80px 60px 80px 80px;
+    text-align: left;
+    max-width: none;
+    box-sizing: border-box;
+  }
+  .vial-eyebrow { font-size: 10px; margin-bottom: 16px; }
+  .vial-headline { font-size: 48px; }
+  .vial-subline { font-size: 48px; margin-bottom: 16px; }
+  .vial-desc { font-size: 15px; max-width: 400px; margin-bottom: 32px; }
+
+  .vial-img-col {
+    width: 55%;
+    flex-shrink: 0;
+    position: relative;
+    align-self: stretch;
+    overflow: visible;
+  }
+  .vial-img-col::before {
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    left: auto;
+    transform: translate(0, -50%);
+  }
+  /* Animate 'right' property — layout animation so no clipping/pop issues.
+     Image starts right:-500px (off viewport right) and slides to right:0. */
+  .vial-img-col img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 700px;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: 900 / 857; /* intrinsic ratio so layout is stable before load */
+    object-fit: contain;
+    opacity: 1;
+    right: -500px;
+    transition: right 1.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .vial-section.vial-animated .vial-img-col img {
+    right: 0;
+    transform: translateY(-50%); /* must override mobile animated rule's transform: translateX(0) which has higher specificity */
+  }
 }
 </style>
-<section class="vial-section fade-in" id="vialReveal">
-  <div class="vial-section-img">
-    <img src="./holdingvial.png" loading="lazy" alt="Compounded medication vial" />
-  </div>
-  <div class="vial-section-text">
+<section class="vial-section" id="vialReveal">
+  <div class="vial-text-col">
     <span class="vial-eyebrow">FDA-REGISTERED COMPOUNDING PHARMACY</span>
-    <p class="vial-headline">Your medication.</p>
-    <p class="vial-subline">Compounded and delivered.</p>
-    <p class="vial-desc">Physician-prescribed. Prepared by a licensed US pharmacy. Delivered to your door monthly.</p>
+    <p class="vial-headline">Precision medicine.</p>
+    <p class="vial-subline">In your hands.</p>
+    <p class="vial-desc">Physician-prescribed. Pharmacy-prepared. Delivered to your door monthly.</p>
+    <a href="intake.html" class="vial-cta">Start your free assessment →</a>
+  </div>
+  <div class="vial-img-col">
+    <img src="./holdingvial.png" loading="eager" alt="Precision compounded medication vial" />
   </div>
 </section>
+<script>
+(function () {
+  var vialSection = document.getElementById('vialReveal');
+  if (!vialSection) return;
+  /* threshold 0.4 = section must be 40% visible before animation fires,
+     so the user is clearly looking at it when the hand slides in */
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        vialSection.classList.add('vial-animated');
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(vialSection);
+})();
+</script>
 
 <!-- ─── TRUST LINES SECTION ─── -->
 <style>
@@ -3515,105 +3772,55 @@
   </div>
 </section>
 
-<!-- ─── HOW RYLO WORKS — MOBILE VERSION ─── -->
-<section class="hrw-mobile" id="how-it-works-mobile" aria-hidden="true">
+<!-- ─── HOW RYLO WORKS ─── -->
+<section class="hrw-mobile" id="how-it-works" aria-hidden="true">
   <div class="hrw-mobile-head">
-    <div class="hrw-mobile-eyebrow">The Process</div>
-    <img class="hrw-mobile-logo" src="blackrylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
     <h2 class="hrw-mobile-title">How <em>rylo</em> works</h2>
     <p class="hrw-mobile-sub">A quick, guided process to receive personalized treatment and your medication in just a few days.</p>
+    <a href="intake.html" class="hrw-dp-cta">Start your assessment →</a>
   </div>
-
   <div class="hrw-mobile-body">
-    <!-- Left: progress track -->
+    <!-- Desktop-only progress track: positioned on left edge of right column -->
+    <div class="hrw-desktop-track" id="hrwDesktopTrack">
+      <div class="hrw-desktop-line-bg"></div>
+      <div class="hrw-desktop-line-fill" id="hrwDesktopFill"></div>
+    </div>
     <div class="hrw-progress-track" id="hrwProgressTrack">
       <div class="hrw-progress-line-bg"></div>
       <div class="hrw-progress-line-fill" id="hrwLineFill"></div>
-      <!-- Dots injected by JS -->
     </div>
-
-    <!-- Right: steps -->
     <div class="hrw-mobile-steps">
-      <div class="hrw-mobile-step fade-in" data-step="0" style="transition-delay:0.1s">
+      <div class="hrw-mobile-step fade-in" data-step="0">
         <div class="hrw-mobile-step-num">01</div>
+        <span class="hrw-step-watermark" aria-hidden="true">01</span>
         <h3 class="hrw-mobile-step-title">Complete your assessment</h3>
         <p class="hrw-mobile-step-desc">Answer a few questions about your health, goals, and medical history. Takes about 3 minutes.</p>
-        <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
-          <img src="Rylointakeform.jpg" loading="lazy" alt="Complete your health intake" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:0;" loading="lazy" />
+        <div class="hrw-mobile-step-img">
+          <img src="Rylointakeform.jpg" loading="lazy" alt="Complete your health intake" />
         </div>
       </div>
-      <div class="hrw-mobile-step fade-in" data-step="1" style="transition-delay:0.2s">
+      <div class="hrw-mobile-step fade-in" data-step="1">
         <div class="hrw-mobile-step-num">02</div>
+        <span class="hrw-step-watermark" aria-hidden="true">02</span>
         <h3 class="hrw-mobile-step-title">Provider review</h3>
         <p class="hrw-mobile-step-desc">A licensed provider reviews your profile and determines the right treatment plan for you.</p>
-        <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
-          <img src="doctorreview.jpg" loading="lazy" alt="Provider reviews your case" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
+        <div class="hrw-mobile-step-img">
+          <img src="doctorreview.jpg" loading="lazy" alt="Provider reviews your case" />
         </div>
       </div>
-      <div class="hrw-mobile-step fade-in" data-step="2" style="transition-delay:0.3s">
+      <div class="hrw-mobile-step fade-in" data-step="2">
         <div class="hrw-mobile-step-num">03</div>
+        <span class="hrw-step-watermark" aria-hidden="true">03</span>
         <h3 class="hrw-mobile-step-title">Medication ships to you</h3>
         <p class="hrw-mobile-step-desc">If approved, your prescription is filled by a licensed US pharmacy and shipped free to your door.</p>
-        <div class="hrw-mobile-step-img" style="padding:0;background:none;border-radius:12px;overflow:hidden;">
-          <img src="delivery-package.jpg" loading="lazy" alt="Medication ships to your door" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" loading="lazy" />
+        <div class="hrw-mobile-step-img">
+          <img src="delivery-package.jpg" loading="lazy" alt="Medication ships to your door" />
         </div>
       </div>
     </div>
   </div>
-
   <a href="intake.html" class="hrw-mobile-cta">Start your assessment →</a>
 </section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-(function(){
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Each card pops in with a spring when it enters the viewport
-    gsap.utils.toArray('#how-it-works .hrw-step').forEach((step, i) => {
-        gsap.fromTo(step,
-            { y: 60, opacity: 0, scale: 0.96 },
-            {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 0.75,
-                ease: 'back.out(1.4)',
-                scrollTrigger: {
-                    trigger: step,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none',
-                },
-                delay: i * 0.12,
-            }
-        );
-    });
-})();
-</script>
-
-<script>
-(function(){
-  const img = document.querySelector('.hrw-bg-img');
-  const section = document.querySelector('.hrw');
-  if (!img || !section) return;
-
-  let currentY = 0;
-  let targetY = 0;
-
-  function loop() {
-    const rect = section.getBoundingClientRect();
-    const progress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
-    targetY = progress * 25;
-    currentY += (targetY - currentY) * 0.05;
-    img.style.transform = 'translateY(' + currentY.toFixed(2) + 'px)';
-    requestAnimationFrame(loop);
-  }
-
-  loop();
-})();
-</script>
 
 <!-- ─── WHY RYLO SECTION ─── -->
 <style>
@@ -4651,66 +4858,426 @@
 </style>
 
 <!-- ─── SECTION 1: REAL CHANGE. REAL PEOPLE. ─── -->
-<section class="outcomes-section">
+<!-- ─── REAL CHANGE. REAL PEOPLE. ─── -->
+<style>
+/* ── RC SECTION ── */
+.rc-section {
+  background: #faf7f2;
+  padding: 80px 48px;
+  box-sizing: border-box;
+}
+.rc-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
 
-  <!-- HEADING -->
-  <div class="ts-head ts-animate ts-slide-up">
-    <span class="ts-eyebrow">CLINICAL DATA</span>
-    <h2 class="ts-title">Real change.<br><em>Real people.</em></h2>
+/* LEFT — image */
+.rc-img-col {
+  width: 50%;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.rc-img-col.rc-in { opacity: 1; transform: scale(1); }
+.rc-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 16px;
+  display: block;
+}
+@media (min-width: 769px) {
+  .rc-img { height: 650px; border-radius: 16px; }
+}
+
+/* RIGHT — text */
+.rc-text-col {
+  flex: 1;
+  min-width: 0;
+}
+.rc-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B8945F;
+  display: block;
+  margin-bottom: 16px;
+}
+.rc-title-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.05;
+  margin: 0;
+}
+.rc-title-line-em {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(26,26,26,0.35);
+  line-height: 1.05;
+  margin: 0 0 40px;
+}
+@media (min-width: 769px) {
+  .rc-eyebrow { font-size: 11px; letter-spacing: 0.18em; }
+  .rc-title-line { font-size: 56px; }
+  .rc-title-line-em { font-size: 56px; color: rgba(26,26,26,0.3); margin: 0 0 48px; }
+}
+
+/* Stat blocks */
+.rc-stat {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  margin-bottom: 40px;
+}
+.rc-stat.rc-in { opacity: 1; transform: translateY(0); }
+.rc-stat-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 72px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.rc-stat-num-sm {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1;
+  display: block;
+}
+.rc-stat-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(26,26,26,0.45);
+  line-height: 1.6;
+  margin-top: 6px;
+  display: block;
+}
+.rc-stat-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  color: rgba(26,26,26,0.3);
+  margin-top: 4px;
+  display: block;
+}
+.rc-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+.rc-cta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,26,0.3);
+  padding-bottom: 4px;
+  display: inline-block;
+  transition: border-color 0.2s ease;
+}
+.rc-cta:hover { border-color: #1a1a1a; }
+@media (min-width: 769px) {
+  .rc-stat { margin-bottom: 48px; }
+  .rc-stat-num { font-size: 84px; }
+  .rc-stat-num-sm { font-size: 42px; }
+  .rc-stat-label { font-size: 15px; color: rgba(26,26,26,0.5); }
+  .rc-divider { width: 50px; background: #B8945F; margin-bottom: 48px; }
+  .rc-cta { font-size: 15px; }
+}
+.rc-disclaimer {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: rgba(26,26,26,0.25);
+  line-height: 1.6;
+  margin-top: 32px;
+  display: block;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .rc-section { padding: 48px 20px; }
+  .rc-inner { flex-direction: column; gap: 0; }
+  .rc-img-col { width: 100%; margin-bottom: 0; }
+  .rc-img { height: 380px; border-radius: 16px; margin-bottom: 0; }
+  .rc-text-col { width: 100%; }
+
+  /* On mobile: heading centered, then image, then cards */
+  .rc-inner { display: block; }
+  .rc-mob-head { text-align: center; margin-bottom: 24px; }
+  .rc-title-line { font-size: 32px; }
+  .rc-title-line-em { font-size: 32px; margin-bottom: 0; }
+  .rc-img-col { margin-bottom: 32px; }
+
+  /* Hide desktop stat blocks & dividers on mobile */
+  .rc-text-col .rc-stat,
+  .rc-text-col .rc-divider,
+  .rc-text-col .rc-cta,
+  .rc-text-col .rc-disclaimer { display: none; }
+
+  /* Mobile stat cards */
+  .rc-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 0; }
+  .rc-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+  .rc-card.rc-in { opacity: 1; transform: translateY(0); }
+  .rc-card-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1;
+    display: block;
+  }
+  .rc-card-num-sm {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1;
+    display: block;
+  }
+  .rc-card-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(26,26,26,0.45);
+    margin-top: 6px;
+    display: block;
+    line-height: 1.5;
+  }
+  .rc-card-note {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
+    color: rgba(26,26,26,0.3);
+    margin-top: 4px;
+    display: block;
+  }
+  .rc-mob-disclaimer {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 10px;
+    color: rgba(26,26,26,0.25);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.6;
+    display: block;
+  }
+  .rc-mob-cta {
+    display: block;
+    width: 100%;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 0;
+    margin-top: 24px;
+    box-sizing: border-box;
+  }
+  /* Hide desktop-only image col wrapper on mobile (re-shown via mob-head) */
+  .rc-text-col { display: block; }
+}
+@media (min-width: 769px) {
+  /* Hide mobile-only elements on desktop */
+  .rc-mob-head { display: none; }
+  .rc-cards { display: none; }
+  .rc-mob-disclaimer { display: none; }
+  .rc-mob-cta { display: none; }
+  .rc-img-col-mob { display: none; }
+}
+</style>
+
+<section class="rc-section" id="results">
+
+  <!-- MOBILE: centered heading (desktop version lives inside .rc-text-col) -->
+  <div class="rc-mob-head">
+    <span class="rc-eyebrow" style="display:block;text-align:center;">CLINICAL DATA</span>
+    <p class="rc-title-line" style="text-align:center;">Real change.</p>
+    <p class="rc-title-line-em" style="text-align:center;margin-bottom:24px;">Real people.</p>
   </div>
 
-  <!-- MOBILE STACK -->
-  <div class="ts-mobile-stack">
-    <div class="ts-hero-img ts-animate ts-slide-up">
-      <img src="jeansweight.jpg" loading="lazy" alt="Rylo patient" style="object-position:center 18%;" />
-      <div class="ts-hero-img-overlay"></div>
+  <!-- MOBILE: image above cards -->
+  <div class="rc-img-col rc-img-col-mob" id="rcImgColMob">
+    <img class="rc-img" src="jeansweightnew.png" loading="lazy" alt="Rylo patient results" />
+  </div>
+
+  <!-- MOBILE: stat cards -->
+  <div class="rc-cards">
+    <div class="rc-card" id="rcCard1">
+      <span class="rc-card-num" id="rcCounterMob">0.0%</span>
+      <span class="rc-card-label">average body weight lost in clinical trials</span>
+      <span class="rc-card-note">Based on tirzepatide trial data.</span>
     </div>
-    <div class="ts-stats-row">
-      <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.05s" data-ic="weeks-2-4" tabindex="0" role="button" aria-label="2–4 week results">
-        <div class="rylo-cal" id="ryloCalMobile">
-          <p class="rcal-head">Results within weeks</p>
-          <span class="rcal-subhead">Typical patient timeline after starting treatment</span>
-          <div class="rcal-grid">
-            <span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">Th</span><span class="rcal-label">F</span><span class="rcal-label">Sa</span><span class="rcal-label">Su</span>
-            <div class="rcal-day dark sz-lg br-round">1</div><div class="rcal-day empty sz-sm br-pill">2</div><div class="rcal-day hatch sz-md br-sq">3</div><div class="rcal-day hatch sz-lg br-round">4</div><div class="rcal-day soft sz-sm br-round">5</div><div class="rcal-day empty sz-md br-pill">6</div><div class="rcal-day empty sz-sm br-sq">7</div>
-            <div class="rcal-day soft sz-lg br-pill">8</div><div class="rcal-day empty sz-sm br-round">9</div><div class="rcal-day soft sz-md br-sq">10</div><div class="rcal-day empty sz-md br-round">11</div><div class="rcal-day hatch sz-sm br-round">12</div><div class="rcal-day hatch sz-lg br-sq">13</div><div class="rcal-day hatch sz-md br-pill">14</div>
-            <div class="rcal-day empty sz-md br-round">15</div><div class="rcal-day bronze sz-xl br-round">16</div><div class="rcal-day bronze sz-xl br-sq">17</div><div class="rcal-day soft sz-md br-pill">18</div><div class="rcal-day soft sz-lg br-round">19</div><div class="rcal-day soft sz-sm br-sq">20</div><div class="rcal-day empty sz-sm br-round">21</div>
-          </div>
-          <div class="rcal-legend">
-            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#1a1a1a"></span>Start</span>
-            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:rgba(196,114,74,0.2)"></span>Adjusting</span>
-            <span class="rcal-legend-item"><span class="rcal-legend-dot" style="background:#A8C5A0"></span>Noticeable change</span>
-          </div>
-          <p class="rcal-foot">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</p>
-        </div>
-      </div>
-      <div class="ts-stat-card ts-animate ts-slide-up ic ic-light" style="transition-delay:0.1s" data-ic="pct-20" tabindex="0" role="button" aria-label="20.2% results">
-        <span class="ts-stat-label">Not a fad. Real change.</span>
-        <span class="ts-stat-num">20.2%</span>
-        <span class="ts-stat-sub">Average body weight lost in trials</span>
-      </div>
+    <div class="rc-card" id="rcCard2">
+      <span class="rc-card-num-sm">2–4 weeks</span>
+      <span class="rc-card-label">typical timeline to notice meaningful changes</span>
     </div>
-    <div class="ts-dark-card ts-finally-card ts-animate ts-slide-up" style="transition-delay:0.05s;transition-duration:0.8s;" data-ic="finally">
-      <img class="ts-fc-img" src="finally-image.jpg" loading="lazy" alt="Weight loss results" />
-      <div class="ts-fc-overlay"></div>
-      <div class="ts-fc-text">
-        <p class="ts-fc-title">Finally.</p>
-        <p class="ts-fc-sub">Something that actually works.</p>
-        <p class="ts-fc-body">If you've tried everything and nothing has stuck — this is why. GLP-1s work at the brain level, not willpower. If you're not approved, you don't pay.</p>
-      </div>
+    <div class="rc-card" id="rcCard3">
+      <span class="rc-card-num-sm">48 hours</span>
+      <span class="rc-card-label">response time from your care team</span>
     </div>
+  </div>
+  <span class="rc-mob-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
+  <a href="intake.html" class="rc-mob-cta">Start your assessment →</a>
+
+  <!-- DESKTOP: two-column layout -->
+  <div class="rc-inner">
+
+    <div class="rc-img-col" id="rcImgCol">
+      <img class="rc-img" src="jeansweightnew.png" loading="lazy" alt="Rylo patient results" />
+    </div>
+
+    <div class="rc-text-col">
+      <span class="rc-eyebrow">CLINICAL DATA</span>
+      <p class="rc-title-line">Real change.</p>
+      <p class="rc-title-line-em">Real people.</p>
+
+      <div class="rc-stat" id="rcStat1">
+        <span class="rc-stat-num" id="rcCounter">0.0%</span>
+        <span class="rc-stat-label">average body weight lost in clinical trials</span>
+        <span class="rc-stat-note">Based on published tirzepatide trial data. Individual results vary.</span>
+      </div>
+      <div class="rc-divider"></div>
+
+      <div class="rc-stat" id="rcStat2">
+        <span class="rc-stat-num-sm">2–4 weeks</span>
+        <span class="rc-stat-label">typical timeline to notice meaningful changes after starting treatment</span>
+      </div>
+      <div class="rc-divider"></div>
+
+      <div class="rc-stat" id="rcStat3">
+        <span class="rc-stat-num-sm">48 hours</span>
+        <span class="rc-stat-label">response time from your care team — real people, not chatbots</span>
+      </div>
+
+      <a href="intake.html" class="rc-cta">Start your assessment →</a>
+      <span class="rc-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
+    </div>
+
   </div>
 
 </section>
 
-<!-- ─── JEANS WEIGHT IMAGE STRIP ─── -->
-<div style="max-width:900px;margin:32px auto;padding:0 20px;">
-  <img src="jeansweight.jpg" loading="lazy" alt="Results" style="width:100%;height:300px;object-fit:cover;object-position:center 18%;border-radius:12px;display:block;" />
-</div>
+<script>
+/* ── REAL CHANGE — animations + counter ── */
+(function () {
+  var isMobile = window.innerWidth <= 768;
 
-<!-- ─── SECTION GAP ─── -->
-<div class="ts-section-gap"></div>
-<div class="gradient-divider" aria-hidden="true"></div>
+  /* ── Counter animation ── */
+  function runCounter(el) {
+    if (!el || el._done) return;
+    el._done = true;
+    var start = null;
+    var duration = 2000;
+    var target = 20.2;
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      el.textContent = (easeOut(p) * target).toFixed(1) + '%';
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = '20.2%';
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (isMobile) {
+    /* ── MOBILE: image + cards ── */
+    var imgColMob = document.getElementById('rcImgColMob');
+    var cards = [
+      document.getElementById('rcCard1'),
+      document.getElementById('rcCard2'),
+      document.getElementById('rcCard3'),
+    ];
+    var counterMob = document.getElementById('rcCounterMob');
+    var delays = [100, 200, 300];
+
+    if (imgColMob) {
+      var imgObs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          imgColMob.classList.add('rc-in');
+          imgObs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      imgObs.observe(imgColMob);
+    }
+
+    cards.forEach(function (card, i) {
+      if (!card) return;
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          setTimeout(function () {
+            card.classList.add('rc-in');
+            if (i === 0) setTimeout(function () { runCounter(counterMob); }, 300);
+          }, delays[i]);
+          obs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      obs.observe(card);
+    });
+
+  } else {
+    /* ── DESKTOP: image + stat blocks ── */
+    var imgCol = document.getElementById('rcImgCol');
+    var stats = [
+      document.getElementById('rcStat1'),
+      document.getElementById('rcStat2'),
+      document.getElementById('rcStat3'),
+    ];
+    var counterEl = document.getElementById('rcCounter');
+    var statDelays = [200, 400, 600];
+
+    if (imgCol) {
+      var imgObs2 = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          imgCol.classList.add('rc-in');
+          imgObs2.disconnect();
+        }
+      }, { threshold: 0.1 });
+      imgObs2.observe(imgCol);
+    }
+
+    stats.forEach(function (stat, i) {
+      if (!stat) return;
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          setTimeout(function () {
+            stat.classList.add('rc-in');
+            if (i === 0) setTimeout(function () { runCounter(counterEl); }, 300);
+          }, statDelays[i]);
+          obs.disconnect();
+        }
+      }, { threshold: 0.1 });
+      obs.observe(stat);
+    });
+  }
+})();
+</script>
+
+<!-- ─── SECTION DIVIDER ─── -->
+<div style="margin:60px auto;width:80px;height:1px;background:#B8945F;" aria-hidden="true"></div>
 
 <!-- ─── SECTION 2: CARE THAT SHOWS UP. ─── -->
 <section class="difference-section">
@@ -4774,7 +5341,8 @@
 </section>
 
 <!-- ─── RYLO BOX FULL WIDTH ─── -->
-<div class="ts-box-card ts-animate ts-slide-up ic ic-dark" data-ic="free-ship" tabindex="0" role="button" aria-label="Free shipping">
+<style>@media (min-width: 769px) { .ts-box-free-ship { display: none !important; } }</style>
+<div class="ts-box-card ts-box-free-ship ts-animate ts-slide-up ic ic-dark" data-ic="free-ship" tabindex="0" role="button" aria-label="Free shipping">
   <img src="rylohealthpackage.jpg" loading="lazy" alt="Free monthly shipping" />
   <div class="ts-box-overlay"></div>
   <div class="ts-box-text">
@@ -6170,8 +6738,117 @@
   steps.forEach(function (step) { obs.observe(step); });
 
   /* Also make the mobile section visible to aria */
-  var mobileSection = document.getElementById('how-it-works-mobile');
+  var mobileSection = document.getElementById('how-it-works');
   if (mobileSection) mobileSection.removeAttribute('aria-hidden');
+})();
+</script>
+
+<script>
+/* ── DESKTOP HRW — scroll-position-exact progress track on left edge of right column ── */
+(function () {
+  if (window.innerWidth <= 768) return;
+  var section = document.getElementById('how-it-works');
+  var body = section ? section.querySelector('.hrw-mobile-body') : null;
+  var steps = document.querySelectorAll('.hrw-mobile-step');
+  var track = document.getElementById('hrwDesktopTrack');
+  var fill = document.getElementById('hrwDesktopFill');
+  var cta = document.querySelector('.hrw-dp-cta');
+  if (!section || !steps.length || !fill || !track || !body) return;
+
+  var stepCount = steps.length;
+  var dotEls = [];
+
+  /* Build numbered circles — positioned absolutely within the track at each step's center */
+  steps.forEach(function (step, i) {
+    var circle = document.createElement('div');
+    var num = String(i + 1).padStart(2, '0');
+    circle.style.cssText = [
+      'position:absolute',
+      'left:6px', /* center 28px circle in 40px track: (40-28)/2=6; center at 6+14=20 ≈ line at 19+1=20 */
+      'width:28px',
+      'height:28px',
+      'border-radius:50%',
+      'background:transparent',
+      'border:1.5px solid rgba(26,26,26,0.18)',
+      'display:flex',
+      'align-items:center',
+      'justify-content:center',
+      'font-family:Plus Jakarta Sans,sans-serif',
+      'font-size:8px',
+      'font-weight:700',
+      'letter-spacing:0.04em',
+      'color:rgba(26,26,26,0.28)',
+      'transition:background 0.4s cubic-bezier(0.22,1,0.36,1),border-color 0.4s cubic-bezier(0.22,1,0.36,1),color 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1)',
+      'z-index:3',
+      'transform:translateY(-50%)',
+      'top:0' /* set by positionDots() */
+    ].join(';') + ';';
+    circle.textContent = num;
+    track.appendChild(circle);
+    dotEls.push(circle);
+  });
+
+  /* Position dots at each step's vertical center relative to .hrw-mobile-body */
+  function positionDots() {
+    var bodyRect = body.getBoundingClientRect();
+    steps.forEach(function (step, i) {
+      var stepRect = step.getBoundingClientRect();
+      var centerRelative = (stepRect.top + stepRect.height / 2) - bodyRect.top;
+      dotEls[i].style.top = centerRelative + 'px';
+    });
+  }
+
+  /* Initial positioning after layout */
+  requestAnimationFrame(positionDots);
+
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var rect = section.getBoundingClientRect();
+        var sectionTop = window.scrollY + rect.top;
+        var sectionHeight = section.offsetHeight;
+        var scrollProgress = (window.scrollY - sectionTop) / (sectionHeight - window.innerHeight);
+        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+
+        /* Fill height: percentage of the full body height */
+        fill.style.height = (scrollProgress * 100) + '%';
+
+        /* Activate dots and steps based on step center vs viewport */
+        steps.forEach(function (step, i) {
+          var stepRect = step.getBoundingClientRect();
+          var stepCenter = stepRect.top + stepRect.height / 2;
+          var isActive = stepCenter < window.innerHeight * 0.6;
+
+          if (isActive) {
+            step.classList.add('active');
+            dotEls[i].style.background = '#1a1a1a';
+            dotEls[i].style.borderColor = '#1a1a1a';
+            dotEls[i].style.color = '#fff';
+            dotEls[i].style.boxShadow = '0 2px 8px rgba(26,26,26,0.25)';
+          } else {
+            dotEls[i].style.background = 'transparent';
+            dotEls[i].style.borderColor = 'rgba(26,26,26,0.18)';
+            dotEls[i].style.color = 'rgba(26,26,26,0.28)';
+            dotEls[i].style.boxShadow = 'none';
+          }
+        });
+
+        if (cta && scrollProgress > 0.9) {
+          cta.classList.add('hrw-dp-cta-visible');
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  /* Re-position dots on resize */
+  window.addEventListener('resize', function () { requestAnimationFrame(positionDots); }, { passive: true });
+  onScroll();
+  section.removeAttribute('aria-hidden');
 })();
 </script>
 
