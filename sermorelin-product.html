@@ -276,33 +276,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .reveal-d3{transition-delay:0.32s}
 .reveal-d4{transition-delay:0.44s}
 
-/* ── RESULTS TIMELINE ── */
-.results-tl{background:var(--stone);padding:100px 48px;overflow:hidden}
-.results-tl-inner{max-width:1240px;margin:0 auto}
-.results-tl-head{text-align:center;margin-bottom:72px}
-.results-tl-sub{font-size:16px;font-weight:500;color:rgba(26,26,26,0.42);line-height:1.72;max-width:400px;margin:20px auto 0}
-.results-tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.tl-card{background:#fff;border-radius:24px;padding:32px 26px 28px;border:1px solid rgba(0,0,0,0.05);position:relative;overflow:hidden;opacity:0;transform:translateY(48px);transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1),transform 0.9s cubic-bezier(0.22,1,0.36,1);box-shadow:0 2px 24px rgba(0,0,0,0.04),0 1px 4px rgba(0,0,0,0.03)}
-.tl-card.tl-in{opacity:1;transform:none}
-.tl-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:28px}
-.tl-day{aspect-ratio:1;border-radius:4px;background:rgba(0,0,0,0.055);transition:background 0.35s ease,box-shadow 0.35s ease,transform 0.35s ease}
-.tl-day.tl-filled{background:#cddab7}
-.tl-day.tl-peak{background:#8FA976;box-shadow:0 2px 8px rgba(143,169,118,0.45);transform:scale(1.12)}
-.tl-week-badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;color:#8FA976;background:rgba(143,169,118,0.1);padding:5px 12px;border-radius:100px;margin-bottom:14px}
-.tl-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,1.6vw,27px);font-weight:400;color:#1a1a1a;line-height:1.1;letter-spacing:-0.02em;margin-bottom:10px}
-.tl-title em{font-style:italic;color:rgba(26,26,26,0.45)}
-.tl-desc{font-size:13px;font-weight:500;color:rgba(26,26,26,0.45);line-height:1.75}
-.tl-bar-wrap{margin-top:24px;height:2px;background:rgba(0,0,0,0.07);border-radius:2px;overflow:hidden}
-.tl-bar{height:100%;background:linear-gradient(90deg,#cddab7,#8FA976);border-radius:2px;width:0;transition:width 1.4s cubic-bezier(0.22,1,0.36,1) 0.4s}
-.tl-disclaimer{text-align:center;margin-top:40px;font-size:11px;color:rgba(26,26,26,0.45);font-style:italic;line-height:1.65}
-
-@media(max-width:900px){.results-tl-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){
-  .results-tl{padding:64px 20px}
-  .results-tl-head{margin-bottom:48px}
-  .results-tl-grid{grid-template-columns:1fr;gap:10px}
-  .tl-card{padding:24px 20px 20px;border-radius:16px}
-  .tl-cal{gap:3px;margin-bottom:20px}
   .rts-wrap{padding:48px 20px}
   .how{padding:72px 20px}
   .includes{padding:72px 20px}
@@ -524,47 +498,6 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   </div>
 </section>
 
-<!-- RESULTS TIMELINE -->
-<section class="results-tl">
-  <div class="results-tl-inner">
-    <div class="results-tl-head reveal">
-      <span class="section-eyebrow">Expected timeline</span>
-      <h2 class="section-title">Visible results<br><em>in 2–4 weeks.</em></h2>
-      <p class="results-tl-sub">Sermorelin works with your body's natural GH cycle — not against it. Here's what most patients experience.</p>
-    </div>
-    <div class="results-tl-grid">
-      <div class="tl-card" data-tl-delay="0" data-tl-fill="5" data-tl-bar="20">
-        <div class="tl-cal"></div>
-        <div class="tl-week-badge">Week 1–2</div>
-        <h3 class="tl-title">Deeper <em>sleep</em></h3>
-        <p class="tl-desc">The first change most patients notice. Longer deep sleep phases and better overnight recovery as GH pulses align with your natural sleep rhythm.</p>
-        <div class="tl-bar-wrap"><div class="tl-bar"></div></div>
-      </div>
-      <div class="tl-card" data-tl-delay="1" data-tl-fill="12" data-tl-bar="42">
-        <div class="tl-cal"></div>
-        <div class="tl-week-badge">Week 2–4</div>
-        <h3 class="tl-title">Energy & <em>vitality</em></h3>
-        <p class="tl-desc">Sustained energy throughout the day, improved mood, and noticeably faster recovery from workouts and physical exertion.</p>
-        <div class="tl-bar-wrap"><div class="tl-bar"></div></div>
-      </div>
-      <div class="tl-card" data-tl-delay="2" data-tl-fill="20" data-tl-bar="65">
-        <div class="tl-cal"></div>
-        <div class="tl-week-badge">Month 2–3</div>
-        <h3 class="tl-title">Body <em>composition</em></h3>
-        <p class="tl-desc">Gradual improvements in muscle tone and body fat distribution become visible. IGF-1 levels continue rising toward optimal range.</p>
-        <div class="tl-bar-wrap"><div class="tl-bar"></div></div>
-      </div>
-      <div class="tl-card" data-tl-delay="3" data-tl-fill="27" data-tl-bar="88">
-        <div class="tl-cal"></div>
-        <div class="tl-week-badge">Month 4–6</div>
-        <h3 class="tl-title">Full <em>results</em></h3>
-        <p class="tl-desc">Meaningful improvements in strength, body composition, cognitive clarity, and overall vitality. Lab work reflects the progress.</p>
-        <div class="tl-bar-wrap"><div class="tl-bar"></div></div>
-      </div>
-    </div>
-    <p class="tl-disclaimer">Individual results will vary. These timelines reflect common patient-reported experiences and are not a guarantee of any specific outcome. A licensed provider monitors your progress throughout treatment.</p>
-  </div>
-</section>
 
 <!-- WHAT'S INCLUDED + PRICE -->
 <section class="includes">
@@ -776,56 +709,6 @@ document.querySelectorAll('.reveal, .reveal-eyebrow').forEach(function(el) {
   revealObserver.observe(el);
 });
 
-/* ── RESULTS TIMELINE: calendar fill + bar ── */
-(function() {
-  var cards = document.querySelectorAll('.tl-card');
-  var TOTAL_DAYS = 28; /* 4 rows × 7 cols */
-
-  cards.forEach(function(card) {
-    /* build calendar grid */
-    var calEl = card.querySelector('.tl-cal');
-    for (var d = 0; d < TOTAL_DAYS; d++) {
-      var day = document.createElement('div');
-      day.className = 'tl-day';
-      day.dataset.index = d;
-      calEl.appendChild(day);
-    }
-  });
-
-  var tlObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (!entry.isIntersecting) return;
-      var card = entry.target;
-      var delay = parseInt(card.dataset.tlDelay || '0') * 160;
-      var fillCount = parseInt(card.dataset.tlFill || '0');
-      var barPct = parseInt(card.dataset.tlBar || '0');
-
-      setTimeout(function() {
-        card.classList.add('tl-in');
-
-        /* animate bar */
-        var bar = card.querySelector('.tl-bar');
-        if (bar) bar.style.width = barPct + '%';
-
-        /* animate calendar squares filling in one by one */
-        var days = card.querySelectorAll('.tl-day');
-        for (var i = 0; i < fillCount; i++) {
-          (function(idx, isPeak) {
-            setTimeout(function() {
-              if (days[idx]) {
-                days[idx].classList.add(isPeak ? 'tl-peak' : 'tl-filled');
-              }
-            }, idx * 40);
-          })(i, i === fillCount - 1);
-        }
-      }, delay);
-
-      tlObserver.unobserve(card);
-    });
-  }, { threshold: 0.18 });
-
-  cards.forEach(function(card) { tlObserver.observe(card); });
-})();
 
 var ryloNav = document.getElementById('ryloNav');
 window.addEventListener('scroll', function() {

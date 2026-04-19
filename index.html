@@ -1656,6 +1656,7 @@
     .bento-mobile { display: none; }
     .ts-mobile-stack { display: none; }
 
+
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
     .footer-top {
       display: grid;
@@ -2387,12 +2388,27 @@
         justify-content: center;
         padding: 40px 0 40px 24px;
         opacity: 0;
+        position: relative;
+        overflow: hidden;
         transform: translateY(20px);
         transition: opacity 0.5s ease, transform 0.5s ease;
       }
       .hrw-mobile-step.active {
         opacity: 1;
         transform: translateY(0);
+      }
+      .hrw-step-watermark {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 140px;
+        font-weight: 300;
+        color: rgba(26,26,26,0.05);
+        position: absolute;
+        top: 20px;
+        left: -12px;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
       }
       .hrw-mobile-step-num {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -2406,11 +2422,13 @@
         font-size: 26px; font-weight: 400;
         color: #1a1a1a; line-height: 1.2;
         margin-bottom: 8px;
+        position: relative; z-index: 2;
       }
       .hrw-mobile-step-desc {
         font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 14px; color: rgba(26,26,26,0.68);
         line-height: 1.7; max-width: 300px;
+        position: relative; z-index: 2;
       }
       .hrw-mobile-step-img {
         width: 100%; height: 200px;
@@ -2856,7 +2874,7 @@
   </ul>
   <div class="rn-right">
     <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-ghost">Log in</a>
-    <a href="intake.html" class="rn-cta">Start now →</a>
+    <a href="intake.html" class="rn-cta">Check your eligibility →</a>
   </div>
   <!-- Mobile hamburger (hidden on desktop via CSS) -->
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
@@ -2870,7 +2888,7 @@
   <a href="#how-it-works" class="rn-mobile-menu-link">How It Works</a>
   <a href="#faq" class="rn-mobile-menu-link">FAQ</a>
   <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-mobile-menu-login">Log in</a>
-  <a href="intake.html" class="rn-mobile-menu-cta">Start your free assessment →</a>
+  <a href="intake.html" class="rn-mobile-menu-cta">Check your eligibility →</a>
 </div>
 
 <!-- ─── HERO ─── -->
@@ -2891,7 +2909,7 @@
       </h1>
       <p class="hero-sub fade-in" style="transition-delay:0.3s">GLP-1 and peptide therapy from licensed US providers. Starting at $89 per month.</p>
       <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
-        <a href="intake.html" class="btn-hero-start">Start now →</a>
+        <a href="intake.html" class="btn-hero-start">Check your eligibility →</a>
         <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);margin-top:12px;letter-spacing:0.02em;">No commitment &middot; Cancel anytime</p>
       </div>
     </div>
@@ -2950,6 +2968,49 @@
     padding-right: 0;
     box-sizing: border-box;
   }
+
+  .prod-header {
+    padding: 0 64px;
+    margin-bottom: 56px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .prod-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #C4724A;
+    margin-bottom: 14px;
+    font-family: var(--font);
+  }
+
+  .prod-title {
+    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight:400;
+    color: #1a1a1a;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  .prod-title em {
+    font-style: italic;
+    color: #888;
+  }
+
+  .prod-header-note {
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+    line-height: 1.8;
+    text-align: right;
+    padding-bottom: 8px;
+    font-family: var(--font);
+  }
+
   .prod-grid-top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2957,19 +3018,23 @@
     margin-bottom: 4px;
     width: 100%;
   }
+
   .prod-grid-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 4px;
     width: 100%;
   }
+
   .prod-card {
     position: relative;
     overflow: hidden;
     cursor: pointer;
   }
+
   .prod-card.tall { height: 620px; }
   .prod-card.short { height: 420px; }
+
   .prod-card-photo {
     position: absolute;
     inset: 0;
@@ -2978,86 +3043,319 @@
     transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s ease;
     filter: saturate(0.85) brightness(0.9);
   }
+
   .prod-card:hover .prod-card-photo {
     transform: scale(1.04);
     filter: saturate(1) brightness(1.05);
   }
+
   .prod-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 35%, rgba(10,10,10,0.15) 65%, transparent 100%);
+    background: linear-gradient(
+      to top,
+      rgba(10,10,10,0.92) 0%,
+      rgba(10,10,10,0.55) 35%,
+      rgba(10,10,10,0.15) 65%,
+      transparent 100%
+    );
     transition: opacity 0.7s ease;
   }
-  .prod-card:hover .prod-card-overlay { opacity: 0.85; }
+
+  .prod-card:hover .prod-card-overlay {
+    opacity: 0.85;
+  }
+
   .prod-card-meta {
     position: absolute;
-    top: 28px; left: 32px; right: 32px;
-    display: flex; align-items: center; justify-content: space-between;
+    top: 28px;
+    left: 32px;
+    right: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     z-index: 3;
   }
+
   .prod-tag {
-    font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
   }
+
   .prod-badge {
-    background: #B8945F; border: none; color: #fff;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 5px 13px; border-radius: 0; font-family: var(--font);
+    background: #B8945F;
+    border: none;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 13px;
+    border-radius: 0;
+    font-family: var(--font);
   }
+
   .prod-stock {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 11px; font-weight: 500; color: #fff; letter-spacing: 0.06em; text-transform: uppercase;
-    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 4px 10px;
   }
+
   .prod-stock-dot {
-    width: 7px; height: 7px; border-radius: 50%; background: #7AE68C; flex-shrink: 0;
-    box-shadow: 0 0 6px rgba(122,230,140,0.8); animation: prod-pulse 2.5s ease infinite;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #7AE68C;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(122,230,140,0.8);
+    animation: prod-pulse 2.5s ease infinite;
   }
+
   @keyframes prod-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
   .prod-card-content {
-    position: absolute; inset: 0; padding: 32px 24px 24px 32px;
-    display: flex; flex-direction: column; justify-content: flex-end; z-index: 2;
+    position: absolute;
+    inset: 0;
+    padding: 32px 24px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 2;
   }
+
   .prod-name {
     font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-    font-weight: 400; color: #fff; line-height: 0.92;
-    letter-spacing: -0.02em; margin-bottom: 10px;
+    font-weight:400;
+    color: #fff;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
   }
+
   .prod-name.xl { font-size: clamp(56px, 6vw, 88px); }
   .prod-name.md { font-size: clamp(36px, 4vw, 54px); }
+
   .prod-desc {
-    font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.65;
-    margin-bottom: 24px; max-width: 400px; font-family: var(--font);
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 400px;
+    font-family: var(--font);
   }
+
   .prod-card-footer {
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
   }
-  .prod-price { font-family: var(--font); font-weight: 400; color: #fff; line-height: 1; letter-spacing: -0.02em; }
+
+  .prod-price {
+    font-family: var(--font);
+    font-weight:400;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
   .prod-price.xl { font-size: 52px; }
   .prod-price.md { font-size: 34px; }
-  .prod-price-mo { font-family: var(--font); font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; }
-  .prod-save { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 5px; font-family: var(--font); }
-  .prod-save strong { color: #B8945F; font-weight: 600; }
+
+  .prod-price-mo {
+    font-family: var(--font);
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+  }
+
+  .prod-save {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 5px;
+    font-family: var(--font);
+  }
+  .prod-save strong {
+    color: #B8945F;
+    font-weight: 600;
+  }
+
   .prod-btn{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:12px 28px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
+
   .prod-btn.solid{background:#fff;color:#1a1a1a;border:none}
+
   .prod-btn.solid:hover{background:#1a1a1a;color:#fff}
-  .prod-divider { display: flex; align-items: center; gap: 20px; padding: 36px 64px 0; }
-  .prod-divider-text { font-size: 13px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #999; white-space: nowrap; font-family: var(--font); }
-  .prod-divider-line { flex: 1; height: 1px; background: rgba(0,0,0,0.08); }
-  .prod-footnote { text-align: center; padding: 40px 64px; font-size: 13px; color: #999; line-height: 1.8; font-family: var(--font); }
+
+  .prod-btn.ghost{background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.3)}
+
+  .prod-btn.ghost:hover{background:#fff;color:#1a1a1a;border-color:#fff}
+
+  .prod-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 36px 64px 0;
+  }
+
+  .prod-divider-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #999;
+    white-space: nowrap;
+    font-family: var(--font);
+  }
+
+  .prod-divider-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+  }
+
+  .prod-footnote {
+    text-align: center;
+    padding: 40px 64px 0;
+    font-size: 13px;
+    color: #999;
+    line-height: 1.8;
+    font-family: var(--font);
+  }
+
   @media (max-width: 900px) {
     .prod-grid-top { grid-template-columns: 1fr; }
     .prod-grid-bottom { grid-template-columns: 1fr; }
     .prod-card.tall { height: 480px; }
     .prod-card.short { height: 320px; }
+    .prod-header { padding: 0 24px; flex-direction: column; gap: 16px; }
+    .prod-header-note { text-align: left; }
     .prod-divider { padding: 24px 24px 0; }
-    .prod-footnote { padding: 32px 24px; }
+    .prod-footnote { padding: 32px 24px 0; }
+  }
+
+  @media (max-width: 768px) {
+    /* Grid */
+    .prod-grid-top, .prod-grid-bottom { grid-template-columns: 1fr; gap: 2px; margin-bottom: 2px; }
+
+    /* Card shell */
+    .prod-card.tall, .prod-card.short {
+      height: 340px; min-height: 340px;
+      position: relative; width: 100%; overflow: hidden; border-radius: 0;
+    }
+
+    /* Gradient — lighter, cinematic */
+    .prod-card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75) 0%,
+        rgba(0,0,0,0.3) 40%,
+        rgba(0,0,0,0.05) 70%
+      ) !important;
+    }
+
+    /* Badges — top strip */
+    .prod-card-meta { top: 16px; left: 20px; right: 20px; }
+    .prod-tag { display: none; }
+    .prod-badge {
+      font-size: 8px; letter-spacing: 0.12em; padding: 4px 10px;
+      background: #B8945F; color: #fff; border-radius: 0;
+    }
+    .prod-stock {
+      font-size: 8px; background: transparent; border: none;
+      color: rgba(255,255,255,0.7); padding: 0; gap: 5px;
+    }
+
+    /* Content — bottom-left */
+    .prod-card-content {
+      position: absolute; inset: 0;
+      padding: 0 20px 20px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      z-index: 2;
+    }
+
+    /* Category label — mobile only */
+    .prod-cat {
+      display: block !important;
+      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Hide "Joined by" */
+    .prod-joined { display: none !important; }
+
+    /* Product name */
+    .prod-name.xl, .prod-name.md {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 34px; font-weight: 400;
+      color: #fff; line-height: 1.0;
+      letter-spacing: -0.02em; margin-bottom: 4px;
+    }
+
+    /* Card footer — price left only (button is absolute) */
+    .prod-card-footer {
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 0;
+      padding-right: 140px; /* clear space for abs button */
+    }
+
+    /* Price */
+    .prod-price.xl, .prod-price.md {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px; font-weight: 500;
+      color: #fff; letter-spacing: -0.01em; line-height: 1;
+    }
+    .prod-price-mo { font-size: 13px; color: rgba(255,255,255,0.5); font-weight:400; }
+    .prod-desc { display: none; }
+
+    /* Save line */
+    .prod-save {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.5);
+      margin-top: 4px; font-weight: 400;
+    }
+    .prod-save strong { color: #B8945F; font-weight: 500; }
+
+    /* Button — absolute bottom-right */
+    .prod-btn {
+      position: absolute !important;
+      bottom: 20px; right: 20px;
+      width: auto !important; display: inline-block !important;
+      padding: 10px 20px !important;
+      background: rgba(255,255,255,0.95) !important; color: #1a1a1a !important;
+      font-size: 12px !important; font-weight: 500;
+      border-radius: 0; margin: 0 !important;
+      white-space: nowrap;
+    }
+
+    /* Divider */
+    .prod-divider { padding: 20px 20px 8px; }
+    .prod-divider-text {
+      font-size: 10px; letter-spacing: 0.15em;
+      color: rgba(26,26,26,0.25); text-align: left;
+    }
+    .prod-divider-line { display: none; }
+
+    .prod-footnote { padding: 24px 20px; }
   }
 </style>
 
   <div class="prod-grid-top">
+
     <div class="prod-card tall animate-in" data-delay="1" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Tirzepatide-Product-Card.jpg'); background-position: center top;"></div>
+      <div class="prod-card-photo" style="background-image: url('./Tirzepatide Product Card .png'); background-position: center top;"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">GLP-1 + GIP · Weekly</span>
@@ -3066,18 +3364,18 @@
       <div class="prod-card-content">
         <div class="prod-cat">GLP-1 + GIP · Weekly</div>
         <div class="prod-name xl">Tirzepatide</div>
-        <div class="prod-joined" style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.02em;text-transform:none;margin-bottom:16px;font-family:var(--font);">Joined by 2,400+ patients</div>
         <div class="prod-card-footer">
           <div>
             <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
             <div class="prod-save">3 months — $149 per month · <strong>Save $90</strong></div>
           </div>
-          <a href="intake.html" class="prod-btn solid">Check my eligibility →</a>
+          <a href="#intake" class="prod-btn solid">Check your eligibility →</a>
         </div>
       </div>
     </div>
+
     <div class="prod-card tall animate-in" data-delay="2" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Semaglutide-Product-Card.jpg');"></div>
+      <div class="prod-card-photo" style="background-image: url('./Semaglutide Product Card.png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">GLP-1 · Weekly</span>
@@ -3091,10 +3389,11 @@
             <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
             <div class="prod-save">3 months — $99 per month · <strong>Save $90</strong></div>
           </div>
-          <a href="intake.html" class="prod-btn solid">Check my eligibility →</a>
+          <a href="#intake" class="prod-btn solid">Check your eligibility →</a>
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="prod-divider">
@@ -3103,8 +3402,9 @@
   </div>
 
   <div class="prod-grid-bottom" style="margin-top:4px;">
+
     <div class="prod-card short animate-in" data-delay="1" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./SERMORELIN-Product-Card.jpg');"></div>
+      <div class="prod-card-photo" style="background-image: url('./SERMORELIN PRODUCT CARD .png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">Growth hormone</span>
@@ -3115,12 +3415,13 @@
         <div class="prod-name md">Sermorelin</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$159<span class="prod-price-mo">/month</span></div>
-          <a href="sermorelin-product.html" class="prod-btn solid">Check my eligibility →</a>
+          <a href="sermorelin-product.html" class="prod-btn solid">Check your eligibility →</a>
         </div>
       </div>
     </div>
+
     <div class="prod-card short animate-in" data-delay="2" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Glutathione-Product-Card.jpg');"></div>
+      <div class="prod-card-photo" style="background-image: url('./Glutathione Product Card.png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">Detox · Immune</span>
@@ -3131,12 +3432,13 @@
         <div class="prod-name md">Glutathione</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$89<span class="prod-price-mo">/month</span></div>
-          <a href="glutathione-product.html" class="prod-btn solid">Check my eligibility →</a>
+          <a href="glutathione-product.html" class="prod-btn solid">Check your eligibility →</a>
         </div>
       </div>
     </div>
+
     <div class="prod-card short animate-in" data-delay="3" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./NAD-Product-Card.jpg');"></div>
+      <div class="prod-card-photo" style="background-image: url('./NAD PRODUCT CARD.png');"></div>
       <div class="prod-card-overlay"></div>
       <div class="prod-card-meta">
         <span class="prod-tag">Cellular repair</span>
@@ -3147,10 +3449,11 @@
         <div class="prod-name md">NAD+</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$139<span class="prod-price-mo">/month</span></div>
-          <a href="nad-product.html" class="prod-btn solid">Check my eligibility →</a>
+          <a href="nad-product.html" class="prod-btn solid">Check your eligibility →</a>
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="prod-footnote">
@@ -3518,51 +3821,65 @@
 <style>
 /* ── Shared (mobile-first) ── */
 .vial-section {
-  background: #1a1a1a;
+  /* Glow baked into background — percentage-based, never overflows, never clips */
+  background-color: #1a1a1a;
+  background-image: radial-gradient(
+    ellipse 62% 40% at 52% 30%,
+    rgba(255,120,20,0.95) 0%,
+    rgba(240,105,30,0.62) 14%,
+    rgba(210,90,35,0.28) 34%,
+    rgba(196,114,74,0.09) 52%,
+    transparent 68%
+  );
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 64px 20px;
+  align-items: stretch;
+  padding: 28px 0 0;
   box-sizing: border-box;
   overflow: hidden;
-}
-/* Mobile: image on top, text below */
-.vial-img-col { order: 1; }
-.vial-text-col { order: 2; }
-
-.vial-img-col {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }
-.vial-img-col::before {
+/* Dark overlay that fades away on animation, revealing the glow */
+.vial-section::before {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(255,140,50,0.3) 0%, rgba(196,114,74,0.18) 25%, rgba(184,148,95,0.08) 45%, transparent 60%);
+  inset: 0;
+  background: #1a1a1a;
   z-index: 0;
+  opacity: 1;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.4s cubic-bezier(0.22,1,0.36,1) 0.2s;
+  transition: opacity 1.3s cubic-bezier(0.22,1,0.36,1) 0.15s;
 }
-.vial-section.vial-animated .vial-img-col::before { opacity: 1; }
+.vial-section.vial-animated::before { opacity: 0; }
+
+/* Mobile: image on top, text below */
+.vial-img-col { order: 1; position: relative; z-index: 1; }
+.vial-text-col { order: 2; position: relative; z-index: 1; }
+
+.vial-img-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  width: 100%;
+}
+/* Mobile glow lives in section background — disable legacy ::before */
+.vial-img-col::before { display: none; }
 
 .vial-img-col img {
-  max-height: 320px;
+  height: 390px;
   width: auto;
-  height: auto;
+  max-width: none;
   object-fit: contain;
+  object-position: right bottom;
   display: block;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
   opacity: 0;
-  transform: translateX(80px);
-  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1);
+  transform: translateX(120px);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1.2s cubic-bezier(0.22,1,0.36,1);
 }
 .vial-section.vial-animated .vial-img-col img {
   opacity: 1;
@@ -3572,7 +3889,9 @@
 .vial-text-col {
   text-align: center;
   max-width: 480px;
-  padding-top: 28px;
+  padding: 16px 24px 48px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .vial-eyebrow {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -3652,11 +3971,15 @@
     align-items: center;
     padding: 0;
     min-height: 100vh;
-    /* Let image extend past right edge — body overflow-x:clip handles viewport clipping */
     overflow: visible;
+    /* Remove mobile background glow, use ::before glow on img col instead */
+    background-image: none;
   }
-  .vial-img-col { order: 2; }
-  .vial-text-col { order: 1; }
+  /* Disable mobile overlay on desktop */
+  .vial-section::before { display: none; }
+
+  .vial-img-col { order: 2; position: static; z-index: auto; }
+  .vial-text-col { order: 1; position: static; z-index: auto; }
 
   .vial-text-col {
     width: 45%;
@@ -3679,14 +4002,22 @@
     overflow: visible;
   }
   .vial-img-col::before {
-    width: 700px;
-    height: 700px;
+    display: block; /* re-enable for desktop */
+    content: '';
+    width: 860px;
+    height: 860px;
     position: absolute;
-    top: 50%;
-    right: 10%;
-    left: auto;
-    transform: translate(0, -50%);
+    top: 30%;
+    left: 52%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,120,20,0.90) 0%, rgba(240,100,30,0.58) 14%, rgba(210,90,35,0.28) 32%, rgba(196,114,74,0.08) 54%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.4s cubic-bezier(0.22,1,0.36,1) 0.2s;
   }
+  .vial-section.vial-animated .vial-img-col::before { opacity: 1; }
   /* Animate 'right' property — layout animation so no clipping/pop issues.
      Image starts right:-500px (off viewport right) and slides to right:0. */
   .vial-img-col img {
@@ -3715,7 +4046,7 @@
     <p class="vial-headline">Precision medicine.</p>
     <p class="vial-subline">In your hands.</p>
     <p class="vial-desc">Physician-prescribed. Pharmacy-prepared. Delivered to your door monthly.</p>
-    <a href="intake.html" class="vial-cta">Start your free assessment →</a>
+    <a href="intake.html" class="vial-cta">Check your eligibility →</a>
   </div>
   <div class="vial-img-col">
     <img src="./holdingvial.png" loading="eager" alt="Precision compounded medication vial" />
@@ -3739,39 +4070,6 @@
 })();
 </script>
 
-<!-- ─── TRUST LINES SECTION ─── -->
-<style>
-.trust-lines {
-  padding: 80px 20px;
-  text-align: center;
-  background: #faf7f2;
-}
-.trust-lines-inner {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.tl-line {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
-  color: #1a1a1a;
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-@media (max-width: 768px) {
-  .tl-line { font-size: 22px; }
-}
-</style>
-<section class="trust-lines">
-  <div class="trust-lines-inner">
-    <p class="tl-line fade-in" style="transition-delay:0s">Board-certified US providers.</p>
-    <p class="tl-line fade-in" style="transition-delay:0.2s">Licensed, FDA-registered pharmacy.</p>
-    <p class="tl-line fade-in" style="transition-delay:0.4s">One flat price. Every dose.</p>
-    <p class="tl-line fade-in" style="transition-delay:0.6s">Free shipping. Every month.</p>
-    <hr style="border:none;border-top:1px solid rgba(0,0,0,0.06);max-width:100px;margin:32px auto;">
-    <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:rgba(26,26,26,0.35);">No hidden fees. No insurance required. Cancel anytime.</p>
-  </div>
-</section>
-
 <!-- ─── HOW RYLO WORKS ─── -->
 <section class="hrw-mobile" id="how-it-works" aria-hidden="true">
   <div class="hrw-mobile-head">
@@ -3791,7 +4089,6 @@
     </div>
     <div class="hrw-mobile-steps">
       <div class="hrw-mobile-step fade-in" data-step="0">
-        <div class="hrw-mobile-step-num">01</div>
         <span class="hrw-step-watermark" aria-hidden="true">01</span>
         <h3 class="hrw-mobile-step-title">Complete your assessment</h3>
         <p class="hrw-mobile-step-desc">Answer a few questions about your health, goals, and medical history. Takes about 3 minutes.</p>
@@ -3800,7 +4097,6 @@
         </div>
       </div>
       <div class="hrw-mobile-step fade-in" data-step="1">
-        <div class="hrw-mobile-step-num">02</div>
         <span class="hrw-step-watermark" aria-hidden="true">02</span>
         <h3 class="hrw-mobile-step-title">Provider review</h3>
         <p class="hrw-mobile-step-desc">A licensed provider reviews your profile and determines the right treatment plan for you.</p>
@@ -3809,7 +4105,6 @@
         </div>
       </div>
       <div class="hrw-mobile-step fade-in" data-step="2">
-        <div class="hrw-mobile-step-num">03</div>
         <span class="hrw-step-watermark" aria-hidden="true">03</span>
         <h3 class="hrw-mobile-step-title">Medication ships to you</h3>
         <p class="hrw-mobile-step-desc">If approved, your prescription is filled by a licensed US pharmacy and shipped free to your door.</p>
@@ -5023,11 +5318,15 @@
   .rc-title-line-em { font-size: 32px; margin-bottom: 0; }
   .rc-img-col { margin-bottom: 32px; }
 
-  /* Hide desktop stat blocks & dividers on mobile */
+  /* Hide desktop-only content on mobile */
+  .rc-inner .rc-img-col { display: none; }
   .rc-text-col .rc-stat,
   .rc-text-col .rc-divider,
   .rc-text-col .rc-cta,
   .rc-text-col .rc-disclaimer { display: none; }
+  .rc-text-col .rc-eyebrow,
+  .rc-text-col .rc-title-line,
+  .rc-text-col .rc-title-line-em { display: none; }
 
   /* Mobile stat cards */
   .rc-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 0; }
@@ -5183,8 +5482,6 @@
 <script>
 /* ── REAL CHANGE — animations + counter ── */
 (function () {
-  var isMobile = window.innerWidth <= 768;
-
   /* ── Counter animation ── */
   function runCounter(el) {
     if (!el || el._done) return;
@@ -5203,242 +5500,47 @@
     requestAnimationFrame(tick);
   }
 
-  if (isMobile) {
-    /* ── MOBILE: image + cards ── */
-    var imgColMob = document.getElementById('rcImgColMob');
-    var cards = [
-      document.getElementById('rcCard1'),
-      document.getElementById('rcCard2'),
-      document.getElementById('rcCard3'),
-    ];
-    var counterMob = document.getElementById('rcCounterMob');
-    var delays = [100, 200, 300];
-
-    if (imgColMob) {
-      var imgObs = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          imgColMob.classList.add('rc-in');
-          imgObs.disconnect();
-        }
-      }, { threshold: 0.1 });
-      imgObs.observe(imgColMob);
-    }
-
-    cards.forEach(function (card, i) {
-      if (!card) return;
-      var obs = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          setTimeout(function () {
-            card.classList.add('rc-in');
-            if (i === 0) setTimeout(function () { runCounter(counterMob); }, 300);
-          }, delays[i]);
-          obs.disconnect();
-        }
-      }, { threshold: 0.1 });
-      obs.observe(card);
-    });
-
-  } else {
-    /* ── DESKTOP: image + stat blocks ── */
-    var imgCol = document.getElementById('rcImgCol');
-    var stats = [
-      document.getElementById('rcStat1'),
-      document.getElementById('rcStat2'),
-      document.getElementById('rcStat3'),
-    ];
-    var counterEl = document.getElementById('rcCounter');
-    var statDelays = [200, 400, 600];
-
-    if (imgCol) {
-      var imgObs2 = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          imgCol.classList.add('rc-in');
-          imgObs2.disconnect();
-        }
-      }, { threshold: 0.1 });
-      imgObs2.observe(imgCol);
-    }
-
-    stats.forEach(function (stat, i) {
-      if (!stat) return;
-      var obs = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          setTimeout(function () {
-            stat.classList.add('rc-in');
-            if (i === 0) setTimeout(function () { runCounter(counterEl); }, 300);
-          }, statDelays[i]);
-          obs.disconnect();
-        }
-      }, { threshold: 0.1 });
-      obs.observe(stat);
-    });
+  function observe(el, onVisible, threshold) {
+    if (!el) return;
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        onVisible();
+        obs.disconnect();
+      }
+    }, { threshold: threshold || 0, rootMargin: '0px 0px -40px 0px' });
+    obs.observe(el);
   }
+
+  /* ── MOBILE elements ── */
+  var imgColMob = document.getElementById('rcImgColMob');
+  var counterMob = document.getElementById('rcCounterMob');
+  observe(imgColMob, function () { imgColMob.classList.add('rc-in'); });
+  ['rcCard1','rcCard2','rcCard3'].forEach(function (id, i) {
+    var card = document.getElementById(id);
+    observe(card, function () {
+      setTimeout(function () {
+        card.classList.add('rc-in');
+        if (i === 0) setTimeout(function () { runCounter(counterMob); }, 300);
+      }, i * 100);
+    });
+  });
+
+  /* ── DESKTOP elements ── */
+  var imgCol = document.getElementById('rcImgCol');
+  var counterEl = document.getElementById('rcCounter');
+  observe(imgCol, function () { imgCol.classList.add('rc-in'); });
+  ['rcStat1','rcStat2','rcStat3'].forEach(function (id, i) {
+    var stat = document.getElementById(id);
+    observe(stat, function () {
+      setTimeout(function () {
+        stat.classList.add('rc-in');
+        if (i === 0) setTimeout(function () { runCounter(counterEl); }, 300);
+      }, i * 200);
+    });
+  });
 })();
 </script>
 
-<!-- ─── SECTION DIVIDER ─── -->
-<div style="margin:60px auto;width:80px;height:1px;background:#B8945F;" aria-hidden="true"></div>
-
-<!-- ─── SECTION 2: CARE THAT SHOWS UP. ─── -->
-<section class="difference-section">
-
-  <!-- HEADING -->
-  <div class="ts-head ts-animate ts-slide-up">
-    <span class="ts-eyebrow">The Rylo Difference</span>
-    <h2 class="ts-title ts-title-terra">Care that<br><em>shows up.</em></h2>
-  </div>
-
-  <!-- MOBILE STACK -->
-  <div class="ts-mobile-stack">
-
-    <!-- 1. Family image — full bleed, heading overlaid -->
-    <div class="ts-hero-placeholder" id="familyImgMobile">
-      <img src="family-hero.jpg" alt="Family" />
-      <div class="fh-text">
-        <span class="fh-eyebrow">The Rylo Difference</span>
-        <h2 class="fh-title">Care that<br><em>shows up.</em></h2>
-      </div>
-    </div>
-
-    <!-- 2. Physician-reviewed — light card -->
-    <div class="dc-card-light dc-anim" style="--dc-delay:0s">
-      <span class="dc-eyebrow">Clinical oversight</span>
-      <span class="dc-rule"></span>
-      <p class="dc-headline">Physician-<em>reviewed.</em></p>
-      <p class="dc-body">Every Rylo prescription is reviewed by a board-certified US provider — not a chatbot, not an algorithm.</p>
-    </div>
-
-    <!-- 3. Two mini stat cards -->
-    <div class="dc-mini-grid">
-      <div class="dc-card-oat dc-anim" style="--dc-delay:0.04s">
-        <span class="dc-mini-num">FDA</span>
-        <span class="dc-mini-label">Registered compounding pharmacy</span>
-      </div>
-      <div class="dc-card-oat dc-anim" style="--dc-delay:0.1s">
-        <span class="dc-mini-num">US</span>
-        <span class="dc-mini-label">Licensed providers only</span>
-      </div>
-    </div>
-
-    <!-- 4. One flat price — dark card -->
-    <div class="dc-card-dark dc-anim" style="--dc-delay:0s">
-      <span class="dc-eyebrow dc-eyebrow-light">Transparent pricing</span>
-      <span class="dc-rule dc-rule-light"></span>
-      <p class="dc-headline dc-headline-light">One flat <em>price.</em></p>
-      <p class="dc-body dc-body-light">No surprise charges on dose increases. Same monthly rate at every stage of your treatment.</p>
-    </div>
-
-    <!-- 5. 1-on-1 care — light card -->
-    <div class="dc-card-light dc-anim" style="--dc-delay:0s">
-      <span class="dc-eyebrow">Ongoing support</span>
-      <span class="dc-rule"></span>
-      <p class="dc-headline">1-on-1 <em>care.</em></p>
-      <p class="dc-body">A provider who actually knows your history. Adjusts your dose, checks in, and answers directly — every step.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ─── RYLO BOX FULL WIDTH ─── -->
-<style>@media (min-width: 769px) { .ts-box-free-ship { display: none !important; } }</style>
-<div class="ts-box-card ts-box-free-ship ts-animate ts-slide-up ic ic-dark" data-ic="free-ship" tabindex="0" role="button" aria-label="Free shipping">
-  <img src="rylohealthpackage.jpg" loading="lazy" alt="Free monthly shipping" />
-  <div class="ts-box-overlay"></div>
-  <div class="ts-box-text">
-    <span class="ts-box-big">Free</span>
-    <span class="ts-box-h">Free shipping, every month.</span>
-  </div>
-</div>
-
-<!-- ─── TRUST BADGES + CTA ─── -->
-<!-- ─── FINALLY SECTION ─── -->
-<style>
-.finally-section {
-  background: #1a1a1a;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  overflow: hidden;
-}
-.finally-img-wrap {
-  width: 50%;
-  flex-shrink: 0;
-  overflow: hidden;
-  min-height: 420px;
-}
-.finally-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  filter: saturate(0.9) contrast(1.05);
-}
-.finally-text {
-  width: 50%;
-  padding: 80px 64px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.finally-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 38px;
-  font-weight: 400;
-  font-style: italic;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 12px;
-}
-.finally-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 16px;
-}
-.finally-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.7;
-  max-width: 400px;
-  margin-bottom: 32px;
-}
-.finally-cta {
-  display: inline-block;
-  background: #fff;
-  color: #1a1a1a;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: 0;
-  text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.22,1,0.36,1);
-}
-.finally-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-.finally-cta:active { opacity: 0.75; transform: translateY(0); }
-@media (max-width: 768px) {
-  .finally-section { flex-direction: column; }
-  .finally-img-wrap { width: 100%; height: 280px; min-height: 0; }
-  .finally-img-wrap img { height: 280px; }
-  .finally-text { width: 100%; padding: 40px 24px; }
-  .finally-title { font-size: 30px; }
-}
-</style>
-<section class="finally-section fade-in" id="finally">
-  <div class="finally-img-wrap">
-    <img src="finally-image.jpg" loading="lazy" alt="Rylo Health results" />
-  </div>
-  <div class="finally-text">
-    <p class="finally-title">Finally.</p>
-    <p class="finally-sub">Care that puts you first.</p>
-    <p class="finally-body">If you've tried everything and nothing has stuck — GLP-1 medications may help by working at the brain level to reduce appetite. If you're not approved, you don't pay.</p>
-    <a href="intake.html" class="finally-cta">Check my eligibility →</a>
-  </div>
-</section>
 
 <!-- ─── BEFORE/AFTER + CALCULATOR ─── -->
 <style>
@@ -5810,7 +5912,7 @@
         </div>
       </div>
       <div class="bac-cta-wrap">
-        <a href="intake.html" class="bac-cta">Get my personalized plan →</a>
+        <a href="intake.html" class="bac-cta">Check your eligibility →
         <p class="bac-cta-sub">Free intake · No commitment · Ships in 3–5 days</p>
       </div>
     </div>
@@ -5852,6 +5954,170 @@
     bacSlider.addEventListener('input', bacUpdate);
     bacUpdate();
   })();
+</script>
+
+<!-- ─── TRUST CARDS ─── -->
+<style>
+.trust-cards-section {
+  background: #faf7f2;
+  padding: 80px 48px;
+  box-sizing: border-box;
+}
+.trust-cards-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 16px;
+}
+.trust-card {
+  flex: 1;
+  border-radius: 16px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
+}
+.trust-card.tc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.trust-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(26,26,26,0.10), 0 4px 12px rgba(26,26,26,0.06);
+}
+.trust-card.tc-visible:hover {
+  transform: translateY(-4px);
+}
+.trust-card--light { background: #faf7f2; border: 1px solid rgba(26,26,26,0.07); }
+.trust-card--dark  { background: #1a1a1a; }
+.trust-card-body {
+  padding: 32px 28px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+.trust-card-badge {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+.trust-card--light .trust-card-badge {
+  background: rgba(26,26,26,0.06);
+  color: rgba(26,26,26,0.55);
+}
+.trust-card--dark .trust-card-badge {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.55);
+}
+.trust-card-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.trust-card--light .trust-card-heading { color: #1a1a1a; }
+.trust-card--dark  .trust-card-heading { color: #fff; }
+.trust-card-heading em { font-style: italic; }
+.trust-card-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.trust-card--light .trust-card-desc { color: rgba(26,26,26,0.45); }
+.trust-card--dark  .trust-card-desc { color: rgba(255,255,255,0.4); }
+.trust-card-img {
+  margin-top: auto;
+  width: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.trust-card-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+/* Stagger delays */
+.trust-card:nth-child(1) { transition-delay: 0s; }
+.trust-card:nth-child(2) { transition-delay: 0.12s; }
+.trust-card:nth-child(3) { transition-delay: 0.24s; }
+/* Mobile */
+@media (max-width: 768px) {
+  .trust-cards-section { padding: 48px 20px; }
+  .trust-cards-inner { flex-direction: column; gap: 12px; }
+  .trust-card { height: auto; }
+  .trust-card-img img { height: 180px; }
+}
+</style>
+<section class="trust-cards-section">
+  <div class="trust-cards-inner">
+
+    <!-- Card 1: Physician-prescribed -->
+    <div class="trust-card trust-card--light tc-anim">
+      <div class="trust-card-body">
+        <span class="trust-card-badge">BOARD-CERTIFIED</span>
+        <h3 class="trust-card-heading">Physician-<em>prescribed.</em></h3>
+        <p class="trust-card-desc">Every Rylo treatment is reviewed and prescribed by a licensed US provider who evaluates your full health history.</p>
+      </div>
+      <div class="trust-card-img">
+        <img src="doctorreview.jpg" loading="lazy" alt="Physician reviewing your prescription" />
+      </div>
+    </div>
+
+    <!-- Card 2: Ongoing care -->
+    <div class="trust-card trust-card--dark tc-anim">
+      <div class="trust-card-body">
+        <span class="trust-card-badge">ONGOING CARE</span>
+        <h3 class="trust-card-heading">Support at <em>every step.</em></h3>
+        <p class="trust-card-desc">Your provider monitors your progress, adjusts your dose, and answers your questions directly. Real people, not chatbots. Response within 48 hours.</p>
+      </div>
+      <div class="trust-card-img">
+        <img src="DOCTORTALKINGPHONE.jpg" loading="lazy" alt="Provider available for ongoing support" />
+      </div>
+    </div>
+
+    <!-- Card 3: Delivered to your door -->
+    <div class="trust-card trust-card--light tc-anim">
+      <div class="trust-card-body">
+        <span class="trust-card-badge">FREE SHIPPING</span>
+        <h3 class="trust-card-heading">Delivered to your <em>door.</em></h3>
+        <p class="trust-card-desc">Your medication ships free in discreet packaging from a licensed US pharmacy. One flat price — no surprise charges when your dose increases. HSA and FSA accepted.</p>
+      </div>
+      <div class="trust-card-img">
+        <img src="rylohealthpackage.jpg" loading="lazy" alt="Rylo health package" />
+      </div>
+    </div>
+
+  </div>
+</section>
+<script>
+(function () {
+  var cards = document.querySelectorAll('.tc-anim');
+  cards.forEach(function (card) {
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        card.classList.add('tc-visible');
+        obs.disconnect();
+      }
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+    obs.observe(card);
+  });
+})();
 </script>
 
 <!-- ─── RESULTS SPEAK FOR THEMSELVES ─── -->
@@ -5974,6 +6240,95 @@
 </style>
 
 
+<!-- ─── TRUST BADGES + CTA ─── -->
+<!-- ─── FINALLY SECTION ─── -->
+<style>
+.finally-section {
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+}
+.finally-img-wrap {
+  width: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  min-height: 420px;
+}
+.finally-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(0.9) contrast(1.05);
+}
+.finally-text {
+  width: 50%;
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.finally-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 400;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.finally-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.finally-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+.finally-cta {
+  display: inline-block;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.22,1,0.36,1);
+}
+.finally-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+.finally-cta:active { opacity: 0.75; transform: translateY(0); }
+@media (max-width: 768px) {
+  .finally-section { flex-direction: column; }
+  .finally-img-wrap { width: 100%; height: 280px; min-height: 0; }
+  .finally-img-wrap img { height: 280px; }
+  .finally-text { width: 100%; padding: 40px 24px; }
+  .finally-title { font-size: 30px; }
+}
+</style>
+<section class="finally-section fade-in" id="finally">
+  <div class="finally-img-wrap">
+    <img src="finally-image.jpg" loading="lazy" alt="Rylo Health results" />
+  </div>
+  <div class="finally-text">
+    <p class="finally-title">Finally.</p>
+    <p class="finally-sub">Care that puts you first.</p>
+    <p class="finally-body">If you've tried everything and nothing has stuck — GLP-1 medications may help by working at the brain level to reduce appetite. If you're not approved, you don't pay.</p>
+    <a href="intake.html" class="finally-cta">Check your eligibility →</a>
+  </div>
+</section>
+
 <!-- ─── FAQ ─── -->
 <section class="faq-section" id="faq">
   <div class="faq-inner">
@@ -6071,7 +6426,7 @@
       <h2 class="closing-heading">Ready to start<br /><em>losing weight?</em></h2>
       <p class="closing-sub">Complete a free 3-minute assessment. A licensed US provider will review your profile within 48 hours — and if you're not approved, you pay nothing.</p>
       <div class="closing-cta-row">
-        <a href="intake.html" class="closing-btn">Start free assessment &#8594;</a>
+        <a href="intake.html" class="closing-btn">Check your eligibility &#8594;</a>
         <span class="closing-fine">No commitment · Cancel anytime</span>
       </div>
     </div>
@@ -6349,6 +6704,7 @@
       const path    = document.getElementById('pfcPath');
       const dot     = document.getElementById('pfcDot');
       const counter = document.getElementById('pfcCount');
+      if (!card || !path || !dot || !counter) return;
       const TARGET  = 26;
       const DRAW_DURATION = 7000;
       const PAUSE_MS = 3000;
@@ -6641,7 +6997,7 @@
 
 <!-- ─── STICKY MOBILE CTA ─── -->
 <div class="sticky-mobile-cta" id="stickyMobileCta">
-  <a href="intake.html">Start your free assessment →</a>
+  <a href="intake.html">Check your eligibility →</a>
 </div>
 <script>
 (function(){
@@ -7221,31 +7577,6 @@ modal.addEventListener('keydown', function(e){
 })();
 </script>
 
-<!-- ─── STICKY BOTTOM CTA (mobile) ─── -->
-<style>
-@media (max-width: 768px) {
-  .sticky-bottom-cta {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: #1a1a1a; z-index: 9999;
-    padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
-  }
-  .sticky-bottom-cta a {
-    display: block; width: 100%; text-align: center;
-    background: #fff; color: #1a1a1a;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 14px; font-weight: 600;
-    padding: 14px; text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-  .sticky-bottom-cta a:active { opacity: 0.85; }
-}
-@media (min-width: 769px) {
-  .sticky-bottom-cta { display: none; }
-}
-</style>
-<div class="sticky-bottom-cta" id="stickyBottomCta">
-  <a href="intake.html">Start now →</a>
-</div>
 
 </body>
 </html>
