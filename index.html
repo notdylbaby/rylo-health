@@ -3519,13 +3519,13 @@
   .hrw-mobile-head {
     position: sticky;
     top: 0;
-    width: 35%;
+    width: 38%;
     flex-shrink: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 48px 0 80px;
+    padding: 0 56px 0 80px;
     text-align: left;
     background: transparent;
   }
@@ -3535,7 +3535,7 @@
 
   .hrw-mobile-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 56px;
+    font-size: 52px;
     font-weight: 400;
     font-style: italic;
     color: #1a1a1a;
@@ -3545,37 +3545,39 @@
   }
   .hrw-mobile-sub {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
-    color: rgba(26,26,26,0.45);
-    line-height: 1.7;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(26,26,26,0.78);
+    line-height: 1.55;
     max-width: 300px;
-    margin: 0 0 40px;
+    margin: 0 0 36px;
+    letter-spacing: -0.01em;
   }
 
-  /* CTA link */
+  /* CTA link — always visible, no animation */
   .hrw-dp-cta {
     display: inline-block;
-    margin-top: 32px;
+    margin-top: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: #1a1a1a;
     text-decoration: none;
     letter-spacing: 0.02em;
     border-bottom: 1px solid rgba(26,26,26,0.3);
     padding-bottom: 4px;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s ease;
+    opacity: 1;
+    transform: none;
+    transition: border-color 0.2s ease;
   }
   .hrw-dp-cta:hover { border-color: #1a1a1a; }
-  .hrw-dp-cta.hrw-dp-cta-visible { opacity: 1; transform: translateY(0); }
+  .hrw-dp-cta.hrw-dp-cta-visible { opacity: 1; transform: none; }
 
   /* ── Right: scrollable steps ── */
   .hrw-mobile-body {
     display: block;
     flex: 1;
-    padding: 0 80px 0 68px; /* left padding accommodates 40px track + 28px clearance */
+    padding: 0 0 0 64px; /* no right padding — images bleed to column edge */
     min-width: 0;
     position: relative;
   }
@@ -3585,7 +3587,7 @@
   .hrw-desktop-track {
     display: block;
     position: absolute;
-    left: 14px; /* horizontally centered in the 68px left padding zone */
+    left: 12px;
     top: 0;
     bottom: 0;
     width: 40px;
@@ -3593,7 +3595,7 @@
   }
   .hrw-desktop-line-bg {
     position: absolute;
-    left: 19px; /* center the 2px line in the 40px track: (40-2)/2 = 19 */
+    left: 19px;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -3614,86 +3616,71 @@
     flex-direction: column;
   }
   .hrw-mobile-step {
-    min-height: 80vh;
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    grid-template-rows: auto auto auto;
-    column-gap: 48px;
-    align-items: center;
-    padding: 80px 0;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 0 60px;
     position: relative;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
     transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
   }
   .hrw-mobile-step.active {
     opacity: 1;
     transform: translateY(0);
   }
-  /* Grid placement for step children */
-  .hrw-mobile-step-num  { grid-column: 1; grid-row: 1; align-self: end; }
-  .hrw-mobile-step-title { grid-column: 1; grid-row: 2; }
-  .hrw-mobile-step-desc  { grid-column: 1; grid-row: 3; align-self: start; }
-  .hrw-mobile-step-img   { grid-column: 2; grid-row: 1 / 4; align-self: center; }
 
-  /* Giant watermark number — desktop only */
-  .hrw-step-watermark {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 180px;
-    font-weight: 300;
-    color: rgba(26,26,26,0.04);
-    position: absolute;
-    top: 40px;
-    left: -40px;
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1);
-    transition-delay: 0s;
-  }
+  /* Hide watermark numbers on desktop */
+  .hrw-step-watermark { display: none; }
 
   .hrw-mobile-step-num {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     color: #B8945F;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
     display: block;
     position: relative;
     z-index: 2;
-    transition-delay: 0.1s;
+    padding-right: 80px;
   }
   .hrw-mobile-step-title {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 400;
     color: #1a1a1a;
-    margin-bottom: 12px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     position: relative;
     z-index: 2;
-    transition-delay: 0.1s;
+    max-width: 480px;
+    padding-right: 80px;
+    transition-delay: 0.08s;
   }
   .hrw-mobile-step-desc {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 16px;
-    color: rgba(26,26,26,0.5);
-    line-height: 1.7;
-    max-width: 520px;
+    font-size: 15px;
+    color: rgba(26,26,26,0.52);
+    line-height: 1.75;
+    max-width: 420px;
     margin-bottom: 32px;
     position: relative;
     z-index: 2;
-    transition-delay: 0.15s;
+    padding-right: 80px;
+    transition-delay: 0.14s;
   }
   .hrw-mobile-step-img {
-    width: 100%; /* fills the 380px grid column */
-    height: 360px;
+    width: 100%;        /* fills the full right column — no max-width cap */
+    height: 440px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    box-shadow:
+      0 2px 8px rgba(26,26,26,0.06),
+      0 12px 40px rgba(26,26,26,0.08);
     position: relative;
     z-index: 2;
     transition-delay: 0.2s;
@@ -3703,8 +3690,8 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transform: scale(1.03);
-    transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+    transform: scale(1.04);
+    transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
   }
   .hrw-mobile-step.active .hrw-mobile-step-img img {
     transform: scale(1);
@@ -3908,7 +3895,7 @@
 }
 .vial-headline {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 400;
   color: #fff;
   line-height: 1.1;
@@ -3919,10 +3906,10 @@
 }
 .vial-subline {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 400;
   font-style: italic;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.35);
   line-height: 1.1;
   margin: 0 0 16px;
   opacity: 0;
@@ -3931,10 +3918,10 @@
 }
 .vial-desc {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255,255,255,0.4);
   line-height: 1.7;
-  margin: 0 0 28px;
+  margin: 16px 0 28px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s;
@@ -3989,10 +3976,10 @@
     max-width: none;
     box-sizing: border-box;
   }
-  .vial-eyebrow { font-size: 10px; margin-bottom: 16px; }
-  .vial-headline { font-size: 48px; }
-  .vial-subline { font-size: 48px; margin-bottom: 16px; }
-  .vial-desc { font-size: 15px; max-width: 400px; margin-bottom: 32px; }
+  .vial-eyebrow { font-size: 11px; margin-bottom: 16px; }
+  .vial-headline { font-size: 52px; }
+  .vial-subline { font-size: 52px; margin-bottom: 16px; }
+  .vial-desc { font-size: 16px; max-width: 420px; margin-top: 16px; margin-bottom: 32px; }
 
   .vial-img-col {
     width: 55%;
@@ -4002,16 +3989,24 @@
     overflow: visible;
   }
   .vial-img-col::before {
-    display: block; /* re-enable for desktop */
+    display: block;
     content: '';
-    width: 860px;
-    height: 860px;
+    width: 1400px;
+    height: 1400px;
     position: absolute;
-    top: 30%;
-    left: 52%;
+    /* centered on the glass vial: 53% across the column, 42% down */
+    top: 42%;
+    left: 53%;
     right: auto;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(255,120,20,0.90) 0%, rgba(240,100,30,0.58) 14%, rgba(210,90,35,0.28) 32%, rgba(196,114,74,0.08) 54%, transparent 70%);
+    background: radial-gradient(circle,
+      rgba(255,118,20,0.98)  0%,
+      rgba(248,105,22,0.78) 10%,
+      rgba(232,92,28,0.48)  24%,
+      rgba(210,100,50,0.22) 42%,
+      rgba(196,114,74,0.08) 58%,
+      transparent           72%
+    );
     z-index: 0;
     pointer-events: none;
     opacity: 0;
@@ -4043,9 +4038,9 @@
 <section class="vial-section" id="vialReveal">
   <div class="vial-text-col">
     <span class="vial-eyebrow">FDA-REGISTERED COMPOUNDING PHARMACY</span>
-    <p class="vial-headline">Precision medicine.</p>
-    <p class="vial-subline">In your hands.</p>
-    <p class="vial-desc">Physician-prescribed. Pharmacy-prepared. Delivered to your door monthly.</p>
+    <p class="vial-headline">Your prescription.</p>
+    <p class="vial-subline">Compounded for you.</p>
+    <p class="vial-desc">Same-day provider review. Compounded by a licensed US pharmacy. Shipped free to your door every month.</p>
     <a href="intake.html" class="vial-cta">Check your eligibility →</a>
   </div>
   <div class="vial-img-col">
@@ -4074,7 +4069,7 @@
 <section class="hrw-mobile" id="how-it-works" aria-hidden="true">
   <div class="hrw-mobile-head">
     <h2 class="hrw-mobile-title">How <em>rylo</em> works</h2>
-    <p class="hrw-mobile-sub">A quick, guided process to receive personalized treatment and your medication in just a few days.</p>
+    <p class="hrw-mobile-sub">Three steps. Five minutes. Medication at your door.</p>
     <a href="intake.html" class="hrw-dp-cta">Start your assessment →</a>
   </div>
   <div class="hrw-mobile-body">
@@ -5023,73 +5018,110 @@
    RYLO ANIMATED CALENDAR
    ══════════════════════════════════════════════ */
 .rylo-cal {
-  background: #fff; border-radius: 16px; padding: 22px 18px 18px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+  background: #fff; border-radius: 20px; padding: 28px 24px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06);
 }
+
+/* Heading — filled by typewriter JS */
 .rcal-head {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 16px; font-weight: 600; color: #1a1a1a;
-  letter-spacing: -0.02em; line-height: 1.2;
-  margin: 0 0 4px;
-  opacity: 0; transition: opacity 0.5s ease;
+  font-size: 32px; font-weight: 400; color: #1a1a1a;
+  letter-spacing: -0.03em; line-height: 1;
+  margin: 0 0 6px; min-height: 1em;
+  display: flex; align-items: baseline; gap: 2px;
 }
-.rcal-head.rcal-in { opacity: 1; }
+/* Blinking cursor after typed text */
+.rcal-cursor {
+  display: inline-block; width: 2px; height: 0.78em;
+  background: #C4724A; border-radius: 1px; margin-left: 1px;
+  vertical-align: baseline; position: relative; top: 1px;
+  animation: rcal-blink 0.9s step-end infinite;
+}
+.rcal-cursor.done { opacity: 0; animation: none; }
+@keyframes rcal-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
 .rcal-subhead {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px; font-weight: 500; color: rgba(26,26,26,0.4);
-  letter-spacing: 0.02em; display: block; margin-bottom: 16px;
+  font-size: 11px; font-weight: 500; color: rgba(26,26,26,0.42);
+  letter-spacing: 0.01em; display: block; margin-bottom: 20px;
   opacity: 0; transition: opacity 0.5s ease 0.1s;
 }
 .rcal-subhead.rcal-in { opacity: 1; }
+
+/* 7-col grid */
 .rcal-grid {
   display: grid; grid-template-columns: repeat(7, 1fr);
   gap: 5px; align-items: center; justify-items: center;
 }
 .rcal-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 9px; font-weight: 600; letter-spacing: 0.05em;
-  color: rgba(26,26,26,0.3); text-align: center;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em;
+  color: rgba(26,26,26,0.28); text-align: center; text-transform: uppercase;
   opacity: 0; transition: opacity 0.4s ease 0.2s;
 }
 .rcal-label.rcal-in { opacity: 1; }
 
-/* All days — clean uniform circles, Apple-style */
+/* Week separator row — spans all 7 columns */
+.rcal-week-sep {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 0 6px;
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.rcal-week-sep.rcal-in { opacity: 1; }
+.rcal-week-sep-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; white-space: nowrap;
+  color: rgba(26,26,26,0.28);
+}
+.rcal-week-sep-line {
+  flex: 1; height: 1px; background: rgba(26,26,26,0.07);
+}
+.rcal-week-sep.results-wk .rcal-week-sep-label { color: rgba(196,114,74,0.6); }
+.rcal-week-sep.results-wk .rcal-week-sep-line  { background: rgba(196,114,74,0.2); }
+
+/* Day circles */
 .rcal-day {
   width: 26px; height: 26px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 10px; font-weight: 500;
-  opacity: 0; transform: scale(0.7);
+  opacity: 0; transform: scale(0.65);
   transition: box-shadow 0.2s ease;
 }
 .rcal-day.rcal-in { opacity: 1; transform: scale(1); }
 
-/* Remove all asymmetric size/radius classes — uniform now */
-.sz-sm, .sz-md, .sz-lg, .sz-xl { width: 26px; height: 26px; font-size: 10px; }
-.br-round, .br-pill, .br-sq { border-radius: 50%; }
-
-/* Types — clean, minimal palette */
-.rcal-day.dark   { background: #1a1a1a; color: #fff; }
-.rcal-day.empty  { background: rgba(0,0,0,0.04); color: rgba(26,26,26,0.35); }
+/* Color palette — multi-tone, realistic */
+.rcal-day.dark   { background: #1a1a1a; color: #fff; font-weight: 600; }
+.rcal-day.empty  { background: rgba(0,0,0,0.04); color: rgba(26,26,26,0.3); }
 .rcal-day.soft   { background: #f0ebe1; color: rgba(26,26,26,0.5); }
-.rcal-day.hatch  { background: rgba(196,114,74,0.1); color: rgba(196,114,74,0.6); }
-.rcal-day.bronze { background: #C4724A; color: #fff; }
+/* Appetite reduction — sage */
+.rcal-day.mint   { background: rgba(100,160,130,0.2); color: rgba(60,120,95,0.9); font-weight: 600; }
+/* Energy / mood lift — dusty rose */
+.rcal-day.rose   { background: rgba(195,118,118,0.18); color: rgba(165,80,80,0.85); font-weight: 600; }
+/* Approaching — amber tint */
+.rcal-day.hatch  { background: rgba(196,114,74,0.15); color: rgba(196,114,74,0.85); font-weight: 600; }
+/* Confirmed result day — bronze */
+.rcal-day.bronze { background: #C4724A; color: #fff; font-weight: 600; }
 
-/* Bronze milestone pulse */
+/* Pulse on first bronze day */
 @keyframes rcal-pulse {
   0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.12); box-shadow: 0 0 0 6px rgba(196,114,74,0.15); }
+  50%       { transform: scale(1.15); box-shadow: 0 0 0 7px rgba(196,114,74,0.18); }
 }
-.rcal-day.bronze.rcal-pulse { animation: rcal-pulse 0.7s cubic-bezier(0.22,1,0.36,1); }
+.rcal-day.bronze.rcal-pulse { animation: rcal-pulse 0.75s cubic-bezier(0.22,1,0.36,1); }
 
+/* Legend */
 .rcal-legend {
-  display: flex; align-items: center; gap: 12px;
-  margin-top: 14px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 16px; flex-wrap: wrap;
+  padding-top: 14px; border-top: 1px solid rgba(0,0,0,0.05);
 }
 .rcal-legend-item {
-  display: flex; align-items: center; gap: 5px;
+  display: flex; align-items: center; gap: 6px;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 9px; font-weight: 500; color: rgba(26,26,26,0.4);
+  font-size: 9px; font-weight: 500; color: rgba(26,26,26,0.42);
 }
 .rcal-legend-dot {
   width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
@@ -5097,19 +5129,31 @@
 
 .rcal-foot {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px; color: rgba(26,26,26,0.35);
-  margin: 14px 0 0; line-height: 1.6;
-  font-style: italic;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  padding-top: 12px;
+  font-size: 10px; color: rgba(26,26,26,0.32);
+  margin: 12px 0 0; line-height: 1.6; font-style: italic;
+}
+
+/* Desktop sizing */
+@media(min-width:769px) {
+  .rylo-cal { padding: 26px 24px 22px; border-radius: 18px; }
+  .rcal-head { font-size: 40px; margin-bottom: 6px; }
+  .rcal-subhead { font-size: 12px; margin-bottom: 18px; }
+  .rcal-grid { gap: 6px; }
+  .rcal-day { width: 28px; height: 28px; font-size: 10px; }
+  .rcal-label { font-size: 9px; }
+  .rcal-week-sep { padding: 9px 0 6px; }
+  .rcal-week-sep-label { font-size: 8px; }
+  .rcal-legend { margin-top: 16px; gap: 14px; }
+  .rcal-legend-item { font-size: 10px; }
+  .rcal-legend-dot { width: 9px; height: 9px; }
+  .rcal-foot { font-size: 11px; margin-top: 14px; }
 }
 
 /* Mobile */
 @media(max-width:768px) {
-  .rcal-grid { gap: 4px; }
-  .rcal-day,
-  .sz-sm, .sz-md, .sz-lg, .sz-xl { width: 22px; height: 22px; font-size: 9px; }
-  .rcal-head { font-size: 14px; }
+  .rcal-grid { gap: 3px; }
+  .rcal-day { width: 22px; height: 22px; font-size: 9px; }
+  .rcal-head { font-size: 28px; }
   .rcal-label { font-size: 8px; }
   .rcal-foot { font-size: 9px; }
   .ts-stats-row { grid-template-columns: 1fr !important; }
@@ -5236,6 +5280,8 @@
   margin-bottom: 40px;
 }
 .rc-stat.rc-in { opacity: 1; transform: translateY(0); }
+/* Calendar stat overrides: visible from start, animation handled by animateCal */
+.rc-stat.rylo-cal { opacity: 1; transform: none; transition: none; }
 .rc-stat-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 72px;
@@ -5429,9 +5475,28 @@
       <span class="rc-card-label">average body weight lost in clinical trials</span>
       <span class="rc-card-note">Based on tirzepatide trial data.</span>
     </div>
-    <div class="rc-card" id="rcCard2">
-      <span class="rc-card-num-sm">2–4 weeks</span>
-      <span class="rc-card-label">typical timeline to notice meaningful changes</span>
+    <div class="rc-card rylo-cal" id="rcCard2">
+      <p class="rcal-head" data-text="2–4 weeks"><span class="rcal-typed"></span><span class="rcal-cursor"></span></p>
+      <span class="rcal-subhead">typical timeline to notice meaningful changes</span>
+      <div class="rcal-grid">
+        <span class="rcal-label">S</span><span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">T</span><span class="rcal-label">F</span><span class="rcal-label">S</span>
+        <div class="rcal-week-sep"><span class="rcal-week-sep-label">Week 1 — medication starts</span><span class="rcal-week-sep-line"></span></div>
+        <div class="rcal-day dark">1</div><div class="rcal-day soft">2</div><div class="rcal-day soft">3</div><div class="rcal-day soft">4</div><div class="rcal-day soft">5</div><div class="rcal-day mint">6</div><div class="rcal-day soft">7</div>
+        <div class="rcal-week-sep"><span class="rcal-week-sep-label">Week 2 — appetite shifts</span><span class="rcal-week-sep-line"></span></div>
+        <div class="rcal-day soft">8</div><div class="rcal-day mint">9</div><div class="rcal-day soft">10</div><div class="rcal-day rose">11</div><div class="rcal-day soft">12</div><div class="rcal-day mint">13</div><div class="rcal-day hatch">14</div>
+        <div class="rcal-week-sep results-wk"><span class="rcal-week-sep-label">Week 3 — early signs</span><span class="rcal-week-sep-line"></span></div>
+        <div class="rcal-day soft">15</div><div class="rcal-day hatch">16</div><div class="rcal-day mint">17</div><div class="rcal-day soft">18</div><div class="rcal-day bronze">19</div><div class="rcal-day rose">20</div><div class="rcal-day hatch">21</div>
+        <div class="rcal-week-sep results-wk"><span class="rcal-week-sep-label">Week 4 — results building</span><span class="rcal-week-sep-line"></span></div>
+        <div class="rcal-day bronze">22</div><div class="rcal-day soft">23</div><div class="rcal-day mint">24</div><div class="rcal-day bronze">25</div><div class="rcal-day rose">26</div><div class="rcal-day hatch">27</div><div class="rcal-day bronze">28</div>
+      </div>
+      <div class="rcal-legend">
+        <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:#1a1a1a"></div>Start</div>
+        <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:rgba(100,160,130,0.3)"></div>Appetite ↓</div>
+        <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:rgba(195,118,118,0.25)"></div>Energy ↑</div>
+        <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:rgba(196,114,74,0.22)"></div>Early signs</div>
+        <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:#C4724A"></div>Results</div>
+      </div>
+      <p class="rcal-foot">Results vary by individual. Based on published GLP-1 trial data.</p>
     </div>
     <div class="rc-card" id="rcCard3">
       <span class="rc-card-num-sm">48 hours</span>
@@ -5460,9 +5525,28 @@
       </div>
       <div class="rc-divider"></div>
 
-      <div class="rc-stat" id="rcStat2">
-        <span class="rc-stat-num-sm">2–4 weeks</span>
-        <span class="rc-stat-label">typical timeline to notice meaningful changes after starting treatment</span>
+      <div class="rc-stat rylo-cal" id="rcStat2" style="margin-bottom:48px;">
+        <p class="rcal-head" data-text="2–4 weeks"><span class="rcal-typed"></span><span class="rcal-cursor"></span></p>
+        <span class="rcal-subhead">typical timeline to notice meaningful changes</span>
+        <div class="rcal-grid">
+          <span class="rcal-label">S</span><span class="rcal-label">M</span><span class="rcal-label">T</span><span class="rcal-label">W</span><span class="rcal-label">T</span><span class="rcal-label">F</span><span class="rcal-label">S</span>
+          <div class="rcal-week-sep"><span class="rcal-week-sep-label">Week 1 — medication starts</span><span class="rcal-week-sep-line"></span></div>
+          <div class="rcal-day dark">1</div><div class="rcal-day soft">2</div><div class="rcal-day soft">3</div><div class="rcal-day soft">4</div><div class="rcal-day soft">5</div><div class="rcal-day mint">6</div><div class="rcal-day soft">7</div>
+          <div class="rcal-week-sep"><span class="rcal-week-sep-label">Week 2 — appetite shifts</span><span class="rcal-week-sep-line"></span></div>
+          <div class="rcal-day soft">8</div><div class="rcal-day mint">9</div><div class="rcal-day soft">10</div><div class="rcal-day rose">11</div><div class="rcal-day soft">12</div><div class="rcal-day mint">13</div><div class="rcal-day hatch">14</div>
+          <div class="rcal-week-sep results-wk"><span class="rcal-week-sep-label">Week 3 — early signs</span><span class="rcal-week-sep-line"></span></div>
+          <div class="rcal-day soft">15</div><div class="rcal-day hatch">16</div><div class="rcal-day mint">17</div><div class="rcal-day soft">18</div><div class="rcal-day bronze">19</div><div class="rcal-day rose">20</div><div class="rcal-day hatch">21</div>
+          <div class="rcal-week-sep results-wk"><span class="rcal-week-sep-label">Week 4 — results building</span><span class="rcal-week-sep-line"></span></div>
+          <div class="rcal-day bronze">22</div><div class="rcal-day soft">23</div><div class="rcal-day mint">24</div><div class="rcal-day bronze">25</div><div class="rcal-day rose">26</div><div class="rcal-day hatch">27</div><div class="rcal-day bronze">28</div>
+        </div>
+        <div class="rcal-legend">
+          <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:#1a1a1a"></div>Start</div>
+          <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:rgba(100,160,130,0.3)"></div>Appetite ↓</div>
+          <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:rgba(195,118,118,0.25)"></div>Energy ↑</div>
+          <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:rgba(196,114,74,0.22)"></div>Early signs</div>
+          <div class="rcal-legend-item"><div class="rcal-legend-dot" style="background:#C4724A"></div>Results</div>
+        </div>
+        <p class="rcal-foot">Results vary by individual. Based on published GLP-1 trial data.</p>
       </div>
       <div class="rc-divider"></div>
 
@@ -5912,7 +5996,7 @@
         </div>
       </div>
       <div class="bac-cta-wrap">
-        <a href="intake.html" class="bac-cta">Check your eligibility →
+        <a href="intake.html" class="bac-cta">Check your eligibility →</a>
         <p class="bac-cta-sub">Free intake · No commitment · Ships in 3–5 days</p>
       </div>
     </div>
@@ -6245,18 +6329,19 @@
 <style>
 .finally-section {
   background: #1a1a1a;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
   overflow: hidden;
 }
 .finally-img-wrap {
-  width: 50%;
-  flex-shrink: 0;
+  position: relative;
   overflow: hidden;
   min-height: 420px;
 }
 .finally-img-wrap img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -6265,7 +6350,6 @@
   filter: saturate(0.9) contrast(1.05);
 }
 .finally-text {
-  width: 50%;
   padding: 80px 64px;
   display: flex;
   flex-direction: column;
@@ -6310,10 +6394,10 @@
 .finally-cta:hover { opacity: 0.88; transform: translateY(-1px); }
 .finally-cta:active { opacity: 0.75; transform: translateY(0); }
 @media (max-width: 768px) {
-  .finally-section { flex-direction: column; }
-  .finally-img-wrap { width: 100%; height: 280px; min-height: 0; }
-  .finally-img-wrap img { height: 280px; }
-  .finally-text { width: 100%; padding: 40px 24px; }
+  .finally-section { grid-template-columns: 1fr; }
+  .finally-img-wrap { height: 280px; min-height: 0; }
+  .finally-img-wrap img { position: absolute; inset: 0; height: 100%; }
+  .finally-text { padding: 40px 24px; }
   .finally-title { font-size: 30px; }
 }
 </style>
@@ -7111,18 +7195,17 @@
   var cta = document.querySelector('.hrw-dp-cta');
   if (!section || !steps.length || !fill || !track || !body) return;
 
-  var stepCount = steps.length;
   var dotEls = [];
+  var dotTops = []; /* absolute top offsets within body, cached each frame */
 
-  /* Build numbered circles — positioned absolutely within the track at each step's center */
+  /* Build numbered circles */
   steps.forEach(function (step, i) {
     var circle = document.createElement('div');
-    var num = String(i + 1).padStart(2, '0');
     circle.style.cssText = [
       'position:absolute',
-      'left:6px', /* center 28px circle in 40px track: (40-28)/2=6; center at 6+14=20 ≈ line at 19+1=20 */
-      'width:28px',
-      'height:28px',
+      'left:-2px',          /* center 44px circle in 40px track: (40-44)/2=-2 */
+      'width:44px',
+      'height:44px',
       'border-radius:50%',
       'background:transparent',
       'border:1.5px solid rgba(26,26,26,0.18)',
@@ -7130,79 +7213,83 @@
       'align-items:center',
       'justify-content:center',
       'font-family:Plus Jakarta Sans,sans-serif',
-      'font-size:8px',
+      'font-size:12px',
       'font-weight:700',
-      'letter-spacing:0.04em',
+      'letter-spacing:0.03em',
       'color:rgba(26,26,26,0.28)',
-      'transition:background 0.4s cubic-bezier(0.22,1,0.36,1),border-color 0.4s cubic-bezier(0.22,1,0.36,1),color 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1)',
+      'transition:background 0.35s cubic-bezier(0.22,1,0.36,1),border-color 0.35s cubic-bezier(0.22,1,0.36,1),color 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s cubic-bezier(0.22,1,0.36,1),transform 0.35s cubic-bezier(0.22,1,0.36,1)',
       'z-index:3',
-      'transform:translateY(-50%)',
-      'top:0' /* set by positionDots() */
+      'transform:translateY(-50%) scale(1)',
+      'top:0'
     ].join(';') + ';';
-    circle.textContent = num;
+    circle.textContent = String(i + 1).padStart(2, '0');
     track.appendChild(circle);
     dotEls.push(circle);
+    dotTops.push(0);
   });
 
-  /* Position dots at each step's vertical center relative to .hrw-mobile-body */
-  function positionDots() {
-    var bodyRect = body.getBoundingClientRect();
+  /* Measure each dot's position (= step center relative to body top) */
+  function measureDots() {
+    var bodyTop = body.getBoundingClientRect().top + window.scrollY;
     steps.forEach(function (step, i) {
-      var stepRect = step.getBoundingClientRect();
-      var centerRelative = (stepRect.top + stepRect.height / 2) - bodyRect.top;
-      dotEls[i].style.top = centerRelative + 'px';
+      var r = step.getBoundingClientRect();
+      var stepTop = r.top + window.scrollY;
+      /* dot sits at step text start (top of step + 80px padding-top) */
+      dotTops[i] = (stepTop + 80) - bodyTop;
+      dotEls[i].style.top = dotTops[i] + 'px';
     });
   }
 
-  /* Initial positioning after layout */
-  requestAnimationFrame(positionDots);
+  requestAnimationFrame(measureDots);
 
   var ticking = false;
   function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(function () {
-        var rect = section.getBoundingClientRect();
-        var sectionTop = window.scrollY + rect.top;
-        var sectionHeight = section.offsetHeight;
-        var scrollProgress = (window.scrollY - sectionTop) / (sectionHeight - window.innerHeight);
-        scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
 
-        /* Fill height: percentage of the full body height */
-        fill.style.height = (scrollProgress * 100) + '%';
+      var bodyRect = body.getBoundingClientRect();
+      var bodyHeight = body.offsetHeight;
 
-        /* Activate dots and steps based on step center vs viewport */
-        steps.forEach(function (step, i) {
-          var stepRect = step.getBoundingClientRect();
-          var stepCenter = stepRect.top + stepRect.height / 2;
-          var isActive = stepCenter < window.innerHeight * 0.6;
+      /* "pen" = the scroll position mapped to the body.
+         We use the viewport center so the line advances at
+         exactly the same pace the user scrolls — 1:1. */
+      var triggerY = window.innerHeight * 0.55; /* where in the viewport the "pen tip" sits */
+      var penInBody = triggerY - bodyRect.top;   /* how far the pen is into the body */
 
-          if (isActive) {
-            step.classList.add('active');
-            dotEls[i].style.background = '#1a1a1a';
-            dotEls[i].style.borderColor = '#1a1a1a';
-            dotEls[i].style.color = '#fff';
-            dotEls[i].style.boxShadow = '0 2px 8px rgba(26,26,26,0.25)';
-          } else {
-            dotEls[i].style.background = 'transparent';
-            dotEls[i].style.borderColor = 'rgba(26,26,26,0.18)';
-            dotEls[i].style.color = 'rgba(26,26,26,0.28)';
-            dotEls[i].style.boxShadow = 'none';
-          }
-        });
+      var pct = Math.max(0, Math.min(1, penInBody / bodyHeight));
+      fill.style.height = (pct * 100) + '%';
 
-        if (cta && scrollProgress > 0.9) {
-          cta.classList.add('hrw-dp-cta-visible');
+      var fillPx = pct * bodyHeight; /* absolute pixels of fill within body */
+
+      steps.forEach(function (step, i) {
+        /* dot activates when the fill line reaches its registered position */
+        var isActive = fillPx >= dotTops[i];
+
+        if (isActive) {
+          step.classList.add('active');
+          dotEls[i].style.background = '#1a1a1a';
+          dotEls[i].style.borderColor = '#1a1a1a';
+          dotEls[i].style.color = '#fff';
+          dotEls[i].style.boxShadow = '0 2px 12px rgba(26,26,26,0.22)';
+          dotEls[i].style.transform = 'translateY(-50%) scale(1.1)';
+        } else {
+          step.classList.remove('active');
+          dotEls[i].style.background = 'transparent';
+          dotEls[i].style.borderColor = 'rgba(26,26,26,0.18)';
+          dotEls[i].style.color = 'rgba(26,26,26,0.28)';
+          dotEls[i].style.boxShadow = 'none';
+          dotEls[i].style.transform = 'translateY(-50%) scale(1)';
         }
-
-        ticking = false;
       });
-      ticking = true;
-    }
+
+      /* CTA is always visible — no JS toggling needed */
+    });
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  /* Re-position dots on resize */
-  window.addEventListener('resize', function () { requestAnimationFrame(positionDots); }, { passive: true });
+  window.addEventListener('resize', function () { requestAnimationFrame(measureDots); }, { passive: true });
   onScroll();
   section.removeAttribute('aria-hidden');
 })();
@@ -7532,32 +7619,77 @@ modal.addEventListener('keydown', function(e){
   cals.forEach(function(c){ calObs.observe(c); });
 
   function animateCal(cal){
-    var head    = cal.querySelector('.rcal-head');
+    var headEl  = cal.querySelector('.rcal-head');
+    var typed   = cal.querySelector('.rcal-typed');
+    var cursor  = cal.querySelector('.rcal-cursor');
     var subhead = cal.querySelector('.rcal-subhead');
     var labels  = cal.querySelectorAll('.rcal-label');
+    var seps    = cal.querySelectorAll('.rcal-week-sep');
     var days    = cal.querySelectorAll('.rcal-day');
-    /* 1. heading + subhead */
-    head.classList.add('rcal-in');
-    if(subhead) subhead.classList.add('rcal-in');
-    /* 2. labels */
-    labels.forEach(function(l){ l.classList.add('rcal-in'); });
-    /* 3. circles — staggered L→R, row by row */
+    var fullText = headEl ? (headEl.dataset.text || '') : '';
+    var charDelay = 65; /* ms per character */
+    var totalTypeTime = fullText.length * charDelay;
+
+    /* 1. Typewriter */
+    if(typed && fullText){
+      var i = 0;
+      function typeNext(){
+        if(i <= fullText.length){
+          typed.textContent = fullText.slice(0, i);
+          i++;
+          if(i <= fullText.length) setTimeout(typeNext, charDelay);
+          else {
+            /* done typing — blink cursor twice then hide */
+            setTimeout(function(){
+              if(cursor) cursor.classList.add('done');
+            }, 900);
+          }
+        }
+      }
+      typeNext();
+    }
+
+    /* 2. Subhead fades in after typing starts */
+    setTimeout(function(){
+      if(subhead) subhead.classList.add('rcal-in');
+    }, totalTypeTime * 0.5);
+
+    /* 3. Day-of-week labels */
+    setTimeout(function(){
+      labels.forEach(function(l){ l.classList.add('rcal-in'); });
+    }, totalTypeTime + 80);
+
+    /* 4. Week separators — reveal just before their row of days */
+    var dayOffset = totalTypeTime + 220;
+    var daysPerWeek = 7;
+
+    /* collect seps by index */
+    seps.forEach(function(sep, si){
+      var sepDelay = dayOffset + si * (daysPerWeek * 42);
+      setTimeout(function(){ sep.classList.add('rcal-in'); }, sepDelay);
+    });
+
+    /* 5. Day circles — staggered, pausing briefly between weeks */
+    var firstBronzeDone = false;
     days.forEach(function(day, i){
-      var delay = 400 + i * 40; /* ms */
+      var weekIdx  = Math.floor(i / daysPerWeek); /* 0-3 */
+      var posInWeek = i % daysPerWeek;
+      var delay = dayOffset + 120 + weekIdx * (daysPerWeek * 42) + posInWeek * 42;
       setTimeout(function(){
         day.style.transition =
-          'opacity 0.4s cubic-bezier(0.22,1,0.36,1) ,' +
-          'transform 0.4s cubic-bezier(0.22,1,0.36,1),' +
+          'opacity 0.38s cubic-bezier(0.22,1,0.36,1),' +
+          'transform 0.38s cubic-bezier(0.22,1,0.36,1),' +
           'box-shadow 0.2s ease';
         day.classList.add('rcal-in');
-        /* 4. bronze pulse after reveal */
-        if(day.classList.contains('bronze')){
+        /* pulse the very first bronze circle */
+        if(day.classList.contains('bronze') && !firstBronzeDone){
+          firstBronzeDone = true;
           setTimeout(function(){
             day.classList.add('rcal-pulse');
             day.addEventListener('animationend', function(){
               day.classList.remove('rcal-pulse');
             }, { once: true });
-          }, 420);
+          }, 380);
         }
       }, delay);
     });
