@@ -134,10 +134,12 @@
     .rylo-nav.scrolled .rn-link:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
     .rn-link svg{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1)}
     .rn-right{display:flex;align-items:center;gap:10px}
-    .rn-ghost{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s}
-    .rn-ghost:hover{color:#fff;background:rgba(255,255,255,0.08)}
-    .rylo-nav.scrolled .rn-ghost{color:rgba(26,26,26,0.65)}
-    .rylo-nav.scrolled .rn-ghost:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
+    .rn-ghost{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:default}
+    .rn-ghost:hover{color:rgba(255,255,255,0.5);background:transparent}
+    .rylo-nav.scrolled .rn-ghost{color:rgba(26,26,26,0.45)}
+    .rylo-nav.scrolled .rn-ghost:hover{color:rgba(26,26,26,0.45);background:transparent}
+    .rn-ghost::after{content:'Coming soon';position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-4px);background:#1a1a1a;color:#faf7f2;font-family:'Inter',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding:5px 10px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.15s ease,transform 0.15s ease}
+    .rn-ghost:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
     .rn-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:opacity 0.2s ease;white-space:nowrap}
     .rn-cta:hover{background:#0C1C2E;color:#fff;opacity:1;transform:translateY(-1px)}
     .rylo-nav.scrolled .rn-cta{background:#1a1a1a;color:#fff;border:none;opacity:1}
@@ -2065,6 +2067,23 @@
         font-family: 'Inter', sans-serif;
         font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.5);
         text-decoration: none; letter-spacing: 0.01em;
+        position: relative; cursor: default;
+      }
+      .rn-menu-login::after {
+        content: 'Coming soon';
+        position: absolute;
+        top: calc(100% + 6px); left: 0;
+        background: #1a1a1a; color: #faf7f2;
+        font-size: 10px; font-weight: 500;
+        letter-spacing: 0.07em; text-transform: uppercase;
+        padding: 5px 10px; border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0; pointer-events: none;
+        transform: translateY(-4px);
+        transition: opacity 0.15s ease, transform 0.15s ease;
+      }
+      .rn-menu-login:hover::after {
+        opacity: 1; transform: translateY(0);
       }
       .rn-menu-getstarted {
         font-family: 'Inter', sans-serif;
@@ -2956,7 +2975,7 @@
     
   </ul>
   <div class="rn-right">
-    <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-ghost">Log in</a>
+    <a href="#" onclick="return false;" class="rn-ghost">Log in</a>
     <a href="intake.html" class="rn-cta">Check my eligibility →</a>
   </div>
   <!-- Mobile hamburger (hidden on desktop via CSS) -->
@@ -2981,7 +3000,7 @@
   <!-- Main panel -->
   <div class="rn-menu-panel" id="rnMenuMain">
     <div class="rn-menu-topbar">
-      <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-menu-login">Log in</a>
+      <a href="#" onclick="return false;" class="rn-menu-login">Log in</a>
       <a href="intake.html" class="rn-menu-getstarted">Get started →</a>
     </div>
     <div class="rn-menu-divider"></div>
