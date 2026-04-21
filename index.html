@@ -1663,38 +1663,39 @@
     .ts-mobile-stack { display: none; }
 
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 48px 32px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 72px 64px 40px; }
     .footer-top {
       display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 28px;
     }
-    .footer-brand img { height: 140px; width: auto; opacity: 0.8; margin-bottom: 10px; display: block; }
-    .footer-brand .footer-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.3); margin-bottom: 10px; display: block; }
-    .footer-brand p { font-size: 13px; line-height: 1.7; font-weight: 400; color: rgba(255,255,255,0.45); max-width: 280px; }
-    .footer-col-title { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; font-weight: 400; transition: color 0.15s ease; }
+    .footer-brand img { height: 48px; width: auto; opacity: 0.75; margin-bottom: 16px; display: block; }
+    .footer-brand .footer-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.22); margin-bottom: 12px; display: block; }
+    .footer-brand p { font-size: 12px; line-height: 1.8; font-weight: 400; color: rgba(255,255,255,0.28); max-width: 260px; }
+    .footer-col-title { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 18px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.42); text-decoration: none; font-weight: 400; transition: color 0.2s ease; letter-spacing: 0.01em; }
     .footer-links a:hover { color: rgba(255,255,255,0.9); }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,0.2); }
-    .footer-bottom-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-bottom-links a { font-size: 10px; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.15s ease; }
-    .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
-    .footer-disclaimer { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 8px; line-height: 1.6; }
+    .footer-links span { font-size: 12px; color: rgba(255,255,255,0.22); font-weight: 400; letter-spacing: 0.01em; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 4px; }
+    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.02em; }
+    .footer-bottom-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-bottom-links a { font-size: 10px; color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s ease; }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.55); }
+    .footer-disclaimer { font-size: 10px; color: rgba(255,255,255,0.14); margin-top: 16px; line-height: 1.7; max-width: 720px; }
     @media (max-width: 768px) {
-      .footer-inner { padding: 40px 24px 28px; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; text-align: center; }
-      .footer-brand img { margin: 0 auto 10px; }
-      .footer-brand p { max-width: 100%; margin: 0 auto; }
-      .footer-links { align-items: center; }
-      .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
-      .footer-bottom-links { justify-content: center; }
+      .footer-inner { padding: 48px 24px 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; margin-bottom: 24px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-brand img { height: 40px; }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .footer-bottom-links { gap: 16px; }
     }
-    @media (max-width: 900px) and (min-width: 769px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 900px) and (min-width: 769px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
 
     /* ─── MODAL ─── */
     .modal-overlay {
@@ -2233,7 +2234,14 @@
       /* ── TREATMENTS SECTION ── */
       /* Hide desktop products section, show mobile version */
       .products-section { display: none !important; }
-      .prod-mobile { display: block !important; background: #faf7f2; padding: 32px 0 8px; }
+      .prod-mobile { display: block !important; background: #faf7f2; padding: 24px 0 8px; }
+      .pm-section-label {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 28px; font-weight: 400; font-style: italic;
+        color: #2d2420;
+        padding: 0 20px 12px;
+        letter-spacing: -0.01em;
+      }
 
       /* ── TOP 2: Tirzepatide + Semaglutide — full-bleed image cards ── */
       .pm-hero-grid {
@@ -2253,7 +2261,7 @@
       }
       .pm-hero-overlay {
         position: absolute; inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 55%, transparent 80%);
+        background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 55%, transparent 80%);
       }
       .pm-popular-badge {
         position: absolute; top: 12px; left: 12px;
@@ -2263,53 +2271,39 @@
         padding: 3px 8px; border-radius: 4px; z-index: 2;
       }
       .pm-hero-body {
-        position: absolute; bottom: 42px; left: 0; right: 0;
-        padding: 14px 14px 10px; z-index: 2;
+        position: absolute; bottom: 0; left: 0; right: 0;
+        padding: 16px 16px 14px; z-index: 2;
       }
-      .pm-hero-cat {
-        font-family: 'Inter', sans-serif;
-        font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em;
-        color: rgba(255,255,255,0.5); margin-bottom: 3px;
-      }
+      .pm-hero-cat { display: none; }
       .pm-hero-name {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 24px; font-weight: 600; color: #fff;
-        line-height: 1.05; margin-bottom: 6px; letter-spacing: -0.02em;
+        font-size: 28px; font-weight: 400; color: #fff;
+        line-height: 1.0; margin-bottom: 3px; letter-spacing: -0.02em;
       }
       .pm-hero-price {
         font-family: 'Inter', sans-serif;
-        font-size: 18px; font-weight: 600; color: #fff;
-        letter-spacing: -0.01em;
+        font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.6);
+        margin-bottom: 10px;
       }
-      .pm-mo { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; }
-      /* Hero card CTA — editorial underline style */
+      .pm-mo { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; }
       .pm-hero-arrow { display: none; }
-      .pm-hero-cta-strip {
-        position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 12px 16px;
-        border-top: 1px solid rgba(255,255,255,0.14);
-        background: rgba(0,0,0,0.22);
-        backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      .pm-hero-cta-strip { display: none; }
+
+      .pm-hero-col {
+        display: flex; flex-direction: column;
       }
-      .pm-hero-cta-strip-text {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 15px; font-weight: 500; font-style: italic;
-        color: rgba(255,255,255,0.82);
-        letter-spacing: 0.01em;
+      .pm-card-arrow {
+        position: absolute;
+        bottom: 14px; right: 16px;
+        z-index: 3;
+        font-size: 20px;
+        color: rgba(255,255,255,0.75);
+        line-height: 1;
+        transition: transform 0.2s ease, opacity 0.2s ease;
       }
-      .pm-hero-cta-strip-arrow {
-        width: 18px; height: 1px;
-        background: rgba(255,255,255,0.4);
-        position: relative; flex-shrink: 0;
-      }
-      .pm-hero-cta-strip-arrow::after {
-        content: '';
-        position: absolute; right: 0; top: 50%;
-        transform: translateY(-50%) rotate(45deg);
-        width: 5px; height: 5px;
-        border-top: 1px solid rgba(255,255,255,0.4);
-        border-right: 1px solid rgba(255,255,255,0.4);
+      .pm-hero-card:active .pm-card-arrow {
+        transform: translateX(3px);
+        opacity: 1;
       }
 
       /* ── BOTTOM 3: Sermorelin, Glutathione, NAD — thin full-bleed image rows ── */
@@ -2332,7 +2326,7 @@
       }
 .pm-thin-overlay {
         position: absolute; inset: 0;
-        background: linear-gradient(105deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.25) 100%);
+        background: linear-gradient(105deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.38) 55%, rgba(0,0,0,0.12) 100%);
       }
       .pm-thin-inner {
         position: relative; z-index: 2;
@@ -2342,46 +2336,30 @@
       .pm-thin-body { flex: 1; min-width: 0; }
       .pm-thin-name {
         font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 24px; font-weight: 600; color: #fff;
-        line-height: 1.1; letter-spacing: -0.02em;
+        font-size: 26px; font-weight: 400; color: #fff;
+        line-height: 1.0; letter-spacing: -0.02em;
       }
       .pm-thin-meta {
-        display: flex; align-items: baseline; gap: 6px;
-        margin-top: 4px;
+        display: flex; align-items: baseline; gap: 4px;
+        margin-top: 3px;
       }
       .pm-thin-price {
         font-family: 'Inter', sans-serif;
-        font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9);
+        font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.5);
       }
-      .pm-thin-mo { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 400; }
-      .pm-thin-sep { font-size: 10px; color: rgba(255,255,255,0.2); }
-      .pm-thin-cat {
-        font-family: 'Inter', sans-serif;
-        font-size: 10px; font-weight: 500;
-        letter-spacing: 0.04em;
-      }
-      /* Per-card color identities */
-      .pm-thin-row--serm .pm-thin-cat { color: #A8C5A0; }
-      .pm-thin-row--glut .pm-thin-cat { color: #C4B07A; }
-      .pm-thin-row--nad  .pm-thin-cat { color: #C4724A; }
+      .pm-thin-mo { font-size: 11px; color: rgba(255,255,255,0.35); font-weight: 400; }
+      .pm-thin-sep { display: none; }
+      .pm-thin-cat { display: none; }
 
-      /* Thin row CTA — minimal serif italic + accent line */
-      .pm-thin-cta {
-        flex-shrink: 0; margin-left: 16px;
-        display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
-      }
+      .pm-thin-cta { flex-shrink: 0; margin-left: 16px; }
       .pm-thin-cta-label {
-        font-family: 'Cormorant Garamond', Georgia, serif;
-        font-size: 13px; font-weight: 500; font-style: italic;
+        font-family: 'Inter', sans-serif;
+        font-size: 10px; font-weight: 500; font-style: normal;
+        letter-spacing: 0.08em; text-transform: uppercase;
         color: rgba(255,255,255,0.7);
         white-space: nowrap; display: block;
       }
-      .pm-thin-cta-line {
-        display: block; height: 1px; width: 28px;
-      }
-      .pm-thin-row--serm .pm-thin-cta-line { background: #A8C5A0; }
-      .pm-thin-row--glut .pm-thin-cta-line { background: #C4B07A; }
-      .pm-thin-row--nad  .pm-thin-cta-line { background: #C4724A; }
+      .pm-thin-cta-line { display: none; }
 
       /* View all link */
       .pm-view-all {
@@ -2950,19 +2928,6 @@
       .closing-cta-row { flex-direction: column; align-items: flex-start; gap: 0; }
 
       /* ── FOOTER ── */
-      .footer-inner { padding: 48px 24px 100px; }
-      .footer-top { grid-template-columns: 1fr; gap: 0; text-align: center; }
-      .footer-brand img { height: 80px; margin: 0 auto 12px; opacity: 0.8; }
-      .footer-brand .footer-tagline { font-size: 13px; text-align: center; font-style: italic; color: rgba(255,255,255,0.3); }
-      .footer-brand p { display: none; } /* hide long description on mobile */
-      .footer-col-title { font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.25); margin-top: 28px; }
-      .footer-links { align-items: center; gap: 0; }
-      .footer-links a { font-size: 13px; line-height: 2.0; color: rgba(255,255,255,0.35); }
-      .footer-disclaimer { font-size: 9px; color: rgba(255,255,255,0.15); margin-top: 24px; padding: 0; }
-      .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
-      .footer-bottom-links { justify-content: center; }
-      .footer-bottom p { font-size: 9px; color: rgba(255,255,255,0.15); }
-      .footer-bottom-links a { font-size: 9px; }
     }
   </style>
 </head>
@@ -3082,7 +3047,7 @@
         <span class="hero-line1 fade-in" style="transition-delay:0s">Prescription weight loss.</span>
         <span class="hero-line2 fade-in" style="transition-delay:0.15s"><em>The way it should be.</em></span>
       </h1>
-      <p class="hero-sub fade-in" style="transition-delay:0.3s">GLP-1 and peptide therapy from licensed US providers. Starting at $89 per month.</p>
+      <p class="hero-sub fade-in" style="transition-delay:0.3s">Real medication. Real providers. Starting at $89 per month.</p>
       <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
         <a href="intake.html" class="btn-hero-start">Check my eligibility →</a>
         <p style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);margin-top:24px;letter-spacing:0.02em;">No commitment &middot; Cancel anytime</p>
@@ -3141,7 +3106,7 @@
 <style>
   .products-section {
     background: linear-gradient(160deg, #faf7f2 0%, rgba(181,201,160,0.07) 40%, #faf7f2 70%, rgba(232,223,202,0.08) 100%);
-    padding: 100px 0 0;
+    padding: 48px 0 0;
     width: 100%;
     max-width: none;
     margin: 0;
@@ -3213,8 +3178,8 @@
     cursor: pointer;
   }
 
-  .prod-card.tall { height: 620px; }
-  .prod-card.short { height: 420px; }
+  .prod-card.tall { height: 380px; }
+  .prod-card.short { height: 380px; }
 
   .prod-card-photo {
     position: absolute;
@@ -3235,16 +3200,24 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(10,10,10,0.92) 0%,
-      rgba(10,10,10,0.55) 35%,
-      rgba(10,10,10,0.15) 65%,
+      rgba(10,10,10,0.82) 0%,
+      rgba(10,10,10,0.38) 40%,
+      rgba(10,10,10,0.04) 70%,
       transparent 100%
     );
     transition: opacity 0.7s ease;
   }
 
   .prod-card:hover .prod-card-overlay {
-    opacity: 0.85;
+    opacity: 0.75;
+  }
+
+  .prod-card {
+    transition: box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .prod-card:hover {
+    box-shadow: 0 0 40px rgba(184,148,95,0.25), 0 8px 32px rgba(0,0,0,0.18);
   }
 
   .prod-card-meta {
@@ -3325,8 +3298,8 @@
     margin-bottom: 10px;
   }
 
-  .prod-name.xl { font-size: clamp(56px, 6vw, 88px); }
-  .prod-name.md { font-size: clamp(36px, 4vw, 54px); }
+  .prod-name.xl { font-size: clamp(44px, 5vw, 68px); }
+  .prod-name.md { font-size: clamp(32px, 3.5vw, 48px); }
 
   .prod-desc {
     font-size: 13px;
@@ -3352,8 +3325,8 @@
     letter-spacing: -0.02em;
   }
 
-  .prod-price.xl { font-size: 52px; }
-  .prod-price.md { font-size: 34px; }
+  .prod-price.xl { font-size: 40px; }
+  .prod-price.md { font-size: 28px; }
 
   .prod-price-mo {
     font-family: var(--font);
@@ -3387,17 +3360,18 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 36px 64px 0;
+    padding: 56px 64px 20px;
   }
 
   .prod-divider-text {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #999;
+    font-size: 38px;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: #2d2420;
     white-space: nowrap;
-    font-family: var(--font);
+    font-family: 'Cormorant Garamond', Georgia, serif;
   }
 
   .prod-divider-line {
@@ -3524,14 +3498,21 @@
     /* Divider */
     .prod-divider { padding: 20px 20px 8px; }
     .prod-divider-text {
-      font-size: 10px; letter-spacing: 0.15em;
-      color: rgba(26,26,26,0.25); text-align: left;
+      font-size: 28px; letter-spacing: -0.01em;
+      color: #2d2420; text-align: left;
+      font-style: italic; text-transform: none;
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
     .prod-divider-line { display: none; }
 
     .prod-footnote { padding: 24px 20px; }
   }
 </style>
+
+  <div class="prod-divider" style="padding-top:0; padding-bottom:20px;">
+    <span class="prod-divider-text">Weight Loss</span>
+    <div class="prod-divider-line"></div>
+  </div>
 
   <div class="prod-grid-top">
 
@@ -3888,40 +3869,40 @@
 
 <div class="prod-mobile" id="prodMobile">
 
+  <div class="pm-section-label">Weight Loss</div>
   <!-- Top 2: full-bleed image cards, square corners -->
   <div class="pm-hero-grid">
 
-    <a href="tirzepatide-product.html" class="pm-hero-card pm-hero-card--tirz pm-anim" data-pm-delay="0">
-      <div class="pm-hero-img" style="background-image:url('./Tirzepatide-Product-Card.jpg');background-position:center top;"></div>
-      <div class="pm-hero-overlay"></div>
-      <div class="pm-popular-badge">Most Popular</div>
-      <div class="pm-hero-body">
-        <div class="pm-hero-cat">GLP-1 + GIP · Weekly</div>
-        <div class="pm-hero-name">Tirzepatide</div>
-        <div class="pm-hero-price">$179<span class="pm-mo">/month</span></div>
-      </div>
-      <div class="pm-hero-cta-strip">
-        <span class="pm-hero-cta-strip-text">Check my eligibility →</span>
-        <span class="pm-hero-cta-strip-arrow"></span>
-      </div>
-    </a>
+    <div class="pm-hero-col">
+      <a href="tirzepatide-product.html" class="pm-hero-card pm-hero-card--tirz pm-anim" data-pm-delay="0">
+        <div class="pm-hero-img" style="background-image:url('./Tirzepatide-Product-Card.jpg');background-position:center top;"></div>
+        <div class="pm-hero-overlay"></div>
+        <div class="pm-popular-badge">Most Popular</div>
+        <div class="pm-hero-body">
+          <div class="pm-hero-cat">GLP-1 + GIP · Weekly</div>
+          <div class="pm-hero-name">Tirzepatide</div>
+          <div class="pm-hero-price">$179<span class="pm-mo">/month</span></div>
+        </div>
+        <div class="pm-card-arrow">→</div>
+      </a>
+    </div>
 
-    <a href="semaglutide-product.html" class="pm-hero-card pm-hero-card--sema pm-anim" data-pm-delay="1">
-      <div class="pm-hero-img" style="background-image:url('./Semaglutide-Product-Card.jpg');"></div>
-      <div class="pm-hero-overlay"></div>
-      <div class="pm-hero-body">
-        <div class="pm-hero-cat">GLP-1 · Weekly</div>
-        <div class="pm-hero-name">Semaglutide</div>
-        <div class="pm-hero-price">$129<span class="pm-mo">/month</span></div>
-      </div>
-      <div class="pm-hero-cta-strip">
-        <span class="pm-hero-cta-strip-text">Check my eligibility →</span>
-        <span class="pm-hero-cta-strip-arrow"></span>
-      </div>
-    </a>
+    <div class="pm-hero-col">
+      <a href="semaglutide-product.html" class="pm-hero-card pm-hero-card--sema pm-anim" data-pm-delay="1">
+        <div class="pm-hero-img" style="background-image:url('./Semaglutide-Product-Card.jpg');"></div>
+        <div class="pm-hero-overlay"></div>
+        <div class="pm-hero-body">
+          <div class="pm-hero-cat">GLP-1 · Weekly</div>
+          <div class="pm-hero-name">Semaglutide</div>
+          <div class="pm-hero-price">$129<span class="pm-mo">/month</span></div>
+        </div>
+        <div class="pm-card-arrow">→</div>
+      </a>
+    </div>
 
   </div>
 
+  <div class="pm-section-label" style="margin-top:28px;">Wellness</div>
   <!-- Bottom 3: thin full-bleed image rows -->
   <div class="pm-thin-list">
 
@@ -3938,7 +3919,7 @@
           </div>
         </div>
         <span class="pm-thin-cta">
-          <span class="pm-thin-cta-label">Explore</span>
+          <span class="pm-thin-cta-label">Explore →</span>
           <span class="pm-thin-cta-line"></span>
         </span>
       </div>
@@ -3957,7 +3938,7 @@
           </div>
         </div>
         <span class="pm-thin-cta">
-          <span class="pm-thin-cta-label">Explore</span>
+          <span class="pm-thin-cta-label">Explore →</span>
           <span class="pm-thin-cta-line"></span>
         </span>
       </div>
@@ -3976,7 +3957,7 @@
           </div>
         </div>
         <span class="pm-thin-cta">
-          <span class="pm-thin-cta-label">Explore</span>
+          <span class="pm-thin-cta-label">Explore →</span>
           <span class="pm-thin-cta-line"></span>
         </span>
       </div>
@@ -6481,7 +6462,7 @@
 
 <!-- Heading between banner and pillars -->
 <div class="wr-mid-head" id="wrMidHead">
-  <span class="wr-mid-head-text">The life you're working toward.</span>
+  <span class="wr-mid-head-text">The life you actually deserve.</span>
   <span class="wr-mid-head-sub">Most patients feel a difference within weeks.</span>
 </div>
 
@@ -6736,8 +6717,8 @@
   <img src="partyimage.png" loading="lazy" alt="People celebrating on a rooftop at sunset" />
   <div class="finally-overlay"></div>
   <div class="finally-text">
-    <p class="finally-title">The version of you that<br><em>didn't think twice.</em></p>
-    <p class="finally-body">That person is still in there. Rylo pairs you with a licensed provider and a GLP-1 plan built around your body. Not a diet. Not willpower. Just you, finally feeling like you again.</p>
+    <p class="finally-title">You've tried<br><em>everything else.</em></p>
+    <p class="finally-body">Rylo pairs you with a licensed provider and a GLP-1 plan built around your body. Not a diet. Not willpower.</p>
     <a href="intake.html" class="finally-cta">Check my eligibility →</a>
   </div>
 </section>
@@ -6836,7 +6817,7 @@
     </div>
     <div class="closing-left">
       <p class="closing-eyebrow">Clinician-prescribed. Delivered to your door.</p>
-      <h2 class="closing-heading">Ready to start<br /><em>losing weight?</em></h2>
+      <h2 class="closing-heading">Ready to feel like<br /><em>yourself again?</em></h2>
       <p class="closing-sub">Complete a free 3-minute assessment. A licensed US provider will review your profile same day. If you are not approved, you pay nothing.</p>
       <div class="closing-cta-row">
         <a href="intake.html" class="closing-btn">Check my eligibility &#8594;</a>
@@ -6858,8 +6839,8 @@
       <div>
         <div class="footer-col-title">Treatments</div>
         <ul class="footer-links">
-          <li><a href="semaglutide-product.html">Semaglutide</a></li>
           <li><a href="tirzepatide-product.html">Tirzepatide</a></li>
+          <li><a href="semaglutide-product.html">Semaglutide</a></li>
           <li><a href="sermorelin-product.html">Sermorelin</a></li>
           <li><a href="nad-product.html">NAD+</a></li>
           <li><a href="glutathione-product.html">Glutathione</a></li>
@@ -6868,18 +6849,19 @@
       <div>
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
-          <li><a href="mailto:hello@rylohealth.com">Contact Us</a></li>
           <li><a href="/#faq">FAQ</a></li>
+          <li><a href="mailto:hello@rylohealth.com">Contact</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="disclaimer.html">Medical Disclaimer</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Support</div>
         <ul class="footer-links">
-          <li><span style="color:rgba(255,255,255,0.4);font-size:13px;">Monday – Friday, 9am – 5pm CST</span></li>
           <li><a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a></li>
-          <li><span style="color:rgba(255,255,255,0.4);font-size:13px;">Houston, TX</span></li>
+          <li><span style="color:rgba(255,255,255,0.4);font-size:13px;">Mon – Fri, 9am – 5pm CST</span></li>
+          <li><a href="https://instagram.com/joinrylo" target="_blank" rel="noopener">@joinrylo</a></li>
         </ul>
       </div>
     </div>
@@ -6888,7 +6870,6 @@
       <div class="footer-bottom-links">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
-        <a href="disclaimer.html">Medical Disclaimer</a>
       </div>
     </div>
     <p class="footer-disclaimer">Compounded medications are not FDA-approved. Individual results may vary. All treatments require a prescription from a licensed provider.</p>
