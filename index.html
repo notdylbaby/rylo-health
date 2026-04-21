@@ -1547,11 +1547,11 @@
     .closing-heading {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 400;
-      font-size: clamp(1.6rem, 2.2vw, 2.5rem);
-      line-height: 1.15;
-      letter-spacing: -0.01em;
+      font-size: clamp(2.8rem, 4.5vw, 5.5rem);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
       color: #fff;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .closing-heading em { font-style: italic; font-weight: 400; color: rgba(255,255,255,0.55); }
     .closing-sub {
@@ -1986,7 +1986,8 @@
         backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(0,0,0,0.05) !important;
       }
-      .rn-logo img { height: 80px; }
+      .rn-logo img { height: 44px; }
+      .rylo-nav { height: 64px; }
       .rn-logo-white { display: block !important; }
       .rn-logo-dark { display: none !important; }
       .rylo-nav.scrolled .rn-logo-white { display: none !important; }
@@ -2010,43 +2011,126 @@
       .rn-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
       .rn-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
       /* Mobile menu panel */
+      /* ── MOBILE MENU CONTAINER — full screen ── */
       .rn-mobile-menu {
         display: none;
-        position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+        position: fixed; inset: 0;
         background: #faf7f2;
-        z-index: 9998;
-        padding: 32px 24px 48px;
-        flex-direction: column;
+        z-index: 9999;
+        overflow: hidden;
+      }
+      .rn-mobile-menu.open { display: block; }
+
+      /* nav bar baked into menu */
+      .rn-menu-navbar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 24px;
+        height: 96px;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        flex-shrink: 0;
+      }
+      .rn-menu-navbar-logo {
+        height: 72px; width: auto;
+      }
+      .rn-menu-close {
+        background: none; border: none; cursor: pointer;
+        padding: 8px; margin-right: -8px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .rn-menu-close svg {
+        width: 18px; height: 18px; stroke: #1a1a1a; stroke-width: 1.5;
+      }
+
+      /* panels */
+      .rn-menu-panel {
+        position: absolute;
+        top: 96px; left: 0; right: 0; bottom: 0;
+        display: flex; flex-direction: column;
         overflow-y: auto;
+        transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.3s cubic-bezier(0.22,1,0.36,1);
       }
-      .rn-mobile-menu.open { display: flex; }
-      .rn-mobile-menu-group { margin-bottom: 8px; }
-      .rn-mobile-menu-cat {
+      .rn-menu-panel.rn-panel-hidden {
+        transform: translateX(30px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* top bar: login + get started */
+      .rn-menu-topbar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 28px 24px 20px;
+      }
+      .rn-menu-login {
         font-family: 'Inter', sans-serif;
-        font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-        text-transform: uppercase; color: rgba(26,26,26,0.35);
-        display: block; padding: 16px 0 6px;
+        font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.5);
+        text-decoration: none; letter-spacing: 0.01em;
       }
-      .rn-mobile-menu-link {
+      .rn-menu-getstarted {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px; font-weight: 600; color: #fff;
+        background: #1a1a1a;
+        padding: 11px 22px;
+        text-decoration: none;
+        letter-spacing: 0.01em;
+        border-radius: 2px;
+      }
+
+      /* divider */
+      .rn-menu-divider {
+        height: 1px; background: rgba(0,0,0,0.07); margin: 0 24px;
+      }
+
+      /* category rows */
+      .rn-menu-row {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 22px 24px;
+        cursor: pointer;
+        background: none; border: none;
+        width: 100%; text-align: left;
+      }
+      .rn-menu-row-label {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 32px; font-weight: 400; color: #1a1a1a; line-height: 1;
+      }
+      .rn-menu-row-arrow {
+        font-size: 20px; color: rgba(26,26,26,0.25); line-height: 1;
+      }
+      .rn-menu-plain-link {
+        display: block; padding: 22px 24px;
         font-family: 'Cormorant Garamond', Georgia, serif;
         font-size: 32px; font-weight: 400; color: #1a1a1a;
-        text-decoration: none; line-height: 1.1; padding: 10px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.06); display: block;
+        text-decoration: none; line-height: 1;
       }
-      .rn-mobile-menu-link:last-child { border-bottom: none; }
-      .rn-mobile-menu-login {
+
+      /* sub-panel back button */
+      .rn-menu-back {
+        display: flex; align-items: center; gap: 6px;
+        padding: 20px 24px;
+        background: none; border: none;
+        width: 100%; text-align: left; cursor: pointer;
         font-family: 'Inter', sans-serif;
-        font-size: 13px; color: rgba(26,26,26,0.68);
-        text-decoration: none; padding: 16px 0; display: block;
-        margin-top: 8px;
+        font-size: 12px; font-weight: 600; color: rgba(26,26,26,0.4);
+        letter-spacing: 0.06em; text-transform: uppercase;
       }
-      .rn-mobile-menu-cta {
-        display: block; width: 100%; padding: 16px; margin-top: 24px;
-        background: #1a1a1a; color: #fff;
+      .rn-menu-back-arrow { font-size: 15px; }
+
+      /* sub-panel category label */
+      .rn-menu-sub-cat {
         font-family: 'Inter', sans-serif;
-        font-size: 14px; font-weight: 500; text-align: center;
-        text-decoration: none; border: none;
+        font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+        text-transform: uppercase; color: #C4724A;
+        display: block; padding: 8px 24px 12px;
       }
+
+      /* product links inside sub-panel */
+      .rn-menu-product-link {
+        display: block; padding: 18px 24px;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 40px; font-weight: 400; color: #1a1a1a;
+        text-decoration: none; line-height: 1.1;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+      .rn-menu-product-link:last-child { border-bottom: none; }
 
       /* ── SCROLLING TICKER — hide completely ── */
       .ticker-bar { display: none !important; }
@@ -2918,28 +3002,77 @@
 
 <!-- Mobile navigation menu -->
 <div class="rn-mobile-menu" id="rnMobileMenu" aria-hidden="true">
-  <div class="rn-mobile-menu-group">
-    <span class="rn-mobile-menu-cat">Weight Loss</span>
-    <a href="tirzepatide-product.html" class="rn-mobile-menu-link">Tirzepatide</a>
-    <a href="semaglutide-product.html" class="rn-mobile-menu-link">Semaglutide</a>
+
+  <!-- Baked-in nav bar -->
+  <div class="rn-menu-navbar">
+    <img src="blackrylologoofficial.png" alt="Rylo Health" class="rn-menu-navbar-logo" />
+    <button class="rn-menu-close" id="rnMenuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
   </div>
-  <div class="rn-mobile-menu-group">
-    <span class="rn-mobile-menu-cat">Wellness</span>
-    <a href="sermorelin-product.html" class="rn-mobile-menu-link">Sermorelin</a>
-    <a href="nad-product.html" class="rn-mobile-menu-link">NAD+</a>
-    <a href="glutathione-product.html" class="rn-mobile-menu-link">Glutathione</a>
+
+  <!-- Main panel -->
+  <div class="rn-menu-panel" id="rnMenuMain">
+    <div class="rn-menu-topbar">
+      <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-menu-login">Log in</a>
+      <a href="intake.html" class="rn-menu-getstarted">Get started →</a>
+    </div>
+    <div class="rn-menu-divider"></div>
+    <button class="rn-menu-row" id="rnOpenWeightLoss" aria-label="Weight Loss">
+      <span class="rn-menu-row-label">Weight Loss</span>
+      <span class="rn-menu-row-arrow">›</span>
+    </button>
+    <div class="rn-menu-divider"></div>
+    <button class="rn-menu-row" id="rnOpenWellness" aria-label="Wellness">
+      <span class="rn-menu-row-label">Wellness</span>
+      <span class="rn-menu-row-arrow">›</span>
+    </button>
+    <div class="rn-menu-divider"></div>
+    <a href="/#how-it-works" class="rn-menu-plain-link">How It Works</a>
   </div>
-  <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-mobile-menu-login">Log in</a>
-  <a href="intake.html" class="rn-mobile-menu-cta">Check my eligibility →</a>
+
+  <!-- Weight Loss sub-panel -->
+  <div class="rn-menu-panel rn-panel-hidden" id="rnMenuWeightLoss">
+    <button class="rn-menu-back" id="rnBackWeightLoss">
+      <span class="rn-menu-back-arrow">‹</span> Back
+    </button>
+    <div class="rn-menu-divider"></div>
+    <span class="rn-menu-sub-cat">Weight Loss</span>
+    <a href="tirzepatide-product.html" class="rn-menu-product-link">Tirzepatide</a>
+    <a href="semaglutide-product.html" class="rn-menu-product-link">Semaglutide</a>
+  </div>
+
+  <!-- Wellness sub-panel -->
+  <div class="rn-menu-panel rn-panel-hidden" id="rnMenuWellness">
+    <button class="rn-menu-back" id="rnBackWellness">
+      <span class="rn-menu-back-arrow">‹</span> Back
+    </button>
+    <div class="rn-menu-divider"></div>
+    <span class="rn-menu-sub-cat">Wellness</span>
+    <a href="sermorelin-product.html" class="rn-menu-product-link">Sermorelin</a>
+    <a href="nad-product.html" class="rn-menu-product-link">NAD+</a>
+    <a href="glutathione-product.html" class="rn-menu-product-link">Glutathione</a>
+  </div>
+
 </div>
 
 <!-- ─── HERO ─── -->
 <div class="hero-outer">
   <div class="hero-video-bg">
-    <video autoplay muted playsinline preload="auto" id="heroVideo">
-      <source src="0406(1).mp4" type="video/mp4" />
-    </video>
-    <script>if(window.innerWidth<=768){var v=document.getElementById('heroVideo');if(v)v.parentNode.removeChild(v);}</script>
+    <video autoplay muted playsinline preload="none" id="heroVideo"></video>
+    <script>
+      if(window.innerWidth > 768){
+        var v = document.getElementById('heroVideo');
+        var s = document.createElement('source');
+        s.src = 'HEROVIDEOLANDING-comp.mp4';
+        s.type = 'video/mp4';
+        v.appendChild(s);
+        v.load();
+        v.play().catch(function(){});
+      }
+    </script>
   </div>
   <div class="hero-video-overlay"></div>
 
@@ -2953,6 +3086,12 @@
       <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
         <a href="intake.html" class="btn-hero-start">Check my eligibility →</a>
         <p style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.55);margin-top:24px;letter-spacing:0.02em;">No commitment &middot; Cancel anytime</p>
+      </div>
+      <div class="hero-eligibility-pill fade-in" style="transition-delay:0.45s">
+        <a href="intake.html">
+          <span>Check my eligibility</span>
+          <span class="hero-eligibility-pill-arrow">→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -3409,7 +3548,7 @@
         <div class="prod-card-footer">
           <div>
             <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
-            <div class="prod-save">3 months — $149 per month · <strong>Save $90</strong></div>
+            <div class="prod-save">3 months at $149 per month · <strong>Save $90</strong></div>
           </div>
           <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
         </div>
@@ -3429,7 +3568,7 @@
         <div class="prod-card-footer">
           <div>
             <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
-            <div class="prod-save">3 months — $99 per month · <strong>Save $90</strong></div>
+            <div class="prod-save">3 months at $99 per month · <strong>Save $90</strong></div>
           </div>
           <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
         </div>
@@ -4973,7 +5112,7 @@
       </div>
     </div>
     <div class="rc-card" id="rcCard3">
-      <span class="rc-card-num-sm"><span id="rcHoursMob">0</span> hours</span>
+      <span class="rc-card-num-sm rcal-head" data-text="Same day"><span class="rcal-typed" id="rcHoursMob"></span><span class="rcal-cursor">|</span></span>
       <span class="rc-card-label">response time from your care team</span>
     </div>
   </div>
@@ -5021,8 +5160,8 @@
       <div class="rc-divider"></div>
 
       <div class="rc-stat" id="rcStat3">
-        <span class="rc-stat-num-sm"><span id="rcHours">0</span> hours</span>
-        <span class="rc-stat-label">response time from your care team — real people, not chatbots</span>
+        <span class="rc-stat-num-sm rcal-head" data-text="Same day"><span class="rcal-typed" id="rcHours"></span><span class="rcal-cursor">|</span></span>
+        <span class="rc-stat-label">response time from your care team. Real people, not chatbots.</span>
       </div>
 
       <a href="intake.html" class="rc-cta">Check my eligibility →</a>
@@ -5120,32 +5259,28 @@
           var lbls  = ['rcTlL1m','rcTlL2m','rcTlL3m','rcTlL4m'].map(function(id){ return document.getElementById(id); });
           setTimeout(function () { runTimeline(fill, nodes, lbls); }, 300);
         }
-        if (i === 2) setTimeout(function () { runHoursCounter(hoursMob); }, 300);
-      }, i * 100);
+        if (i === 2) setTimeout(function () { runTypewriter(document.querySelector('#rcCard3 .rcal-head')); }, 100);
+      }, i * 60);
     });
   });
 
-  /* Typewriter — mobile */
-  (function setupTypewriter(headId) {
-    var wrap = document.querySelector('#rcCard2 .rcal-head');
-    if (!wrap) return;
+  function runTypewriter(wrap) {
+    if (!wrap || wrap._done) return;
+    wrap._done = true;
     var typed = wrap.querySelector('.rcal-typed');
     var cursor = wrap.querySelector('.rcal-cursor');
-    var text = wrap.getAttribute('data-text') || '2–4 weeks';
-    var started = false;
-    function typeIt() {
-      if (started) return; started = true;
-      var i = 0;
-      (function next() {
-        if (i <= text.length) {
-          typed.textContent = text.slice(0, i++);
-          if (i <= text.length) setTimeout(next, 60);
-          else cursor.classList.add('done');
-        }
-      })();
-    }
-    observe(wrap, typeIt);
-  })();
+    var text = wrap.getAttribute('data-text') || 'Same day';
+    var i = 0;
+    (function next() {
+      if (i <= text.length) {
+        typed.textContent = text.slice(0, i++);
+        if (i <= text.length) setTimeout(next, 18);
+        else cursor.classList.add('done');
+      }
+    })();
+  }
+
+  /* Typewriter for mobile card 2 handled by animateCal */
 
   /* ── DESKTOP ── */
   var imgCol = document.getElementById('rcImgCol');
@@ -5165,33 +5300,12 @@
           var lbls  = ['rcTlL1','rcTlL2','rcTlL3','rcTlL4'].map(function(id){ return document.getElementById(id); });
           setTimeout(function () { runTimeline(fill, nodes, lbls); }, 300);
         }
-        if (i === 2) setTimeout(function () { runHoursCounter(hoursEl); }, 300);
+        if (i === 2) setTimeout(function () { runTypewriter(document.querySelector('#rcStat3 .rcal-head')); }, 300);
       }, i * 220);
     });
   });
 
-  /* Typewriter — desktop */
-  (function () {
-    var wrap = document.querySelector('#rcStat2 .rcal-head');
-    if (!wrap) return;
-    var typed = wrap.querySelector('.rcal-typed');
-    var cursor = wrap.querySelector('.rcal-cursor');
-    var text = wrap.getAttribute('data-text') || '2–4 weeks';
-    var started = false;
-    function typeIt() {
-      if (started) return; started = true;
-      var i = 0;
-      (function next() {
-        if (i <= text.length) {
-          typed.textContent = text.slice(0, i++);
-          if (i <= text.length) setTimeout(next, 60);
-          else cursor.classList.add('done');
-        }
-      })();
-    }
-    var stat2 = document.getElementById('rcStat2');
-    observe(stat2, typeIt);
-  })();
+  /* Typewriter for desktop stat 2 handled by animateCal */
 })();
 </script>
 
@@ -6111,13 +6225,7 @@
   display: flex; align-items: baseline; gap: 2px;
 }
 /* Blinking cursor after typed text */
-.rcal-cursor {
-  display: inline-block; width: 2px; height: 0.78em;
-  background: #C4724A; border-radius: 1px; margin-left: 1px;
-  vertical-align: baseline; position: relative; top: 1px;
-  animation: rcal-blink 0.9s step-end infinite;
-}
-.rcal-cursor.done { opacity: 0; animation: none; }
+.rcal-cursor { display: none; }
 @keyframes rcal-blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
 .rcal-subhead {
@@ -6256,7 +6364,7 @@
 .wr-mid-head {
   background: #faf7f2;
   text-align: center;
-  padding: 56px 24px 0;
+  padding: 72px 24px 16px;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
@@ -6264,13 +6372,13 @@
 .wr-mid-head.wr-in { opacity: 1; transform: translateY(0); }
 .wr-mid-head-text {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(52px, 9vw, 88px);
   font-weight: 400;
   font-style: italic;
   color: #1a1a1a;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 0 0 10px;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin: 0 0 14px;
   display: block;
 }
 .wr-mid-head-sub {
@@ -6284,17 +6392,17 @@
 /* Pillars */
 .wr-pillars {
   background: #faf7f2;
-  padding: 64px 56px 96px;
+  padding: 80px clamp(32px, 5vw, 80px) 120px;
 }
 .wr-pillars-inner {
-  max-width: 1100px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 .wr-logo-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 52px;
+  margin-bottom: 64px;
 }
 .wr-logo {
   height: 20px;
@@ -6307,14 +6415,14 @@
   gap: 0;
 }
 .wr-pillar {
-  padding: 0 36px 0 0;
+  padding: 0 clamp(28px, 3vw, 56px);
   border-left: 1px solid rgba(26,26,26,0.08);
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
 }
 .wr-pillar:first-child { border-left: none; padding-left: 0; }
-.wr-pillar:not(:first-child) { padding-left: 36px; }
+.wr-pillar:last-child { padding-right: 0; }
 .wr-pillar.wr-in { opacity: 1; transform: translateY(0); }
 .wr-pillar:nth-child(1) { transition-delay: 0s; }
 .wr-pillar:nth-child(2) { transition-delay: 0.1s; }
@@ -6328,23 +6436,23 @@
   text-transform: uppercase;
   color: #C4724A;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 .wr-pillar-head {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: clamp(28px, 2.8vw, 42px);
   font-weight: 600;
   color: #1a1a1a;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 12px;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
 }
 .wr-pillar-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(26,26,26,0.55);
-  line-height: 1.75;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 400;
+  color: rgba(26,26,26,0.52);
+  line-height: 1.8;
   margin: 0;
 }
 
@@ -6353,18 +6461,15 @@
   .wr-banner { height: 380px; }
   .wr-banner-caption { bottom: 36px; padding: 0 24px; }
   .wr-pillars { padding: 48px 24px 72px; }
-  .wr-grid { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
-  .wr-pillar { border-left: none; padding: 0; border-top: 1px solid rgba(26,26,26,0.08); padding-top: 24px; }
-  .wr-pillar:nth-child(-n+2) { border-top: none; padding-top: 0; }
+  .wr-grid { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+  .wr-pillar { border-left: none; padding: 0 !important; border-top: 1px solid rgba(26,26,26,0.08); padding-top: 24px !important; }
+  .wr-pillar:nth-child(-n+2) { border-top: none; padding-top: 0 !important; }
   .wr-logo-wrap { margin-bottom: 40px; }
 }
 @media (min-width: 1280px) {
   .wr-banner { height: 580px; }
-  .wr-pillars { padding: 56px 80px 112px; }
-  .wr-pillar-head { font-size: 32px; }
+  .wr-pillar-head { font-size: 46px; }
   .wr-pillar-desc { font-size: 15px; }
-  .wr-pillar { padding-right: 52px; }
-  .wr-pillar:not(:first-child) { padding-left: 52px; }
 }
 </style>
 
@@ -6389,13 +6494,13 @@
       <div class="wr-pillar" id="wrP1">
         <span class="wr-pillar-label">Pharmacy-Direct</span>
         <p class="wr-pillar-head">No middlemen, ever.</p>
-        <p class="wr-pillar-desc">We work directly with our compounding pharmacy — tighter quality control, faster fulfillment, and prices that reflect the actual cost of your medication, not a margin.</p>
+        <p class="wr-pillar-desc">We work directly with our compounding pharmacy. Tighter quality control, faster fulfillment, and prices that reflect the actual cost of your medication, not a margin.</p>
       </div>
 
       <div class="wr-pillar" id="wrP2">
         <span class="wr-pillar-label" style="color:#7A9472;">Personalized Dosing</span>
         <p class="wr-pillar-head">Dosed for your body.</p>
-        <p class="wr-pillar-desc">Unlike fixed brand-name doses, your prescription is compounded and titrated based on how you respond — then adjusted every month by your provider.</p>
+        <p class="wr-pillar-desc">Unlike fixed brand-name doses, your prescription is compounded and titrated based on how you respond. Your provider adjusts it every month.</p>
       </div>
 
       <div class="wr-pillar" id="wrP3">
@@ -6407,7 +6512,7 @@
       <div class="wr-pillar" id="wrP4">
         <span class="wr-pillar-label" style="color:#7A9472;">Human Support</span>
         <p class="wr-pillar-head">A real person, every time.</p>
-        <p class="wr-pillar-desc">Every question reaches our care team directly — real people who know your case. Not a chatbot. Not a FAQ redirect. Response within 48 hours, guaranteed.</p>
+        <p class="wr-pillar-desc">Every question reaches our care team directly. Real people who know your case. Not a chatbot. Not a FAQ redirect. Same day response, guaranteed.</p>
       </div>
 
     </div>
@@ -6732,7 +6837,7 @@
     <div class="closing-left">
       <p class="closing-eyebrow">Clinician-prescribed. Delivered to your door.</p>
       <h2 class="closing-heading">Ready to start<br /><em>losing weight?</em></h2>
-      <p class="closing-sub">Complete a free 3-minute assessment. A licensed US provider will review your profile within 48 hours — and if you're not approved, you pay nothing.</p>
+      <p class="closing-sub">Complete a free 3-minute assessment. A licensed US provider will review your profile same day. If you are not approved, you pay nothing.</p>
       <div class="closing-cta-row">
         <a href="intake.html" class="closing-btn">Check my eligibility &#8594;</a>
         <span class="closing-fine">No commitment · Cancel anytime</span>
@@ -7621,35 +7726,44 @@
 /* ── MOBILE HAMBURGER MENU ── */
 (function () {
   var btn = document.getElementById('rnHamburger');
+  var closeBtn = document.getElementById('rnMenuClose');
   var menu = document.getElementById('rnMobileMenu');
-  var nav = document.getElementById('ryloNav');
+  var panelMain = document.getElementById('rnMenuMain');
+  var panelWL = document.getElementById('rnMenuWeightLoss');
+  var panelWellness = document.getElementById('rnMenuWellness');
   if (!btn || !menu) return;
 
+  function showPanel(show, hide1, hide2) {
+    show.classList.remove('rn-panel-hidden');
+    if (hide1) hide1.classList.add('rn-panel-hidden');
+    if (hide2) hide2.classList.add('rn-panel-hidden');
+  }
+  function resetPanels() { showPanel(panelMain, panelWL, panelWellness); }
   function closeMenu() {
     btn.classList.remove('open');
-    btn.setAttribute('aria-label', 'Open menu');
     menu.classList.remove('open');
     menu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    setTimeout(resetPanels, 350);
+  }
+  function openMenu() {
+    resetPanels();
+    btn.classList.add('open');
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
   btn.addEventListener('click', function () {
-    var isOpen = menu.classList.contains('open');
-    if (isOpen) {
-      closeMenu();
-    } else {
-      btn.classList.add('open');
-      btn.setAttribute('aria-label', 'Close menu');
-      menu.classList.add('open');
-      menu.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
+    menu.classList.contains('open') ? closeMenu() : openMenu();
   });
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-  /* Close when a link inside is tapped */
-  menu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMenu);
-  });
+  document.getElementById('rnOpenWeightLoss').addEventListener('click', function () { showPanel(panelWL, panelMain, panelWellness); });
+  document.getElementById('rnOpenWellness').addEventListener('click', function () { showPanel(panelWellness, panelMain, panelWL); });
+  document.getElementById('rnBackWeightLoss').addEventListener('click', function () { showPanel(panelMain, panelWL, panelWellness); });
+  document.getElementById('rnBackWellness').addEventListener('click', function () { showPanel(panelMain, panelWellness, panelWL); });
+  menu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
 })();
 </script>
 
@@ -7678,8 +7792,8 @@ var IC = {
     bullets:['Based on published clinical trial data','Results depend on dose and adherence','Paired with lifestyle adjustments']
   },
   'hrs-48': {
-    eyebrow:'RESPONSE TIME', heading:'48 hours',
-    desc:'Every message answered by a real human on your care team within 48 hours. No chatbots, no FAQ mazes.',
+    eyebrow:'RESPONSE TIME', heading:'Same day',
+    desc:'Every message answered by a real human on your care team same day. No chatbots, no FAQ mazes.',
     img:'aiwomancomputer.jpg',
     bullets:['Licensed US providers','Direct messaging with your team','Dose adjustments reviewed quickly']
   },
@@ -7845,7 +7959,7 @@ modal.addEventListener('keydown', function(e){
     var seps    = cal.querySelectorAll('.rcal-week-sep');
     var days    = cal.querySelectorAll('.rcal-day');
     var fullText = headEl ? (headEl.dataset.text || '') : '';
-    var charDelay = 65; /* ms per character */
+    var charDelay = 18; /* ms per character */
     var totalTypeTime = fullText.length * charDelay;
 
     /* 1. Typewriter */
