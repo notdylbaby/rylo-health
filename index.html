@@ -3120,6 +3120,49 @@
 </style>
 
 
+<!-- ─── TRUST STRIP ─── -->
+<style>
+  .trust-strip {
+    background: #faf7f2;
+    border-top: 1px solid rgba(45,36,32,0.08);
+    border-bottom: 1px solid rgba(45,36,32,0.08);
+    padding: 18px 24px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .trust-strip.animate-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .trust-strip p {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #999;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .trust-strip p { font-size: 12px; }
+  }
+</style>
+<div class="trust-strip" id="trustStrip">
+  <p>Cancelling shouldn't feel like a fight. No contracts. No chatbots. No cancellation fees. Want to stop? Just tell us.</p>
+</div>
+<script>
+(function(){
+  const el = document.getElementById('trustStrip');
+  if (!el) return;
+  const obs = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { el.classList.add('animate-in-visible'); obs.disconnect(); }
+  }, { threshold: 0.2 });
+  obs.observe(el);
+})();
+</script>
+
 <!-- ─── PRODUCTS SECTION — DESKTOP ─── -->
 <section class="products-section animate-in" id="treatments">
 <style>
@@ -3549,6 +3592,7 @@
           <div>
             <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
             <div class="prod-save">3 months at $149 per month · <strong>Save $90</strong></div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
           </div>
           <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
         </div>
@@ -3569,6 +3613,7 @@
           <div>
             <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
             <div class="prod-save">3 months at $99 per month · <strong>Save $90</strong></div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
           </div>
           <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
         </div>
@@ -3596,6 +3641,7 @@
         <div class="prod-name md">Sermorelin</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$159<span class="prod-price-mo">/month</span></div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:8px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
           <a href="sermorelin-product.html" class="prod-btn solid">Check my eligibility →</a>
         </div>
       </div>
@@ -3613,6 +3659,7 @@
         <div class="prod-name md">Glutathione</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$89<span class="prod-price-mo">/month</span></div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:8px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
           <a href="glutathione-product.html" class="prod-btn solid">Check my eligibility →</a>
         </div>
       </div>
@@ -3630,6 +3677,7 @@
         <div class="prod-name md">NAD+</div>
         <div class="prod-card-footer">
           <div class="prod-price md">$139<span class="prod-price-mo">/month</span></div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:8px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
           <a href="nad-product.html" class="prod-btn solid">Check my eligibility →</a>
         </div>
       </div>
@@ -6512,7 +6560,7 @@
       <div class="wr-pillar" id="wrP4">
         <span class="wr-pillar-label" style="color:#7A9472;">Human Support</span>
         <p class="wr-pillar-head">A real person, every time.</p>
-        <p class="wr-pillar-desc">Every question reaches our care team directly. Real people who know your case. Not a chatbot. Not a FAQ redirect. Same day response, guaranteed.</p>
+        <p class="wr-pillar-desc">Every question reaches our care team directly. Real people who know your case. Not a chatbot. Not a FAQ redirect. We check in on you every month. You never have to chase us.</p>
       </div>
 
     </div>
@@ -6772,7 +6820,7 @@
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">Yes — no contracts, no cancellation fees. You can pause or cancel at any time through your patient portal or by messaging our support team. We'll always ship your current month before any changes take effect.</p>
+            <p class="faq-answer">Yes. Send us a message or call us and we cancel your subscription right away. No phone trees. No chatbots. No runaround. If it's not for you, we make it easy to walk away. No contracts, no cancellation fees, ever.</p>
           </div>
         </div>
       </div>
