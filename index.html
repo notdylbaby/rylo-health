@@ -4347,1016 +4347,6 @@
     </div>
   </div>
   <a href="intake.html" class="hrw-mobile-cta">Check my eligibility →</a>
-</section>
-
-<!-- ─── BEFORE/AFTER + CALCULATOR ─── -->
-<style>
-  .bac-section {
-    background: #111;
-    padding: 56px 80px;
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
-  }
-  .bac-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(196,114,74,0.07) 0%, transparent 65%);
-    pointer-events: none;
-  }
-  .bac-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: #C4724A;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: block;
-  }
-  .bac-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(48px, 5.5vw, 80px);
-    font-weight: 500;
-    color: #fff;
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    margin-bottom: 20px;
-  }
-  .bac-title em { font-style: italic; color: rgba(255,255,255,0.4); }
-  .bac-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-    max-width: 520px;
-    margin: 0;
-  }
-  .bac-sub strong { color: rgba(255,255,255,0.85); font-weight: 500; }
-  .bac-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: stretch;
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-  .bac-slider-wrap {
-    position: relative;
-    border-radius: 0;
-    overflow: hidden;
-    height: 100%;
-    min-height: 440px;
-    cursor: col-resize;
-    user-select: none;
-    background: #222;
-  }
-  .bac-img-after {
-    position: absolute; inset: 0;
-    z-index: 2;
-    clip-path: inset(0 50% 0 0);
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
-    transform: scale(1.0);
-    transform-origin: center 15%;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-  .bac-img-before {
-    position: absolute; inset: 0;
-    z-index: 1;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    transform: scale(1.25);
-    transform-origin: center 20%;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-  .bac-slider-divider {
-    position: absolute;
-    top: 0; bottom: 0; left: 50%;
-    width: 1px;
-    background: rgba(255,255,255,0.5);
-    z-index: 4;
-    transform: translateX(-50%);
-    pointer-events: none;
-  }
-  .bac-slider-handle {
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 40px; height: 40px;
-    background: rgba(255,255,255,0.92);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    pointer-events: none;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.18);
-  }
-  .bac-slider-handle svg { width: 12px; height: 12px; color: #444; flex-shrink: 0; }
-  .bac-slider-handle-label {
-    display: none;
-    line-height: 1;
-  }
-  .bac-slider-label {
-    position: absolute;
-    top: 18px;
-    z-index: 6;
-    background: rgba(255,255,255,0.88);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #1a1a1a;
-    padding: 6px 14px;
-    border-radius: 100px;
-  }
-  .bac-label-before { left: 16px; }
-  .bac-label-after  { right: 16px; }
-  .bac-header {
-    max-width: 1100px;
-    margin: 0 auto 48px;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-  .bac-calc-side {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0;
-  }
-  .bac-calc-micro {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
-  }
-  .bac-weight-num {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(40px, 4.5vw, 56px);
-    font-weight: 400;
-    color: #fff;
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin-bottom: 16px;
-  }
-  .bac-weight-num .bac-unit {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(16px, 2vw, 22px);
-    font-weight: 400;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 0;
-    margin-left: 6px;
-  }
-  .bac-slider-input-wrap { margin-bottom: 20px; }
-  .bac-slider-input-wrap input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 6px;
-    border-radius: 100px;
-    background: rgba(255,255,255,0.18);
-    outline: none;
-    cursor: pointer;
-    display: block;
-    margin-top: 12px;
-  }
-  .bac-slider-input-wrap input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 3px solid rgba(255,255,255,0.9);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 0 0 2px rgba(255,255,255,0.15);
-    cursor: grab;
-    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
-  }
-  .bac-slider-input-wrap input[type=range]::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.45), 0 0 0 4px rgba(255,255,255,0.12);
-  }
-  .bac-slider-input-wrap input[type=range]:active::-webkit-slider-thumb {
-    transform: scale(1.1);
-    cursor: grabbing;
-  }
-  .bac-slider-input-wrap input[type=range]::-moz-range-thumb {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 3px solid rgba(255,255,255,0.9);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
-    cursor: grab;
-  }
-  .bac-slider-input-wrap input[type=range]::-moz-range-track {
-    height: 6px;
-    border-radius: 100px;
-    background: rgba(255,255,255,0.18);
-  }
-  .bac-rule {
-    border: none;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 20px;
-  }
-  .bac-result-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
-  }
-  .bac-result-num {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(40px, 4.5vw, 56px);
-    font-weight: 400;
-    color: #C4724A;
-    line-height: 0.9;
-    letter-spacing: -2px;
-    margin-bottom: 6px;
-  }
-  .bac-result-num .bac-unit {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(16px, 2vw, 22px);
-    font-weight: 400;
-    color: rgba(196,114,74,0.55);
-    letter-spacing: 0;
-    margin-left: 6px;
-  }
-  .bac-result-sub {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(22px, 2.5vw, 32px);
-    font-style: italic;
-    color: #fff;
-    line-height: 1.3;
-    margin-bottom: 6px;
-  }
-  .bac-result-meta { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
-  .bac-months {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-bottom: 20px;
-  }
-  .bac-month {
-    padding: 14px 0;
-    border-right: 1px solid rgba(255,255,255,0.1);
-  }
-  .bac-month:last-child { border-right: none; }
-  .bac-month:not(:first-child) { padding-left: 20px; }
-  .bac-month-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
-  }
-  .bac-month-num {
-    font-family: 'Instrument Serif', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: #fff;
-    display: block;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-  .bac-month-unit { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 3px; display: block; }
-  .bac-cta-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 0; }
-  .bac-cta {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: #fff;
-    color: #1a1a1a;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    text-transform: none;
-    padding: 14px 32px;
-    border-radius: 0;
-    text-decoration: none;
-    transition: background 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
-  }
-  .bac-cta:hover { background: #e8e3dc; color: #1a1a1a; transform: translateY(-2px); }
-  .bac-cta:active { transform: translateY(0); }
-  .bac-cta-sub { text-align: center; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.03em; }
-  .bac-disclaimer {
-    text-align: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-    line-height: 1.7;
-    max-width: 700px;
-    margin: 32px auto 0;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 20px;
-  }
-  @media (max-width: 900px) {
-    .bac-section { padding: 64px 24px 56px; }
-    .bac-grid { grid-template-columns: 1fr; gap: 40px; }
-    .bac-slider-wrap { aspect-ratio: 1 / 1; height: auto; min-height: unset; max-width: 480px; }
-    .bac-calc-side { height: auto; justify-content: flex-start; gap: 0; }
-    .bac-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 24px; }
-  }
-
-  @media (max-width: 430px) {
-    .bac-section { padding: 48px 20px 40px; }
-    .bac-weight-num { font-size: clamp(48px, 14vw, 72px); }
-    .bac-result-num { font-size: clamp(48px, 14vw, 72px); }
-    .bac-month-num { font-size: 30px; }
-    .bac-slider-input-wrap { margin-bottom: 28px; }
-  }
-</style>
-
-<section class="bac-section">
-  <div class="bac-header">
-    <span class="bac-eyebrow">Real patient · Consented to share</span>
-    <h2 class="bac-title">See the difference.<br><em>Feel it too.</em></h2>
-  </div>
-  <div class="bac-grid">
-    <div>
-      <div class="bac-slider-wrap" id="bacSliderWrap">
-        <img class="bac-img-before" src="AFTER.jpg" alt="Before" draggable="false" />
-        <img class="bac-img-after" id="bacImgAfter" src="BEFORE.jpg" alt="After" draggable="false" />
-        <span class="bac-slider-label bac-label-before" style="font-size:10px;letter-spacing:0.08em;padding:4px 10px;background:rgba(0,0,0,0.35);color:rgba(255,255,255,0.7);backdrop-filter:blur(4px);">Before</span>
-        <span class="bac-slider-label bac-label-after" style="font-size:10px;letter-spacing:0.08em;padding:4px 10px;background:rgba(0,0,0,0.35);color:rgba(255,255,255,0.7);backdrop-filter:blur(4px);">After</span>
-        <div class="bac-slider-divider" id="bacSliderLine"></div>
-        <div class="bac-slider-handle" id="bacSliderHandle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-      </div>
-      <p style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.6;margin:12px 0 0;letter-spacing:0.01em;">Real patient result. Individual results may vary. Patient provided written consent to share their photos. Compounded GLP-1 medications are not FDA-approved drugs. A licensed provider evaluates each patient.</p>
-    </div>
-    <div class="bac-calc-side">
-      <div>
-        <span class="bac-calc-micro">Your current weight</span>
-        <div class="bac-weight-num" id="bacWeightDisplay">220<span class="bac-unit">lbs</span></div>
-        <div class="bac-slider-input-wrap">
-          <input type="range" id="bacWeightSlider" min="90" max="500" value="220" step="1" />
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-            <span style="font-size:10px;font-weight:600;letter-spacing:0.02em;text-transform:none;color:rgba(255,255,255,0.3);">90 lbs</span>
-            <span style="font-size:10px;font-weight:600;letter-spacing:0.02em;text-transform:none;color:rgba(255,255,255,0.25);display:flex;align-items:center;gap:5px;">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-              slide to adjust
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </span>
-            <span style="font-size:10px;font-weight:600;letter-spacing:0.02em;text-transform:none;color:rgba(255,255,255,0.3);">500 lbs</span>
-          </div>
-        </div>
-        <hr class="bac-rule" />
-        <span class="bac-result-label">You could lose</span>
-        <div class="bac-result-num" id="bacLoseNum">40<span class="bac-unit">lbs</span></div>
-        <p class="bac-result-meta" id="bacResultSub" style="font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;">Based on published GLP-1 clinical data · Individual results vary</p>
-
-        <div class="bac-months">
-          <div class="bac-month">
-            <span class="bac-month-label">3 months</span>
-            <span class="bac-month-num" id="bacM3">29</span>
-            <span class="bac-month-unit">lbs lost</span>
-          </div>
-          <div class="bac-month">
-            <span class="bac-month-label">6 months</span>
-            <span class="bac-month-num" id="bacM6">40</span>
-            <span class="bac-month-unit">lbs lost</span>
-          </div>
-          <div class="bac-month">
-            <span class="bac-month-label">12 months</span>
-            <span class="bac-month-num" id="bacM12">48</span>
-            <span class="bac-month-unit">lbs lost</span>
-          </div>
-        </div>
-      </div>
-      <div class="bac-cta-wrap">
-        <a href="intake.html" class="bac-cta">Check my eligibility →</a>
-        <p class="bac-cta-sub">Free intake · No commitment · Ships in 3–5 days</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  (function() {
-    const bacWrap = document.getElementById('bacSliderWrap');
-    const bacImgAfter = document.getElementById('bacImgAfter');
-    const bacLine = document.getElementById('bacSliderLine');
-    const bacHandle = document.getElementById('bacSliderHandle');
-    let bacDragging = false;
-    function bacSetSlider(x) {
-      const rect = bacWrap.getBoundingClientRect();
-      let pct = (x - rect.left) / rect.width;
-      pct = Math.min(Math.max(pct, 0.02), 0.98);
-      bacImgAfter.style.clipPath = `inset(0 ${(100 - pct * 100).toFixed(2)}% 0 0)`;
-      bacLine.style.left = (pct * 100).toFixed(2) + '%';
-      bacHandle.style.left = (pct * 100).toFixed(2) + '%';
-    }
-    bacWrap.addEventListener('mousedown', e => { e.preventDefault(); bacDragging = true; });
-    bacWrap.addEventListener('touchstart', e => { bacDragging = true; }, { passive: true });
-    document.addEventListener('mousemove', e => { if (bacDragging) bacSetSlider(e.clientX); });
-    document.addEventListener('touchmove', e => { if (bacDragging) bacSetSlider(e.touches[0].clientX); }, { passive: true });
-    document.addEventListener('mouseup', () => bacDragging = false);
-    document.addEventListener('touchend', () => bacDragging = false);
-    const bacSlider = document.getElementById('bacWeightSlider');
-    function bacUpdate() {
-      const w = parseInt(bacSlider.value);
-      document.getElementById('bacWeightDisplay').innerHTML = w + '<span class="bac-unit">lbs</span>';
-      const lose = Math.round(w * 0.18);
-      document.getElementById('bacLoseNum').innerHTML = lose + '<span class="bac-unit">lbs</span>';
-      document.getElementById('bacM3').textContent = Math.round(lose * 0.72);
-      document.getElementById('bacM6').textContent = lose;
-      document.getElementById('bacM12').textContent = Math.round(lose * 1.2);
-    }
-    bacSlider.addEventListener('input', bacUpdate);
-    bacUpdate();
-  })();
-</script>
-
-<!-- ─── SECTION 1: REAL CHANGE. REAL PEOPLE. ─── -->
-<!-- ─── REAL CHANGE. REAL PEOPLE. ─── -->
-<style>
-/* ── RC SECTION ── */
-.rc-section {
-  background: #faf7f2;
-  padding: 80px 48px;
-  box-sizing: border-box;
-}
-.rc-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-
-/* LEFT — image */
-.rc-img-col {
-  width: 50%;
-  flex-shrink: 0;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
-}
-.rc-img-col.rc-in { opacity: 1; transform: scale(1); }
-.rc-img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  object-position: center 18%;
-  border-radius: 16px;
-  display: block;
-}
-@media (min-width: 769px) {
-  .rc-img { height: 650px; border-radius: 16px; }
-}
-
-/* RIGHT — text */
-.rc-text-col {
-  width: 50%;
-  flex-shrink: 0;
-  min-width: 0;
-}
-.rc-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #B8945F;
-  display: block;
-  margin-bottom: 16px;
-}
-.rc-title-line {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 48px;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1.05;
-  margin: 0;
-}
-.rc-title-line-em {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 48px;
-  font-weight: 400;
-  font-style: italic;
-  color: rgba(26,26,26,0.35);
-  line-height: 1.05;
-  margin: 0 0 40px;
-}
-@media (min-width: 769px) {
-  .rc-eyebrow { font-size: 11px; letter-spacing: 0.18em; }
-  .rc-title-line { font-size: 56px; }
-  .rc-title-line-em { font-size: 56px; color: rgba(26,26,26,0.3); margin: 0 0 48px; }
-}
-
-/* Stat blocks */
-.rc-stat {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
-  margin-bottom: 52px;
-}
-.rc-stat.rc-in { opacity: 1; transform: translateY(0); }
-/* Timeline stat: same fade-in as others */
-.rc-stat.rylo-cal { }
-.rc-stat-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 72px;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  display: block;
-}
-.rc-stat-num-sm {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1;
-  display: block;
-}
-.rc-stat-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: rgba(26,26,26,0.62);
-  line-height: 1.6;
-  margin-top: 6px;
-  display: block;
-}
-.rc-stat-note {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: rgba(26,26,26,0.3);
-  margin-top: 4px;
-  display: block;
-}
-.rc-divider {
-  width: 60px;
-  height: 1px;
-  background: rgba(0,0,0,0.1);
-  margin-bottom: 40px;
-}
-.rc-cta {
-  font-family:'Inter',sans-serif;
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:0.02em;
-  padding:14px 32px;
-  background:#1a1a1a;
-  color:#fff;
-  border:none;
-  border-radius:0;
-  text-decoration:none;
-  display:inline-block;
-  cursor:pointer;
-  transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);
-  white-space:nowrap;
-}
-.rc-cta:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
-.rc-cta:active { transform: translateY(0); }
-@media (min-width: 769px) {
-  .rc-stat { margin-bottom: 44px; }
-  .rc-stat-num { font-size: 84px; }
-  .rc-stat-num-sm { font-size: 42px; }
-  .rc-stat-label { font-size: 15px; color: rgba(26,26,26,0.65); }
-  .rc-divider { width: 50px; background: #B8945F; margin-bottom: 44px; }
-  .rc-stat.rylo-cal { max-width: 100%; }
-  .rc-cta { font-size: 15px; }
-}
-.rc-disclaimer {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  color: rgba(26,26,26,0.25);
-  line-height: 1.6;
-  margin-top: 32px;
-  display: block;
-}
-
-/* ── MOBILE ── */
-@media (max-width: 768px) {
-  .rc-section { padding: 48px 20px; }
-  .rc-inner { flex-direction: column; gap: 0; }
-  .rc-img-col { width: 100%; margin-bottom: 0; }
-  .rc-img { height: 380px; border-radius: 16px; margin-bottom: 0; }
-  .rc-text-col { width: 100%; }
-
-  /* On mobile: heading centered, then image, then cards */
-  .rc-inner { display: block; }
-  .rc-mob-head { text-align: center; margin-bottom: 24px; }
-  .rc-title-line { font-size: 32px; }
-  .rc-title-line-em { font-size: 32px; margin-bottom: 0; }
-  .rc-img-col { margin-bottom: 32px; }
-
-  /* Hide desktop-only content on mobile */
-  .rc-inner .rc-img-col { display: none; }
-  .rc-text-col .rc-stat,
-  .rc-text-col .rc-divider,
-  .rc-text-col .rc-cta,
-  .rc-text-col .rc-disclaimer { display: none; }
-  .rc-text-col .rc-eyebrow,
-  .rc-text-col .rc-title-line,
-  .rc-text-col .rc-title-line-em { display: none; }
-
-  /* Mobile stat cards */
-  .rc-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 0; }
-  .rc-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
-  }
-  .rc-card.rc-in { opacity: 1; transform: translateY(0); }
-  .rc-card-num {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 72px;
-    font-weight: 400;
-    color: #1a1a1a;
-    line-height: 1;
-    display: block;
-  }
-  .rc-card-num-sm {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 52px;
-    font-weight: 400;
-    color: #1a1a1a;
-    line-height: 1;
-    display: block;
-  }
-  .rc-card-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: rgba(26,26,26,0.72);
-    margin-top: 8px;
-    display: block;
-    line-height: 1.5;
-  }
-  .rc-card-note {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    color: rgba(26,26,26,0.3);
-    margin-top: 4px;
-    display: block;
-  }
-  .rc-mob-disclaimer {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    color: rgba(26,26,26,0.25);
-    text-align: center;
-    margin-top: 16px;
-    line-height: 1.6;
-    display: block;
-  }
-  .rc-mob-cta {
-    display: block;
-    width: 100%;
-    background: #1a1a1a;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    padding: 14px 32px;
-    border-radius: 0;
-    margin-top: 24px;
-    box-sizing: border-box;
-    transition: background 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
-  }
-  .rc-mob-cta:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
-  .rc-mob-cta:active { transform: translateY(0); }
-  /* Hide desktop-only image col wrapper on mobile (re-shown via mob-head) */
-  .rc-text-col { display: block; }
-}
-@media (min-width: 769px) {
-  /* ── Desktop layout ──
-     Centered heading above, then a clean 50/50 grid: photo | stats
-  */
-
-  /* 1. Section padding */
-  .rc-section { padding: 100px 80px; }
-
-  /* 2. Centered heading — reuse the mobile heading element */
-  .rc-mob-head {
-    display: block;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 72px;
-  }
-  .rc-mob-head .rc-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-  }
-  .rc-mob-head .rc-title-line {
-    font-size: 60px;
-    text-align: center;
-  }
-  .rc-mob-head .rc-title-line-em {
-    font-size: 60px;
-    text-align: center;
-    color: rgba(26,26,26,0.3);
-    margin-bottom: 0;
-  }
-
-  /* 3. Hide the duplicate heading inside the right column */
-  .rc-text-col .rc-eyebrow,
-  .rc-text-col .rc-title-line,
-  .rc-text-col .rc-title-line-em { display: none; }
-
-  /* 4. Inner grid — image stretches to match stats column */
-  .rc-inner {
-    max-width: 1100px;
-    gap: 72px;
-    align-items: stretch;
-  }
-  .rc-img-col { width: 50%; }
-  .rc-img {
-    height: 100%;
-    min-height: 520px;
-    border-radius: 12px;
-  }
-
-  /* 5. Stats column — vertically centered */
-  .rc-text-col {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* 6. Stat sizing */
-  .rc-stat { margin-bottom: 44px; }
-  .rc-stat-num { font-size: 84px; }
-  .rc-stat-num-sm { font-size: 42px; }
-  .rc-stat-label { font-size: 15px; color: rgba(26,26,26,0.65); }
-  .rc-divider { width: 40px; background: #B8945F; margin-bottom: 44px; }
-  .rc-stat.rylo-cal { max-width: 100%; }
-  .rc-cta { font-size: 15px; }
-
-  /* 7. Hide mobile-only elements */
-  .rc-cards { display: none; }
-  .rc-mob-disclaimer { display: none; }
-  .rc-mob-cta { display: none; }
-  .rc-img-col-mob { display: none; }
-}
-</style>
-
-<section class="rc-section" id="results">
-
-  <!-- MOBILE: centered heading (desktop version lives inside .rc-text-col) -->
-  <div class="rc-mob-head">
-    <p class="rc-title-line" style="text-align:center;">You've tried everything.</p>
-    <p class="rc-title-line-em" style="text-align:center;margin-bottom:24px;">This is different.</p>
-  </div>
-
-  <!-- MOBILE: image above cards -->
-  <div class="rc-img-col rc-img-col-mob" id="rcImgColMob">
-    <img class="rc-img" src="jeansweightnew.png" loading="lazy" alt="Rylo patient results" />
-  </div>
-
-  <!-- MOBILE: stat cards -->
-  <div class="rc-cards">
-    <div class="rc-card" id="rcCard1">
-      <span class="rc-card-num" id="rcCounterMob">0.0%</span>
-      <span class="rc-card-label">average body weight lost in clinical trials</span>
-      <span class="rc-card-note">Based on tirzepatide trial data.</span>
-    </div>
-    <div class="rc-card rylo-cal" id="rcCard2">
-      <p class="rcal-head" data-text="2–4 weeks"><span class="rcal-typed"></span><span class="rcal-cursor"></span></p>
-      <span class="rcal-subhead">typical timeline to notice meaningful changes</span>
-      <div class="rc-timeline" id="rcTimelineMob">
-        <div class="rc-tl-track">
-          <div class="rc-tl-fill" id="rcTlFillMob"></div>
-          <div class="rc-tl-node" id="rcTlN1m"></div>
-          <div class="rc-tl-node" id="rcTlN2m"></div>
-          <div class="rc-tl-node" id="rcTlN3m"></div>
-          <div class="rc-tl-node" id="rcTlN4m"></div>
-        </div>
-        <div class="rc-tl-labels">
-          <div class="rc-tl-lbl" id="rcTlL1m"><span class="rc-tl-wk">Week 1</span><span class="rc-tl-desc">Medication starts</span></div>
-          <div class="rc-tl-lbl" id="rcTlL2m"><span class="rc-tl-wk">Week 2</span><span class="rc-tl-desc">Appetite shifts</span></div>
-          <div class="rc-tl-lbl" id="rcTlL3m"><span class="rc-tl-wk">Week 3</span><span class="rc-tl-desc">Early signs</span></div>
-          <div class="rc-tl-lbl" id="rcTlL4m"><span class="rc-tl-wk">Week 4</span><span class="rc-tl-desc">Results build</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="rc-card" id="rcCard3">
-      <span class="rc-card-num-sm rcal-head" data-text="Same day"><span class="rcal-typed" id="rcHoursMob"></span><span class="rcal-cursor">|</span></span>
-      <span class="rc-card-label">response time from your care team</span>
-    </div>
-  </div>
-  <span class="rc-mob-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
-  <a href="intake.html" class="rc-mob-cta">Check my eligibility →</a>
-
-  <!-- DESKTOP: two-column layout -->
-  <div class="rc-inner">
-
-    <div class="rc-img-col" id="rcImgCol">
-      <img class="rc-img" src="jeansweightnew.png" loading="lazy" alt="Rylo patient results" />
-    </div>
-
-    <div class="rc-text-col">
-      <span class="rc-eyebrow">CLINICAL RESULTS</span>
-      <p class="rc-title-line">You've tried everything.</p>
-      <p class="rc-title-line-em">This is different.</p>
-
-      <div class="rc-stat" id="rcStat1">
-        <span class="rc-stat-num" id="rcCounter">0.0%</span>
-        <span class="rc-stat-label">average body weight lost in clinical trials</span>
-        <span class="rc-stat-note">Based on published tirzepatide trial data. Individual results vary.</span>
-      </div>
-      <div class="rc-divider"></div>
-
-      <div class="rc-stat rylo-cal" id="rcStat2">
-        <p class="rcal-head" data-text="2–4 weeks"><span class="rcal-typed"></span><span class="rcal-cursor"></span></p>
-        <span class="rcal-subhead">typical timeline to notice meaningful changes</span>
-        <div class="rc-timeline" id="rcTimeline">
-          <div class="rc-tl-track">
-            <div class="rc-tl-fill" id="rcTlFill"></div>
-            <div class="rc-tl-node" id="rcTlN1"></div>
-            <div class="rc-tl-node" id="rcTlN2"></div>
-            <div class="rc-tl-node" id="rcTlN3"></div>
-            <div class="rc-tl-node" id="rcTlN4"></div>
-          </div>
-          <div class="rc-tl-labels">
-            <div class="rc-tl-lbl" id="rcTlL1"><span class="rc-tl-wk">Week 1</span><span class="rc-tl-desc">Medication starts</span></div>
-            <div class="rc-tl-lbl" id="rcTlL2"><span class="rc-tl-wk">Week 2</span><span class="rc-tl-desc">Appetite shifts</span></div>
-            <div class="rc-tl-lbl" id="rcTlL3"><span class="rc-tl-wk">Week 3</span><span class="rc-tl-desc">Early signs</span></div>
-            <div class="rc-tl-lbl" id="rcTlL4"><span class="rc-tl-wk">Week 4</span><span class="rc-tl-desc">Results build</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="rc-divider"></div>
-
-      <div class="rc-stat" id="rcStat3">
-        <span class="rc-stat-num-sm rcal-head" data-text="Same day"><span class="rcal-typed" id="rcHours"></span><span class="rcal-cursor">|</span></span>
-        <span class="rc-stat-label">response time from your care team. Real people, not chatbots.</span>
-      </div>
-
-      <a href="intake.html" class="rc-cta">Check my eligibility →</a>
-      <span class="rc-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
-    </div>
-
-  </div>
-
-</section>
-
-<script>
-/* ── RESULTS SECTION — animations + counters ── */
-(function () {
-  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-
-  /* Percent counter: 0.0% → 20.2% */
-  function runPercentCounter(el) {
-    if (!el || el._done) return;
-    el._done = true;
-    var start = null, duration = 2000, target = 20.2;
-    function tick(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      el.textContent = (easeOut(p) * target).toFixed(1) + '%';
-      if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = '20.2%';
-    }
-    requestAnimationFrame(tick);
-  }
-
-  /* Integer counter: 0 → 48 */
-  function runHoursCounter(el) {
-    if (!el || el._done) return;
-    el._done = true;
-    var start = null, duration = 1600, target = 48;
-    function tick(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      el.textContent = Math.round(easeOut(p) * target);
-      if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = '48';
-    }
-    requestAnimationFrame(tick);
-  }
-
-  /* Timeline animation: fill track, light up nodes one by one */
-  function runTimeline(fillEl, nodes, labels) {
-    if (!fillEl || fillEl._done) return;
-    fillEl._done = true;
-    var delays = [0, 350, 700, 1050];
-    var sageColor = '#7A9472';
-    var clayColor = '#C4724A';
-    /* Fill the track */
-    setTimeout(function () { fillEl.style.width = '100%'; }, 100);
-    nodes.forEach(function (n, i) {
-      setTimeout(function () {
-        var color = i < 2 ? sageColor : clayColor;
-        n.classList.add('tl-lit');
-        n.style.background = color;
-        n.style.boxShadow = '0 0 0 4px ' + color.replace(')', ',0.18)').replace('rgb', 'rgba');
-        if (labels[i]) {
-          labels[i].classList.add('tl-lit');
-          var wk = labels[i].querySelector('.rc-tl-wk');
-          var desc = labels[i].querySelector('.rc-tl-desc');
-          if (wk) wk.style.color = color;
-          if (desc) desc.style.color = i < 2 ? 'rgba(122,148,114,0.65)' : 'rgba(196,114,74,0.65)';
-        }
-      }, 100 + delays[i]);
-    });
-  }
-
-  function observe(el, onVisible) {
-    if (!el) return;
-    var obs = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { onVisible(); obs.disconnect(); }
-    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-    obs.observe(el);
-  }
-
-  /* ── MOBILE ── */
-  var imgColMob = document.getElementById('rcImgColMob');
-  var counterMob = document.getElementById('rcCounterMob');
-  var hoursMob = document.getElementById('rcHoursMob');
-  if (imgColMob) observe(imgColMob, function () { imgColMob.classList.add('rc-in'); });
-
-  ['rcCard1','rcCard2','rcCard3'].forEach(function (id, i) {
-    var card = document.getElementById(id);
-    observe(card, function () {
-      setTimeout(function () {
-        card.classList.add('rc-in');
-        if (i === 0) setTimeout(function () { runPercentCounter(counterMob); }, 300);
-        if (i === 1) {
-          var fill = document.getElementById('rcTlFillMob');
-          var nodes = ['rcTlN1m','rcTlN2m','rcTlN3m','rcTlN4m'].map(function(id){ return document.getElementById(id); });
-          var lbls  = ['rcTlL1m','rcTlL2m','rcTlL3m','rcTlL4m'].map(function(id){ return document.getElementById(id); });
-          setTimeout(function () { runTimeline(fill, nodes, lbls); }, 300);
-        }
-        if (i === 2) setTimeout(function () { runTypewriter(document.querySelector('#rcCard3 .rcal-head')); }, 100);
-      }, i * 60);
-    });
-  });
-
-  function runTypewriter(wrap) {
-    if (!wrap || wrap._done) return;
-    wrap._done = true;
-    var typed = wrap.querySelector('.rcal-typed');
-    var cursor = wrap.querySelector('.rcal-cursor');
-    var text = wrap.getAttribute('data-text') || 'Same day';
-    var i = 0;
-    (function next() {
-      if (i <= text.length) {
-        typed.textContent = text.slice(0, i++);
-        if (i <= text.length) setTimeout(next, 18);
-        else cursor.classList.add('done');
-      }
-    })();
-  }
-
-  /* Typewriter for mobile card 2 handled by animateCal */
-
-  /* ── DESKTOP ── */
-  var imgCol = document.getElementById('rcImgCol');
-  var counterEl = document.getElementById('rcCounter');
-  var hoursEl = document.getElementById('rcHours');
-  if (imgCol) observe(imgCol, function () { imgCol.classList.add('rc-in'); });
-
-  ['rcStat1','rcStat2','rcStat3'].forEach(function (id, i) {
-    var stat = document.getElementById(id);
-    observe(stat, function () {
-      setTimeout(function () {
-        stat.classList.add('rc-in');
-        if (i === 0) setTimeout(function () { runPercentCounter(counterEl); }, 300);
-        if (i === 1) {
-          var fill = document.getElementById('rcTlFill');
-          var nodes = ['rcTlN1','rcTlN2','rcTlN3','rcTlN4'].map(function(id){ return document.getElementById(id); });
-          var lbls  = ['rcTlL1','rcTlL2','rcTlL3','rcTlL4'].map(function(id){ return document.getElementById(id); });
-          setTimeout(function () { runTimeline(fill, nodes, lbls); }, 300);
-        }
-        if (i === 2) setTimeout(function () { runTypewriter(document.querySelector('#rcStat3 .rcal-head')); }, 300);
-      }, i * 220);
-    });
-  });
-
-  /* Typewriter for desktop stat 2 handled by animateCal */
-})();
-</script>
-
 <!-- ─── WHY RYLO SECTION ─── -->
 <style>
   /* WHY RYLO SECTION */
@@ -6529,8 +5519,8 @@
 
 <!-- Heading between banner and pillars -->
 <div class="wr-mid-head" id="wrMidHead">
-  <span class="wr-mid-head-text">The life you actually deserve.</span>
-  <span class="wr-mid-head-sub">Most patients feel a difference within weeks.</span>
+  <span class="wr-mid-head-text">Why people choose Rylo.</span>
+  <span class="wr-mid-head-sub">The things that actually matter when choosing a provider.</span>
 </div>
 
 <!-- Pillars -->
@@ -6585,6 +5575,1017 @@
     var el = document.getElementById(id);
     observe(el, function () { el.classList.add('wr-in'); });
   });
+})();
+</script>
+
+
+</section>
+
+<!-- ─── BEFORE/AFTER + CALCULATOR ─── -->
+<style>
+  .bac-section {
+    background: #111;
+    padding: 56px 80px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .bac-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(196,114,74,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .bac-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #C4724A;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .bac-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(48px, 5.5vw, 80px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .bac-title em { font-style: italic; color: rgba(255,255,255,0.4); }
+  .bac-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0;
+  }
+  .bac-sub strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+  .bac-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: stretch;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .bac-slider-wrap {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    height: 100%;
+    min-height: 440px;
+    cursor: col-resize;
+    user-select: none;
+    background: #222;
+  }
+  .bac-img-after {
+    position: absolute; inset: 0;
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    transform: scale(1.0);
+    transform-origin: center 15%;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .bac-img-before {
+    position: absolute; inset: 0;
+    z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    transform: scale(1.25);
+    transform-origin: center 20%;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .bac-slider-divider {
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 1px;
+    background: rgba(255,255,255,0.5);
+    z-index: 4;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .bac-slider-handle {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    pointer-events: none;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.18);
+  }
+  .bac-slider-handle svg { width: 12px; height: 12px; color: #444; flex-shrink: 0; }
+  .bac-slider-handle-label {
+    display: none;
+    line-height: 1;
+  }
+  .bac-slider-label {
+    position: absolute;
+    top: 18px;
+    z-index: 6;
+    background: rgba(255,255,255,0.88);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #1a1a1a;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+  .bac-label-before { left: 16px; }
+  .bac-label-after  { right: 16px; }
+  .bac-header {
+    max-width: 1100px;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .bac-calc-side {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .bac-calc-micro {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .bac-weight-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 4.5vw, 56px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+  .bac-weight-num .bac-unit {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0;
+    margin-left: 6px;
+  }
+  .bac-slider-input-wrap { margin-bottom: 20px; }
+  .bac-slider-input-wrap input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.18);
+    outline: none;
+    cursor: pointer;
+    display: block;
+    margin-top: 12px;
+  }
+  .bac-slider-input-wrap input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid rgba(255,255,255,0.9);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 0 0 2px rgba(255,255,255,0.15);
+    cursor: grab;
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+  }
+  .bac-slider-input-wrap input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.45), 0 0 0 4px rgba(255,255,255,0.12);
+  }
+  .bac-slider-input-wrap input[type=range]:active::-webkit-slider-thumb {
+    transform: scale(1.1);
+    cursor: grabbing;
+  }
+  .bac-slider-input-wrap input[type=range]::-moz-range-thumb {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid rgba(255,255,255,0.9);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    cursor: grab;
+  }
+  .bac-slider-input-wrap input[type=range]::-moz-range-track {
+    height: 6px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.18);
+  }
+  .bac-rule {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+  }
+  .bac-result-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .bac-result-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 4.5vw, 56px);
+    font-weight: 400;
+    color: #C4724A;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 6px;
+  }
+  .bac-result-num .bac-unit {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
+    color: rgba(196,114,74,0.55);
+    letter-spacing: 0;
+    margin-left: 6px;
+  }
+  .bac-result-sub {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-style: italic;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .bac-result-meta { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+  .bac-months {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+  }
+  .bac-month {
+    padding: 14px 0;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .bac-month:last-child { border-right: none; }
+  .bac-month:not(:first-child) { padding-left: 20px; }
+  .bac-month-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .bac-month-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .bac-month-unit { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 3px; display: block; }
+  .bac-cta-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 0; }
+  .bac-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    padding: 14px 32px;
+    border-radius: 0;
+    text-decoration: none;
+    transition: background 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .bac-cta:hover { background: #e8e3dc; color: #1a1a1a; transform: translateY(-2px); }
+  .bac-cta:active { transform: translateY(0); }
+  .bac-cta-sub { text-align: center; font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.03em; }
+  .bac-disclaimer {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 32px auto 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+  }
+  @media (max-width: 900px) {
+    .bac-section { padding: 64px 24px 56px; }
+    .bac-grid { grid-template-columns: 1fr; gap: 40px; }
+    .bac-slider-wrap { aspect-ratio: 1 / 1; height: auto; min-height: unset; max-width: 480px; }
+    .bac-calc-side { height: auto; justify-content: flex-start; gap: 0; }
+    .bac-title { font-size: clamp(32px, 8vw, 48px); margin-bottom: 24px; }
+  }
+
+  @media (max-width: 430px) {
+    .bac-section { padding: 48px 20px 40px; }
+    .bac-weight-num { font-size: clamp(48px, 14vw, 72px); }
+    .bac-result-num { font-size: clamp(48px, 14vw, 72px); }
+    .bac-month-num { font-size: 30px; }
+    .bac-slider-input-wrap { margin-bottom: 28px; }
+  }
+</style>
+
+<section class="bac-section">
+  <div class="bac-header">
+    <span class="bac-eyebrow">Real patient · Consented to share</span>
+    <h2 class="bac-title">See the difference.<br><em>Feel it too.</em></h2>
+  </div>
+  <div class="bac-grid">
+    <div>
+      <div class="bac-slider-wrap" id="bacSliderWrap">
+        <img class="bac-img-before" src="AFTER.jpg" alt="Before" draggable="false" />
+        <img class="bac-img-after" id="bacImgAfter" src="BEFORE.jpg" alt="After" draggable="false" />
+        <span class="bac-slider-label bac-label-before" style="font-size:10px;letter-spacing:0.08em;padding:4px 10px;background:rgba(0,0,0,0.35);color:rgba(255,255,255,0.7);backdrop-filter:blur(4px);">Before</span>
+        <span class="bac-slider-label bac-label-after" style="font-size:10px;letter-spacing:0.08em;padding:4px 10px;background:rgba(0,0,0,0.35);color:rgba(255,255,255,0.7);backdrop-filter:blur(4px);">After</span>
+        <div class="bac-slider-divider" id="bacSliderLine"></div>
+        <div class="bac-slider-handle" id="bacSliderHandle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </div>
+      <p style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.6;margin:12px 0 0;letter-spacing:0.01em;">Real patient result. Individual results may vary. Patient provided written consent to share their photos. Compounded GLP-1 medications are not FDA-approved drugs. A licensed provider evaluates each patient.</p>
+    </div>
+    <div class="bac-calc-side">
+      <div>
+        <span class="bac-calc-micro">Your current weight</span>
+        <div class="bac-weight-num" id="bacWeightDisplay">220<span class="bac-unit">lbs</span></div>
+        <div class="bac-slider-input-wrap">
+          <input type="range" id="bacWeightSlider" min="90" max="500" value="220" step="1" />
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.02em;text-transform:none;color:rgba(255,255,255,0.3);">90 lbs</span>
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.02em;text-transform:none;color:rgba(255,255,255,0.25);display:flex;align-items:center;gap:5px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              slide to adjust
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.02em;text-transform:none;color:rgba(255,255,255,0.3);">500 lbs</span>
+          </div>
+        </div>
+        <hr class="bac-rule" />
+        <span class="bac-result-label">You could lose</span>
+        <div class="bac-result-num" id="bacLoseNum">40<span class="bac-unit">lbs</span></div>
+        <p class="bac-result-meta" id="bacResultSub" style="font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:24px;">Based on published GLP-1 clinical data · Individual results vary</p>
+
+        <div class="bac-months">
+          <div class="bac-month">
+            <span class="bac-month-label">3 months</span>
+            <span class="bac-month-num" id="bacM3">29</span>
+            <span class="bac-month-unit">lbs lost</span>
+          </div>
+          <div class="bac-month">
+            <span class="bac-month-label">6 months</span>
+            <span class="bac-month-num" id="bacM6">40</span>
+            <span class="bac-month-unit">lbs lost</span>
+          </div>
+          <div class="bac-month">
+            <span class="bac-month-label">12 months</span>
+            <span class="bac-month-num" id="bacM12">48</span>
+            <span class="bac-month-unit">lbs lost</span>
+          </div>
+        </div>
+      </div>
+      <div class="bac-cta-wrap">
+        <a href="intake.html" class="bac-cta">Check my eligibility →</a>
+        <p class="bac-cta-sub">Free intake · No commitment · Ships in 3–5 days</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const bacWrap = document.getElementById('bacSliderWrap');
+    const bacImgAfter = document.getElementById('bacImgAfter');
+    const bacLine = document.getElementById('bacSliderLine');
+    const bacHandle = document.getElementById('bacSliderHandle');
+    let bacDragging = false;
+    function bacSetSlider(x) {
+      const rect = bacWrap.getBoundingClientRect();
+      let pct = (x - rect.left) / rect.width;
+      pct = Math.min(Math.max(pct, 0.02), 0.98);
+      bacImgAfter.style.clipPath = `inset(0 ${(100 - pct * 100).toFixed(2)}% 0 0)`;
+      bacLine.style.left = (pct * 100).toFixed(2) + '%';
+      bacHandle.style.left = (pct * 100).toFixed(2) + '%';
+    }
+    bacWrap.addEventListener('mousedown', e => { e.preventDefault(); bacDragging = true; });
+    bacWrap.addEventListener('touchstart', e => { bacDragging = true; }, { passive: true });
+    document.addEventListener('mousemove', e => { if (bacDragging) bacSetSlider(e.clientX); });
+    document.addEventListener('touchmove', e => { if (bacDragging) bacSetSlider(e.touches[0].clientX); }, { passive: true });
+    document.addEventListener('mouseup', () => bacDragging = false);
+    document.addEventListener('touchend', () => bacDragging = false);
+    const bacSlider = document.getElementById('bacWeightSlider');
+    function bacUpdate() {
+      const w = parseInt(bacSlider.value);
+      document.getElementById('bacWeightDisplay').innerHTML = w + '<span class="bac-unit">lbs</span>';
+      const lose = Math.round(w * 0.18);
+      document.getElementById('bacLoseNum').innerHTML = lose + '<span class="bac-unit">lbs</span>';
+      document.getElementById('bacM3').textContent = Math.round(lose * 0.72);
+      document.getElementById('bacM6').textContent = lose;
+      document.getElementById('bacM12').textContent = Math.round(lose * 1.2);
+    }
+    bacSlider.addEventListener('input', bacUpdate);
+    bacUpdate();
+  })();
+</script>
+
+<!-- ─── SECTION 1: REAL CHANGE. REAL PEOPLE. ─── -->
+<!-- ─── REAL CHANGE. REAL PEOPLE. ─── -->
+<style>
+/* ── RC SECTION ── */
+.rc-section {
+  background: #faf7f2;
+  padding: 80px 48px;
+  box-sizing: border-box;
+}
+.rc-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+/* LEFT — image */
+.rc-img-col {
+  width: 50%;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.rc-img-col.rc-in { opacity: 1; transform: scale(1); }
+.rc-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 16px;
+  display: block;
+}
+@media (min-width: 769px) {
+  .rc-img { height: 650px; border-radius: 16px; }
+}
+
+/* RIGHT — text */
+.rc-text-col {
+  width: 50%;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.rc-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B8945F;
+  display: block;
+  margin-bottom: 16px;
+}
+.rc-title-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.05;
+  margin: 0;
+}
+.rc-title-line-em {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(26,26,26,0.35);
+  line-height: 1.05;
+  margin: 0 0 40px;
+}
+@media (min-width: 769px) {
+  .rc-eyebrow { font-size: 11px; letter-spacing: 0.18em; }
+  .rc-title-line { font-size: 56px; }
+  .rc-title-line-em { font-size: 56px; color: rgba(26,26,26,0.3); margin: 0 0 48px; }
+}
+
+/* Stat blocks */
+.rc-stat {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  margin-bottom: 52px;
+}
+.rc-stat.rc-in { opacity: 1; transform: translateY(0); }
+/* Timeline stat: same fade-in as others */
+.rc-stat.rylo-cal { }
+.rc-stat-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 72px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.rc-stat-num-sm {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1;
+  display: block;
+}
+.rc-stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(26,26,26,0.62);
+  line-height: 1.6;
+  margin-top: 6px;
+  display: block;
+}
+.rc-stat-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(26,26,26,0.3);
+  margin-top: 4px;
+  display: block;
+}
+.rc-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+.rc-cta {
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  padding:14px 32px;
+  background:#1a1a1a;
+  color:#fff;
+  border:none;
+  border-radius:0;
+  text-decoration:none;
+  display:inline-block;
+  cursor:pointer;
+  transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  white-space:nowrap;
+}
+.rc-cta:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
+.rc-cta:active { transform: translateY(0); }
+@media (min-width: 769px) {
+  .rc-stat { margin-bottom: 44px; }
+  .rc-stat-num { font-size: 84px; }
+  .rc-stat-num-sm { font-size: 42px; }
+  .rc-stat-label { font-size: 15px; color: rgba(26,26,26,0.65); }
+  .rc-divider { width: 50px; background: #B8945F; margin-bottom: 44px; }
+  .rc-stat.rylo-cal { max-width: 100%; }
+  .rc-cta { font-size: 15px; }
+}
+.rc-disclaimer {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: rgba(26,26,26,0.25);
+  line-height: 1.6;
+  margin-top: 32px;
+  display: block;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .rc-section { padding: 48px 20px; }
+  .rc-inner { flex-direction: column; gap: 0; }
+  .rc-img-col { width: 100%; margin-bottom: 0; }
+  .rc-img { height: 380px; border-radius: 16px; margin-bottom: 0; }
+  .rc-text-col { width: 100%; }
+
+  /* On mobile: heading centered, then image, then cards */
+  .rc-inner { display: block; }
+  .rc-mob-head { text-align: center; margin-bottom: 24px; }
+  .rc-title-line { font-size: 32px; }
+  .rc-title-line-em { font-size: 32px; margin-bottom: 0; }
+  .rc-img-col { margin-bottom: 32px; }
+
+  /* Hide desktop-only content on mobile */
+  .rc-inner .rc-img-col { display: none; }
+  .rc-text-col .rc-stat,
+  .rc-text-col .rc-divider,
+  .rc-text-col .rc-cta,
+  .rc-text-col .rc-disclaimer { display: none; }
+  .rc-text-col .rc-eyebrow,
+  .rc-text-col .rc-title-line,
+  .rc-text-col .rc-title-line-em { display: none; }
+
+  /* Mobile stat cards */
+  .rc-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 0; }
+  .rc-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  }
+  .rc-card.rc-in { opacity: 1; transform: translateY(0); }
+  .rc-card-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1;
+    display: block;
+  }
+  .rc-card-num-sm {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 52px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1;
+    display: block;
+  }
+  .rc-card-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(26,26,26,0.72);
+    margin-top: 8px;
+    display: block;
+    line-height: 1.5;
+  }
+  .rc-card-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: rgba(26,26,26,0.3);
+    margin-top: 4px;
+    display: block;
+  }
+  .rc-mob-disclaimer {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    color: rgba(26,26,26,0.25);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.6;
+    display: block;
+  }
+  .rc-mob-cta {
+    display: block;
+    width: 100%;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 0;
+    margin-top: 24px;
+    box-sizing: border-box;
+    transition: background 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .rc-mob-cta:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
+  .rc-mob-cta:active { transform: translateY(0); }
+  /* Hide desktop-only image col wrapper on mobile (re-shown via mob-head) */
+  .rc-text-col { display: block; }
+}
+@media (min-width: 769px) {
+  /* ── Desktop layout ──
+     Centered heading above, then a clean 50/50 grid: photo | stats
+  */
+
+  /* 1. Section padding */
+  .rc-section { padding: 100px 80px; }
+
+  /* 2. Centered heading — reuse the mobile heading element */
+  .rc-mob-head {
+    display: block;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 72px;
+  }
+  .rc-mob-head .rc-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+  .rc-mob-head .rc-title-line {
+    font-size: 60px;
+    text-align: center;
+  }
+  .rc-mob-head .rc-title-line-em {
+    font-size: 60px;
+    text-align: center;
+    color: rgba(26,26,26,0.3);
+    margin-bottom: 0;
+  }
+
+  /* 3. Hide the duplicate heading inside the right column */
+  .rc-text-col .rc-eyebrow,
+  .rc-text-col .rc-title-line,
+  .rc-text-col .rc-title-line-em { display: none; }
+
+  /* 4. Inner grid — image stretches to match stats column */
+  .rc-inner {
+    max-width: 1100px;
+    gap: 72px;
+    align-items: stretch;
+  }
+  .rc-img-col { width: 50%; }
+  .rc-img {
+    height: 100%;
+    min-height: 520px;
+    border-radius: 12px;
+  }
+
+  /* 5. Stats column — vertically centered */
+  .rc-text-col {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* 6. Stat sizing */
+  .rc-stat { margin-bottom: 44px; }
+  .rc-stat-num { font-size: 84px; }
+  .rc-stat-num-sm { font-size: 42px; }
+  .rc-stat-label { font-size: 15px; color: rgba(26,26,26,0.65); }
+  .rc-divider { width: 40px; background: #B8945F; margin-bottom: 44px; }
+  .rc-stat.rylo-cal { max-width: 100%; }
+  .rc-cta { font-size: 15px; }
+
+  /* 7. Hide mobile-only elements */
+  .rc-cards { display: none; }
+  .rc-mob-disclaimer { display: none; }
+  .rc-mob-cta { display: none; }
+  .rc-img-col-mob { display: none; }
+}
+</style>
+
+<section class="rc-section" id="results">
+
+  <!-- MOBILE: centered heading (desktop version lives inside .rc-text-col) -->
+  <div class="rc-mob-head">
+    <p class="rc-title-line" style="text-align:center;">You've tried everything.</p>
+    <p class="rc-title-line-em" style="text-align:center;margin-bottom:24px;">This is different.</p>
+  </div>
+
+  <!-- MOBILE: image above cards -->
+  <div class="rc-img-col rc-img-col-mob" id="rcImgColMob">
+    <img class="rc-img" src="jeansweightnew.png" loading="lazy" alt="Rylo patient results" />
+  </div>
+
+  <!-- MOBILE: stat cards -->
+  <div class="rc-cards">
+    <div class="rc-card" id="rcCard1">
+      <span class="rc-card-num" id="rcCounterMob">0.0%</span>
+      <span class="rc-card-label">average body weight lost in clinical trials</span>
+      <span class="rc-card-note">Based on tirzepatide trial data.</span>
+    </div>
+    <div class="rc-card rylo-cal" id="rcCard2">
+      <p class="rcal-head" data-text="2–4 weeks"><span class="rcal-typed"></span><span class="rcal-cursor"></span></p>
+      <span class="rcal-subhead">typical timeline to notice meaningful changes</span>
+      <div class="rc-timeline" id="rcTimelineMob">
+        <div class="rc-tl-track">
+          <div class="rc-tl-fill" id="rcTlFillMob"></div>
+          <div class="rc-tl-node" id="rcTlN1m"></div>
+          <div class="rc-tl-node" id="rcTlN2m"></div>
+          <div class="rc-tl-node" id="rcTlN3m"></div>
+          <div class="rc-tl-node" id="rcTlN4m"></div>
+        </div>
+        <div class="rc-tl-labels">
+          <div class="rc-tl-lbl" id="rcTlL1m"><span class="rc-tl-wk">Week 1</span><span class="rc-tl-desc">Medication starts</span></div>
+          <div class="rc-tl-lbl" id="rcTlL2m"><span class="rc-tl-wk">Week 2</span><span class="rc-tl-desc">Appetite shifts</span></div>
+          <div class="rc-tl-lbl" id="rcTlL3m"><span class="rc-tl-wk">Week 3</span><span class="rc-tl-desc">Early signs</span></div>
+          <div class="rc-tl-lbl" id="rcTlL4m"><span class="rc-tl-wk">Week 4</span><span class="rc-tl-desc">Results build</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="rc-card" id="rcCard3">
+      <span class="rc-card-num-sm rcal-head" data-text="Same day"><span class="rcal-typed" id="rcHoursMob"></span><span class="rcal-cursor">|</span></span>
+      <span class="rc-card-label">response time from your care team</span>
+    </div>
+  </div>
+  <span class="rc-mob-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
+  <a href="intake.html" class="rc-mob-cta">Check my eligibility →</a>
+
+  <!-- DESKTOP: two-column layout -->
+  <div class="rc-inner">
+
+    <div class="rc-img-col" id="rcImgCol">
+      <img class="rc-img" src="jeansweightnew.png" loading="lazy" alt="Rylo patient results" />
+    </div>
+
+    <div class="rc-text-col">
+      <span class="rc-eyebrow">CLINICAL RESULTS</span>
+      <p class="rc-title-line">You've tried everything.</p>
+      <p class="rc-title-line-em">This is different.</p>
+
+      <div class="rc-stat" id="rcStat1">
+        <span class="rc-stat-num" id="rcCounter">0.0%</span>
+        <span class="rc-stat-label">average body weight lost in clinical trials</span>
+        <span class="rc-stat-note">Based on published tirzepatide trial data. Individual results vary.</span>
+      </div>
+      <div class="rc-divider"></div>
+
+      <div class="rc-stat rylo-cal" id="rcStat2">
+        <p class="rcal-head" data-text="2–4 weeks"><span class="rcal-typed"></span><span class="rcal-cursor"></span></p>
+        <span class="rcal-subhead">typical timeline to notice meaningful changes</span>
+        <div class="rc-timeline" id="rcTimeline">
+          <div class="rc-tl-track">
+            <div class="rc-tl-fill" id="rcTlFill"></div>
+            <div class="rc-tl-node" id="rcTlN1"></div>
+            <div class="rc-tl-node" id="rcTlN2"></div>
+            <div class="rc-tl-node" id="rcTlN3"></div>
+            <div class="rc-tl-node" id="rcTlN4"></div>
+          </div>
+          <div class="rc-tl-labels">
+            <div class="rc-tl-lbl" id="rcTlL1"><span class="rc-tl-wk">Week 1</span><span class="rc-tl-desc">Medication starts</span></div>
+            <div class="rc-tl-lbl" id="rcTlL2"><span class="rc-tl-wk">Week 2</span><span class="rc-tl-desc">Appetite shifts</span></div>
+            <div class="rc-tl-lbl" id="rcTlL3"><span class="rc-tl-wk">Week 3</span><span class="rc-tl-desc">Early signs</span></div>
+            <div class="rc-tl-lbl" id="rcTlL4"><span class="rc-tl-wk">Week 4</span><span class="rc-tl-desc">Results build</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="rc-divider"></div>
+
+      <div class="rc-stat" id="rcStat3">
+        <span class="rc-stat-num-sm rcal-head" data-text="Same day"><span class="rcal-typed" id="rcHours"></span><span class="rcal-cursor">|</span></span>
+        <span class="rc-stat-label">response time from your care team. Real people, not chatbots.</span>
+      </div>
+
+      <a href="intake.html" class="rc-cta">Check my eligibility →</a>
+      <span class="rc-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+/* ── RESULTS SECTION — animations + counters ── */
+(function () {
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  /* Percent counter: 0.0% → 20.2% */
+  function runPercentCounter(el) {
+    if (!el || el._done) return;
+    el._done = true;
+    var start = null, duration = 2000, target = 20.2;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      el.textContent = (easeOut(p) * target).toFixed(1) + '%';
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = '20.2%';
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* Integer counter: 0 → 48 */
+  function runHoursCounter(el) {
+    if (!el || el._done) return;
+    el._done = true;
+    var start = null, duration = 1600, target = 48;
+    function tick(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      el.textContent = Math.round(easeOut(p) * target);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = '48';
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* Timeline animation: fill track, light up nodes one by one */
+  function runTimeline(fillEl, nodes, labels) {
+    if (!fillEl || fillEl._done) return;
+    fillEl._done = true;
+    var delays = [0, 350, 700, 1050];
+    var sageColor = '#7A9472';
+    var clayColor = '#C4724A';
+    /* Fill the track */
+    setTimeout(function () { fillEl.style.width = '100%'; }, 100);
+    nodes.forEach(function (n, i) {
+      setTimeout(function () {
+        var color = i < 2 ? sageColor : clayColor;
+        n.classList.add('tl-lit');
+        n.style.background = color;
+        n.style.boxShadow = '0 0 0 4px ' + color.replace(')', ',0.18)').replace('rgb', 'rgba');
+        if (labels[i]) {
+          labels[i].classList.add('tl-lit');
+          var wk = labels[i].querySelector('.rc-tl-wk');
+          var desc = labels[i].querySelector('.rc-tl-desc');
+          if (wk) wk.style.color = color;
+          if (desc) desc.style.color = i < 2 ? 'rgba(122,148,114,0.65)' : 'rgba(196,114,74,0.65)';
+        }
+      }, 100 + delays[i]);
+    });
+  }
+
+  function observe(el, onVisible) {
+    if (!el) return;
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { onVisible(); obs.disconnect(); }
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    obs.observe(el);
+  }
+
+  /* ── MOBILE ── */
+  var imgColMob = document.getElementById('rcImgColMob');
+  var counterMob = document.getElementById('rcCounterMob');
+  var hoursMob = document.getElementById('rcHoursMob');
+  if (imgColMob) observe(imgColMob, function () { imgColMob.classList.add('rc-in'); });
+
+  ['rcCard1','rcCard2','rcCard3'].forEach(function (id, i) {
+    var card = document.getElementById(id);
+    observe(card, function () {
+      setTimeout(function () {
+        card.classList.add('rc-in');
+        if (i === 0) setTimeout(function () { runPercentCounter(counterMob); }, 300);
+        if (i === 1) {
+          var fill = document.getElementById('rcTlFillMob');
+          var nodes = ['rcTlN1m','rcTlN2m','rcTlN3m','rcTlN4m'].map(function(id){ return document.getElementById(id); });
+          var lbls  = ['rcTlL1m','rcTlL2m','rcTlL3m','rcTlL4m'].map(function(id){ return document.getElementById(id); });
+          setTimeout(function () { runTimeline(fill, nodes, lbls); }, 300);
+        }
+        if (i === 2) setTimeout(function () { runTypewriter(document.querySelector('#rcCard3 .rcal-head')); }, 100);
+      }, i * 60);
+    });
+  });
+
+  function runTypewriter(wrap) {
+    if (!wrap || wrap._done) return;
+    wrap._done = true;
+    var typed = wrap.querySelector('.rcal-typed');
+    var cursor = wrap.querySelector('.rcal-cursor');
+    var text = wrap.getAttribute('data-text') || 'Same day';
+    var i = 0;
+    (function next() {
+      if (i <= text.length) {
+        typed.textContent = text.slice(0, i++);
+        if (i <= text.length) setTimeout(next, 18);
+        else cursor.classList.add('done');
+      }
+    })();
+  }
+
+  /* Typewriter for mobile card 2 handled by animateCal */
+
+  /* ── DESKTOP ── */
+  var imgCol = document.getElementById('rcImgCol');
+  var counterEl = document.getElementById('rcCounter');
+  var hoursEl = document.getElementById('rcHours');
+  if (imgCol) observe(imgCol, function () { imgCol.classList.add('rc-in'); });
+
+  ['rcStat1','rcStat2','rcStat3'].forEach(function (id, i) {
+    var stat = document.getElementById(id);
+    observe(stat, function () {
+      setTimeout(function () {
+        stat.classList.add('rc-in');
+        if (i === 0) setTimeout(function () { runPercentCounter(counterEl); }, 300);
+        if (i === 1) {
+          var fill = document.getElementById('rcTlFill');
+          var nodes = ['rcTlN1','rcTlN2','rcTlN3','rcTlN4'].map(function(id){ return document.getElementById(id); });
+          var lbls  = ['rcTlL1','rcTlL2','rcTlL3','rcTlL4'].map(function(id){ return document.getElementById(id); });
+          setTimeout(function () { runTimeline(fill, nodes, lbls); }, 300);
+        }
+        if (i === 2) setTimeout(function () { runTypewriter(document.querySelector('#rcStat3 .rcal-head')); }, 300);
+      }, i * 220);
+    });
+  });
+
+  /* Typewriter for desktop stat 2 handled by animateCal */
 })();
 </script>
 
