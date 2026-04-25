@@ -396,19 +396,19 @@
       display: flex;
       align-items: center;
       gap: 0;
-      margin-top: 28px;
+      margin-top: 32px;
     }
     .hero-trust-row span {
       font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.04em;
+      font-size: 13px;
+      font-weight: 450;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.02em;
     }
     .hero-trust-row span + span::before {
       content: '\00B7';
-      margin: 0 10px;
-      color: rgba(255,255,255,0.2);
+      margin: 0 12px;
+      color: rgba(255,255,255,0.3);
     }
 
     /* ─── PRODUCTS SECTION ─── */
@@ -1575,12 +1575,12 @@
       z-index: 2;
     }
     .closing-eyebrow {
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 14px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
       font-family: var(--font);
     }
     .closing-heading {
@@ -1592,14 +1592,14 @@
       color: #fff;
       margin-bottom: 20px;
     }
-    .closing-heading em { font-style: italic; font-weight: 400; color: rgba(255,255,255,0.55); }
+    .closing-heading em { font-style: italic; font-weight: 400; color: rgba(255,255,255,0.6); }
     .closing-sub {
-      font-size: 14px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.5);
+      font-size: 17px;
+      font-weight: 420;
+      color: rgba(255,255,255,0.6);
       line-height: 1.7;
       margin-bottom: 32px;
-      max-width: 380px;
+      max-width: 420px;
     }
     .closing-cta-row {
       display: flex;
@@ -1609,11 +1609,11 @@
     }
     .closing-btn {
       font-family: var(--font);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       letter-spacing: 0.02em;
       text-transform: none;
-      padding: 14px 32px;
+      padding: 16px 36px;
       background: #fff;
       color: #1a1a1a;
       border: none;
@@ -1627,9 +1627,9 @@
     .closing-btn:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
     .closing-btn:active { transform: translateY(0); }
     .closing-fine {
-      font-size: 12px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.3);
+      font-size: 14px;
+      font-weight: 450;
+      color: rgba(255,255,255,0.45);
     }
     .closing-photo-wrap {
       position: absolute;
@@ -2967,22 +2967,22 @@
         position: relative; z-index: 2; max-width: 100%;
       }
       .closing-eyebrow {
-        font-size: 10px; letter-spacing: 0.15em;
-        color: rgba(255,255,255,0.3);
+        font-size: 11px; letter-spacing: 0.15em;
+        color: rgba(255,255,255,0.5);
       }
       .closing-heading {
         font-family: 'Cormorant Garamond', Georgia, serif !important;
         font-size: 28px !important; color: #fff !important;
         margin-bottom: 0;
       }
-      .closing-heading em { font-size: 20px !important; color: rgba(255,255,255,0.4) !important; }
-      .closing-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 12px; }
+      .closing-heading em { font-size: 22px !important; color: rgba(255,255,255,0.5) !important; }
+      .closing-sub { font-size: 15px; color: rgba(255,255,255,0.55); margin-top: 12px; }
       .closing-btn {
         width: 100%; text-align: center; display: block;
         box-sizing: border-box; padding: 16px; margin-top: 24px;
         background: #fff; color: #1a1a1a; border-radius: 0;
       }
-      .closing-fine { font-size: 11px; color: rgba(255,255,255,0.2); margin-top: 10px; display: block; }
+      .closing-fine { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; display: block; }
       .closing-cta-row { flex-direction: column; align-items: flex-start; gap: 0; }
 
       /* ── FOOTER ── */
@@ -3114,6 +3114,7 @@
         <div class="hero-trust-row">
           <span>Licensed US providers</span>
           <span>Same-day review</span>
+          <span>Delivered within days</span>
           <span>FSA / HSA eligible</span>
         </div>
       </div>
@@ -3166,48 +3167,6 @@
 </style>
 
 
-<!-- ─── TRUST STRIP ─── -->
-<style>
-  .trust-strip {
-    background: #faf7f2;
-    border-top: 1px solid rgba(45,36,32,0.08);
-    border-bottom: 1px solid rgba(45,36,32,0.08);
-    padding: 18px 24px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .trust-strip.animate-in-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .trust-strip p {
-    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: #999;
-    letter-spacing: 0.01em;
-    line-height: 1.6;
-    margin: 0;
-  }
-  @media (max-width: 900px) {
-    .trust-strip p { font-size: 12px; }
-  }
-</style>
-<div class="trust-strip" id="trustStrip">
-  <p>Cancelling shouldn't feel like a fight. No contracts. No chatbots. No cancellation fees. Want to stop? Just tell us.</p>
-</div>
-<script>
-(function(){
-  const el = document.getElementById('trustStrip');
-  if (!el) return;
-  const obs = new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) { el.classList.add('animate-in-visible'); obs.disconnect(); }
-  }, { threshold: 0.2 });
-  obs.observe(el);
-})();
-</script>
 
 <!-- ─── PRODUCTS SECTION — DESKTOP ─── -->
 <section class="products-section animate-in" id="treatments">
@@ -4153,7 +4112,7 @@
 .vial-text-col {
   text-align: center;
   max-width: 480px;
-  padding: 16px 24px 48px;
+  padding: 32px 24px 56px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -4164,7 +4123,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #B8945F;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   display: block;
   opacity: 0;
   transform: translateY(20px);
@@ -4190,7 +4149,7 @@
   color: rgba(255,255,255,0.5);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 0 0 20px;
+  margin: 4px 0 28px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s;
@@ -4201,7 +4160,7 @@
   font-weight: 500;
   color: rgba(255,255,255,0.58);
   line-height: 1.7;
-  margin: 20px 0 32px;
+  margin: 0 0 36px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s;
@@ -4317,7 +4276,7 @@
 </style>
 <section class="vial-section" id="vialReveal">
   <div class="vial-text-col">
-    <span class="vial-eyebrow">FDA-REGISTERED COMPOUNDING PHARMACY</span>
+    <span class="vial-eyebrow">LICENSED US COMPOUNDING PHARMACY</span>
     <p class="vial-headline">Your prescription.</p>
     <p class="vial-subline">Compounded for you.</p>
     <p class="vial-desc">Same-day provider review. Compounded by a licensed US pharmacy. Shipped free to your door every month.</p>
@@ -4365,24 +4324,24 @@
     <div class="hrw-mobile-steps">
       <div class="hrw-mobile-step fade-in" data-step="0">
         <span class="hrw-step-watermark" aria-hidden="true">1</span>
-        <h3 class="hrw-mobile-step-title">Complete your assessment</h3>
-        <p class="hrw-mobile-step-desc">Answer a few questions about your health, goals, and medical history. Takes about 3 minutes.</p>
+        <h3 class="hrw-mobile-step-title">Answer a few questions</h3>
+        <p class="hrw-mobile-step-desc">A few quick questions about your health and what you've tried. No appointments, no lab work. Takes about 3 minutes.</p>
         <div class="hrw-mobile-step-img">
           <img src="step1intakeform.png" loading="lazy" alt="Complete your health intake" />
         </div>
       </div>
       <div class="hrw-mobile-step fade-in" data-step="1">
         <span class="hrw-step-watermark" aria-hidden="true">2</span>
-        <h3 class="hrw-mobile-step-title">Provider review</h3>
-        <p class="hrw-mobile-step-desc">A licensed provider reviews your profile and determines the right treatment plan for you.</p>
+        <h3 class="hrw-mobile-step-title">Your provider reviews same day</h3>
+        <p class="hrw-mobile-step-desc">A real physician looks at your full profile and builds a plan around you - not a one-size-fits-all dose.</p>
         <div class="hrw-mobile-step-img">
           <img src="doctorreview.jpg" loading="lazy" alt="Provider reviews your case" />
         </div>
       </div>
       <div class="hrw-mobile-step fade-in" data-step="2">
         <span class="hrw-step-watermark" aria-hidden="true">3</span>
-        <h3 class="hrw-mobile-step-title">Medication ships to you</h3>
-        <p class="hrw-mobile-step-desc">If approved, your prescription is filled by a licensed US pharmacy and shipped free to your door.</p>
+        <h3 class="hrw-mobile-step-title">Treatment delivered to your door</h3>
+        <p class="hrw-mobile-step-desc">Your medication is compounded for your dose and shipped free. Your provider is always a message away if anything needs adjusting.</p>
         <div class="hrw-mobile-step-img">
           <img src="delivery-package.jpg" loading="lazy" alt="Medication ships to your door" />
         </div>
@@ -6635,124 +6594,6 @@
 })();
 </script>
 
-<!-- ─── RESULTS SPEAK FOR THEMSELVES ─── -->
-<style>
-  .results-section {
-    background: linear-gradient(180deg, #C4B9AA 0%, #D5CEC3 50%, #E8E3DC 100%);
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  .results-section::before {
-    content: '';
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 30%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .results-inner {
-    position: relative;
-    width: 100%;
-    min-height: 700px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .results-headline {
-    text-align: center;
-    z-index: 2;
-    white-space: nowrap;
-    padding: 64px 24px 0;
-  }
-  .results-headline h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
-    color: #1a1a1a;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-  .results-headline h2 em { font-style: italic; color: rgba(26,26,26,0.68); }
-  .results-cta {
-    position: absolute;
-    top: 28px;
-    right: 32px;
-    z-index: 3;
-    background: var(--rylo-navy);
-    color: #fff;
-    font-family: var(--font);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 12px 28px;
-    border-radius: 0;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .results-cta:hover { background: #333; transform: translateY(-2px); }
-  .results-person {
-    position: relative;
-    z-index: 1;
-    height: 680px;
-    width: auto;
-    object-fit: contain;
-    object-position: center bottom;
-    display: block;
-    margin: 0 auto;
-  }
-  .results-card {
-    position: absolute;
-    z-index: 3;
-    background: rgba(255,255,255,0.82);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.7);
-    border-radius: 16px;
-    padding: 22px 26px;
-    max-width: 230px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  }
-  .card-label {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: #777;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
-  }
-  .results-card h3 {
-    font-family: 'Instrument Serif', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #1a1a1a;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-  .results-card h3 em { font-style: italic; }
-  .results-card p { font-size: 12px; color: #666; line-height: 1.6; }
-  .results-disclaimer {
-    text-align: center;
-    font-size: 13px;
-    color: rgba(26,26,26,0.68);
-    padding: 16px 24px 24px;
-    position: relative;
-    z-index: 2;
-  }
-  @media (max-width: 768px) {
-    .results-inner { min-height: auto; flex-direction: column; padding: 80px 20px 40px; }
-    .results-headline { white-space: normal; padding: 40px 20px 0; }
-    .results-person { height: 400px; }
-    .results-card { position: static !important; max-width: 100%; margin-bottom: 16px; }
-    .results-cta { top: 20px; right: 20px; font-size: 12px; padding: 10px 18px; }
-  }
-</style>
 
 
 <!-- ─── TRUST BADGES + CTA ─── -->
@@ -6923,6 +6764,95 @@
   </div>
 </section>
 
+<!-- ─── LEAD CAPTURE ─── -->
+<style>
+  .lead-capture {
+    background: #faf7f2;
+    padding: 80px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(45,36,32,0.06);
+  }
+  .lead-capture-inner {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .lead-capture-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .lead-capture-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(26,26,26,0.55);
+    margin: 0 0 32px;
+  }
+  .lead-capture-form {
+    display: flex;
+    gap: 0;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .lead-capture-input {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 16px 20px;
+    border: 1px solid rgba(26,26,26,0.12);
+    border-right: none;
+    background: #fff;
+    color: #1a1a1a;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .lead-capture-input::placeholder {
+    color: rgba(26,26,26,0.3);
+  }
+  .lead-capture-input:focus {
+    border-color: rgba(26,26,26,0.3);
+  }
+  .lead-capture-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 16px 28px;
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+  .lead-capture-btn:hover { opacity: 0.85; }
+  .lead-capture-fine {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(26,26,26,0.35);
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) {
+    .lead-capture-form { flex-direction: column; }
+    .lead-capture-input { border-right: 1px solid rgba(26,26,26,0.12); border-bottom: none; }
+  }
+</style>
+<section class="lead-capture">
+  <div class="lead-capture-inner">
+    <p class="lead-capture-heading">Not ready yet?</p>
+    <p class="lead-capture-sub">We'll send you the details. No spam, no pressure.</p>
+    <form class="lead-capture-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent'; this.querySelector('input').disabled=true;">
+      <input type="email" class="lead-capture-input" placeholder="Enter your email" required />
+      <button type="submit" class="lead-capture-btn">Send me info</button>
+    </form>
+    <p class="lead-capture-fine">One email. Pricing, how it works, and what to expect.</p>
+  </div>
+</section>
+
 <!-- ─── COMBINED CLOSING CTA ─── -->
 <section class="closing-section animate-in" id="start">
   <div class="closing-card">
@@ -6930,12 +6860,12 @@
       <img src="closingimagefinal.jpg" loading="lazy" alt="Rylo Health member" class="closing-photo" />
     </div>
     <div class="closing-left">
-      <p class="closing-eyebrow">Clinician-prescribed. Delivered to your door.</p>
+      <p class="closing-eyebrow">3 minutes. That's all it takes.</p>
       <h2 class="closing-heading">Ready to feel like<br /><em>yourself again?</em></h2>
-      <p class="closing-sub">Complete a free 3-minute assessment. A licensed US provider will review your profile same day. If you are not approved, you pay nothing.</p>
+      <p class="closing-sub">Starting at $89/month. A licensed US provider reviews your profile same day. If you're not approved, you pay nothing.</p>
       <div class="closing-cta-row">
         <a href="intake.html" class="closing-btn">Check my eligibility &#8594;</a>
-        <span class="closing-fine">No commitment · Cancel anytime</span>
+        <span class="closing-fine">No commitment · No contracts · Cancel anytime</span>
       </div>
     </div>
   </div>
