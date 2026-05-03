@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rylo Health · Compounded GLP-1 and wellness peptides, prescribed</title>
+
+<meta name="description" content="Compounded medicine that takes you seriously. GLP-1 therapies and wellness peptides prescribed by your own physician. Tirzepatide, Semaglutide, NAD+, Sermorelin, and more.">
+
+<meta property="og:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta property="og:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician. Continuous care, transparent pricing, cancel anytime.">
+<meta property="og:image" content="https://rylohealth.com/og-image.jpg">
+<meta property="og:url" content="https://rylohealth.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta name="twitter:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician.">
+<meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --oat:#faf7f2;
+  --dark:#1a1a1a;
+  --clay:#C4724A;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+body{
+  font-family:var(--sans);
+  background:var(--oat);
+  color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* NAV */
+.wl-nav{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:10;
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4vw,48px);
+}
+.wl-nav-logo img{height:88px;width:auto}
+.wl-nav-back{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:rgba(26,26,26,0.55);
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.25s,letter-spacing 0.25s;
+}
+.wl-nav-back:hover{color:var(--dark);letter-spacing:0.04em}
+
+/* HERO */
+.wl-hero{
+  min-height:calc(100vh - 88px);
+  padding:96px clamp(20px,4vw,48px) 56px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.wl-hero::before{
+  content:"";
+  position:absolute;
+  top:80px;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:var(--clay);
+  opacity:0.7;
+}
+.wl-hero-inner{
+  max-width:600px;
+  width:100%;
+}
+.wl-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--clay);
+  margin-bottom:20px;
+  display:block;
+}
+.wl-counter{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:6px;
+}
+.wl-num{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:clamp(56px,7vw,80px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:0.92;
+  letter-spacing:-0.04em;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.wl-of{
+  font-family:var(--sans);
+  font-size:12px;
+  font-weight:500;
+  color:rgba(26,26,26,0.5);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.wl-of strong{color:var(--dark);font-weight:700}
+.wl-counter-sub{
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.45);
+  margin:0 0 24px;
+}
+.wl-title{
+  font-family:var(--serif);
+  font-size:clamp(40px,4.6vw,60px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:0.98;
+  letter-spacing:-0.025em;
+  margin:0 0 14px;
+}
+.wl-title em{
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  font-weight:400;
+}
+.wl-sub{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:15px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.6;
+  margin:0 auto 28px;
+  max-width:520px;
+}
+
+/* BENEFITS */
+.wl-benefits{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  max-width:520px;
+  margin:0 auto 28px;
+  padding:14px 0;
+  border-top:1px solid rgba(26,26,26,0.12);
+  border-bottom:1px solid rgba(26,26,26,0.12);
+}
+.wl-benefit{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+}
+.wl-benefit-num{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:22px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.025em;
+  font-variant-numeric:lining-nums tabular-nums;
+  margin-bottom:0;
+}
+.wl-benefit-label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.55);
+  line-height:1.4;
+}
+
+/* FORM */
+.wl-form{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  max-width:460px;
+  margin:0 auto;
+  position:relative;
+}
+.wl-fields{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+.wl-fields-row{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:8px;
+}
+.wl-input,.wl-select{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:400;
+  color:var(--dark);
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.15);
+  border-radius:0;
+  padding:14px 16px;
+  outline:none;
+  transition:border-color 0.2s;
+  width:100%;
+}
+.wl-input:focus,.wl-select:focus{border-color:var(--dark)}
+.wl-input::placeholder{color:rgba(26,26,26,0.4)}
+.wl-select{
+  appearance:none;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(26,26,26,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 18px center;
+  padding-right:44px;
+}
+.wl-honey{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  opacity:0;
+  pointer-events:none;
+}
+.wl-btn{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  padding:15px 28px;
+  background:var(--dark);
+  color:#fff;
+  border:none;
+  border-radius:0;
+  cursor:pointer;
+  transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.wl-btn:hover:not(:disabled){
+  background:#0C1C2E;
+  transform:translateY(-2px);
+}
+.wl-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.wl-fine{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:400;
+  color:rgba(26,26,26,0.45);
+  margin:12px 0 0;
+  line-height:1.55;
+  text-align:center;
+}
+.wl-fine-success{
+  font-size:14px;
+  color:var(--dark);
+  font-weight:500;
+}
+
+/* TRUST */
+.wl-trust{
+  background:#fff;
+  padding:48px clamp(20px,4vw,48px);
+  border-top:1px solid rgba(26,26,26,0.06);
+}
+.wl-trust-inner{
+  max-width:680px;
+  margin:0 auto;
+  text-align:center;
+}
+.wl-trust-text{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:400;
+  color:rgba(26,26,26,0.6);
+  line-height:1.6;
+  margin:0 0 18px;
+}
+.wl-trust-text strong{color:var(--dark);font-weight:600}
+.wl-trust-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(16px,3vw,40px);
+  flex-wrap:wrap;
+}
+.wl-trust-item{
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.5);
+}
+
+/* FOOTER */
+.wl-footer{
+  background:var(--dark);
+  padding:32px clamp(20px,4vw,48px);
+  text-align:center;
+}
+.wl-footer-text{
+  font-family:var(--sans);
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  margin:0;
+  line-height:1.6;
+}
+
+/* CUSTOM DROPDOWN (matches site .dd pattern) */
+.ry-dd{position:relative;width:100%;user-select:none;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.ry-dd-trigger{
+  width:100%;
+  padding:16px 18px;
+  padding-right:42px;
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.15);
+  border-radius:0;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:400;
+  color:var(--dark);
+  cursor:pointer;
+  transition:border-color 0.25s,box-shadow 0.25s;
+  position:relative;
+  text-align:left;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.ry-dd-trigger.empty{color:rgba(26,26,26,0.4)}
+.ry-dd-trigger::after{
+  content:'';
+  position:absolute;
+  right:18px;top:50%;
+  width:0;height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:6px solid rgba(26,26,26,0.45);
+  transform:translateY(-50%);
+  transition:transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.ry-dd.open .ry-dd-trigger{
+  border-color:rgba(184,150,90,0.5);
+  box-shadow:0 0 0 3px rgba(184,150,90,0.10);
+}
+.ry-dd.open .ry-dd-trigger::after{transform:translateY(-50%) rotate(180deg)}
+.ry-dd-list{
+  position:absolute;
+  top:calc(100% - 1px);
+  left:0;right:0;
+  background:#fff;
+  border:1px solid rgba(184,150,90,0.5);
+  border-top:none;
+  border-radius:0;
+  max-height:0;
+  overflow:hidden;
+  z-index:60;
+  transition:max-height 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s;
+  box-shadow:none;
+}
+.ry-dd.open .ry-dd-list{
+  max-height:280px;
+  overflow-y:auto;
+  box-shadow:0 16px 40px rgba(26,26,26,0.10);
+}
+.ry-dd-list::-webkit-scrollbar{width:5px}
+.ry-dd-list::-webkit-scrollbar-track{background:transparent}
+.ry-dd-list::-webkit-scrollbar-thumb{background:rgba(26,26,26,0.10);border-radius:3px}
+.ry-dd-opt{
+  padding:13px 18px;
+  font-size:14px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  cursor:pointer;
+  transition:background 0.15s,color 0.15s;
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.ry-dd-opt:hover{background:rgba(184,150,90,0.06);color:var(--dark)}
+.ry-dd-opt.picked{background:rgba(184,150,90,0.10);color:var(--dark);font-weight:500}
+.ry-dd-name{font-weight:500;color:var(--dark)}
+.ry-dd-meta{font-size:12px;color:rgba(26,26,26,0.5);font-weight:400;letter-spacing:0.01em}
+.ry-dd-opt.picked .ry-dd-meta{color:rgba(26,26,26,0.55)}
+
+/* FOUNDERS' CIRCLE */
+:root{--navy:#0C1C2E;--gold:#B8965A}
+
+.wl-fc-link{
+  display:inline-block;
+  margin-top:16px;
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  color:var(--dark);
+  text-decoration:none;
+  border-bottom:1px solid rgba(26,26,26,0.25);
+  padding-bottom:2px;
+  transition:letter-spacing 0.25s,color 0.25s,border-color 0.25s;
+}
+.wl-fc-link:hover{letter-spacing:0.04em;color:var(--navy);border-bottom-color:var(--navy)}
+
+.fc-section{
+  min-height:100vh;
+  background:var(--oat);
+  padding:80px clamp(20px,4vw,48px) 64px;
+  border-top:1px solid rgba(26,26,26,0.08);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.fc-section::before{
+  content:"";
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:#3F4A39;
+  opacity:0.85;
+}
+.fc-inner{max-width:680px;margin:0 auto;text-align:center}
+.fc-eyebrow{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:#3F4A39;
+  margin-bottom:18px;
+  display:block;
+}
+.fc-title{
+  font-family:var(--serif);
+  font-size:clamp(40px,4.6vw,60px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:0.98;
+  letter-spacing:-0.025em;
+  margin:0 0 14px;
+}
+.fc-title em{font-style:italic;color:rgba(26,26,26,0.5);font-weight:400}
+.fc-intro{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:15px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.6;
+  max-width:520px;
+  margin:0 auto 28px;
+}
+
+.fc-prices{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  max-width:520px;
+  margin:0 auto 24px;
+}
+.fc-price-card{
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.10);
+  border-radius:4px;
+  padding:20px 18px 18px;
+  text-align:center;
+  transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
+}
+.fc-price-card:hover{
+  border-color:rgba(26,26,26,0.28);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(26,26,26,0.06);
+}
+.fc-price-label{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:-0.005em;
+  text-transform:none;
+  color:var(--dark);
+  display:block;
+  margin-bottom:10px;
+}
+.fc-price-amount{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:clamp(36px,3.8vw,44px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.035em;
+  font-variant-numeric:lining-nums tabular-nums;
+  margin-bottom:8px;
+}
+.fc-price-amount span{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:13px;
+  color:rgba(26,26,26,0.45);
+  font-weight:400;
+  letter-spacing:0;
+}
+.fc-price-sub{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:0;
+  color:rgba(26,26,26,0.5);
+  display:block;
+}
+
+.fc-counter-block{margin:0 auto 22px;max-width:460px}
+.fc-counter-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+.fc-counter-num{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:22px;
+  font-weight:500;
+  color:var(--dark);
+  letter-spacing:-0.025em;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.fc-counter-of{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.5);
+}
+.fc-bar{
+  width:100%;
+  height:3px;
+  background:rgba(26,26,26,0.10);
+  border-radius:100px;
+  overflow:hidden;
+}
+.fc-bar-fill{
+  height:100%;
+  background:var(--dark);
+  border-radius:100px;
+  transition:width 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+
+.fc-fee{
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.10);
+  border-radius:4px;
+  padding:20px 22px 16px;
+  margin:0 auto 18px;
+  max-width:520px;
+  text-align:center;
+}
+.fc-fee-label{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.5);
+  display:block;
+  margin-bottom:8px;
+}
+.fc-fee-amount{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:38px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.03em;
+  font-variant-numeric:lining-nums tabular-nums;
+  margin-bottom:14px;
+}
+.fc-fee-note{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  font-weight:400;
+  color:rgba(26,26,26,0.6);
+  line-height:1.6;
+  margin:0;
+  border-top:1px solid rgba(26,26,26,0.10);
+  padding-top:12px;
+  text-align:left;
+}
+
+.fc-btn{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  padding:15px 36px;
+  background:var(--dark);
+  color:#fff;
+  border:none;
+  border-radius:0;
+  cursor:pointer;
+  transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  margin-bottom:14px;
+}
+.fc-btn:hover{
+  background:var(--navy);
+  transform:translateY(-2px);
+}
+
+.fc-fine{max-width:520px;margin:0 auto 14px}
+.fc-fine p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  color:rgba(26,26,26,0.55);
+  line-height:1.6;
+  margin:0;
+}
+.fc-compliance{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:10px;
+  font-weight:400;
+  color:rgba(26,26,26,0.45);
+  line-height:1.6;
+  max-width:520px;
+  margin:0 auto;
+  border-top:1px solid rgba(26,26,26,0.10);
+  padding-top:12px;
+}
+
+/* MODAL */
+.fc-modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(26,26,26,0.55);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s;
+}
+.fc-modal-overlay[data-open="1"]{opacity:1;pointer-events:auto}
+.fc-modal-overlay[hidden]{display:none}
+.fc-modal{
+  background:var(--oat);
+  border-radius:10px;
+  padding:52px clamp(24px,4vw,48px) 36px;
+  max-width:480px;
+  width:100%;
+  position:relative;
+  box-shadow:0 24px 60px rgba(26,26,26,0.22);
+  transform:translateY(12px);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.fc-modal-overlay[data-open="1"] .fc-modal{transform:translateY(0)}
+.fc-modal-close{
+  position:absolute;
+  top:14px;right:14px;
+  background:transparent;
+  border:none;
+  font-size:22px;
+  line-height:1;
+  width:36px;height:36px;
+  border-radius:50%;
+  cursor:pointer;
+  color:rgba(26,26,26,0.55);
+  transition:background 0.2s,color 0.2s;
+}
+.fc-modal-close:hover{background:rgba(26,26,26,0.06);color:var(--dark)}
+.fc-modal-eyebrow{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#3F4A39;
+  display:block;
+  margin-bottom:14px;
+  text-align:center;
+}
+.fc-modal-title{
+  font-family:var(--serif);
+  font-size:34px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  margin:0 0 14px;
+  text-align:center;
+}
+.fc-modal-intro{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13.5px;
+  color:rgba(26,26,26,0.65);
+  line-height:1.7;
+  margin:0 0 26px;
+  text-align:center;
+}
+.fc-modal-form{display:flex;flex-direction:column;gap:10px;position:relative}
+.fc-modal-input{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:var(--dark);
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.15);
+  border-radius:4px;
+  padding:14px 16px;
+  outline:none;
+  transition:border-color 0.2s;
+  width:100%;
+}
+.fc-modal-input:focus{border-color:var(--dark)}
+.fc-modal-input::placeholder{color:rgba(26,26,26,0.4)}
+.fc-modal-btn{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  padding:16px 28px;
+  background:var(--dark);
+  color:#fff;
+  border:none;
+  border-radius:0;
+  cursor:pointer;
+  transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  margin-top:6px;
+}
+.fc-modal-btn:hover:not(:disabled){
+  background:var(--navy);
+  transform:translateY(-2px);
+}
+.fc-modal-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.fc-modal-fine{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  color:rgba(26,26,26,0.5);
+  line-height:1.65;
+  margin:18px 0 0;
+  text-align:center;
+}
+.fc-modal-fine.fc-modal-fine-success{
+  font-size:13.5px;
+  color:var(--dark);
+  font-weight:500;
+  line-height:1.65;
+}
+
+/* RESPONSIVE */
+@media(max-width:560px){
+  .wl-nav-logo img{height:48px}
+  .wl-nav{height:64px}
+  .wl-hero{padding:96px 20px 48px}
+  .wl-counter-sub{margin-bottom:36px}
+  .wl-fields-row{grid-template-columns:1fr;gap:8px}
+  .wl-benefits{grid-template-columns:1fr;gap:14px}
+  .fc-section{padding:80px 20px 64px}
+  .fc-prices{grid-template-columns:1fr;gap:12px}
+  .fc-modal{padding:40px 24px 28px}
+  .fc-modal-title{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<nav class="wl-nav">
+  <a href="/" class="wl-nav-logo"><img src="blackrylologoofficial.png" alt="Rylo Health" /></a>
+  <a href="/" class="wl-nav-back">&larr; Back to home</a>
+</nav>
+
+<section class="wl-hero">
+  <div class="wl-hero-inner">
+
+    <span class="wl-eyebrow">Early access</span>
+
+    <div class="wl-counter">
+      <span class="wl-num" id="wlNum">—</span>
+    </div>
+    <p class="wl-counter-sub">people reserved early access</p>
+
+    <h1 class="wl-title">Reserve <em>your spot.</em></h1>
+    <p class="wl-sub">Reserve early access to Rylo's compounded peptide and wellness protocols. One care team, every prescription. Real US-licensed providers. Launching summer 2026.</p>
+
+    <div class="wl-benefits">
+      <div class="wl-benefit">
+        <div class="wl-benefit-num">500</div>
+        <div class="wl-benefit-label">Founding spots reserved</div>
+      </div>
+    </div>
+
+    <form class="wl-form" id="wlForm">
+      <div class="wl-fields">
+        <div class="wl-fields-row">
+          <input type="email" name="email" placeholder="Email address" required class="wl-input" />
+          <input type="text" name="zip" placeholder="ZIP code" required pattern="[0-9]{5}" maxlength="5" inputmode="numeric" class="wl-input" />
+        </div>
+        <div class="ry-dd" id="wlDd">
+          <button type="button" class="ry-dd-trigger empty" aria-haspopup="listbox" aria-expanded="false">Which product are you reserving access to?</button>
+          <div class="ry-dd-list" role="listbox">
+            <div class="ry-dd-opt" data-v="sermorelin" data-label="Sermorelin"><span class="ry-dd-name">Sermorelin</span><span class="ry-dd-meta">Recovery, sleep</span></div>
+            <div class="ry-dd-opt" data-v="nad" data-label="NAD+"><span class="ry-dd-name">NAD+</span><span class="ry-dd-meta">Cellular energy</span></div>
+            <div class="ry-dd-opt" data-v="glutathione" data-label="Glutathione"><span class="ry-dd-name">Glutathione</span><span class="ry-dd-meta">Antioxidant</span></div>
+            <div class="ry-dd-opt" data-v="pulse-stack" data-label="The Pulse Stack"><span class="ry-dd-name">The Pulse Stack</span><span class="ry-dd-meta">CJC-1295 + Ipamorelin</span></div>
+            <div class="ry-dd-opt" data-v="ghk-cu" data-label="GHK-Cu"><span class="ry-dd-name">GHK-Cu</span><span class="ry-dd-meta">Skin, collagen, hair</span></div>
+            <div class="ry-dd-opt" data-v="mots-c" data-label="MOTS-c"><span class="ry-dd-name">MOTS-c</span><span class="ry-dd-meta">Mitochondrial</span></div>
+            <div class="ry-dd-opt" data-v="wolverine-stack" data-label="The Wolverine Stack"><span class="ry-dd-name">The Wolverine Stack</span><span class="ry-dd-meta">BPC-157 + TB-500</span></div>
+            <div class="ry-dd-opt" data-v="general" data-label="Not sure yet"><span class="ry-dd-name">Not sure yet</span><span class="ry-dd-meta">Notify me about all</span></div>
+          </div>
+        </div>
+        <input type="hidden" name="product" id="wlProductHidden" />
+      </div>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="wl-honey" aria-hidden="true" />
+      <button type="submit" class="wl-btn" id="wlBtn">Reserve early access &rarr;</button>
+    </form>
+
+    <p class="wl-fine" id="wlFine">No credit card. We'll email you when early access opens.</p>
+    <a href="#founders" class="wl-fc-link" id="wlFcLink">Want lifetime locked pricing on GLP-1? Become a Founder &rarr;</a>
+
+  </div>
+</section>
+
+<section class="fc-section" id="founders">
+  <div class="fc-inner">
+    <span class="fc-eyebrow">Founders' Circle &middot; 50 Spots</span>
+    <h2 class="fc-title">Lock your rate. <em>Forever.</em></h2>
+    <p class="fc-intro">50 founders. One-time fee. Lifetime locked pricing on compounded GLP-1 medications &mdash; any strength, any dose.</p>
+
+    <div class="fc-prices">
+      <div class="fc-price-card">
+        <span class="fc-price-label">Tirzepatide</span>
+        <div class="fc-price-amount">$160<span>/mo</span></div>
+        <span class="fc-price-sub">Any strength. Locked for life.</span>
+      </div>
+      <div class="fc-price-card">
+        <span class="fc-price-label">Semaglutide</span>
+        <div class="fc-price-amount">$100<span>/mo</span></div>
+        <span class="fc-price-sub">Any strength. Locked for life.</span>
+      </div>
+    </div>
+
+    <div class="fc-counter-block">
+      <div class="fc-counter-row">
+        <span class="fc-counter-num" id="fcCount">0</span>
+        <span class="fc-counter-of">of 50 spots claimed</span>
+      </div>
+      <div class="fc-bar"><div class="fc-bar-fill" id="fcBarFill" style="width:0%"></div></div>
+    </div>
+
+    <div class="fc-fee">
+      <span class="fc-fee-label">One-time founder fee</span>
+      <div class="fc-fee-amount">$149</div>
+      <p class="fc-fee-note">The $149 founder fee is for Founders' Circle membership and lifetime rate-lock access. It does not pay for medication, consultations, or prescriptions &mdash; all medical services are billed separately if and when you become a patient.</p>
+    </div>
+
+    <button type="button" class="fc-btn" id="fcOpenBtn">Become a Founder &middot; $149</button>
+
+    <div class="fc-fine">
+      <p>If you're determined medically ineligible at intake, you may choose a full refund or keep the locked-rate access for future use. Full refund if Rylo doesn't open by December 31, 2026.</p>
+    </div>
+
+    <p class="fc-compliance">Compounded medications are not FDA-approved. Founders' Circle membership does not constitute a prescription, medical relationship, or guarantee of treatment eligibility. Statements have not been evaluated by the FDA. Individual results vary.</p>
+  </div>
+</section>
+
+<div class="fc-modal-overlay" id="fcModalOverlay" hidden>
+  <div class="fc-modal" role="dialog" aria-labelledby="fcModalTitle" aria-modal="true">
+    <button type="button" class="fc-modal-close" id="fcModalClose" aria-label="Close">&times;</button>
+    <span class="fc-modal-eyebrow">Founders' Circle &middot; 50 Spots</span>
+    <h3 class="fc-modal-title" id="fcModalTitle">Reserve your founder spot.</h3>
+    <p class="fc-modal-intro">Founders' Circle reservations open soon. We'll email you the moment founders' enrollment is live, with 24-hour priority access before the public.</p>
+    <form class="fc-modal-form" id="fcForm">
+      <input type="email" name="email" placeholder="Email address" required class="fc-modal-input" />
+      <input type="text" name="zip" placeholder="ZIP code" required pattern="[0-9]{5}" maxlength="5" inputmode="numeric" class="fc-modal-input" />
+      <div class="ry-dd" id="fcDd">
+        <button type="button" class="ry-dd-trigger empty" aria-haspopup="listbox" aria-expanded="false">Most interested in?</button>
+        <div class="ry-dd-list" role="listbox">
+          <div class="ry-dd-opt" data-v="tirzepatide" data-label="Tirzepatide"><span class="ry-dd-name">Tirzepatide</span></div>
+          <div class="ry-dd-opt" data-v="semaglutide" data-label="Semaglutide"><span class="ry-dd-name">Semaglutide</span></div>
+          <div class="ry-dd-opt" data-v="both" data-label="Both"><span class="ry-dd-name">Both</span></div>
+          <div class="ry-dd-opt" data-v="undecided" data-label="Undecided"><span class="ry-dd-name">Undecided</span></div>
+        </div>
+      </div>
+      <input type="hidden" name="product_interest" id="fcProductHidden" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="wl-honey" aria-hidden="true" />
+      <button type="submit" class="fc-modal-btn" id="fcSubmitBtn">Hold my spot &rarr;</button>
+    </form>
+    <p class="fc-modal-fine" id="fcFine">No payment now. We'll email you the moment Founders' Circle enrollment opens.</p>
+  </div>
+</div>
+
+<section class="wl-trust">
+  <div class="wl-trust-inner">
+    <p class="wl-trust-text">Reviewed by <strong>Dr. Asad K. Niazi, MD, MPH</strong> &mdash; ABIM Internal Medicine, Cedars-Sinai residency &mdash; and <strong>Dr. Abhishek Patel, MD</strong> &mdash; ABPMR Physical Medicine &amp; Rehabilitation, University of Pittsburgh Medical Center.</p>
+    <div class="wl-trust-row">
+      <span class="wl-trust-item">Licensed US providers</span>
+      <span class="wl-trust-item">HIPAA-secure</span>
+      <span class="wl-trust-item">Compounded by US pharmacy</span>
+    </div>
+  </div>
+</section>
+
+<footer class="wl-footer">
+  <p class="wl-footer-text">Rylo Health connects patients with licensed healthcare providers for telehealth consultations. Compounded medications are not FDA-approved. Individual results may vary. &copy; 2026 Rylo Health LLC.</p>
+<div class="footer-legal">
+  <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
+  <p class="legal-trademarks">Mounjaro&reg; and Zepbound&reg; are registered trademarks of Eli Lilly and Company. Ozempic&reg; and Wegovy&reg; are registered trademarks of Novo Nordisk. Rylo Health is not affiliated with, endorsed by, or sponsored by these companies.</p>
+</div>
+<style>
+.footer-legal{max-width:1100px;margin:24px auto 0;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,0.1);text-align:center}
+.legal-disclaimer,.legal-trademarks{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.4);margin:0 0 12px;letter-spacing:0.01em}
+.legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
+</style>
+
+</footer>
+
+<script>
+(function(){
+  const SUPABASE_URL = 'https://vqydeyqxyvwdldtfifju.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_JfGJ90E3Msi8xTcS4IYHRg_fiY5ThdA';
+
+  async function loadCount(){
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/waitlist_count', {
+        method:'POST',
+        headers:{
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          'Content-Type':'application/json'
+        },
+        body:'{}'
+      });
+      if(!res.ok) throw new Error('count');
+      const count = await res.json();
+      const el = document.getElementById('wlNum');
+      if(el) el.textContent = count;
+    }catch(e){console.error('counter', e)}
+  }
+
+  function prefillProduct(){
+    const param = new URLSearchParams(window.location.search).get('product');
+    if(!param) return;
+    const select = document.getElementById('wlProduct');
+    if(select){
+      const opt = select.querySelector('option[value="' + param + '"]');
+      if(opt) select.value = param;
+    }
+  }
+
+  async function submitForm(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    if(data.get('website')) return;
+
+    const fine = document.getElementById('wlFine');
+    const btn = document.getElementById('wlBtn');
+
+    if(!data.get('product')){
+      fine.textContent = 'Pick a product first.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Reserving...';
+
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+        method:'POST',
+        headers:{
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          'Content-Type':'application/json',
+          Prefer:'return=minimal'
+        },
+        body: JSON.stringify({
+          email: data.get('email'),
+          zip_code: data.get('zip'),
+          product_interest: data.get('product')
+        })
+      });
+
+      if(res.ok){
+        form.style.display = 'none';
+        fine.innerHTML = "You're reserved. We'll email you when early access opens.";
+        fine.classList.add('wl-fine-success');
+        loadCount();
+      }else if(res.status === 409){
+        fine.textContent = 'This email is already on the list.';
+        btn.disabled = false;
+        btn.textContent = 'Reserve early access →';
+      }else{
+        throw new Error('signup ' + res.status);
+      }
+    }catch(err){
+      console.error(err);
+      fine.textContent = 'Something went wrong. Try again?';
+      btn.disabled = false;
+      btn.textContent = 'Reserve early access →';
+    }
+  }
+
+  // --- CUSTOM DROPDOWN ---
+  function initDropdown(ddId, hiddenId){
+    const dd = document.getElementById(ddId);
+    if(!dd) return;
+    const trigger = dd.querySelector('.ry-dd-trigger');
+    const opts = dd.querySelectorAll('.ry-dd-opt');
+    const hidden = document.getElementById(hiddenId);
+
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const willOpen = !dd.classList.contains('open');
+      document.querySelectorAll('.ry-dd.open').forEach(function(d){
+        if(d !== dd) d.classList.remove('open');
+      });
+      dd.classList.toggle('open', willOpen);
+      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
+    opts.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        opts.forEach(function(o){o.classList.remove('picked')});
+        opt.classList.add('picked');
+        const label = opt.dataset.label || opt.textContent.trim();
+        trigger.textContent = label;
+        trigger.classList.remove('empty');
+        if(hidden) hidden.value = opt.dataset.v;
+        dd.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.ry-dd')){
+      document.querySelectorAll('.ry-dd.open').forEach(function(d){
+        d.classList.remove('open');
+        const t = d.querySelector('.ry-dd-trigger');
+        if(t) t.setAttribute('aria-expanded','false');
+      });
+    }
+  });
+
+  // --- FOUNDERS' CIRCLE ---
+  const FOUNDERS_CAP = 50;
+
+  async function loadFoundersCount(){
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/founders?select=id', {
+        method:'GET',
+        headers:{
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          Prefer:'count=exact',
+          Range:'0-0'
+        }
+      });
+      if(!res.ok) throw new Error('founders count');
+      const range = res.headers.get('content-range') || '';
+      const match = range.match(/\/(\d+)$/);
+      const count = match ? parseInt(match[1],10) : 0;
+      updateFoundersCounter(count);
+    }catch(e){console.error('founders counter', e)}
+  }
+
+  function updateFoundersCounter(count){
+    const num = document.getElementById('fcCount');
+    const bar = document.getElementById('fcBarFill');
+    if(num) num.textContent = count;
+    if(bar){
+      const pct = Math.min(100, Math.round((count / FOUNDERS_CAP) * 100));
+      bar.style.width = pct + '%';
+    }
+  }
+
+  function openFoundersModal(){
+    const overlay = document.getElementById('fcModalOverlay');
+    if(!overlay) return;
+    overlay.hidden = false;
+    requestAnimationFrame(()=>overlay.setAttribute('data-open','1'));
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFoundersModal(){
+    const overlay = document.getElementById('fcModalOverlay');
+    if(!overlay) return;
+    overlay.removeAttribute('data-open');
+    setTimeout(()=>{overlay.hidden = true},300);
+    document.body.style.overflow = '';
+  }
+
+  async function submitFoundersForm(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    if(data.get('website')) return;
+
+    const fine = document.getElementById('fcFine');
+    const btn = document.getElementById('fcSubmitBtn');
+
+    if(!data.get('product_interest')){
+      fine.textContent = 'Pick a product first.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Reserving...';
+
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/founders', {
+        method:'POST',
+        headers:{
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          'Content-Type':'application/json',
+          Prefer:'return=minimal'
+        },
+        body: JSON.stringify({
+          email: data.get('email'),
+          zip: data.get('zip'),
+          product_interest: data.get('product_interest') || 'undecided'
+        })
+      });
+
+      if(res.ok){
+        form.style.display = 'none';
+        fine.innerHTML = "You're in. We'll email you when Founders' Circle opens for enrollment.";
+        fine.classList.add('fc-modal-fine-success');
+        const num = document.getElementById('fcCount');
+        const current = num ? parseInt(num.textContent || '0', 10) : 0;
+        updateFoundersCounter(current + 1);
+        loadFoundersCount();
+      }else if(res.status === 409){
+        fine.textContent = 'This email is already on the founders list.';
+        btn.disabled = false;
+        btn.textContent = 'Hold my spot →';
+      }else{
+        throw new Error('founders signup ' + res.status);
+      }
+    }catch(err){
+      console.error(err);
+      fine.textContent = 'Something went wrong. Try again?';
+      btn.disabled = false;
+      btn.textContent = 'Hold my spot →';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    initDropdown('wlDd','wlProductHidden');
+    initDropdown('fcDd','fcProductHidden');
+
+    const form = document.getElementById('wlForm');
+    if(form) form.addEventListener('submit', submitForm);
+    loadCount();
+
+    const fcOpenBtn = document.getElementById('fcOpenBtn');
+    if(fcOpenBtn) fcOpenBtn.addEventListener('click', openFoundersModal);
+    const fcModalClose = document.getElementById('fcModalClose');
+    if(fcModalClose) fcModalClose.addEventListener('click', closeFoundersModal);
+    const fcModalOverlay = document.getElementById('fcModalOverlay');
+    if(fcModalOverlay){
+      fcModalOverlay.addEventListener('click', function(e){
+        if(e.target === fcModalOverlay) closeFoundersModal();
+      });
+    }
+    const fcForm = document.getElementById('fcForm');
+    if(fcForm) fcForm.addEventListener('submit', submitFoundersForm);
+    const wlFcLink = document.getElementById('wlFcLink');
+    if(wlFcLink){
+      wlFcLink.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.getElementById('founders');
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeFoundersModal();
+    });
+    loadFoundersCount();
+  });
+})();
+</script>
+
+</body>
+</html>

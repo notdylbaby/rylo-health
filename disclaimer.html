@@ -1,118 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medical Disclaimer — Rylo Health</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f5f4f0; color: #353330; -webkit-font-smoothing: antialiased; }
-    .top-bar {
-      background: #fff; border-bottom: 1px solid rgba(53,51,48,0.08);
-      padding: 18px clamp(1rem,5vw,5rem);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .top-bar a.logo { text-decoration: none; display: flex; align-items: center; }
-    .top-bar img { height: 36px; width: auto; }
-    .top-bar a.back {
-      font-size: 13px; font-weight: 400; color: rgba(53,51,48,0.5);
-      text-decoration: none; transition: color 0.15s ease;
-    }
-    .top-bar a.back:hover { color: #353330; }
-    .page-wrap {
-      max-width: 720px; margin: 60px auto; padding: 0 clamp(1rem,5vw,2rem) 80px;
-    }
-    .page-eyebrow {
-      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.14em;
-      text-transform: uppercase; color: #88B07E; margin-bottom: 14px;
-    }
-    h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 400; letter-spacing: -0.02em;
-      line-height: 1.15; margin-bottom: 12px;
-    }
-    .updated { font-size: 13px; font-weight: 300; color: rgba(53,51,48,0.45); margin-bottom: 40px; }
-    .notice-card {
-      background: #fff;
-      border: 1px solid rgba(53,51,48,0.08);
-      border-radius: 18px;
-      padding: 36px 40px;
-      margin-bottom: 20px;
-    }
-    .notice-card + .notice-card { margin-top: 0; }
-    .notice-card h2 {
-      font-size: 15px; font-weight: 500; color: #353330;
-      margin-bottom: 14px; letter-spacing: -0.01em;
-    }
-    .notice-card p {
-      font-size: 15px; font-weight: 300; line-height: 1.8;
-      color: rgba(53,51,48,0.75); margin-bottom: 14px;
-    }
-    .notice-card p:last-child { margin-bottom: 0; }
-    .notice-card strong { font-weight: 500; color: #353330; }
-    .emergency-card {
-      background: rgba(180,60,60,0.06);
-      border: 1px solid rgba(180,60,60,0.18);
-      border-radius: 14px;
-      padding: 22px 28px;
-      margin-bottom: 20px;
-      display: flex; gap: 14px; align-items: flex-start;
-    }
-    .emergency-card p { font-size: 14px; font-weight: 400; line-height: 1.6; color: #6b2020; }
-    .emergency-card strong { font-weight: 600; }
-    .contact-block {
-      background: rgba(136,176,126,0.08);
-      border: 1px solid rgba(136,176,126,0.2);
-      border-radius: 14px;
-      padding: 24px 28px;
-    }
-    .contact-block p { font-size: 14px; font-weight: 300; line-height: 1.6; color: rgba(53,51,48,0.7); }
-    .contact-block a { color: #5E8A58; font-weight: 500; text-decoration: none; }
-    .contact-block a:hover { text-decoration: underline; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rylo Health · Compounded GLP-1 and wellness peptides, prescribed</title>
+
+<meta name="description" content="Compounded medicine that takes you seriously. GLP-1 therapies and wellness peptides prescribed by your own physician. Tirzepatide, Semaglutide, NAD+, Sermorelin, and more.">
+
+<meta property="og:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta property="og:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician. Continuous care, transparent pricing, cancel anytime.">
+<meta property="og:image" content="https://rylohealth.com/og-image.jpg">
+<meta property="og:url" content="https://rylohealth.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta name="twitter:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician.">
+<meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --oat:#faf7f2;
+  --dark:#1a1a1a;
+  --terracotta:#C4724A;
+  --walnut:#5C4636;
+  --olive:#3F4A39;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+body{
+  font-family:var(--sans);
+  background:var(--oat);
+  color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* NAV */
+.lg-nav{
+  position:relative;
+  z-index:10;
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4vw,48px);
+  border-bottom:1px solid rgba(26,26,26,0.06);
+  background:var(--oat);
+}
+.lg-nav-logo img{height:64px;width:auto;display:block}
+.lg-nav-back{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:rgba(26,26,26,0.55);
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.25s,letter-spacing 0.25s;
+}
+.lg-nav-back:hover{color:var(--dark);letter-spacing:0.04em}
+
+/* HEADER */
+.lg-header{
+  padding:96px clamp(20px,4vw,48px) 56px;
+  text-align:center;
+  border-bottom:1px solid rgba(26,26,26,0.08);
+  position:relative;
+}
+.lg-header::before{
+  content:"";
+  position:absolute;
+  top:64px;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:var(--olive);
+  opacity:0.85;
+}
+.lg-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--olive);
+  margin-bottom:24px;
+  display:block;
+}
+.lg-title{
+  font-family:var(--serif);
+  font-size:clamp(48px,5.6vw,84px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:0.96;
+  letter-spacing:-0.03em;
+  margin:0 0 18px;
+}
+.lg-title em{font-style:italic;color:rgba(26,26,26,0.5);font-weight:400}
+.lg-updated{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:400;
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  margin:0;
+}
+
+/* BODY */
+.lg-body{
+  max-width:680px;
+  margin:0 auto;
+  padding:48px clamp(20px,4vw,48px) 96px;
+  flex:1;
+  width:100%;
+}
+
+/* EMERGENCY CALLOUT */
+.lg-emergency{
+  border-left:4px solid var(--terracotta);
+  background:rgba(196,114,74,0.06);
+  padding:22px 28px;
+  margin-bottom:48px;
+}
+.lg-emergency-label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--terracotta);
+  display:block;
+  margin-bottom:8px;
+}
+.lg-emergency p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:15px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.65;
+  margin:0;
+}
+.lg-emergency strong{font-weight:700}
+
+.lg-section{padding:36px 0;border-top:1px solid rgba(26,26,26,0.10)}
+.lg-section:first-of-type{border-top:none;padding-top:8px}
+.lg-section:last-child{padding-bottom:0}
+.lg-section h2{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.15;
+  letter-spacing:-0.015em;
+  margin:0 0 18px;
+}
+.lg-section p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(26,26,26,0.82);
+  line-height:1.75;
+  margin:0 0 16px;
+}
+.lg-section p:last-child{margin-bottom:0}
+.lg-section strong{font-weight:600;color:var(--dark)}
+.lg-section a{color:var(--olive);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:color 0.2s}
+.lg-section a:hover{color:var(--walnut)}
+
+/* CONTACT */
+.lg-contact{
+  margin-top:48px;
+  padding:28px 32px;
+  border:1px solid rgba(26,26,26,0.10);
+  background:#fff;
+}
+.lg-contact-label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--olive);
+  display:block;
+  margin-bottom:10px;
+}
+.lg-contact p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.65;
+  margin:0;
+}
+.lg-contact a{color:var(--walnut);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(92,70,54,0.3);padding-bottom:1px;transition:border-color 0.2s,color 0.2s}
+.lg-contact a:hover{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* FOOTER */
+.lg-footer{
+  background:var(--dark);
+  padding:48px clamp(20px,4vw,48px) 32px;
+  text-align:center;
+  margin-top:auto;
+}
+.lg-footer-text{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  margin:0;
+  line-height:1.6;
+}
+.footer-legal{max-width:1100px;margin:24px auto 0;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,0.10);text-align:center}
+.legal-disclaimer,.legal-trademarks{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.4);margin:0 0 12px;letter-spacing:0.01em}
+.legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
+
+@media(max-width:560px){
+  .lg-nav{height:64px}
+  .lg-nav-logo img{height:44px}
+  .lg-header{padding:72px 20px 48px}
+  .lg-header::before{top:48px}
+  .lg-body{padding:36px 20px 72px}
+  .lg-emergency{padding:18px 22px;margin-bottom:36px}
+  .lg-section{padding:28px 0}
+  .lg-section h2{font-size:24px}
+  .lg-section p,.lg-emergency p{font-size:15px}
+}
+</style>
 </head>
 <body>
 
-<div class="top-bar">
-  <a href="/" class="logo">
-    <img src="Untitled design.png" alt="Rylo Health" />
-  </a>
-  <a href="/" class="back">← Back to home</a>
-</div>
+<nav class="lg-nav">
+  <a href="/" class="lg-nav-logo"><img src="blackrylologoofficial.png" alt="Rylo Health" /></a>
+  <a href="/" class="lg-nav-back">&larr; Back to home</a>
+</nav>
 
-<div class="page-wrap">
-  <div class="page-eyebrow">Legal</div>
-  <h1>Medical Disclaimer</h1>
-  <p class="updated">Last updated: April 2026</p>
+<header class="lg-header">
+  <span class="lg-eyebrow">Legal &middot; Medical</span>
+  <h1 class="lg-title">Medical <em>disclaimer.</em></h1>
+  <p class="lg-updated">Last updated April 28, 2026</p>
+</header>
 
-  <div class="emergency-card">
-    <p><strong>Emergency Notice:</strong> Rylo Health is not an emergency service. If you are experiencing a medical emergency, call <strong>911</strong> or go to your nearest emergency room immediately.</p>
+<main class="lg-body">
+
+  <div class="lg-emergency">
+    <span class="lg-emergency-label">Emergency notice</span>
+    <p>Rylo Health is not an emergency service. If you are experiencing a medical emergency, call <strong>911</strong> or go to your nearest emergency room immediately.</p>
   </div>
 
-  <div class="notice-card">
-    <h2>Not a substitute for in-person care</h2>
+  <section class="lg-section">
+    <h2>Not a substitute for in-person care.</h2>
     <p>The information provided on this website and through the Rylo Health platform is for informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before starting, changing, or stopping any treatment.</p>
-    <p>Telehealth consultations facilitated through Rylo Health are conducted by independent licensed healthcare providers. The provider-patient relationship is established at the time of your consultation, not when you submit your intake form.</p>
-  </div>
+    <p>Telehealth consultations facilitated through Rylo Health are conducted by independent licensed healthcare providers. The provider-patient relationship is established at the time of your consultation, not when you submit your intake information.</p>
+  </section>
 
-  <div class="notice-card">
-    <h2>Compounded medications</h2>
+  <section class="lg-section">
+    <h2>Compounded medications.</h2>
     <p>Medications dispensed through Rylo Health's pharmacy partners are <strong>compounded medications</strong> and are not FDA-approved drug products. Compounding is legal and regulated under federal and state pharmacy law, but compounded drugs have not undergone FDA review for safety, efficacy, or manufacturing quality.</p>
-    <p>Individual results vary. Clinical statistics referenced on this website are sourced from published trials of FDA-approved branded formulations and cannot be directly extrapolated to compounded equivalents.</p>
-  </div>
+    <p>Individual results vary. Clinical statistics referenced on this website are sourced from published trials of branded formulations and cannot be directly extrapolated to compounded equivalents. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease.</p>
+  </section>
 
-  <div class="notice-card">
-    <h2>HSA / FSA eligibility</h2>
+  <section class="lg-section">
+    <h2>HSA &amp; FSA eligibility.</h2>
     <p>Eligibility of Rylo Health services and medications for reimbursement through Health Savings Accounts (HSA) or Flexible Spending Accounts (FSA) depends on your specific plan. We recommend confirming with your plan administrator. Rylo Health does not guarantee HSA/FSA reimbursement.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Founders' Circle.</h2>
+    <p>The Founders' Circle membership fee is for community membership and lifetime rate-lock access only. It does not pay for medication, consultations, or prescriptions. All medical services are billed separately if and when you become a patient. Founders' Circle membership does not constitute a prescription, medical relationship, or guarantee of treatment eligibility.</p>
+  </section>
+
+  <div class="lg-contact">
+    <span class="lg-contact-label">Questions about your treatment</span>
+    <p>Message your provider through your patient portal once enrolled, or contact <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a>.</p>
   </div>
 
-  <div class="contact-block">
-    <p>Questions about your treatment or health? Message your provider through your patient portal, or contact our support team at <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a>.</p>
+</main>
+
+<footer class="lg-footer">
+  <p class="lg-footer-text">Rylo Health connects patients with licensed healthcare providers for telehealth consultations. Compounded medications are not FDA-approved. Individual results may vary. &copy; 2026 Rylo Health LLC.</p>
+  <div class="footer-legal">
+    <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
+    <p class="legal-trademarks">Mounjaro&reg; and Zepbound&reg; are registered trademarks of Eli Lilly and Company. Ozempic&reg; and Wegovy&reg; are registered trademarks of Novo Nordisk. Rylo Health is not affiliated with, endorsed by, or sponsored by these companies.</p>
   </div>
-</div>
+</footer>
 
 </body>
 </html>

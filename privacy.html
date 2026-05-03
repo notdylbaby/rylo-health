@@ -1,93 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rylo Health · Compounded GLP-1 and wellness peptides, prescribed</title>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Rylo Health</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f5f4f0; color: #353330; -webkit-font-smoothing: antialiased; }
-    .top-bar {
-      background: #fff; border-bottom: 1px solid rgba(53,51,48,0.08);
-      padding: 18px clamp(1rem,5vw,5rem);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .top-bar a.logo { text-decoration: none; display: flex; align-items: center; }
-    .top-bar img { height: 36px; width: auto; }
-    .top-bar a.back {
-      font-size: 13px; font-weight: 400; color: rgba(53,51,48,0.5);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    .top-bar a.back:hover { color: #353330; }
-    .page-wrap {
-      max-width: 720px; margin: 60px auto; padding: 0 clamp(1rem,5vw,2rem) 80px;
-    }
-    .page-eyebrow {
-      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.14em;
-      text-transform: uppercase; color: #88B07E; margin-bottom: 14px;
-    }
-    h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 400; letter-spacing: -0.02em;
-      line-height: 1.15; margin-bottom: 12px;
-    }
-    .updated { font-size: 13px; font-weight: 300; color: rgba(53,51,48,0.45); margin-bottom: 40px; }
-    .notice-card {
-      background: #fff;
-      border: 1px solid rgba(53,51,48,0.08);
-      border-radius: 18px;
-      padding: 36px 40px;
-      margin-bottom: 32px;
-    }
-    .notice-card p {
-      font-size: 15px; font-weight: 300; line-height: 1.8;
-      color: rgba(53,51,48,0.75); margin-bottom: 16px;
-    }
-    .notice-card p:last-child { margin-bottom: 0; }
-    .notice-card strong { font-weight: 500; color: #353330; }
-    .contact-block {
-      background: rgba(136,176,126,0.08);
-      border: 1px solid rgba(136,176,126,0.2);
-      border-radius: 14px;
-      padding: 24px 28px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .contact-block p { font-size: 14px; font-weight: 300; line-height: 1.6; color: rgba(53,51,48,0.7); }
-    .contact-block a { color: #5E8A58; font-weight: 500; text-decoration: none; }
-    .contact-block a:hover { text-decoration: underline; }
-  </style>
+<meta name="description" content="Compounded medicine that takes you seriously. GLP-1 therapies and wellness peptides prescribed by your own physician. Tirzepatide, Semaglutide, NAD+, Sermorelin, and more.">
+
+<meta property="og:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta property="og:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician. Continuous care, transparent pricing, cancel anytime.">
+<meta property="og:image" content="https://rylohealth.com/og-image.jpg">
+<meta property="og:url" content="https://rylohealth.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta name="twitter:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician.">
+<meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --oat:#faf7f2;
+  --dark:#1a1a1a;
+  --terracotta:#C4724A;
+  --walnut:#5C4636;
+  --olive:#3F4A39;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+body{
+  font-family:var(--sans);
+  background:var(--oat);
+  color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* NAV */
+.lg-nav{
+  position:relative;
+  z-index:10;
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4vw,48px);
+  border-bottom:1px solid rgba(26,26,26,0.06);
+  background:var(--oat);
+}
+.lg-nav-logo img{height:64px;width:auto;display:block}
+.lg-nav-back{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:rgba(26,26,26,0.55);
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.25s,letter-spacing 0.25s;
+}
+.lg-nav-back:hover{color:var(--dark);letter-spacing:0.04em}
+
+/* HEADER */
+.lg-header{
+  padding:96px clamp(20px,4vw,48px) 56px;
+  text-align:center;
+  border-bottom:1px solid rgba(26,26,26,0.08);
+  position:relative;
+}
+.lg-header::before{
+  content:"";
+  position:absolute;
+  top:64px;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:var(--olive);
+  opacity:0.85;
+}
+.lg-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--olive);
+  margin-bottom:24px;
+  display:block;
+}
+.lg-title{
+  font-family:var(--serif);
+  font-size:clamp(48px,5.6vw,84px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:0.96;
+  letter-spacing:-0.03em;
+  margin:0 0 18px;
+}
+.lg-title em{font-style:italic;color:rgba(26,26,26,0.5);font-weight:400}
+.lg-updated{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:400;
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  margin:0;
+}
+
+/* BODY */
+.lg-body{
+  max-width:680px;
+  margin:0 auto;
+  padding:64px clamp(20px,4vw,48px) 96px;
+  flex:1;
+  width:100%;
+}
+.lg-section{padding:36px 0;border-top:1px solid rgba(26,26,26,0.10)}
+.lg-section:first-child{border-top:none;padding-top:0}
+.lg-section:last-child{padding-bottom:0}
+.lg-section h2{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.15;
+  letter-spacing:-0.015em;
+  margin:0 0 18px;
+}
+.lg-section p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(26,26,26,0.82);
+  line-height:1.75;
+  margin:0 0 16px;
+}
+.lg-section p:last-child{margin-bottom:0}
+.lg-section strong{font-weight:600;color:var(--dark)}
+.lg-section a{color:var(--olive);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:color 0.2s}
+.lg-section a:hover{color:var(--walnut)}
+
+/* HIGHLIGHT (e.g. "we do not sell your data") */
+.lg-highlight{
+  border-left:3px solid var(--walnut);
+  padding:18px 24px;
+  margin:24px 0;
+  background:rgba(92,70,54,0.04);
+}
+.lg-highlight p{
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.55;
+  letter-spacing:-0.005em;
+  margin:0;
+}
+.lg-highlight em{font-style:italic;color:var(--walnut)}
+
+/* CONTACT */
+.lg-contact{
+  margin-top:48px;
+  padding:28px 32px;
+  border:1px solid rgba(26,26,26,0.10);
+  background:#fff;
+}
+.lg-contact-label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--olive);
+  display:block;
+  margin-bottom:10px;
+}
+.lg-contact p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.65;
+  margin:0;
+}
+.lg-contact a{color:var(--walnut);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(92,70,54,0.3);padding-bottom:1px;transition:border-color 0.2s,color 0.2s}
+.lg-contact a:hover{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* FOOTER */
+.lg-footer{
+  background:var(--dark);
+  padding:48px clamp(20px,4vw,48px) 32px;
+  text-align:center;
+  margin-top:auto;
+}
+.lg-footer-text{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  margin:0;
+  line-height:1.6;
+}
+.footer-legal{max-width:1100px;margin:24px auto 0;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,0.10);text-align:center}
+.legal-disclaimer,.legal-trademarks{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.4);margin:0 0 12px;letter-spacing:0.01em}
+.legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
+
+@media(max-width:560px){
+  .lg-nav{height:64px}
+  .lg-nav-logo img{height:44px}
+  .lg-header{padding:72px 20px 48px}
+  .lg-header::before{top:48px}
+  .lg-body{padding:48px 20px 72px}
+  .lg-section{padding:28px 0}
+  .lg-section h2{font-size:24px}
+  .lg-section p{font-size:15px}
+  .lg-highlight p{font-size:17px}
+}
+</style>
 </head>
 <body>
 
-<div class="top-bar">
-  <a href="/" class="logo">
-    <img src="Untitled design.png" alt="Rylo Health" />
-  </a>
-  <a href="/" class="back">← Back to home</a>
-</div>
+<nav class="lg-nav">
+  <a href="/" class="lg-nav-logo"><img src="blackrylologoofficial.png" alt="Rylo Health" /></a>
+  <a href="/" class="lg-nav-back">&larr; Back to home</a>
+</nav>
 
-<div class="page-wrap">
-  <div class="page-eyebrow">Legal</div>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: April 2026 — Full policy being finalized</p>
+<header class="lg-header">
+  <span class="lg-eyebrow">Legal &middot; Privacy</span>
+  <h1 class="lg-title">Privacy <em>policy.</em></h1>
+  <p class="lg-updated">Last updated April 28, 2026 &middot; Full policy being finalized</p>
+</header>
 
-  <div class="notice-card">
+<main class="lg-body">
+
+  <section class="lg-section">
+    <h2>Your information, in our care.</h2>
     <p>Rylo Health is committed to protecting your privacy and handling your personal and health information with the highest standard of care. We comply with the <strong>Health Insurance Portability and Accountability Act (HIPAA)</strong> and all applicable federal and state privacy laws.</p>
     <p>Our full Privacy Policy is currently being finalized by our legal team. It will cover how we collect, use, store, and protect your personal information, including how we share data with licensed providers, compounding pharmacies, and third-party service providers under appropriate Business Associate Agreements.</p>
-    <p>In the meantime, we want you to know: <strong>we do not sell your data.</strong> Your health information is used solely to provide you with medical care through our platform.</p>
+
+    <div class="lg-highlight">
+      <p>We do <em>not</em> sell your data. Your health information is used solely to provide you with medical care through our platform.</p>
+    </div>
+  </section>
+
+  <section class="lg-section">
+    <h2>What we collect.</h2>
+    <p>When you reserve early access or join the Founders' Circle, we collect basic contact information &mdash; your email address, ZIP code, and product interest. If you become a patient at launch, we will collect additional medical and identity information necessary to provide care, in accordance with HIPAA.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>How we use it.</h2>
+    <p>Your information is used to (1) notify you when Rylo Health opens for enrollment, (2) connect you with licensed healthcare providers if you become a patient, (3) coordinate prescription fulfillment with licensed compounding pharmacies, and (4) communicate with you about your care.</p>
+    <p>We do not share your information with advertisers, data brokers, or any third party for marketing purposes.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Your rights.</h2>
+    <p>You may request access to, correction of, or deletion of your personal information at any time by contacting us. Patients in California, Virginia, Colorado, and other states with applicable privacy laws have additional rights under those statutes, which we will honor.</p>
+  </section>
+
+  <div class="lg-contact">
+    <span class="lg-contact-label">Questions or concerns</span>
+    <p>Email <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a> &mdash; we'll respond within one business day.</p>
   </div>
 
-  <div class="contact-block">
-    <p>Have a privacy question or concern? Contact us at <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a> — we'll respond within 1 business day.</p>
+</main>
+
+<footer class="lg-footer">
+  <p class="lg-footer-text">Rylo Health connects patients with licensed healthcare providers for telehealth consultations. Compounded medications are not FDA-approved. Individual results may vary. &copy; 2026 Rylo Health LLC.</p>
+  <div class="footer-legal">
+    <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
+    <p class="legal-trademarks">Mounjaro&reg; and Zepbound&reg; are registered trademarks of Eli Lilly and Company. Ozempic&reg; and Wegovy&reg; are registered trademarks of Novo Nordisk. Rylo Health is not affiliated with, endorsed by, or sponsored by these companies.</p>
   </div>
-</div>
+</footer>
 
 </body>
 </html>
