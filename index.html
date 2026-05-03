@@ -6,10 +6,23 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rylo Health — Weight Loss Tailored to You</title>
+  <title>Rylo Health · Compounded GLP-1 and wellness peptides, prescribed</title>
+
+  <meta name="description" content="Compounded medicine that takes you seriously. GLP-1 therapies and wellness peptides prescribed by your own physician. Tirzepatide, Semaglutide, NAD+, Sermorelin, and more.">
+
+  <meta property="og:title" content="Rylo Health · Compounded medicine that takes you seriously">
+  <meta property="og:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician. Continuous care, transparent pricing, cancel anytime.">
+  <meta property="og:image" content="https://rylohealth.com/og-image.jpg">
+  <meta property="og:url" content="https://rylohealth.com">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rylo Health · Compounded medicine that takes you seriously">
+  <meta name="twitter:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician.">
+  <meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -240,7 +253,7 @@
 
     .btn-green-bright:hover { box-shadow: 0 4px 20px rgba(196,181,253,0.42); }
 
-    .btn-hero-start{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;}.btn-hero-start:hover{background:var(--clay,#7AADC5);color:#fff;transform:translateY(-2px)}.btn-hero-start:active{transform:translateY(0)}
+    .btn-hero-start{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;}.btn-hero-start:hover{background:#0C1C2E;color:#fff;transform:translateY(-2px)}.btn-hero-start:active{transform:translateY(0)}
 
     
 
@@ -329,43 +342,61 @@
       color: rgba(255,255,255,0.75);
     }
 
+    /* ─── HERO EYEBROW ─── */
+    .hero-eyebrow {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.75);
+      margin: 0 0 22px;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+    }
+
     /* ─── HERO HEADLINE LINES ─── */
     .hero-line1 {
       display: block;
       font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-      font-size: clamp(4rem, 8vw, 9rem);
-      font-weight: 600;
-      line-height: 1.0;
+      font-size: clamp(56px, 7vw, 96px);
+      font-weight: 500;
+      line-height: 0.95;
       letter-spacing: -0.03em;
       color: #fff;
-      text-shadow: 0 4px 48px rgba(0,0,0,0.3);
+      text-shadow: 0 4px 48px rgba(0, 0, 0, 0.45), 0 2px 12px rgba(0, 0, 0, 0.3);
     }
 
     .hero-line2 {
       display: block;
       font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-      font-size: clamp(2.6rem, 5.5vw, 6.2rem);
+      font-size: clamp(56px, 7vw, 96px);
       font-weight: 400;
       font-style: italic;
-      line-height: 1.1;
-      color: rgba(255,255,255,0.78);
+      line-height: 0.95;
+      color: rgba(255, 255, 255, 0.85);
       margin-top: 4px;
-      text-shadow: 0 4px 48px rgba(0,0,0,0.25);
+      text-shadow: 0 4px 48px rgba(0, 0, 0, 0.4), 0 2px 12px rgba(0, 0, 0, 0.25);
     }
 
     .hero-sub {
-      font-family: var(--font);
-      font-size: clamp(14px, 1.4vw, 18px);
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 17px;
       font-weight: 400;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.75;
-      max-width: 460px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+      max-width: 540px;
       margin: 28px 0 40px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
     }
     .hero-sub strong {
       color: #fff;
       font-weight: 600;
+    }
+
+    @media (max-width: 720px) {
+      .hero-eyebrow { font-size: 11px; }
+      .hero-sub { font-size: 15px; }
     }
 
     .hero-cta-wrap {
@@ -392,23 +423,59 @@
     .hero-cta-secondary:hover {
       color: rgba(255,255,255,0.9);
     }
+
     .hero-trust-row {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
       gap: 0;
-      margin-top: 32px;
+      margin: 0;
+      padding: 0 24px;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1s both;
     }
     .hero-trust-row span {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 450;
-      color: rgba(255,255,255,0.55);
-      letter-spacing: 0.02em;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      letter-spacing: inherit;
     }
     .hero-trust-row span + span::before {
-      content: '\00B7';
-      margin: 0 12px;
-      color: rgba(255,255,255,0.3);
+      content: "·";
+      margin: 0 14px;
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: 400;
+    }
+    @media (max-width: 768px) {
+      .hero-trust-row {
+        position: static;
+        bottom: auto;
+        margin: 24px 0 0;
+        padding: 0;
+        font-size: 11px;
+        flex-wrap: wrap;
+        line-height: 1.7;
+        align-self: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+      }
+      .hero-trust-row span + span::before {
+        margin: 0 10px;
+      }
     }
 
     /* ─── PRODUCTS SECTION ─── */
@@ -1229,28 +1296,18 @@
 
     .faq-heading {
       text-align: center;
-      margin-bottom: 36px;
-    }
-
-    .faq-heading-sans {
-      display: block;
-      font-family: var(--font);
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      margin: 0 auto 48px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(36px, 4.4vw, 56px);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 0.98;
       color: var(--charcoal);
-      line-height: 1.1;
     }
-
-    .faq-heading-serif {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
+    .faq-heading em {
       font-style: italic;
       font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--sage);
-      line-height: 1.15;
+      color: rgba(26,26,26,0.5);
     }
 
     .faq-list {
@@ -1702,39 +1759,120 @@
     .ts-mobile-stack { display: none; }
 
 
-    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 72px 64px 40px; }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 64px;
+    .site-footer { background: #1a1a1a; color: rgba(255,255,255,0.7); position: relative; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 96px 48px 32px; position: relative; }
+
+    /* Editorial hero moment */
+    .footer-hero {
+      margin-bottom: 64px;
       padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .footer-brand img { height: 48px; width: auto; opacity: 0.75; margin-bottom: 16px; display: block; }
-    .footer-brand .footer-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.22); margin-bottom: 12px; display: block; }
-    .footer-brand p { font-size: 12px; line-height: 1.8; font-weight: 400; color: rgba(255,255,255,0.28); max-width: 260px; }
-    .footer-col-title { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.22); margin-bottom: 18px; }
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.42); text-decoration: none; font-weight: 400; transition: color 0.2s ease; letter-spacing: 0.01em; }
-    .footer-links a:hover { color: rgba(255,255,255,0.9); }
-    .footer-links span { font-size: 12px; color: rgba(255,255,255,0.22); font-weight: 400; letter-spacing: 0.01em; }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 4px; }
-    .footer-bottom p { font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.02em; }
-    .footer-bottom-links { display: flex; gap: 24px; flex-wrap: wrap; }
-    .footer-bottom-links a { font-size: 10px; color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s ease; }
-    .footer-bottom-links a:hover { color: rgba(255,255,255,0.55); }
-    .footer-disclaimer { font-size: 10px; color: rgba(255,255,255,0.14); margin-top: 16px; line-height: 1.7; max-width: 720px; }
+    .footer-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(165, 180, 145, 0.85);
+      display: block;
+      margin-bottom: 22px;
+    }
+    .footer-statement {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.025em;
+      color: rgba(255,255,255,0.92);
+      margin: 0;
+      max-width: 880px;
+    }
+    .footer-statement em {
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Grid: brand · protocols · legal */
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 64px;
+      margin-bottom: 56px;
+    }
+    .footer-col-brand .footer-logo { display: inline-block; margin-bottom: 22px; }
+    .footer-col-brand .footer-logo img { height: 56px; width: auto; opacity: 0.85; display: block; }
+    .footer-blurb {
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      font-size: 14px; font-weight: 400; line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      max-width: 340px; margin: 0 0 24px;
+    }
+    .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+    .footer-contact a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease, letter-spacing 0.2s ease;
+    }
+    .footer-contact a:hover { color: rgba(255,255,255,1); letter-spacing: 0.02em; }
+
+    .footer-col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(165, 180, 145, 0.85);
+      margin-bottom: 22px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; }
+    .footer-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,1); }
+
+    /* Bottom bar */
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.04em;
+    }
+    .footer-signature {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.01em;
+    }
+
     @media (max-width: 768px) {
-      .footer-inner { padding: 48px 24px 40px; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; margin-bottom: 24px; }
-      .footer-brand { grid-column: 1 / -1; }
-      .footer-brand img { height: 40px; }
-      .footer-brand p { max-width: 100%; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .footer-bottom-links { gap: 16px; }
+      .footer-inner { padding: 64px 24px 24px; }
+      .footer-hero { margin-bottom: 44px; padding-bottom: 32px; }
+      .footer-statement { font-size: clamp(30px, 7vw, 44px); }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 36px; }
+      .footer-col-brand .footer-logo img { height: 48px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 22px; }
     }
-    @media (max-width: 900px) and (min-width: 769px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
+    @media (max-width: 900px) and (min-width: 769px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-col-brand { grid-column: 1 / -1; }
+    }
 
     /* ─── MODAL ─── */
     .modal-overlay {
@@ -1978,6 +2116,7 @@
     }
 
     /* Hero text entrance */
+    .hero-eyebrow { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0s both; }
     .hero-line1 { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0s both; }
     .hero-line2 { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.15s both; }
     .hero-sub   { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.3s both; }
@@ -2266,7 +2405,6 @@
       .hero-cta-wrap { width: 100%; margin-top: 24px; }
       .btn-hero-start { display: none !important; }
       .hero-cta-secondary { display: none !important; }
-      .hero-trust-row { display: none !important; }
       .hero-fine-mobile { display: none !important; }
       /* Eligibility pill CTA */
       .hero-eligibility-pill {
@@ -2438,29 +2576,29 @@
         padding: 0;
       }
       .hrw-mobile-head {
-        padding: 64px 24px 40px;
+        padding: 56px 24px 32px;
         text-align: center;
       }
       .hrw-mobile-logo {
-        display: block; margin: 0 auto 20px;
-        height: 56px; width: auto; opacity: 0.85;
+        display: block; margin: 0 auto 18px;
+        height: 48px; width: auto; opacity: 0.85;
       }
       .hrw-mobile-eyebrow { display: none; }
       .hrw-mobile-title {
         font-family: 'Cormorant Garamond', Georgia, serif;
         font-size: 44px; font-weight: 400; font-style: italic;
         color: #1a1a1a; line-height: 1.05;
-        letter-spacing: -0.02em; margin-bottom: 14px;
+        letter-spacing: -0.02em; margin-bottom: 12px;
       }
       .hrw-mobile-sub {
         font-family: 'Inter', sans-serif;
         font-size: 13px; color: rgba(26,26,26,0.68);
-        line-height: 1.7; max-width: 260px; margin: 0 auto;
+        line-height: 1.6; max-width: 300px; margin: 0 auto;
       }
       /* Scroll steps container */
       .hrw-mobile-body {
         display: flex;
-        padding: 0 24px 80px 0;
+        padding: 0 24px 32px 0;
         position: relative;
       }
       /* Left progress track */
@@ -2575,7 +2713,7 @@
       }
       .hrw-mobile-cta {
         display: block !important;
-        margin: 40px 24px 56px;
+        margin: 24px 24px 48px;
         padding: 16px 32px;
         background: #1a1a1a !important;
         color: #fff !important;
@@ -3006,8 +3144,8 @@
         <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$129<span>/mo</span></div></a>
         <span class="rn-dd-category">Wellness</span>
         <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Recovery &amp; vitality</div></div><div class="rn-dd-price">$159<span>/mo</span></div></a>
-        <a href="nad-product.html" class="rn-dd-item" data-product="nad"><div class="rn-dd-body"><div class="rn-dd-name">NAD+</div><div class="rn-dd-desc">Cellular energy &middot; Anti-aging support</div></div><div class="rn-dd-price">$139<span>/mo</span></div></a>
-        <a href="glutathione-product.html" class="rn-dd-item" data-product="glut"><div class="rn-dd-body"><div class="rn-dd-name">Glutathione</div><div class="rn-dd-desc">Antioxidant &middot; Detox &amp; immune support</div></div><div class="rn-dd-price">$89<span>/mo</span></div></a>
+        <a href="nad-product.html" class="rn-dd-item" data-product="nad"><div class="rn-dd-body"><div class="rn-dd-name">NAD+</div><div class="rn-dd-desc">Cellular energy &middot; Metabolic support</div></div><div class="rn-dd-price">$139<span>/mo</span></div></a>
+        <a href="glutathione-product.html" class="rn-dd-item" data-product="glut"><div class="rn-dd-body"><div class="rn-dd-name">Glutathione</div><div class="rn-dd-desc">Antioxidant &middot; Immune &amp; skin wellness</div></div><div class="rn-dd-price">$89<span>/mo</span></div></a>
       </div>
     </li>
     <li><a href="#how-it-works" class="rn-link">How It Works</a></li>
@@ -3015,7 +3153,7 @@
   </ul>
   <div class="rn-right">
     <a href="#" onclick="return false;" class="rn-ghost">Log in</a>
-    <a href="intake.html" class="rn-cta">Check my eligibility →</a>
+    <a href="waitlist.html" class="rn-cta">Reserve your spot →</a>
   </div>
   <!-- Mobile hamburger (hidden on desktop via CSS) -->
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
@@ -3040,7 +3178,7 @@
   <div class="rn-menu-panel" id="rnMenuMain">
     <div class="rn-menu-topbar">
       <a href="#" onclick="return false;" class="rn-menu-login">Log in</a>
-      <a href="intake.html" class="rn-menu-getstarted">Get started →</a>
+      <a href="waitlist.html" class="rn-menu-getstarted">Get started →</a>
     </div>
     <div class="rn-menu-divider"></div>
     <button class="rn-menu-row" id="rnOpenWeightLoss" aria-label="Weight Loss">
@@ -3102,28 +3240,28 @@
   <div class="hero">
     <div class="hero-content">
       <h1>
-        <span class="hero-line1 fade-in" style="transition-delay:0s">Prescription weight loss.</span>
-        <span class="hero-line2 fade-in" style="transition-delay:0.15s"><em>The way it should be.</em></span>
+        <span class="hero-line1 fade-in" style="transition-delay:0s">Compounded medicine</span>
+        <span class="hero-line2 fade-in" style="transition-delay:0.15s"><em>that takes you seriously.</em></span>
       </h1>
-      <p class="hero-sub fade-in" style="transition-delay:0.3s">Real medication. Real providers. Starting at $89 per month.</p>
+      <p class="hero-sub fade-in" style="transition-delay:0.3s">GLP-1 therapies and wellness peptides, prescribed by your own physician. Not a chatbot.</p>
       <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
         <div class="hero-cta-row">
-          <a href="intake.html" class="btn-hero-start">Check my eligibility →</a>
-          <a href="#how-it-works" class="hero-cta-secondary">See how it works</a>
-        </div>
-        <div class="hero-trust-row">
-          <span>Licensed US providers</span>
-          <span>Same-day review</span>
-          <span>Delivered within days</span>
-          <span>FSA / HSA eligible</span>
+          <a href="waitlist.html" class="btn-hero-start">Become a Founder</a>
+          <a href="#how-it-works" class="hero-cta-secondary">See protocols</a>
         </div>
       </div>
       <div class="hero-eligibility-pill fade-in" style="transition-delay:0.45s">
-        <a href="intake.html">
-          <span>Check my eligibility</span>
+        <a href="waitlist.html">
+          <span>Become a Founder</span>
           <span class="hero-eligibility-pill-arrow">→</span>
         </a>
       </div>
+    </div>
+    <div class="hero-trust-row">
+      <span>Licensed US providers</span>
+      <span>Same-day review</span>
+      <span>Delivered within days</span>
+      <span>Cancel anytime</span>
     </div>
   </div>
 </div>
@@ -3168,875 +3306,932 @@
 
 
 
-<!-- ─── PRODUCTS SECTION — DESKTOP ─── -->
-<section class="products-section animate-in" id="treatments">
-<style>
-  .products-section {
-    background: linear-gradient(160deg, #faf7f2 0%, rgba(181,201,160,0.07) 40%, #faf7f2 70%, rgba(232,223,202,0.08) 100%);
-    padding: 48px 0 0;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-  }
+<!-- ─── TREATMENTS — bento ─── -->
+<section class="treatments" id="treatments">
+  <div class="treatments-inner">
 
-  .prod-header {
-    padding: 0 64px;
-    margin-bottom: 56px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
+    <header class="trt-head">
+      <h2 class="trt-title">For the <em>long game.</em></h2>
+    </header>
 
-  .prod-eyebrow {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #C4724A;
-    margin-bottom: 14px;
-    font-family: var(--font);
-  }
-
-  .prod-title {
-    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-    font-size: clamp(52px, 6vw, 88px);
-    font-weight:400;
-    color: #1a1a1a;
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-  }
-
-  .prod-title em {
-    font-style: italic;
-    color: #888;
-  }
-
-  .prod-header-note {
-    font-size: 15px;
-    font-weight: 500;
-    color: #666;
-    line-height: 1.8;
-    text-align: right;
-    padding-bottom: 8px;
-    font-family: var(--font);
-  }
-
-  .prod-grid-top {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px;
-    margin-bottom: 4px;
-    width: 100%;
-  }
-
-  .prod-grid-bottom {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
-    width: 100%;
-  }
-
-  .prod-card {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .prod-card.tall { height: 380px; }
-  .prod-card.short { height: 380px; }
-
-  .prod-card-photo {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.7s cubic-bezier(0.22,1,0.36,1), filter 0.7s ease;
-    filter: saturate(0.85) brightness(0.9);
-  }
-
-  .prod-card:hover .prod-card-photo {
-    transform: scale(1.04);
-    filter: saturate(1) brightness(1.05);
-  }
-
-  .prod-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(10,10,10,0.82) 0%,
-      rgba(10,10,10,0.38) 40%,
-      rgba(10,10,10,0.04) 70%,
-      transparent 100%
-    );
-    transition: opacity 0.7s ease;
-  }
-
-  .prod-card:hover .prod-card-overlay {
-    opacity: 0.75;
-  }
-
-  .prod-card {
-    transition: box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
-  }
-
-  .prod-card:hover {
-    box-shadow: 0 0 40px rgba(184,148,95,0.25), 0 8px 32px rgba(0,0,0,0.18);
-  }
-
-  .prod-card-meta {
-    position: absolute;
-    top: 28px;
-    left: 32px;
-    right: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 3;
-  }
-
-  .prod-tag {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
-  }
-
-  .prod-badge {
-    background: #B8945F;
-    border: none;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 5px 13px;
-    border-radius: 0;
-    font-family: var(--font);
-  }
-
-  .prod-stock {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 500;
-    color: #fff;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 4px 10px;
-  }
-
-  .prod-stock-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #7AE68C;
-    flex-shrink: 0;
-    box-shadow: 0 0 6px rgba(122,230,140,0.8);
-    animation: prod-pulse 2.5s ease infinite;
-  }
-
-  @keyframes prod-pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-
-  .prod-card-content {
-    position: absolute;
-    inset: 0;
-    padding: 32px 24px 24px 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    z-index: 2;
-  }
-
-  .prod-name {
-    font-family: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
-    font-weight:400;
-    color: #fff;
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    margin-bottom: 10px;
-  }
-
-  .prod-name.xl { font-size: clamp(44px, 5vw, 68px); }
-  .prod-name.md { font-size: clamp(32px, 3.5vw, 48px); }
-
-  .prod-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.65;
-    margin-bottom: 24px;
-    max-width: 400px;
-    font-family: var(--font);
-  }
-
-  .prod-card-footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .prod-price {
-    font-family: var(--font);
-    font-weight:400;
-    color: #fff;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  .prod-price.xl { font-size: 40px; }
-  .prod-price.md { font-size: 28px; }
-
-  .prod-price-mo {
-    font-family: var(--font);
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    font-weight: 400;
-  }
-
-  .prod-save {
-    font-size: 13px;
-    color: rgba(255,255,255,0.85);
-    margin-top: 5px;
-    font-family: var(--font);
-  }
-  .prod-save strong {
-    color: #B8945F;
-    font-weight: 600;
-  }
-
-  .prod-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:12px 28px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:all 0.3s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
-
-  .prod-btn.solid{background:#fff;color:#1a1a1a;border:none}
-
-  .prod-btn.solid:hover{background:#1a1a1a;color:#fff}
-
-  .prod-btn.ghost{background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.3)}
-
-  .prod-btn.ghost:hover{background:#fff;color:#1a1a1a;border-color:#fff}
-
-  .prod-divider {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 56px 64px 20px;
-  }
-
-  .prod-divider-text {
-    font-size: 38px;
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: -0.01em;
-    text-transform: none;
-    color: #2d2420;
-    white-space: nowrap;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-  }
-
-  .prod-divider-line {
-    flex: 1;
-    height: 1px;
-    background: rgba(0,0,0,0.08);
-  }
-
-  .prod-footnote {
-    text-align: center;
-    padding: 40px 64px 0;
-    font-size: 13px;
-    color: #999;
-    line-height: 1.8;
-    font-family: var(--font);
-  }
-
-  @media (max-width: 900px) {
-    .prod-grid-top { grid-template-columns: 1fr; }
-    .prod-grid-bottom { grid-template-columns: 1fr; }
-    .prod-card.tall { height: 480px; }
-    .prod-card.short { height: 320px; }
-    .prod-header { padding: 0 24px; flex-direction: column; gap: 16px; }
-    .prod-header-note { text-align: left; }
-    .prod-divider { padding: 24px 24px 0; }
-    .prod-footnote { padding: 32px 24px 0; }
-  }
-
-  @media (max-width: 768px) {
-    /* Grid */
-    .prod-grid-top, .prod-grid-bottom { grid-template-columns: 1fr; gap: 2px; margin-bottom: 2px; }
-
-    /* Card shell */
-    .prod-card.tall, .prod-card.short {
-      height: 340px; min-height: 340px;
-      position: relative; width: 100%; overflow: hidden; border-radius: 0;
-    }
-
-    /* Gradient — lighter, cinematic */
-    .prod-card-overlay {
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.75) 0%,
-        rgba(0,0,0,0.3) 40%,
-        rgba(0,0,0,0.05) 70%
-      ) !important;
-    }
-
-    /* Badges — top strip */
-    .prod-card-meta { top: 16px; left: 20px; right: 20px; }
-    .prod-tag { display: none; }
-    .prod-badge {
-      font-size: 8px; letter-spacing: 0.12em; padding: 4px 10px;
-      background: #B8945F; color: #fff; border-radius: 0;
-    }
-    .prod-stock {
-      font-size: 8px; background: transparent; border: none;
-      color: rgba(255,255,255,0.7); padding: 0; gap: 5px;
-    }
-
-    /* Content — bottom-left */
-    .prod-card-content {
-      position: absolute; inset: 0;
-      padding: 0 20px 20px;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      z-index: 2;
-    }
-
-    /* Category label — mobile only */
-    .prod-cat {
-      display: block !important;
-      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.45); margin-bottom: 6px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    /* Hide "Joined by" */
-    .prod-joined { display: none !important; }
-
-    /* Product name */
-    .prod-name.xl, .prod-name.md {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 34px; font-weight: 400;
-      color: #fff; line-height: 1.0;
-      letter-spacing: -0.02em; margin-bottom: 4px;
-    }
-
-    /* Card footer — price left only (button is absolute) */
-    .prod-card-footer {
-      display: flex; flex-direction: column;
-      align-items: flex-start; gap: 0;
-      padding-right: 140px; /* clear space for abs button */
-    }
-
-    /* Price */
-    .prod-price.xl, .prod-price.md {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px; font-weight: 500;
-      color: #fff; letter-spacing: -0.01em; line-height: 1;
-    }
-    .prod-price-mo { font-size: 13px; color: rgba(255,255,255,0.5); font-weight:400; }
-    .prod-desc { display: none; }
-
-    /* Save line */
-    .prod-save {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px; color: rgba(255,255,255,0.5);
-      margin-top: 4px; font-weight: 400;
-    }
-    .prod-save strong { color: #B8945F; font-weight: 500; }
-
-    /* Button — absolute bottom-right */
-    .prod-btn {
-      position: absolute !important;
-      bottom: 20px; right: 20px;
-      width: auto !important; display: inline-block !important;
-      padding: 10px 20px !important;
-      background: rgba(255,255,255,0.95) !important; color: #1a1a1a !important;
-      font-size: 12px !important; font-weight: 500;
-      border-radius: 0; margin: 0 !important;
-      white-space: nowrap;
-    }
-
-    /* Divider */
-    .prod-divider { padding: 20px 20px 8px; }
-    .prod-divider-text {
-      font-size: 28px; letter-spacing: -0.01em;
-      color: #2d2420; text-align: left;
-      font-style: italic; text-transform: none;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-    }
-    .prod-divider-line { display: none; }
-
-    .prod-footnote { padding: 24px 20px; }
-  }
-</style>
-
-  <div class="prod-divider" style="padding-top:0; padding-bottom:20px;">
-    <span class="prod-divider-text">Weight Loss</span>
-    <div class="prod-divider-line"></div>
-  </div>
-
-  <div class="prod-grid-top">
-
-    <div class="prod-card tall animate-in" data-delay="1" onclick="window.location.href='tirzepatide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Tirzepatide Product Card .png'); background-position: center top;"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">GLP-1 + GIP · Weekly</span>
-        <span class="prod-badge">Most popular</span>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">GLP-1 + GIP · Weekly</div>
-        <div class="prod-name xl">Tirzepatide</div>
-        <div class="prod-card-footer">
-          <div>
-            <div class="prod-price xl">$179<span class="prod-price-mo">/month</span></div>
-            <div class="prod-save">3 months at $149 per month · <strong>Save $90</strong></div>
-            <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
+    <!-- WEIGHT LOSS — 2 equal hero tiles -->
+    <div class="bento">
+      <h3 class="bento-cat">Weight Loss</h3>
+      <div class="bento-grid bento-2">
+        <a href="tirzepatide-product.html" class="bento-tile bento-lead">
+          <div class="bento-img"><img src="tirzepatideproductcardnew-hd.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">Tirzepatide</h4>
+              <span class="bento-pill">Most loved</span>
+            </div>
+            <p class="bento-tag"><b>GLP-1 + GIP</b> &middot; Weekly injection</p>
+            <div class="bento-foot">
+              <span class="bento-price">From $179<span>/mo</span></span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
           </div>
-          <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card tall animate-in" data-delay="2" onclick="window.location.href='semaglutide-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Semaglutide Product Card.png');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">GLP-1 · Weekly</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">GLP-1 · Weekly</div>
-        <div class="prod-name xl">Semaglutide</div>
-        <div class="prod-card-footer">
-          <div>
-            <div class="prod-price xl">$129<span class="prod-price-mo">/month</span></div>
-            <div class="prod-save">3 months at $99 per month · <strong>Save $90</strong></div>
-            <div style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:0.01em;">Cancel anytime. No commitment.</div>
+        </a>
+        <a href="semaglutide-product.html" class="bento-tile bento-lead">
+          <div class="bento-img"><img src="newsemaglutide-hd-flipped.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">Semaglutide</h4>
+            </div>
+            <p class="bento-tag"><b>GLP-1</b> &middot; Weekly injection</p>
+            <div class="bento-foot">
+              <span class="bento-price">From $129<span>/mo</span></span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
           </div>
-          <a href="#intake" class="prod-btn solid">Check my eligibility →</a>
-        </div>
+        </a>
       </div>
     </div>
 
-  </div>
-
-  <div class="prod-divider">
-    <span class="prod-divider-text">Wellness</span>
-    <div class="prod-divider-line"></div>
-  </div>
-
-  <div class="prod-grid-bottom" style="margin-top:4px;">
-
-    <div class="prod-card short animate-in" data-delay="1" onclick="window.location.href='sermorelin-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./SERMORELIN PRODUCT CARD .png');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">Growth hormone</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">Growth hormone</div>
-        <div class="prod-name md">Sermorelin</div>
-        <div class="prod-card-footer">
-          <div class="prod-price md">$159<span class="prod-price-mo">/month</span></div>
-          <a href="sermorelin-product.html" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card short animate-in" data-delay="2" onclick="window.location.href='glutathione-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./Glutathione Product Card.png');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">Detox · Immune</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">Detox · Immune</div>
-        <div class="prod-name md">Glutathione</div>
-        <div class="prod-card-footer">
-          <div class="prod-price md">$89<span class="prod-price-mo">/month</span></div>
-          <a href="glutathione-product.html" class="prod-btn solid">Check my eligibility →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card short animate-in" data-delay="3" onclick="window.location.href='nad-product.html'" style="cursor:pointer;">
-      <div class="prod-card-photo" style="background-image: url('./NAD PRODUCT CARD.png');"></div>
-      <div class="prod-card-overlay"></div>
-      <div class="prod-card-meta">
-        <span class="prod-tag">Cellular repair</span>
-        <div class="prod-stock"><div class="prod-stock-dot"></div>In stock</div>
-      </div>
-      <div class="prod-card-content">
-        <div class="prod-cat">Cellular repair</div>
-        <div class="prod-name md">NAD+</div>
-        <div class="prod-card-footer">
-          <div class="prod-price md">$139<span class="prod-price-mo">/month</span></div>
-          <a href="nad-product.html" class="prod-btn solid">Check my eligibility →</a>
-        </div>
+    <!-- PERFORMANCE — 1 lead + 2 standard + 1 wide -->
+    <div class="bento">
+      <h3 class="bento-cat">Performance</h3>
+      <div class="bento-grid bento-perf">
+        <a href="nad-product.html" class="bento-tile bento-lead bento-pos-lead">
+          <div class="bento-img"><img src="NAD-Product-Card-hd.jpg" alt="" loading="lazy" style="object-position:30% center" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">NAD+</h4>
+            </div>
+            <p class="bento-tag"><b>Coenzyme</b> &middot; Supports cellular energy and metabolic function</p>
+            <div class="bento-foot">
+              <span class="bento-price">From $139<span>/mo</span></span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+        <a href="sermorelin-product.html" class="bento-tile bento-lead bento-pos-a">
+          <div class="bento-img"><img src="SermorelinVIBE-hd.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">Sermorelin</h4>
+            </div>
+            <p class="bento-tag"><b>GH peptide</b> &middot; Supports sleep and recovery</p>
+            <div class="bento-foot">
+              <span class="bento-price">From $159<span>/mo</span></span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+        <a href="waitlist.html?product=pulse-stack" class="bento-tile bento-lead bento-pos-b">
+          <div class="bento-img"><img src="pulsestackproduct-hd.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">The Pulse Stack</h4>
+              <span class="bento-pill bento-pill-soon">Reserve</span>
+            </div>
+            <p class="bento-tag"><b>CJC-1295 + Ipamorelin</b> &middot; Studied to support GH, sleep, and recovery.</p>
+            <div class="bento-foot">
+              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
-  </div>
+    <!-- LONGEVITY — 1 lead + 2 tall standard -->
+    <div class="bento">
+      <h3 class="bento-cat">Longevity</h3>
+      <div class="bento-grid bento-long">
+        <a href="waitlist.html?product=ghk-cu" class="bento-tile bento-lead bento-pos-lead">
+          <div class="bento-img"><img src="Glutathione-Product-Card.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">GHK-Cu</h4>
+              <span class="bento-pill bento-pill-soon">Reserve</span>
+            </div>
+            <p class="bento-tag"><b>Copper peptide</b> &middot; Studied to support skin, collagen, and hair.</p>
+            <div class="bento-foot">
+              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+        <a href="glutathione-product.html" class="bento-tile bento-lead">
+          <div class="bento-img"><img src="glutathioneproductcard-hd.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">Glutathione</h4>
+            </div>
+            <p class="bento-tag"><b>Antioxidant</b> &middot; Supports immune and skin wellness</p>
+            <div class="bento-foot">
+              <span class="bento-price">From $89<span>/mo</span></span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+        <a href="waitlist.html?product=mots-c" class="bento-tile bento-lead">
+          <div class="bento-img"><img src="MOTSC-hd.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">MOTS-c</h4>
+              <span class="bento-pill bento-pill-soon">Reserve</span>
+            </div>
+            <p class="bento-tag"><b>Mitochondrial peptide</b> &middot; Studied to support metabolic function.</p>
+            <div class="bento-foot">
+              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
 
-  <div class="prod-footnote">
-    All treatments require a valid prescription from a licensed US provider · Compounded medications are not FDA-approved
-  </div>
+    <!-- RECOVERY — single wide feature -->
+    <div class="bento">
+      <h3 class="bento-cat">Recovery</h3>
+      <div class="bento-grid bento-rec">
+        <a href="waitlist.html?product=wolverine-stack" class="bento-tile bento-lead bento-feature">
+          <div class="bento-img"><img src="BPCIMAGE-hd.jpg" alt="" loading="lazy" /></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">The Wolverine Stack</h4>
+              <span class="bento-pill bento-pill-soon">Reserve</span>
+            </div>
+            <p class="bento-tag"><b>BPC-157 + TB-500</b> &middot; Studied to support tissue and joint recovery.</p>
+            <div class="bento-foot">
+              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
 
+    <p class="trt-disclaimer">All treatments require a valid prescription from a US-licensed provider. Compounded medications are not FDA-approved.</p>
+  </div>
 </section>
 
-<!-- ─── PRODUCTS — MOBILE LAYOUT ─── -->
 <style>
-/* Base card styles (needed on all screen sizes) */
-.pm-hero-card {
-  position: relative; overflow: hidden; display: block; text-decoration: none;
-  border-radius: 0;
-  opacity: 0; transform: translateY(15px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+/* ── TREATMENTS — bento ── */
+.treatments{
+  background:#faf7f2;
+  padding:96px clamp(20px,4vw,48px) 80px;
 }
-.pm-hero-card.pm-visible { opacity: 1; transform: translateY(0); }
-.pm-hero-img {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
+.treatments-inner{
+  max-width:1280px;
+  margin:0 auto;
 }
-.pm-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 55%, transparent 80%);
+.trt-head{
+  margin:0 0 72px;
+  max-width:880px;
 }
-.pm-thin-row {
-  position: relative; display: flex; align-items: center;
-  text-decoration: none; overflow: hidden;
-  opacity: 0; transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+.trt-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(48px,6vw,84px);
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:1;
+  letter-spacing:-0.025em;
+  margin:0;
 }
-.pm-thin-row.pm-visible { opacity: 1; transform: translateY(0); }
-.pm-thin-bg {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center top;
-}
-.pm-thin-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.58) 55%, rgba(0,0,0,0.25) 100%);
+.trt-title em{
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  font-weight:400;
+  display:block;
 }
 
-.prod-disclaimer {
-  text-align: center;
-  font-size: 10px;
-  color: rgba(26,26,26,0.3);
-  padding: 24px 20px 40px;
-  line-height: 1.6;
-  font-family: 'Inter', sans-serif;
+/* CATEGORY */
+.bento{margin-bottom:64px}
+.bento:last-of-type{margin-bottom:0}
+.bento-cat{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(32px,3.4vw,48px);
+  font-weight:500;
+  color:#1a1a1a;
+  letter-spacing:-0.02em;
+  line-height:1;
+  margin:0 0 28px;
 }
 
-@media (min-width: 769px) {
-  /* ── Outer section ── */
-  .hrw-mobile {
-    display: flex;
-    align-items: flex-start;
-    background: #faf7f2;
-    padding: 0;
-    max-width: none;
-  }
+/* GRID LAYOUTS — per category */
+.bento-grid{display:grid;gap:16px}
 
-  /* ── Left: sticky panel ── */
-  .hrw-mobile-head {
-    position: sticky;
-    top: 0;
-    width: 38%;
-    flex-shrink: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 56px 0 80px;
-    text-align: left;
-    background: transparent;
-  }
-  /* Hide logo and eyebrow on desktop */
-  .hrw-mobile-logo { display: none; }
-  .hrw-mobile-eyebrow { display: none; }
+/* Weight Loss: 2 equal hero tiles */
+.bento-2{grid-template-columns:1fr 1fr;grid-template-rows:440px}
 
-  .hrw-mobile-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 52px;
-    font-weight: 400;
-    font-style: italic;
-    color: #1a1a1a;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-  .hrw-mobile-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 17px;
-    font-weight: 500;
-    color: rgba(26,26,26,0.78);
-    line-height: 1.55;
-    max-width: 300px;
-    margin: 0 0 36px;
-    letter-spacing: -0.01em;
-  }
+/* Performance: 1 lead spans 2 rows on left, Sermorelin + Pulse Stack stacked on right */
+.bento-perf{
+  grid-template-columns:1.6fr 1fr;
+  grid-template-rows:320px 320px;
+}
+.bento-perf .bento-pos-lead{grid-column:1;grid-row:1 / 3}
+.bento-perf .bento-pos-a{grid-column:2;grid-row:1}
+.bento-perf .bento-pos-b{grid-column:2;grid-row:2}
 
-  /* CTA link — always visible, no animation */
-  .hrw-dp-cta {
-    display: inline-block;
-    margin-top: 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: #fff;
-    background: #1a1a1a;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    padding: 14px 32px;
-    white-space: nowrap;
-    opacity: 1;
-    transform: none;
-    transition: background 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
-  }
-  .hrw-dp-cta:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
-  .hrw-dp-cta:active { transform: translateY(0); }
-  .hrw-dp-cta.hrw-dp-cta-visible { opacity: 1; transform: none; }
+/* Longevity: 1 lead + 2 tall tiles */
+.bento-long{
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:440px;
+}
+.bento-long .bento-pos-lead{grid-row:1}
 
-  /* ── Right: scrollable steps ── */
-  .hrw-mobile-body {
-    display: block;
-    flex: 1;
-    padding: 0 0 0 64px; /* no right padding — images bleed to column edge */
-    min-width: 0;
-    position: relative;
-  }
-  .hrw-progress-track { display: none; }
+/* Recovery: 1 wide */
+.bento-rec{grid-template-columns:1fr;grid-template-rows:440px}
 
-  /* ── Desktop progress track: left edge of right column ── */
-  .hrw-desktop-track {
-    display: block;
-    position: absolute;
-    left: 12px;
-    top: 0;
-    bottom: 0;
-    width: 40px;
-    z-index: 10;
-  }
-  .hrw-desktop-line-bg {
-    position: absolute;
-    left: 19px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(26,26,26,0.08);
-    border-radius: 2px;
-  }
-  .hrw-desktop-line-fill {
-    position: absolute;
-    left: 19px;
-    top: 0;
-    width: 2px;
-    height: 0%;
-    background: #1a1a1a;
-    border-radius: 2px;
-  }
-  .hrw-mobile-steps {
-    display: flex;
-    flex-direction: column;
-  }
-  .hrw-mobile-step {
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 80px 0 60px;
-    position: relative;
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
-  }
-  .hrw-mobile-step.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* TILE (uniform card structure, sizes vary by grid position) */
+.bento-tile{
+  display:flex;
+  flex-direction:column;
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(26,26,26,0.05);
+  box-shadow:0 1px 3px rgba(26,26,26,0.04);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.bento-tile:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 24px rgba(26,26,26,0.06),0 24px 60px rgba(26,26,26,0.08);
+}
 
-  /* Hide watermark numbers on desktop */
-  .hrw-step-watermark { display: none; }
+/* IMAGE */
+.bento-img{
+  position:relative;
+  overflow:hidden;
+  background:#ebe3d2;
+}
 
-  .hrw-mobile-step-num {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    color: #B8945F;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: block;
-    position: relative;
-    z-index: 2;
-    padding-right: 80px;
-  }
-  .hrw-mobile-step-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 48px;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 14px;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    position: relative;
-    z-index: 2;
-    max-width: 480px;
-    padding-right: 80px;
-    transition-delay: 0.08s;
-  }
-  .hrw-mobile-step-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: rgba(26,26,26,0.72);
-    line-height: 1.75;
-    max-width: 420px;
-    margin-bottom: 32px;
-    position: relative;
-    z-index: 2;
-    padding-right: 80px;
-    transition-delay: 0.14s;
-  }
-  .hrw-mobile-step-img {
-    width: 100%;        /* fills the full right column — no max-width cap */
-    height: 440px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow:
-      0 2px 8px rgba(26,26,26,0.06),
-      0 12px 40px rgba(26,26,26,0.08);
-    position: relative;
-    z-index: 2;
-    transition-delay: 0.2s;
-  }
-  .hrw-mobile-step-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transform: scale(1.04);
-    transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
-  }
-  .hrw-mobile-step.active .hrw-mobile-step-img img {
-    transform: scale(1);
-  }
+/* Standard tiles: image fills proportionally so card hits the fixed grid row height */
+.bento-tile:not(.bento-lead) .bento-img{
+  flex:0 0 auto;
+}
+.bento-tile:not(.bento-lead) .bento-body{
+  flex:1;
+}
+/* Performance row: 320px tall — image 140px, body ~180px */
+.bento-perf .bento-tile:not(.bento-lead) .bento-img{height:140px}
+/* Performance body: tighter padding so long subtexts fit */
+.bento-perf .bento-tile:not(.bento-lead) .bento-body{padding:14px 18px 16px}
+.bento-perf .bento-tile:not(.bento-lead) .bento-tag{margin-bottom:10px;line-height:1.45}
+/* Longevity row: 440px tall — image 240px, body ~200px */
+.bento-long .bento-tile:not(.bento-lead) .bento-img{height:240px}
+.bento-img img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(0.82) saturate(0.92);
+  transition:transform 0.7s cubic-bezier(0.22,1,0.36,1),filter 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.bento-tile:hover .bento-img img{transform:scale(1.04);filter:brightness(1) saturate(1.04)}
 
-  /* Hide mobile-only CTA */
-  .hrw-mobile-cta { display: none; }
+/* SOON IMAGE — clean cream tile */
+.bento-img-soon{
+  background:linear-gradient(180deg,#f4eee2 0%,#ede4d0 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.bento-soon-name{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-size:24px;
+  font-weight:400;
+  color:rgba(26,26,26,0.32);
+  text-align:center;
+  line-height:1.15;
+  letter-spacing:-0.01em;
+}
+.bento-soon-name-lg{font-size:clamp(36px,4vw,56px)}
+
+/* Lead tile: image fills the absolute layer */
+.bento-lead .bento-img{min-height:0}
+.bento-feature .bento-img{min-height:0}
+
+/* FULL-BLEED treatment for ALL lead tiles (real photo OR soon) */
+.bento-lead{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:240px;
+  height:100%;
+}
+.bento-feature{min-height:300px;height:100%}
+.bento-lead .bento-img{
+  position:absolute;
+  inset:0;
+  min-height:0;
+  z-index:1;
+}
+.bento-lead .bento-body{
+  position:relative;
+  z-index:2;
+  margin-top:auto;
+  background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.55) 35%,rgba(0,0,0,0.85) 100%);
+  padding:48px 22px 18px;
+  color:#fff;
+}
+.bento-lead .bento-name{color:#fff}
+.bento-lead .bento-tag{color:rgba(255,255,255,0.82)}
+.bento-lead .bento-tag b{color:#fff;font-weight:600}
+.bento-lead .bento-pill{
+  border-color:rgba(255,255,255,0.45);
+  color:#fff;
+  background:rgba(255,255,255,0.12);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+}
+.bento-lead .bento-foot{border-top-color:rgba(255,255,255,0.22)}
+.bento-lead .bento-price{color:#fff}
+.bento-lead .bento-price span{color:rgba(255,255,255,0.65)}
+.bento-lead .bento-arrow{color:#fff}
+.bento-lead .bento-price-soft{color:#fff}
+
+/* Soon-lead tiles use dark gradient instead of cream so white text is readable */
+.bento-lead.bento-soon .bento-img-soon{
+  background:linear-gradient(135deg,#2a1f15 0%,#15110d 60%,#0f0c08 100%);
+}
+.bento-lead.bento-soon .bento-soon-name{
+  color:rgba(255,255,255,0.55);
+}
+
+/* BODY */
+.bento-body{
+  padding:18px 22px 20px;
+  display:flex;
+  flex-direction:column;
+}
+.bento-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+.bento-name{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:22px;
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:1.1;
+  letter-spacing:-0.015em;
+  margin:0;
+}
+.bento-lead.bento-pos-lead .bento-name,.bento-2 .bento-lead .bento-name{font-size:clamp(28px,2.4vw,36px)}
+.bento-feature .bento-name{font-size:clamp(32px,3vw,44px)}
+
+.bento-pill{
+  font-family:'Inter',sans-serif;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#1a1a1a;
+  padding:3px 9px;
+  border:1px solid rgba(26,26,26,0.22);
+  border-radius:100px;
+  white-space:nowrap;
+}
+.bento-pill-soon{
+  border-color:rgba(26,26,26,0.12);
+  color:rgba(26,26,26,0.5);
+}
+.bento-tag{
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:400;
+  color:rgba(26,26,26,0.6);
+  line-height:1.55;
+  margin:0 0 16px;
+}
+.bento-tag b{
+  font-weight:600;
+  color:#1a1a1a;
+  letter-spacing:0.01em;
+}
+.bento-pos-lead .bento-tag,.bento-feature .bento-tag,.bento-2 .bento-lead .bento-tag{font-size:14px}
+
+.bento-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:auto;
+  padding-top:12px;
+  border-top:1px solid rgba(26,26,26,0.06);
+}
+.bento-price{
+  font-family:'DM Sans','Inter',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  color:#1a1a1a;
+  letter-spacing:-0.005em;
+}
+.bento-price span{
+  font-size:11px;
+  color:rgba(26,26,26,0.45);
+  font-weight:400;
+}
+.bento-price-soft{
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#1a1a1a;
+}
+.bento-arrow{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  color:#1a1a1a;
+  transition:transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.bento-tile:hover .bento-arrow{transform:translateX(4px)}
+
+.trt-disclaimer{
+  text-align:center;
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  color:rgba(26,26,26,0.4);
+  line-height:1.6;
+  margin:64px auto 0;
+  max-width:680px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .bento-2{grid-template-columns:1fr;grid-template-rows:auto}
+  .bento-perf{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .bento-perf .bento-pos-lead,.bento-perf .bento-pos-a,.bento-perf .bento-pos-b{
+    grid-column:auto;grid-row:auto;
+  }
+  .bento-perf .bento-pos-lead{grid-column:1 / 3}
+  .bento-long{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .bento-long .bento-pos-lead{grid-column:1 / 3}
+  .bento-rec{grid-template-rows:auto}
+  .bento-perf .bento-tile:not(.bento-lead) .bento-img{height:200px}
+  .bento-long .bento-tile:not(.bento-lead) .bento-img{height:220px}
+  .bento-lead .bento-img,.bento-feature .bento-img{min-height:280px}
+}
+@media(max-width:560px){
+  .treatments{padding:64px 20px 48px}
+  .trt-head{margin-bottom:48px}
+  .bento{margin-bottom:48px}
+  .bento-cat{font-size:30px;margin-bottom:20px}
+  .bento-2,.bento-perf,.bento-long{grid-template-columns:1fr}
+  .bento-perf .bento-pos-lead,.bento-long .bento-pos-lead{grid-column:1}
+  .bento-img{min-height:200px}
+  .bento-lead .bento-img,.bento-feature .bento-img{min-height:240px}
+  .bento-body{padding:18px 20px 20px}
+  .bento-name{font-size:20px}
+  .bento-tag{font-size:12px;margin-bottom:14px}
 }
 </style>
 
-<div class="prod-mobile" id="prodMobile">
 
-  <div class="pm-section-label">Weight Loss</div>
-  <!-- Top 2: full-bleed image cards, square corners -->
-  <div class="pm-hero-grid">
 
-    <div class="pm-hero-col">
-      <a href="tirzepatide-product.html" class="pm-hero-card pm-hero-card--tirz pm-anim" data-pm-delay="0">
-        <div class="pm-hero-img" style="background-image:url('./Tirzepatide-Product-Card.jpg');background-position:center top;"></div>
-        <div class="pm-hero-overlay"></div>
-        <div class="pm-popular-badge">Most Popular</div>
-        <div class="pm-hero-body">
-          <div class="pm-hero-cat">GLP-1 + GIP · Weekly</div>
-          <div class="pm-hero-name">Tirzepatide</div>
-          <div class="pm-hero-price">$179<span class="pm-mo">/month</span></div>
-        </div>
-        <div class="pm-card-arrow">→</div>
-      </a>
+
+
+
+
+
+
+<!-- ─── EARLY ACCESS ─── -->
+<section class="founding" id="founding">
+  <div class="founding-inner">
+    <span class="founding-eyebrow">Early access</span>
+
+    <div class="founding-counter">
+      <span class="founding-num" id="foundingNum">&mdash;</span>
     </div>
+    <p class="founding-counter-sub">people reserved early access</p>
 
-    <div class="pm-hero-col">
-      <a href="semaglutide-product.html" class="pm-hero-card pm-hero-card--sema pm-anim" data-pm-delay="1">
-        <div class="pm-hero-img" style="background-image:url('./Semaglutide-Product-Card.jpg');"></div>
-        <div class="pm-hero-overlay"></div>
-        <div class="pm-hero-body">
-          <div class="pm-hero-cat">GLP-1 · Weekly</div>
-          <div class="pm-hero-name">Semaglutide</div>
-          <div class="pm-hero-price">$129<span class="pm-mo">/month</span></div>
+    <h2 class="founding-title">Reserve <em>early access.</em></h2>
+    <p class="founding-sub">Reserve early access to Rylo's compounded peptide and wellness protocols. One care team, every prescription. Real US-licensed providers. Launching summer 2026.</p>
+
+    <form class="founding-form" id="foundingForm">
+      <div class="founding-fields">
+        <input type="email" name="email" placeholder="Email address" required class="founding-input" />
+        <input type="text" name="zip" placeholder="ZIP code" required pattern="[0-9]{5}" maxlength="5" inputmode="numeric" class="founding-input founding-input-zip" />
+      </div>
+      <div class="ry-dd" id="foundingDd">
+        <button type="button" class="ry-dd-trigger empty" aria-haspopup="listbox" aria-expanded="false">Which product are you reserving access to?</button>
+        <div class="ry-dd-list" role="listbox">
+          <div class="ry-dd-opt" data-v="sermorelin" data-label="Sermorelin"><span class="ry-dd-name">Sermorelin</span><span class="ry-dd-meta">Recovery, sleep</span></div>
+          <div class="ry-dd-opt" data-v="nad" data-label="NAD+"><span class="ry-dd-name">NAD+</span><span class="ry-dd-meta">Cellular energy</span></div>
+          <div class="ry-dd-opt" data-v="glutathione" data-label="Glutathione"><span class="ry-dd-name">Glutathione</span><span class="ry-dd-meta">Antioxidant</span></div>
+          <div class="ry-dd-opt" data-v="pulse-stack" data-label="The Pulse Stack"><span class="ry-dd-name">The Pulse Stack</span><span class="ry-dd-meta">CJC-1295 + Ipamorelin</span></div>
+          <div class="ry-dd-opt" data-v="ghk-cu" data-label="GHK-Cu"><span class="ry-dd-name">GHK-Cu</span><span class="ry-dd-meta">Skin, collagen, hair</span></div>
+          <div class="ry-dd-opt" data-v="mots-c" data-label="MOTS-c"><span class="ry-dd-name">MOTS-c</span><span class="ry-dd-meta">Mitochondrial</span></div>
+          <div class="ry-dd-opt" data-v="wolverine-stack" data-label="The Wolverine Stack"><span class="ry-dd-name">The Wolverine Stack</span><span class="ry-dd-meta">BPC-157 + TB-500</span></div>
+          <div class="ry-dd-opt" data-v="general" data-label="Not sure yet"><span class="ry-dd-name">Not sure yet</span><span class="ry-dd-meta">Notify me about all</span></div>
         </div>
-        <div class="pm-card-arrow">→</div>
-      </a>
-    </div>
+      </div>
+      <input type="hidden" name="product" id="foundingProductHidden" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" class="founding-honey" aria-hidden="true" />
+      <button type="submit" class="founding-btn" id="foundingBtn">Reserve early access &rarr;</button>
+    </form>
 
+    <p class="founding-fine" id="foundingFine">No credit card. We'll email you when early access opens.</p>
+    <a href="waitlist.html#founders" class="founding-fc-link">Want lifetime locked pricing on GLP-1? Become a Founder &rarr;</a>
   </div>
+</section>
 
-  <div class="pm-section-label" style="margin-top:28px;">Wellness</div>
-  <!-- Bottom 3: thin full-bleed image rows -->
-  <div class="pm-thin-list">
+<style>
+.founding{
+  min-height:calc(100vh - 88px);
+  background:#faf7f2;
+  padding:96px clamp(20px,4vw,48px) 56px;
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,0.05);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.founding::before{
+  content:"";
+  position:absolute;
+  top:80px;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:#C4724A;
+  opacity:0.7;
+}
+.founding-inner{
+  max-width:600px;
+  width:100%;
+  margin:0 auto;
+}
+.founding-eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:#C4724A;
+  margin-bottom:20px;
+  display:block;
+}
+.founding-counter{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:6px;
+}
+.founding-num{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:clamp(56px,7vw,80px);
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:0.92;
+  letter-spacing:-0.04em;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.founding-of{
+  font-family:'Inter',sans-serif;
+  font-size:12px;
+  font-weight:500;
+  color:rgba(26,26,26,0.5);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.founding-of strong{
+  color:#1a1a1a;
+  font-weight:700;
+}
+.founding-counter-sub{
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.45);
+  margin:0 0 24px;
+}
+.founding-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(40px,4.6vw,60px);
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:0.98;
+  letter-spacing:-0.025em;
+  margin:0 0 14px;
+}
+.founding-title em{
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  font-weight:400;
+}
+.founding-sub{
+  font-family:'Plus Jakarta Sans','Inter',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.6;
+  margin:0 auto 28px;
+  max-width:520px;
+}
+.founding-form{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  max-width:460px;
+  margin:0 auto;
+  position:relative;
+}
+.founding-fields{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:8px;
+}
+.founding-input{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:#1a1a1a;
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.15);
+  border-radius:0;
+  padding:14px 16px;
+  outline:none;
+  transition:border-color 0.2s;
+  width:100%;
+}
+.founding-input:focus{border-color:#1a1a1a}
+.founding-input::placeholder{color:rgba(26,26,26,0.4)}
+.founding-honey{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  opacity:0;
+  pointer-events:none;
+}
+.founding-btn{
+  font-family:'Inter',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  padding:15px 28px;
+  background:#1a1a1a;
+  color:#fff;
+  border:none;
+  border-radius:0;
+  cursor:pointer;
+  transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.founding-btn:hover:not(:disabled){
+  background:#0C1C2E;
+  transform:translateY(-2px);
+}
+.founding-fc-link{
+  display:inline-block;
+  margin-top:18px;
+  font-family:'Inter','Plus Jakarta Sans',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  color:#1a1a1a;
+  text-decoration:none;
+  border-bottom:1px solid rgba(26,26,26,0.25);
+  padding-bottom:3px;
+  transition:letter-spacing 0.25s,color 0.25s,border-color 0.25s;
+}
+.founding-fc-link:hover{letter-spacing:0.04em;color:#0C1C2E;border-bottom-color:#0C1C2E}
 
-    <a href="sermorelin-product.html" class="pm-thin-row pm-thin-row--serm pm-anim" data-pm-delay="2">
-      <div class="pm-thin-bg" style="background-image:url('./SERMORELIN-Product-Card.jpg');"></div>
-      <div class="pm-thin-overlay"></div>
-      <div class="pm-thin-inner">
-        <div class="pm-thin-body">
-          <div class="pm-thin-name">Sermorelin</div>
-          <div class="pm-thin-meta">
-            <span class="pm-thin-price">$159<span class="pm-thin-mo">/month</span></span>
-            <span class="pm-thin-sep">·</span>
-            <span class="pm-thin-cat">Recovery</span>
-          </div>
-        </div>
-        <span class="pm-thin-cta">
-          <span class="pm-thin-cta-label">Explore →</span>
-          <span class="pm-thin-cta-line"></span>
-        </span>
-      </div>
-    </a>
+/* CUSTOM DROPDOWN (matches site .dd pattern) */
+.ry-dd{position:relative;width:100%;user-select:none;font-family:'Inter','Plus Jakarta Sans',sans-serif;text-align:left}
+.ry-dd-trigger{
+  width:100%;
+  padding:14px 16px;
+  padding-right:38px;
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.15);
+  border-radius:0;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:400;
+  color:#1a1a1a;
+  cursor:pointer;
+  transition:border-color 0.25s,box-shadow 0.25s;
+  position:relative;
+  text-align:left;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.ry-dd-trigger.empty{color:rgba(26,26,26,0.4)}
+.ry-dd-trigger::after{
+  content:'';
+  position:absolute;
+  right:18px;top:50%;
+  width:0;height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:6px solid rgba(26,26,26,0.45);
+  transform:translateY(-50%);
+  transition:transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.ry-dd.open .ry-dd-trigger{
+  border-color:rgba(184,150,90,0.5);
+  box-shadow:0 0 0 3px rgba(184,150,90,0.10);
+}
+.ry-dd.open .ry-dd-trigger::after{transform:translateY(-50%) rotate(180deg)}
+.ry-dd-list{
+  position:absolute;
+  top:calc(100% - 1px);
+  left:0;right:0;
+  background:#fff;
+  border:1px solid rgba(184,150,90,0.5);
+  border-top:none;
+  border-radius:0;
+  max-height:0;
+  overflow:hidden;
+  z-index:60;
+  transition:max-height 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s;
+  box-shadow:none;
+}
+.ry-dd.open .ry-dd-list{
+  max-height:280px;
+  overflow-y:auto;
+  box-shadow:0 16px 40px rgba(26,26,26,0.10);
+}
+.ry-dd-list::-webkit-scrollbar{width:5px}
+.ry-dd-list::-webkit-scrollbar-track{background:transparent}
+.ry-dd-list::-webkit-scrollbar-thumb{background:rgba(26,26,26,0.10);border-radius:3px}
+.ry-dd-opt{
+  padding:13px 18px;
+  font-size:14px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  cursor:pointer;
+  transition:background 0.15s,color 0.15s;
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.ry-dd-opt:hover{background:rgba(184,150,90,0.06);color:#1a1a1a}
+.ry-dd-opt.picked{background:rgba(184,150,90,0.10);color:#1a1a1a;font-weight:500}
+.ry-dd-name{font-weight:500;color:#1a1a1a}
+.ry-dd-meta{font-size:12px;color:rgba(26,26,26,0.5);font-weight:400;letter-spacing:0.01em}
+.ry-dd-opt.picked .ry-dd-meta{color:rgba(26,26,26,0.55)}
+.founding-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.founding-fine{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:400;
+  color:rgba(26,26,26,0.45);
+  margin:12px 0 0;
+  line-height:1.55;
+}
+.founding-fine-success{
+  font-size:14px;
+  color:#1a1a1a;
+  font-weight:500;
+}
 
-    <a href="glutathione-product.html" class="pm-thin-row pm-thin-row--glut pm-anim" data-pm-delay="3">
-      <div class="pm-thin-bg" style="background-image:url('./Glutathione-Product-Card.jpg');"></div>
-      <div class="pm-thin-overlay"></div>
-      <div class="pm-thin-inner">
-        <div class="pm-thin-body">
-          <div class="pm-thin-name">Glutathione</div>
-          <div class="pm-thin-meta">
-            <span class="pm-thin-price">$89<span class="pm-thin-mo">/month</span></span>
-            <span class="pm-thin-sep">·</span>
-            <span class="pm-thin-cat">Detox &amp; Immune</span>
-          </div>
-        </div>
-        <span class="pm-thin-cta">
-          <span class="pm-thin-cta-label">Explore →</span>
-          <span class="pm-thin-cta-line"></span>
-        </span>
-      </div>
-    </a>
+@media(max-width:560px){
+  .founding{padding:64px 20px 40px}
+  .founding-counter-sub{margin-bottom:18px}
+  .founding-fields{grid-template-columns:1fr;gap:8px}
+}
+</style>
 
-    <a href="nad-product.html" class="pm-thin-row pm-thin-row--nad pm-anim" data-pm-delay="4">
-      <div class="pm-thin-bg" style="background-image:url('./NAD-Product-Card.jpg');background-position:center 30%;"></div>
-      <div class="pm-thin-overlay"></div>
-      <div class="pm-thin-inner">
-        <div class="pm-thin-body">
-          <div class="pm-thin-name">NAD+</div>
-          <div class="pm-thin-meta">
-            <span class="pm-thin-price">$139<span class="pm-thin-mo">/month</span></span>
-            <span class="pm-thin-sep">·</span>
-            <span class="pm-thin-cat">Anti-aging</span>
-          </div>
-        </div>
-        <span class="pm-thin-cta">
-          <span class="pm-thin-cta-label">Explore →</span>
-          <span class="pm-thin-cta-line"></span>
-        </span>
-      </div>
-    </a>
+<script>
+(function(){
+  const SUPABASE_URL = 'https://vqydeyqxyvwdldtfifju.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_JfGJ90E3Msi8xTcS4IYHRg_fiY5ThdA';
 
-  </div>
+  async function loadCount(){
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/waitlist_count', {
+        method:'POST',
+        headers:{
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          'Content-Type':'application/json'
+        },
+        body:'{}'
+      });
+      if(!res.ok) throw new Error('count');
+      const count = await res.json();
+      const el = document.getElementById('foundingNum');
+      if(el) el.textContent = count;
+    }catch(e){
+      console.error('counter', e);
+    }
+  }
 
-  <p class="prod-disclaimer">All treatments require a valid prescription from a licensed US provider. Compounded medications are not FDA-approved.</p>
+  function initDropdown(ddId, hiddenId){
+    const dd = document.getElementById(ddId);
+    if(!dd) return;
+    const trigger = dd.querySelector('.ry-dd-trigger');
+    const opts = dd.querySelectorAll('.ry-dd-opt');
+    const hidden = document.getElementById(hiddenId);
 
-</div>
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const willOpen = !dd.classList.contains('open');
+      document.querySelectorAll('.ry-dd.open').forEach(function(d){
+        if(d !== dd) d.classList.remove('open');
+      });
+      dd.classList.toggle('open', willOpen);
+      trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
+    opts.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        opts.forEach(function(o){o.classList.remove('picked')});
+        opt.classList.add('picked');
+        const label = opt.dataset.label || opt.textContent.trim();
+        trigger.textContent = label;
+        trigger.classList.remove('empty');
+        if(hidden) hidden.value = opt.dataset.v;
+        dd.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.ry-dd')){
+      document.querySelectorAll('.ry-dd.open').forEach(function(d){
+        d.classList.remove('open');
+        const t = d.querySelector('.ry-dd-trigger');
+        if(t) t.setAttribute('aria-expanded','false');
+      });
+    }
+  });
+
+  async function submitForm(e){
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    if(data.get('website')) return; // honeypot
+
+    const fine = document.getElementById('foundingFine');
+    const btn = document.getElementById('foundingBtn');
+
+    if(!data.get('product')){
+      fine.textContent = 'Pick a product first.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Reserving...';
+
+    try{
+      const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+        method:'POST',
+        headers:{
+          apikey: SUPABASE_KEY,
+          Authorization: 'Bearer ' + SUPABASE_KEY,
+          'Content-Type':'application/json',
+          Prefer:'return=minimal'
+        },
+        body: JSON.stringify({
+          email: data.get('email'),
+          zip_code: data.get('zip'),
+          product_interest: data.get('product')
+        })
+      });
+
+      if(res.ok){
+        form.style.display = 'none';
+        fine.innerHTML = "You're reserved. We'll email you when early access opens.";
+        fine.classList.add('founding-fine-success');
+        loadCount();
+      }else if(res.status === 409){
+        fine.textContent = 'This email is already on the list.';
+        btn.disabled = false;
+        btn.textContent = 'Reserve early access →';
+      }else{
+        throw new Error('signup ' + res.status);
+      }
+    }catch(err){
+      console.error(err);
+      fine.textContent = 'Something went wrong. Try again?';
+      btn.disabled = false;
+      btn.textContent = 'Reserve early access →';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    initDropdown('foundingDd','foundingProductHidden');
+    const form = document.getElementById('foundingForm');
+    if(form) form.addEventListener('submit', submitForm);
+    loadCount();
+  });
+})();
+</script>
+
 
 <!-- ─── VIAL SECTION ─── -->
 <style>
@@ -4280,7 +4475,7 @@
     <p class="vial-headline">Your prescription.</p>
     <p class="vial-subline">Compounded for you.</p>
     <p class="vial-desc">Same-day provider review. Compounded by a licensed US pharmacy. Shipped free to your door every month.</p>
-    <a href="intake.html" class="vial-cta">Check my eligibility →</a>
+    <a href="waitlist.html" class="vial-cta">Reserve your spot →</a>
   </div>
   <div class="vial-img-col">
     <img src="./holdingvial.png" loading="eager" alt="Precision compounded medication vial" />
@@ -4304,12 +4499,214 @@
 })();
 </script>
 
+<!-- ─── HRW DESKTOP CSS (restored) ─── -->
+<style>
+@media (min-width: 769px) {
+  /* ── Outer section ── */
+  .hrw-mobile {
+    display: flex;
+    align-items: flex-start;
+    background: #faf7f2;
+    padding: 0;
+    max-width: none;
+  }
+
+  /* ── Left: sticky panel ── */
+  .hrw-mobile-head {
+    position: sticky;
+    top: 0;
+    width: 38%;
+    flex-shrink: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 56px 0 80px;
+    text-align: left;
+    background: transparent;
+  }
+  /* Hide logo and eyebrow on desktop */
+  .hrw-mobile-logo { display: none; }
+  .hrw-mobile-eyebrow { display: none; }
+
+  .hrw-mobile-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 52px;
+    font-weight: 400;
+    font-style: italic;
+    color: #1a1a1a;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .hrw-mobile-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(26,26,26,0.78);
+    line-height: 1.55;
+    max-width: 300px;
+    margin: 0 0 36px;
+    letter-spacing: -0.01em;
+  }
+
+  /* CTA link — always visible, no animation */
+  .hrw-dp-cta {
+    display: inline-block;
+    margin-top: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background: #1a1a1a;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    padding: 14px 32px;
+    white-space: nowrap;
+    opacity: 1;
+    transform: none;
+    transition: background 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hrw-dp-cta:hover { background: #0C1C2E; color: #fff; transform: translateY(-2px); }
+  .hrw-dp-cta:active { transform: translateY(0); }
+  .hrw-dp-cta.hrw-dp-cta-visible { opacity: 1; transform: none; }
+
+  /* ── Right: scrollable steps ── */
+  .hrw-mobile-body {
+    display: block;
+    flex: 1;
+    padding: 0 0 0 64px; /* no right padding — images bleed to column edge */
+    min-width: 0;
+    position: relative;
+  }
+  .hrw-progress-track { display: none; }
+
+  /* ── Desktop progress track: left edge of right column ── */
+  .hrw-desktop-track {
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 10;
+  }
+  .hrw-desktop-line-bg {
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(26,26,26,0.08);
+    border-radius: 2px;
+  }
+  .hrw-desktop-line-fill {
+    position: absolute;
+    left: 19px;
+    top: 0;
+    width: 2px;
+    height: 0%;
+    background: #1a1a1a;
+    border-radius: 2px;
+  }
+  .hrw-mobile-steps {
+    display: flex;
+    flex-direction: column;
+  }
+  .hrw-mobile-step {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 0 60px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hrw-mobile-step.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hide watermark numbers on desktop */
+  .hrw-step-watermark { display: none; }
+
+  .hrw-mobile-step-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #B8945F;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+    position: relative;
+    z-index: 2;
+    padding-right: 80px;
+  }
+  .hrw-mobile-step-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 14px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    padding-right: 80px;
+    transition-delay: 0.08s;
+  }
+  .hrw-mobile-step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(26,26,26,0.72);
+    line-height: 1.75;
+    max-width: 420px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+    padding-right: 80px;
+    transition-delay: 0.14s;
+  }
+  .hrw-mobile-step-img {
+    width: 100%;        /* fills the full right column — no max-width cap */
+    height: 440px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 8px rgba(26,26,26,0.06),
+      0 12px 40px rgba(26,26,26,0.08);
+    position: relative;
+    z-index: 2;
+    transition-delay: 0.2s;
+  }
+  .hrw-mobile-step-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.04);
+    transition: transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  }
+  .hrw-mobile-step.active .hrw-mobile-step-img img {
+    transform: scale(1);
+  }
+
+  /* Hide mobile-only CTA */
+  .hrw-mobile-cta { display: none; }
+}
+</style>
+
 <!-- ─── HOW RYLO WORKS ─── -->
 <section class="hrw-mobile" id="how-it-works" aria-hidden="true">
   <div class="hrw-mobile-head">
-    <h2 class="hrw-mobile-title">How <em>rylo</em> works</h2>
+    <h2 class="hrw-mobile-title">How <em>Rylo</em> works</h2>
     <p class="hrw-mobile-sub">Three steps. Five minutes. Medication at your door.</p>
-    <a href="intake.html" class="hrw-dp-cta">Check my eligibility →</a>
+    <a href="waitlist.html" class="hrw-dp-cta">Reserve your spot →</a>
   </div>
   <div class="hrw-mobile-body">
     <!-- Desktop-only progress track: positioned on left edge of right column -->
@@ -4348,7 +4745,7 @@
       </div>
     </div>
   </div>
-  <a href="intake.html" class="hrw-mobile-cta">Check my eligibility →</a>
+  <a href="waitlist.html" class="hrw-mobile-cta">Reserve your spot →</a>
 </section>
 
 <!-- ─── WHY RYLO SECTION ─── -->
@@ -5431,88 +5828,760 @@
   display: block;
 }
 
-/* Pillars */
+/* ─── PILLARS — scroll-revealed narrative (Cluely pop-up style, no pinning) ─── */
 .wr-pillars {
   background: #faf7f2;
-  padding: 80px clamp(32px, 5vw, 80px) 120px;
+  position: relative;
+  padding: 0 clamp(24px, 5vw, 64px);
 }
-.wr-pillars-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-}
-.wr-logo-wrap {
+
+/* Each state is a normal-flow section that pops up on scroll */
+.wr-state {
+  position: relative;
+  min-height: 80vh;
+  padding: 80px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 64px;
-}
-.wr-logo {
-  height: 20px;
-  width: auto;
-  opacity: 0.3;
-}
-.wr-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  align-items: start;
-}
-.wr-pillar {
-  padding: 0 clamp(28px, 3vw, 56px);
-  border-left: 1px solid rgba(26,26,26,0.08);
+  text-align: center;
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.wr-pillar:first-child { border-left: none; padding-left: 0; }
-.wr-pillar:last-child { padding-right: 0; }
-.wr-pillar.wr-in { opacity: 1; transform: translateY(0); }
-.wr-pillar:nth-child(1) { transition-delay: 0s; }
-.wr-pillar:nth-child(2) { transition-delay: 0.1s; }
-.wr-pillar:nth-child(3) { transition-delay: 0.2s; }
-.wr-pillar:nth-child(4) { transition-delay: 0.3s; }
+.wr-state.wr-state-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.wr-state + .wr-state {
+  border-top: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+/* Typography inside states */
 .wr-pillar-label {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #C4724A;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  position: relative;
+  padding: 6px 14px;
+  border: 1px solid rgba(196, 114, 74, 0.3);
+  border-radius: 100px;
 }
 .wr-pillar-head {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(28px, 2.8vw, 42px);
-  font-weight: 600;
+  font-size: clamp(40px, 5.6vw, 76px);
+  font-weight: 500;
   color: #1a1a1a;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin: 0 0 16px;
+  line-height: 1.0;
+  letter-spacing: -0.028em;
+  margin: 8px 0 22px;
+  max-width: 720px;
 }
 .wr-pillar-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(14px, 1.1vw, 16px);
-  font-weight: 450;
-  color: rgba(26,26,26,0.72);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 400;
+  color: rgba(26, 26, 26, 0.7);
   line-height: 1.7;
-  margin: 0;
+  margin: 0 0 44px;
+  max-width: 560px;
+}
+.wr-pillar-anno {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(30, 49, 72, 0.55);
+  margin: 18px 0 0;
+}
+.wr-state .wr-demo {
+  margin-top: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* SUPPLY CHAIN DIAGRAM */
+.wr-supply-chain {
+  background: rgba(245, 240, 232, 0.6);
+  border: none;
+  padding: 28px 24px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: none;
+}
+.wr-supply-row {
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-supply-row:last-child { margin-bottom: 0; }
+.wr-state-active .wr-supply-old { opacity: 1; transform: translateY(0); transition-delay: 200ms; }
+.wr-state-active .wr-supply-new { opacity: 1; transform: translateY(0); transition-delay: 1300ms; }
+
+.wr-supply-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(30, 49, 72, 0.4);
+  display: block;
+  margin-bottom: 16px;
+}
+.wr-supply-track {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+.wr-supply-track-direct {
+  gap: 12px;
+  justify-content: flex-start;
+}
+.wr-supply-node {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(30, 49, 72, 0.78);
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  padding: 8px 14px;
+  background: rgba(30, 49, 72, 0.05);
+  border-radius: 100px;
+  transition: color 0.4s ease, background 0.4s ease;
+}
+.wr-supply-link {
+  flex: 1;
+  height: 1px;
+  background: rgba(30, 49, 72, 0.18);
+  min-width: 6px;
+}
+.wr-supply-mid {
+  position: relative;
+}
+.wr-supply-mid::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 50%;
+  height: 2px;
+  background: rgba(196, 114, 74, 0.85);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-state-active .wr-supply-mid {
+  color: rgba(30, 49, 72, 0.32);
+  background: rgba(196, 114, 74, 0.06);
+  transition-delay: 850ms;
+}
+.wr-state-active .wr-supply-mid::after {
+  transform: scaleX(1);
+  transition-delay: 850ms;
+}
+.wr-supply-new {
+  padding-top: 28px;
+  border-top: 1px dashed rgba(30, 49, 72, 0.12);
+}
+.wr-supply-node-good {
+  background: #1a1a1a !important;
+  color: #f7f3ec !important;
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(26, 26, 26, 0.18);
+}
+.wr-supply-link-direct {
+  height: 2px;
+  background: #1a1a1a;
+  flex: 1;
+  min-width: 32px;
+}
+
+/* LEDGER */
+.wr-ledger {
+  background: rgba(245, 240, 232, 0.6);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  box-shadow: none;
+  position: relative;
+}
+.wr-ledger::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 33.333%;
+  background: linear-gradient(180deg, rgba(196, 114, 74, 0) 0%, rgba(196, 114, 74, 0.06) 50%, rgba(196, 114, 74, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.wr-state-active .wr-ledger::before {
+  opacity: 1;
+  transition-delay: 1100ms;
+}
+.wr-ledger-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 22px 32px;
+  border-bottom: 1px solid rgba(30, 49, 72, 0.06);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  z-index: 1;
+}
+.wr-ledger-row:last-child { border-bottom: none; }
+.wr-ledger-month {
+  text-align: left;
+  color: rgba(30, 49, 72, 0.5);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.wr-ledger-dose {
+  text-align: center;
+  color: rgba(30, 49, 72, 0.78);
+  font-size: 17px;
+  font-weight: 500;
+}
+.wr-ledger-price {
+  text-align: right;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 22px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+.wr-state-active .wr-ledger-row { opacity: 1; transform: translateY(0); }
+.wr-state-active .wr-ledger-row:nth-child(1) { transition-delay: 200ms; }
+.wr-state-active .wr-ledger-row:nth-child(2) { transition-delay: 550ms; }
+.wr-state-active .wr-ledger-row:nth-child(3) { transition-delay: 900ms; }
+.wr-state-active .wr-ledger-row:nth-child(3) .wr-ledger-price {
+  animation: wr-price-pulse 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms;
+}
+@keyframes wr-price-pulse {
+  0% { transform: scale(1); color: #1a1a1a; }
+  45% { transform: scale(1.18); color: #C4724A; }
+  100% { transform: scale(1); color: #1a1a1a; }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .wr-banner { height: 380px; }
   .wr-banner-caption { bottom: 36px; padding: 0 24px; }
-  .wr-pillars { padding: 48px 24px 72px; }
-  .wr-grid { grid-template-columns: 1fr; gap: 32px; }
-  .wr-pillar { border-left: none; padding: 0 !important; border-top: 1px solid rgba(26,26,26,0.08); padding-top: 24px !important; }
-  .wr-pillar:first-child { border-top: none; padding-top: 0 !important; }
-  .wr-logo-wrap { margin-bottom: 40px; }
+  .wr-pillars { padding: 0 20px; }
+  .wr-state {
+    min-height: 0;
+    padding: 56px 0;
+  }
+  .wr-pillar-head { font-size: 36px; }
+  .wr-pillar-desc { font-size: 15px; }
+  .wr-supply-chain { padding: 24px 20px; }
+  .wr-supply-track { flex-wrap: wrap; gap: 6px; row-gap: 8px; }
+  .wr-supply-link { min-width: 12px; }
+  .wr-supply-node { font-size: 11px; padding: 6px 12px; }
+  .wr-supply-node-good { padding: 8px 14px; font-size: 12px; }
+  .wr-dose-chart { height: 180px; padding: 24px 20px 18px; }
+  .wr-ledger-row { padding: 18px 22px; }
+  .wr-ledger-price { font-size: 20px; }
+  .wr-ledger-dose { font-size: 15px; }
+  .wr-chat { padding: 22px; }
+  .wr-chat-bubble { max-width: 85%; font-size: 14px; padding: 12px 16px; }
 }
 @media (min-width: 1280px) {
   .wr-banner { height: 580px; }
-  .wr-pillar-head { font-size: 46px; }
-  .wr-pillar-desc { font-size: 16px; }
+}
+
+/* ─── Why Rylo demo blocks ─── */
+.wr-demo { margin-top: 32px; }
+
+/* DOSE CHART */
+.wr-dose-chart {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  background: rgba(245, 240, 232, 0.6);
+  border: none;
+  padding: 24px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+.wr-dose-plot { position: relative; flex: 1; display: flex; gap: 12px; min-height: 0; }
+.wr-dose-yaxis { position: relative; width: 48px; flex-shrink: 0; height: 100%; }
+.wr-dose-y-label {
+  position: absolute; right: 0;
+  transform: translateY(-50%);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  color: rgba(30, 49, 72, 0.5);
+  letter-spacing: 0.02em; white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-dose-canvas { position: relative; flex: 1; height: 100%; }
+.wr-dose-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.wr-dose-grid {
+  stroke: rgba(30, 49, 72, 0.08);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-dose-line {
+  fill: none;
+  stroke: #1a1a1a;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-dose-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-dose-dot-1 { left: 10%; bottom: 10%; }
+.wr-dose-dot-2 { left: 50%; bottom: 50%; }
+.wr-dose-dot-3 { left: 90%; bottom: 90%; }
+.wr-dose-xaxis {
+  position: relative;
+  height: 18px;
+  margin-left: 60px;
+  margin-top: 12px;
+}
+.wr-dose-x-label {
+  position: absolute; top: 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  color: rgba(30, 49, 72, 0.5);
+  transform: translateX(-50%);
+  white-space: nowrap; letter-spacing: 0.02em;
+}
+.wr-dose-x-label:nth-child(1) { left: 10%; }
+.wr-dose-x-label:nth-child(2) { left: 50%; }
+.wr-dose-x-label:nth-child(3) { left: 90%; }
+.wr-dose-annotation {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(30, 49, 72, 0.6);
+  text-align: center;
+  margin: 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.wr-dose-chart.wr-demo-active .wr-dose-y-label,
+.wr-dose-chart.wr-demo-active .wr-dose-grid { opacity: 1; transition-delay: 0ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-line { stroke-dashoffset: 0; transition-delay: 200ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-dot-1 { opacity: 1; transition-delay: 400ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-dot-2 { opacity: 1; transition-delay: 800ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-dot-3 { opacity: 1; transition-delay: 1200ms; }
+.wr-dose-chart.wr-demo-active + .wr-dose-annotation { opacity: 1; transition-delay: 1500ms; }
+
+/* CHAT THREAD */
+.wr-chat {
+  width: 100%;
+  background: rgba(245, 240, 232, 0.6);
+  border: none;
+  padding: 24px 24px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+.wr-chat-msg {
+  display: flex; flex-direction: column;
+  margin-bottom: 18px;
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.wr-chat-msg-1 { align-items: flex-end; transform: translateX(24px); }
+.wr-chat-msg-3 { align-items: flex-start; transform: translateX(-24px); }
+.wr-chat-msg-4 {
+  align-items: flex-start;
+  transform: translateX(-24px);
+  margin-top: -8px;
+  margin-bottom: 0;
+}
+.wr-chat-meta {
+  display: flex; gap: 10px; margin-bottom: 6px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: rgba(30, 49, 72, 0.45);
+}
+.wr-chat-meta-right { justify-content: flex-end; }
+.wr-chat-bubble {
+  max-width: 78%;
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 15px; font-weight: 400; line-height: 1.45;
+  box-shadow: 0 2px 6px rgba(26, 26, 26, 0.04);
+}
+.wr-chat-bubble-user {
+  background: #1a1a1a;
+  color: #f7f3ec;
+  border-bottom-right-radius: 6px;
+}
+.wr-chat-bubble-doc {
+  background: rgba(30, 49, 72, 0.07);
+  color: #1a1a1a;
+  border-bottom-left-radius: 6px;
+}
+.wr-chat-msg-4 .wr-chat-bubble-doc { border-top-left-radius: 6px; }
+.wr-chat-typing { display: flex; margin-bottom: 18px; opacity: 0; }
+.wr-chat-bubble-typing {
+  display: flex; gap: 5px; align-items: center;
+  padding: 16px 20px;
+  border-bottom-left-radius: 6px;
+}
+.wr-chat-typing-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(30, 49, 72, 0.5);
+  opacity: 0.25;
+}
+.wr-chat.wr-demo-active .wr-chat-msg-1 {
+  opacity: 1; transform: translateX(0); transition-delay: 0ms;
+}
+.wr-chat.wr-demo-active .wr-chat-typing {
+  animation: wr-chat-typing-fade 1s ease-out 800ms forwards;
+}
+.wr-chat.wr-demo-active .wr-chat-msg-3 {
+  opacity: 1; transform: translateX(0); transition-delay: 1900ms;
+}
+.wr-chat.wr-demo-active .wr-chat-msg-4 {
+  opacity: 1; transform: translateX(0); transition-delay: 2400ms;
+}
+.wr-chat.wr-demo-active .wr-chat-typing-dot {
+  animation: wr-chat-dot-pulse 1s ease-in-out infinite;
+}
+.wr-chat.wr-demo-active .wr-chat-typing-dot:nth-child(2) { animation-delay: 200ms; }
+.wr-chat.wr-demo-active .wr-chat-typing-dot:nth-child(3) { animation-delay: 400ms; }
+
+@keyframes wr-chat-typing-fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes wr-chat-dot-pulse {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-2px); }
+}
+
+@media (max-width: 780px) {
+  .wr-demo { margin-top: 24px; }
+  .wr-dose-chart { height: 110px; }
+  .wr-chat { padding: 14px; }
+  .wr-chat-bubble { max-width: 85%; }
+}
+
+/* ─── Rylo vs Others comparison strip ─── */
+.wr-compare-wrap {
+  background: #faf7f2;
+  padding: 0 clamp(20px, 4vw, 48px);
+}
+.wr-compare {
+  max-width: 920px;
+  margin: 80px auto;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+.wr-compare-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(30, 49, 72, 0.55);
+  margin-bottom: 24px;
+}
+.wr-compare-table {
+  width: 100%;
+}
+.wr-compare-heads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.wr-compare-col-head {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.wr-compare-col-others { color: rgba(30, 49, 72, 0.4); }
+.wr-compare-col-rylo { color: #1a1a1a; }
+.wr-compare-divider {
+  height: 1px;
+  background: rgba(30, 49, 72, 0.15);
+  margin: 16px 0 0;
+}
+.wr-compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(30, 49, 72, 0.08);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.wr-compare-row:last-child { border-bottom: none; }
+.wr-compare-cell {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.wr-compare-cell-others {
+  color: rgba(30, 49, 72, 0.45);
+  text-decoration: line-through;
+}
+.wr-compare-cell-rylo { color: #1a1a1a; }
+.wr-compare.wr-compare-in .wr-compare-row { opacity: 1; transform: translateY(0); }
+.wr-compare.wr-compare-in .wr-compare-row:nth-child(3) { transition-delay: 0ms; }
+.wr-compare.wr-compare-in .wr-compare-row:nth-child(4) { transition-delay: 100ms; }
+.wr-compare.wr-compare-in .wr-compare-row:nth-child(5) { transition-delay: 200ms; }
+.wr-compare.wr-compare-in .wr-compare-row:nth-child(6) { transition-delay: 300ms; }
+.wr-compare.wr-compare-in .wr-compare-row:nth-child(7) { transition-delay: 400ms; }
+.wr-compare.wr-compare-in .wr-compare-row:nth-child(8) { transition-delay: 500ms; }
+
+@media (max-width: 640px) {
+  .wr-compare { padding: 24px; margin: 56px auto; }
+  .wr-compare-heads { display: none; }
+  .wr-compare-divider { display: none; }
+  .wr-compare-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 0;
+  }
+  .wr-compare-cell { font-size: 13px; }
+  .wr-compare-cell-others { font-size: 12px; }
+  .wr-compare-cell-others::before {
+    content: 'OTHERS · ';
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .wr-compare-cell-rylo::before {
+    content: 'RYLO · ';
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #1a1a1a;
+  }
+}
+
+/* ─── Pharmacy-Direct flow diagram ─── */
+.wr-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(245, 240, 232, 0.6);
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 32px !important;
+  width: 100%;
+}
+.wr-flow-node {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-flow-node span {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+.wr-flow-arrow {
+  flex: 1 1 auto;
+  max-width: 80px;
+  height: 8px;
+  display: block;
+}
+.wr-flow-arrow svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+.wr-flow-arrow line {
+  stroke: rgba(30, 49, 72, 0.4);
+  stroke-width: 1;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-flow-arrow polyline {
+  fill: none;
+  stroke: rgba(30, 49, 72, 0.4);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transition: opacity 0.2s ease 0.3s;
+}
+.wr-flow-anno {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(30, 49, 72, 0.55);
+  text-align: center;
+  margin: 12px 0 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-state-active .wr-flow-node[data-i="0"] { opacity: 1; transform: scale(1); transition-delay: 0ms; }
+.wr-state-active .wr-flow-arrow[data-i="0"] line { stroke-dashoffset: 0; transition-delay: 200ms; }
+.wr-state-active .wr-flow-arrow[data-i="0"] polyline { opacity: 1; transition-delay: 500ms; }
+.wr-state-active .wr-flow-node[data-i="1"] { opacity: 1; transform: scale(1); transition-delay: 600ms; }
+.wr-state-active .wr-flow-arrow[data-i="1"] line { stroke-dashoffset: 0; transition-delay: 800ms; }
+.wr-state-active .wr-flow-arrow[data-i="1"] polyline { opacity: 1; transition-delay: 1100ms; }
+.wr-state-active .wr-flow-node[data-i="2"] { opacity: 1; transform: scale(1); transition-delay: 1200ms; }
+.wr-state-active .wr-flow-anno { opacity: 1; transition-delay: 1500ms; }
+
+@media (max-width: 480px) {
+  .wr-flow { padding: 16px; gap: 6px; }
+  .wr-flow-node { width: 52px; height: 52px; }
+  .wr-flow-node span { font-size: 10px; }
+}
+
+/* ─── Flat Pricing price card ─── */
+.wr-price-card {
+  background: rgba(245, 240, 232, 0.6);
+  padding: 24px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 32px !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-price-amount {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1;
+}
+.wr-price-period {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(30, 49, 72, 0.55);
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+}
+.wr-price-anno {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(30, 49, 72, 0.55);
+  text-align: center;
+  margin: 12px 0 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-state-active .wr-price-card { opacity: 1; transform: translateY(0); }
+.wr-state-active .wr-price-anno { opacity: 1; transition-delay: 400ms; }
+
+@media (max-width: 480px) {
+  .wr-price-amount { font-size: 36px; }
+}
+
+/* ─── Closing line ─── */
+.wr-closing {
+  background: #faf7f2;
+  text-align: center;
+  padding: 80px clamp(20px, 4vw, 48px) 60px;
+}
+.wr-closing-divider {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: rgba(30, 49, 72, 0.25);
+  margin: 0 auto 40px;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-closing-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 22px;
+  color: rgba(30, 49, 72, 0.55);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wr-closing.wr-closing-in .wr-closing-divider { opacity: 1; }
+.wr-closing.wr-closing-in .wr-closing-line {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 300ms;
+}
+
+@media (max-width: 480px) {
+  .wr-closing { padding: 56px 20px 40px; }
+  .wr-closing-line { font-size: 18px; }
 }
 </style>
 
@@ -5528,38 +6597,170 @@
   <span class="wr-mid-head-sub">The things that actually matter when choosing a provider.</span>
 </div>
 
-<!-- Pillars -->
-<section class="wr-pillars" id="wrPillars">
-  <div class="wr-pillars-inner">
-
-    <div class="wr-grid">
-
-      <div class="wr-pillar" id="wrP1">
-        <span class="wr-pillar-label">Pharmacy-Direct</span>
-        <p class="wr-pillar-head">No middlemen, ever.</p>
-        <p class="wr-pillar-desc">We work directly with our compounding pharmacy. Tighter quality control, faster fulfillment, and prices that reflect the actual cost of your medication, not a margin.</p>
+<!-- Rylo vs Others comparison strip -->
+<div class="wr-compare-wrap">
+  <div class="wr-compare" id="wrCompare">
+    <span class="wr-compare-eyebrow">How Rylo compares</span>
+    <div class="wr-compare-table">
+      <div class="wr-compare-heads">
+        <span class="wr-compare-col-head wr-compare-col-others">OTHERS</span>
+        <span class="wr-compare-col-head wr-compare-col-rylo">RYLO</span>
       </div>
-
-      <div class="wr-pillar" id="wrP2">
-        <span class="wr-pillar-label" style="color:#7A9472;">Personalized Dosing</span>
-        <p class="wr-pillar-head">Dosed for your body.</p>
-        <p class="wr-pillar-desc">Unlike fixed brand-name doses, your prescription is compounded and titrated based on how you respond. Your provider adjusts it every month.</p>
+      <div class="wr-compare-divider"></div>
+      <div class="wr-compare-row">
+        <span class="wr-compare-cell wr-compare-cell-others">Tiered pricing that increases with dose</span>
+        <span class="wr-compare-cell wr-compare-cell-rylo">One flat monthly rate</span>
       </div>
-
-      <div class="wr-pillar" id="wrP3">
-        <span class="wr-pillar-label">Flat Pricing</span>
-        <p class="wr-pillar-head">One price, always.</p>
-        <p class="wr-pillar-desc">One flat monthly rate, even as your dose increases. No surprise charges, no tiered pricing, no fine print. HSA and FSA accepted.</p>
+      <div class="wr-compare-row">
+        <span class="wr-compare-cell wr-compare-cell-others">Pay-up-front annual contracts</span>
+        <span class="wr-compare-cell wr-compare-cell-rylo">Month to month, cancel anytime</span>
       </div>
-
-      <div class="wr-pillar" id="wrP4">
-        <span class="wr-pillar-label" style="color:#7A9472;">Human Support</span>
-        <p class="wr-pillar-head">A real person, every time.</p>
-        <p class="wr-pillar-desc">Every question reaches our care team directly. Real people who know your case. Not a chatbot. Not a FAQ redirect. We check in on you every month. You never have to chase us.</p>
+      <div class="wr-compare-row">
+        <span class="wr-compare-cell wr-compare-cell-others">Chatbot first, human if you escalate</span>
+        <span class="wr-compare-cell wr-compare-cell-rylo">Real humans handle every message</span>
       </div>
-
+      <div class="wr-compare-row">
+        <span class="wr-compare-cell wr-compare-cell-others">Phone tree to cancel</span>
+        <span class="wr-compare-cell wr-compare-cell-rylo">One-click cancellation</span>
+      </div>
+      <div class="wr-compare-row">
+        <span class="wr-compare-cell wr-compare-cell-others">Different doctor every visit</span>
+        <span class="wr-compare-cell wr-compare-cell-rylo">Your dedicated care team</span>
+      </div>
+      <div class="wr-compare-row">
+        <span class="wr-compare-cell wr-compare-cell-others">Stock packaging, no follow-up</span>
+        <span class="wr-compare-cell wr-compare-cell-rylo">Premium care from Rx to delivery</span>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- Pillars -->
+<section class="wr-pillars" id="wrPillars">
+
+        <!-- STATE 1: Pharmacy-Direct -->
+        <div class="wr-state" data-state="0">
+          <h3 class="wr-pillar-head">No middlemen, ever.</h3>
+          <p class="wr-pillar-desc">We work directly with our compounding pharmacy. Tighter quality control, faster fulfillment, and prices that reflect the actual cost of your medication, not a margin.</p>
+
+          <div class="wr-demo wr-supply-chain" aria-hidden="true">
+            <div class="wr-supply-row wr-supply-old">
+              <span class="wr-supply-label">The usual way</span>
+              <div class="wr-supply-track">
+                <span class="wr-supply-node">Drug maker</span>
+                <span class="wr-supply-link"></span>
+                <span class="wr-supply-node wr-supply-mid">Wholesaler</span>
+                <span class="wr-supply-link"></span>
+                <span class="wr-supply-node wr-supply-mid">PBM</span>
+                <span class="wr-supply-link"></span>
+                <span class="wr-supply-node wr-supply-mid">Pharmacy</span>
+                <span class="wr-supply-link"></span>
+                <span class="wr-supply-node">You</span>
+              </div>
+            </div>
+            <div class="wr-supply-row wr-supply-new">
+              <span class="wr-supply-label">The Rylo way</span>
+              <div class="wr-supply-track wr-supply-track-direct">
+                <span class="wr-supply-node wr-supply-node-good">Rylo pharmacy</span>
+                <span class="wr-supply-link wr-supply-link-direct"></span>
+                <span class="wr-supply-node wr-supply-node-good">You</span>
+              </div>
+            </div>
+          </div>
+          <p class="wr-pillar-anno">One step. From pharmacy to your door.</p>
+        </div>
+
+        <!-- STATE 2: Personalized Dosing -->
+        <div class="wr-state" data-state="1">
+          <h3 class="wr-pillar-head">Dosed for your body.</h3>
+          <p class="wr-pillar-desc">Unlike fixed brand-name doses, your prescription is compounded and titrated based on how you respond. Your provider adjusts it every month.</p>
+
+          <div class="wr-demo wr-dose-chart" aria-hidden="true">
+            <div class="wr-dose-plot">
+              <div class="wr-dose-yaxis">
+                <span class="wr-dose-y-label" style="top:10%">7.5mg</span>
+                <span class="wr-dose-y-label" style="top:50%">5mg</span>
+                <span class="wr-dose-y-label" style="top:90%">2.5mg</span>
+              </div>
+              <div class="wr-dose-canvas">
+                <svg class="wr-dose-svg" preserveAspectRatio="none" viewBox="0 0 100 100">
+                  <line class="wr-dose-grid" x1="0" y1="10" x2="100" y2="10" />
+                  <line class="wr-dose-grid" x1="0" y1="50" x2="100" y2="50" />
+                  <line class="wr-dose-grid" x1="0" y1="90" x2="100" y2="90" />
+                  <path class="wr-dose-line" d="M10,90 C40,90 60,10 90,10" pathLength="100" />
+                </svg>
+                <span class="wr-dose-dot wr-dose-dot-1"></span>
+                <span class="wr-dose-dot wr-dose-dot-2"></span>
+                <span class="wr-dose-dot wr-dose-dot-3"></span>
+              </div>
+            </div>
+            <div class="wr-dose-xaxis">
+              <span class="wr-dose-x-label">Month 1</span>
+              <span class="wr-dose-x-label">Month 2</span>
+              <span class="wr-dose-x-label">Month 3</span>
+            </div>
+          </div>
+          <p class="wr-dose-annotation">Dose adjusted based on your response.</p>
+        </div>
+
+        <!-- STATE 3: Flat Pricing -->
+        <div class="wr-state" data-state="2">
+          <h3 class="wr-pillar-head">One price, always.</h3>
+          <p class="wr-pillar-desc">One flat monthly rate, even as your dose increases. No surprise charges, no tiered pricing, no fine print. HSA and FSA accepted.</p>
+
+          <div class="wr-demo wr-ledger" aria-hidden="true">
+            <div class="wr-ledger-row">
+              <span class="wr-ledger-month">Month 1</span>
+              <span class="wr-ledger-dose">2.5 mg</span>
+              <span class="wr-ledger-price">$179</span>
+            </div>
+            <div class="wr-ledger-row">
+              <span class="wr-ledger-month">Month 2</span>
+              <span class="wr-ledger-dose">5.0 mg</span>
+              <span class="wr-ledger-price">$179</span>
+            </div>
+            <div class="wr-ledger-row">
+              <span class="wr-ledger-month">Month 3</span>
+              <span class="wr-ledger-dose">7.5 mg</span>
+              <span class="wr-ledger-price">$179</span>
+            </div>
+          </div>
+          <p class="wr-pillar-anno">Same price as your dose increases.</p>
+        </div>
+
+        <!-- STATE 4: Human Support -->
+        <div class="wr-state" data-state="3">
+          <h3 class="wr-pillar-head">A real person, every time.</h3>
+          <p class="wr-pillar-desc">Every question reaches our care team directly. Real people who know your case. Not a chatbot. Not a FAQ redirect. We check in on you every month.</p>
+
+          <div class="wr-demo wr-chat" aria-hidden="true">
+            <div class="wr-chat-msg wr-chat-msg-1">
+              <div class="wr-chat-meta wr-chat-meta-right">
+                <span class="wr-chat-time">9:42 AM</span>
+                <span class="wr-chat-sender">You</span>
+              </div>
+              <div class="wr-chat-bubble wr-chat-bubble-user">Can I take my dose tomorrow instead of tonight?</div>
+            </div>
+            <div class="wr-chat-typing">
+              <div class="wr-chat-bubble wr-chat-bubble-doc wr-chat-bubble-typing">
+                <span class="wr-chat-typing-dot"></span>
+                <span class="wr-chat-typing-dot"></span>
+                <span class="wr-chat-typing-dot"></span>
+              </div>
+            </div>
+            <div class="wr-chat-msg wr-chat-msg-3">
+              <div class="wr-chat-meta wr-chat-meta-left">
+                <span class="wr-chat-time">9:48 AM</span>
+                <span class="wr-chat-sender">Dr. Niazi</span>
+              </div>
+              <div class="wr-chat-bubble wr-chat-bubble-doc">Yes.</div>
+            </div>
+            <div class="wr-chat-msg wr-chat-msg-4">
+              <div class="wr-chat-bubble wr-chat-bubble-doc">Hydrate well tonight.</div>
+            </div>
+          </div>
+        </div>
+
 </section>
 
 <script>
@@ -5576,10 +6777,35 @@
   observe(document.getElementById('wrMidHead'), function () {
     document.getElementById('wrMidHead').classList.add('wr-in');
   });
-  ['wrP1','wrP2','wrP3','wrP4'].forEach(function (id) {
-    var el = document.getElementById(id);
-    observe(el, function () { el.classList.add('wr-in'); });
-  });
+
+  /* ─── Per-state IntersectionObserver — pops up as user scrolls ─── */
+  var section = document.getElementById('wrPillars');
+  if (!section) return;
+  var states = section.querySelectorAll('.wr-state');
+  var stateObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('wr-state-active');
+        var demo = entry.target.querySelector('.wr-dose-chart, .wr-chat');
+        if (demo) demo.classList.add('wr-demo-active');
+        stateObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+  states.forEach(function (s) { stateObserver.observe(s); });
+
+  /* ─── Comparison strip stagger ─── */
+  var compare = document.getElementById('wrCompare');
+  if (compare) {
+    new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('wr-compare-in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 }).observe(compare);
+  }
 })();
 </script>
 
@@ -5979,7 +7205,7 @@
         </div>
       </div>
       <div class="bac-cta-wrap">
-        <a href="intake.html" class="bac-cta">Check my eligibility →</a>
+        <a href="waitlist.html" class="bac-cta">Reserve your spot →</a>
         <p class="bac-cta-sub">Free intake · No commitment · Ships in 3–5 days</p>
       </div>
     </div>
@@ -6402,7 +7628,7 @@
     </div>
   </div>
   <span class="rc-mob-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
-  <a href="intake.html" class="rc-mob-cta">Check my eligibility →</a>
+  <a href="waitlist.html" class="rc-mob-cta">Reserve your spot →</a>
 
   <!-- DESKTOP: two-column layout -->
   <div class="rc-inner">
@@ -6449,7 +7675,7 @@
         <span class="rc-stat-label">response time from your care team. Real people, not chatbots.</span>
       </div>
 
-      <a href="intake.html" class="rc-cta">Check my eligibility →</a>
+      <a href="waitlist.html" class="rc-cta">Reserve your spot →</a>
       <span class="rc-disclaimer">Individual results vary. Based on published GLP-1 clinical data. Not a guarantee of outcome.</span>
     </div>
 
@@ -6674,77 +7900,284 @@
   <div class="finally-text">
     <p class="finally-title">You didn't fail.<br><em>The plan did.</em></p>
     <p class="finally-body">Rylo pairs you with a licensed provider and a GLP-1 plan built around your body. Not a diet. Not willpower.</p>
-    <a href="intake.html" class="finally-cta">Check my eligibility →</a>
+    <a href="waitlist.html" class="finally-cta">Reserve your spot →</a>
   </div>
 </section>
+
+<!-- ─── MEDICAL LEADERSHIP ─── -->
+<section class="med-lead">
+  <div class="med-lead-inner">
+
+    <header class="med-lead-head">
+      <span class="med-lead-eyebrow">Medical Leadership</span>
+      <h2 class="med-lead-title">Your <em>prescribers.</em></h2>
+      <p class="med-lead-sub">Two licensed US physicians review every Rylo patient before treatment is prescribed.</p>
+    </header>
+
+    <div class="md-row">
+
+      <article class="md-card">
+        <div class="md-avatar">
+          <img src="dr-niazi.jpg" alt="Dr. Asad K. Niazi" loading="lazy" />
+        </div>
+        <h3 class="md-name">Dr. Asad K. Niazi</h3>
+        <p class="md-cred"><em>MD, MPH &middot; Internal Medicine</em></p>
+        <p class="md-bio">Board-certified internist with residency at Huntington Health&ndash;Cedars-Sinai. Earned his MD and MPH at Texas Tech and the UT School of Public Health, with published cardiovascular research conducted alongside Baylor College of Medicine.</p>
+      </article>
+
+      <article class="md-card">
+        <div class="md-avatar">
+          <img src="dr-patel.jpg" alt="Dr. Abhishek Patel" loading="lazy" />
+        </div>
+        <h3 class="md-name">Dr. Abhishek Patel</h3>
+        <p class="md-cred"><em>MD &middot; Physical Medicine &amp; Rehabilitation</em></p>
+        <p class="md-bio">Specialist in pain medicine, sports medicine, and rehabilitation, board-certified by the American Board of Physical Medicine &amp; Rehabilitation, with twelve years of clinical practice rooted in the University of Pittsburgh Medical Center.</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.med-lead{
+  min-height:calc(100vh - 88px);
+  background:#F1E6DD;
+  padding:64px clamp(20px,4vw,48px);
+  position:relative;
+  border-top:1px solid rgba(26,26,26,0.06);
+  border-bottom:1px solid rgba(26,26,26,0.06);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.med-lead::before{
+  content:"";
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:#5C4636;
+  opacity:0.5;
+}
+.med-lead-inner{
+  max-width:1100px;
+  margin:0 auto;
+  width:100%;
+}
+.med-lead-head{
+  text-align:center;
+  margin:0 auto 40px;
+  max-width:560px;
+}
+.med-lead-eyebrow{
+  font-family:'Inter',sans-serif;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:#3F4A39;
+  margin-bottom:18px;
+  display:block;
+}
+.med-lead-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(36px,4.4vw,56px);
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:0.98;
+  letter-spacing:-0.025em;
+  margin:0 0 12px;
+}
+.med-lead-title em{
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  font-weight:400;
+}
+.med-lead-sub{
+  font-family:'Plus Jakarta Sans','Inter',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.6;
+  margin:0;
+}
+.md-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  max-width:880px;
+  margin:0 auto;
+  align-items:start;
+}
+.md-card{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.md-avatar{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  overflow:hidden;
+  background:#F1E6DD;
+  margin-bottom:20px;
+  position:relative;
+  box-shadow:0 18px 36px -14px rgba(92,70,54,0.18);
+}
+.md-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+  display:block;
+  filter:saturate(0.96);
+}
+.md-name{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:28px;
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:1.05;
+  letter-spacing:-0.025em;
+  margin:0 0 8px;
+}
+.md-name::after{
+  content:"";
+  display:block;
+  width:32px;
+  height:2px;
+  background:#5C4636;
+  margin:10px auto 0;
+}
+.md-cred{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:16px;
+  font-weight:500;
+  color:#3F4A39;
+  margin:0 0 16px;
+  letter-spacing:0.005em;
+}
+.md-cred em{font-style:italic}
+.md-bio{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  color:#1a1a1a;
+  line-height:1.65;
+  margin:0;
+  max-width:340px;
+}
+@media(max-width:720px){
+  .med-lead{padding:48px 20px;min-height:auto}
+  .med-lead-head{margin-bottom:32px}
+  .md-row{grid-template-columns:1fr;gap:36px}
+  .md-avatar{width:160px;height:160px;margin-bottom:16px}
+}
+</style>
 
 <!-- ─── FAQ ─── -->
 <section class="faq-section" id="faq">
   <div class="faq-inner">
 
-    <div class="faq-heading">
-      <span class="faq-heading-sans">Your questions,</span>
-      <span class="faq-heading-serif">answered.</span>
-    </div>
+    <h2 class="faq-heading">Your questions, <em>answered.</em></h2>
 
     <div class="faq-list">
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          Do I need insurance?
+          What exactly is the Founders' Circle?
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">No. Rylo operates on a transparent, self-pay model. Our pricing is all-inclusive — covering your medical consultations, ongoing provider support, and the cost of your medication. No hidden fees, no insurance hurdles.</p>
+            <p class="faq-answer">The Founders' Circle is a 50-spot one-time membership that secures lifetime locked pricing on Rylo's compounded GLP-1 medications. Founders get tirzepatide at $160/month and semaglutide at $100/month — any strength, any dose — for as long as they remain a member in good standing. Once the 50 spots are claimed, the founders' tier closes.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          Can I cancel anytime?
+          What does the $149 founder fee actually cover?
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">Yes. Send us a message or call us and we cancel your subscription right away. No hold music. No chatbots. No runaround. If it's not for you, we make it easy to walk away. No contracts, no cancellation fees, ever.</p>
+            <p class="faq-answer">The $149 fee is for Founders' Circle membership and lifetime rate-lock access. It does not pay for medication, consultations, or prescriptions — all medical services are billed separately if and when you become a patient. Founders' Circle membership does not constitute a prescription, medical relationship, or guarantee of treatment eligibility.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          How is this different from Ozempic or Wegovy?
+          What's the refund policy on the founder fee?
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">Our compounded semaglutide contains semaglutide as the active ingredient. Compounded semaglutide is not FDA-approved and is not the same as Ozempic or Wegovy — but brand-name versions can cost $900–$1,400/month and are often unavailable due to shortage. Rylo works with licensed US compounding pharmacies to provide more affordable access with a personalized dosing plan from a real provider.</p>
+            <p class="faq-answer">If you're determined medically ineligible at intake, you may choose a full refund or keep your locked-rate access for future use. If Rylo Health does not open for enrollment by December 31, 2026, every founder receives a full refund automatically.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          What are the side effects?
+          When is Rylo opening?
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">The most common side effects are mild and GI-related — nausea, reduced appetite, or loose stools, especially in the first few weeks. These typically ease as your body adjusts. Your provider monitors your dose and can adjust your titration schedule to minimize discomfort. Serious side effects are rare and will be reviewed during your intake.</p>
+            <p class="faq-answer">We are targeting summer 2026 for public enrollment. Founders' Circle members will receive 24-hour priority access before the public, with first access to medical intake and prescription review. Early-access waitlist members will be notified the moment public enrollment opens.</p>
           </div>
         </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          How quickly will I see results?
+          Are your medications FDA-approved?
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-body">
           <div class="faq-body-inner">
-            <p class="faq-answer">Most patients notice appetite suppression within the first 1–2 weeks. Measurable weight loss typically begins within 4–8 weeks, with more significant results building over 3–6 months as your dose is titrated up. Your provider will set realistic expectations during your consultation.</p>
+            <p class="faq-answer">No. Rylo's medications are compounded by licensed 503A compounding pharmacies based on a valid prescription. Compounded medications are not FDA-approved drug products. Brand-name versions like Ozempic&reg;, Wegovy&reg;, Mounjaro&reg;, and Zepbound&reg; are FDA-approved; compounded versions are not. Statements on this website have not been evaluated by the FDA. Individual results vary.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Why is your GLP-1 pricing so much lower than brand-name?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">Brand-name GLP-1 medications cost $900&ndash;$1,400 per month at retail. Compounded versions use the same active ingredient (tirzepatide or semaglutide) but are prepared by US compounding pharmacies, which dramatically lowers the cost. Founders' rates are lower still because we subsidize the first 50 members to anchor the brand at launch.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What about the peptide and wellness products?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">Sermorelin, NAD+, Glutathione, GHK-Cu, Pulse Stack, MOTS-c, and the Wolverine Stack will be available through standard Rylo enrollment at launch &mdash; no founder membership required. The Founders' Circle perk is GLP-1-specific. Reserve early access on the waitlist to be notified when peptide enrollment opens.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can I cancel after launch?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <div class="faq-body-inner">
+            <p class="faq-answer">Yes &mdash; no contracts, no cancellation fees, ever. You can cancel through your patient portal or by messaging support. As a Founders' Circle member, your locked-rate access stays valid as long as you remain a member in good standing.</p>
           </div>
         </div>
       </div>
@@ -6764,95 +8197,6 @@
   </div>
 </section>
 
-<!-- ─── LEAD CAPTURE ─── -->
-<style>
-  .lead-capture {
-    background: #faf7f2;
-    padding: 80px 24px;
-    text-align: center;
-    border-top: 1px solid rgba(45,36,32,0.06);
-  }
-  .lead-capture-inner {
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  .lead-capture-heading {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 400;
-    color: #1a1a1a;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin: 0 0 12px;
-  }
-  .lead-capture-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: rgba(26,26,26,0.55);
-    margin: 0 0 32px;
-  }
-  .lead-capture-form {
-    display: flex;
-    gap: 0;
-    max-width: 440px;
-    margin: 0 auto;
-  }
-  .lead-capture-input {
-    flex: 1;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    padding: 16px 20px;
-    border: 1px solid rgba(26,26,26,0.12);
-    border-right: none;
-    background: #fff;
-    color: #1a1a1a;
-    outline: none;
-    transition: border-color 0.2s ease;
-  }
-  .lead-capture-input::placeholder {
-    color: rgba(26,26,26,0.3);
-  }
-  .lead-capture-input:focus {
-    border-color: rgba(26,26,26,0.3);
-  }
-  .lead-capture-btn {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    padding: 16px 28px;
-    background: #1a1a1a;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: opacity 0.2s ease;
-  }
-  .lead-capture-btn:hover { opacity: 0.85; }
-  .lead-capture-fine {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: rgba(26,26,26,0.35);
-    margin-top: 16px;
-  }
-  @media (max-width: 480px) {
-    .lead-capture-form { flex-direction: column; }
-    .lead-capture-input { border-right: 1px solid rgba(26,26,26,0.12); border-bottom: none; }
-  }
-</style>
-<section class="lead-capture">
-  <div class="lead-capture-inner">
-    <p class="lead-capture-heading">Not ready yet?</p>
-    <p class="lead-capture-sub">We'll send you the details. No spam, no pressure.</p>
-    <form class="lead-capture-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent'; this.querySelector('input').disabled=true;">
-      <input type="email" class="lead-capture-input" placeholder="Enter your email" required />
-      <button type="submit" class="lead-capture-btn">Send me info</button>
-    </form>
-    <p class="lead-capture-fine">One email. Pricing, how it works, and what to expect.</p>
-  </div>
-</section>
-
 <!-- ─── COMBINED CLOSING CTA ─── -->
 <section class="closing-section animate-in" id="start">
   <div class="closing-card">
@@ -6864,7 +8208,7 @@
       <h2 class="closing-heading">Ready to feel like<br /><em>yourself again?</em></h2>
       <p class="closing-sub">Starting at $89/month. A licensed US provider reviews your profile same day. If you're not approved, you pay nothing.</p>
       <div class="closing-cta-row">
-        <a href="intake.html" class="closing-btn">Check my eligibility &#8594;</a>
+        <a href="waitlist.html" class="closing-btn">Reserve your spot &#8594;</a>
         <span class="closing-fine">No commitment · No contracts · Cancel anytime</span>
       </div>
     </div>
@@ -6874,50 +8218,70 @@
 <!-- ─── FOOTER ─── -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="whiterylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
-        <span class="footer-tagline">The way it should be.</span>
-        <p>Clinician-guided GLP-1 and peptide therapy. Delivered to your door.</p>
+
+    <div class="footer-hero">
+      <span class="footer-eyebrow">Rylo Health &middot; Est. 2026</span>
+      <h2 class="footer-statement">Compounded medicine <em>that takes you seriously.</em></h2>
+    </div>
+
+    <div class="footer-grid">
+
+      <div class="footer-col footer-col-brand">
+        <a href="/" class="footer-logo" aria-label="Rylo Health">
+          <img src="whiterylologoofficial.png" alt="Rylo Health" fetchpriority="high" />
+        </a>
+        <p class="footer-blurb">GLP-1 therapies and wellness peptides, prescribed by your own physician. Continuous care, transparent pricing, cancel anytime.</p>
+        <div class="footer-contact">
+          <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a>
+          <a href="https://instagram.com/joinrylo" target="_blank" rel="noopener">Instagram &middot; @joinrylo</a>
+        </div>
       </div>
-      <div>
-        <div class="footer-col-title">Treatments</div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Protocols</div>
         <ul class="footer-links">
           <li><a href="tirzepatide-product.html">Tirzepatide</a></li>
           <li><a href="semaglutide-product.html">Semaglutide</a></li>
           <li><a href="sermorelin-product.html">Sermorelin</a></li>
           <li><a href="nad-product.html">NAD+</a></li>
           <li><a href="glutathione-product.html">Glutathione</a></li>
+          <li><a href="waitlist.html?product=ghk-cu">GHK-Cu</a></li>
+          <li><a href="waitlist.html?product=pulse-stack">The Pulse Stack</a></li>
+          <li><a href="waitlist.html?product=mots-c">MOTS-c</a></li>
+          <li><a href="waitlist.html?product=wolverine-stack">The Wolverine Stack</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Company</div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
         <ul class="footer-links">
           <li><a href="/#faq">FAQ</a></li>
-          <li><a href="mailto:hello@rylohealth.com">Contact</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
           <li><a href="disclaimer.html">Medical Disclaimer</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Support</div>
-        <ul class="footer-links">
-          <li><a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a></li>
-          <li><span style="color:rgba(255,255,255,0.4);font-size:13px;">Mon – Fri, 9am – 5pm CST</span></li>
-          <li><a href="https://instagram.com/joinrylo" target="_blank" rel="noopener">@joinrylo</a></li>
-        </ul>
-      </div>
+
     </div>
+
     <div class="footer-bottom">
-      <p>© 2026 Rylo Health LLC. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-      </div>
+      <span class="footer-copy">&copy; 2026 Rylo Health LLC.</span>
+      <span class="footer-signature">Compounded by licensed US pharmacies.</span>
     </div>
-    <p class="footer-disclaimer">Compounded medications are not FDA-approved. Individual results may vary. All treatments require a prescription from a licensed provider.</p>
+
   </div>
+
+  <div class="footer-legal">
+    <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
+    <p class="legal-trademarks">Mounjaro&reg; and Zepbound&reg; are registered trademarks of Eli Lilly and Company. Ozempic&reg; and Wegovy&reg; are registered trademarks of Novo Nordisk. Rylo Health is not affiliated with, endorsed by, or sponsored by these companies.</p>
+  </div>
+  <style>
+    .footer-legal{max-width:1100px;margin:0 auto;padding:32px 48px 0;border-top:1px solid rgba(255,255,255,0.08);text-align:center}
+    .legal-disclaimer,.legal-trademarks{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.4);margin:0 0 12px;letter-spacing:0.01em}
+    .legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
+    @media (max-width: 768px){.footer-legal{padding:28px 24px 0}}
+  </style>
+
 </footer>
 
 <!-- ─── INTAKE MODAL ─── -->
@@ -7035,7 +8399,6 @@
           <button type="button" class="modal-pill-option" onclick="togglePill(this)">Weight loss</button>
           <button type="button" class="modal-pill-option" onclick="togglePill(this)">More energy</button>
           <button type="button" class="modal-pill-option" onclick="togglePill(this)">Better sleep</button>
-          <button type="button" class="modal-pill-option" onclick="togglePill(this)">Anti-aging</button>
           <button type="button" class="modal-pill-option" onclick="togglePill(this)">Muscle &amp; body composition</button>
           <button type="button" class="modal-pill-option" onclick="togglePill(this)">Longevity</button>
           <button type="button" class="modal-pill-option" onclick="togglePill(this)">Overall wellness</button>
@@ -7459,7 +8822,7 @@
 
 <!-- ─── STICKY MOBILE CTA ─── -->
 <div class="sticky-mobile-cta" id="stickyMobileCta">
-  <a href="intake.html">Check my eligibility →</a>
+  <a href="waitlist.html">Reserve your spot →</a>
 </div>
 <script>
 (function(){
