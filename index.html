@@ -3327,7 +3327,10 @@
             </div>
             <p class="bento-tag"><b>GLP-1 + GIP</b> &middot; Weekly injection</p>
             <div class="bento-foot">
-              <span class="bento-price">From $179<span>/mo</span></span>
+              <div class="bento-price-stack">
+                <span class="bento-price-founders">Founders price &middot; $160/mo</span>
+                <span class="bento-price-cta">Reserve your spot</span>
+              </div>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3340,13 +3343,18 @@
             </div>
             <p class="bento-tag"><b>GLP-1</b> &middot; Weekly injection</p>
             <div class="bento-foot">
-              <span class="bento-price">From $129<span>/mo</span></span>
+              <div class="bento-price-stack">
+                <span class="bento-price-founders">Founders price &middot; $100/mo</span>
+                <span class="bento-price-cta">Reserve your spot</span>
+              </div>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
         </a>
       </div>
     </div>
+
+    <p class="wellness-note">Pricing finalized with our pharmacy partners at launch. Reservations lock founder rates.</p>
 
     <!-- PERFORMANCE — 1 lead + 2 standard + 1 wide -->
     <div class="bento">
@@ -3360,7 +3368,7 @@
             </div>
             <p class="bento-tag"><b>Coenzyme</b> &middot; Supports cellular energy and metabolic function</p>
             <div class="bento-foot">
-              <span class="bento-price">From $139<span>/mo</span></span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3373,7 +3381,7 @@
             </div>
             <p class="bento-tag"><b>GH peptide</b> &middot; Supports sleep and recovery</p>
             <div class="bento-foot">
-              <span class="bento-price">From $159<span>/mo</span></span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3387,7 +3395,7 @@
             </div>
             <p class="bento-tag"><b>CJC-1295 + Ipamorelin</b> &middot; Studied to support GH, sleep, and recovery.</p>
             <div class="bento-foot">
-              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3408,7 +3416,7 @@
             </div>
             <p class="bento-tag"><b>Copper peptide</b> &middot; Studied to support skin, collagen, and hair.</p>
             <div class="bento-foot">
-              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3421,7 +3429,7 @@
             </div>
             <p class="bento-tag"><b>Antioxidant</b> &middot; Supports immune and skin wellness</p>
             <div class="bento-foot">
-              <span class="bento-price">From $89<span>/mo</span></span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3435,7 +3443,7 @@
             </div>
             <p class="bento-tag"><b>Mitochondrial peptide</b> &middot; Studied to support metabolic function.</p>
             <div class="bento-foot">
-              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3456,7 +3464,7 @@
             </div>
             <p class="bento-tag"><b>BPC-157 + TB-500</b> &middot; Studied to support tissue and joint recovery.</p>
             <div class="bento-foot">
-              <span class="bento-price-soft">Reserve your spot</span>
+              <span class="bento-price-reserve">Reserve your spot</span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
@@ -3741,6 +3749,51 @@
   letter-spacing:0.14em;
   text-transform:uppercase;
   color:#1a1a1a;
+}
+/* Founders pricing stack on weight-loss cards */
+.bento-price-stack{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+.bento-price-founders{
+  font-family:'Plus Jakarta Sans','Inter',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  color:#f7f3ec;
+  letter-spacing:0.01em;
+}
+.bento-price-cta{
+  font-family:'Plus Jakarta Sans','Inter',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:rgba(247,243,236,0.65);
+}
+/* Single-line reserve label on wellness peptide cards */
+.bento-price-reserve{
+  font-family:'Plus Jakarta Sans','Inter',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  color:rgba(247,243,236,0.85);
+}
+/* Wellness peptides section note */
+.wellness-note{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-size:14px;
+  color:rgba(30,49,72,0.55);
+  text-align:center;
+  max-width:540px;
+  margin:24px auto 16px;
+  line-height:1.5;
+}
+@media (max-width:640px){
+  .bento-price-founders{font-size:13px;}
+  .wellness-note{font-size:12px;}
 }
 .bento-arrow{
   font-family:'Inter',sans-serif;
