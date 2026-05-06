@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rylo Health · Compounded GLP-1 and wellness peptides, prescribed</title>
+
+<meta name="description" content="Compounded medicine that takes you seriously. GLP-1 therapies and wellness peptides prescribed by your own physician. Tirzepatide, Semaglutide, NAD+, Sermorelin, and more.">
+
+<meta property="og:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta property="og:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician. Continuous care, transparent pricing, cancel anytime.">
+<meta property="og:image" content="https://rylohealth.com/og-image.jpg">
+<meta property="og:url" content="https://rylohealth.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rylo Health · Compounded medicine that takes you seriously">
+<meta name="twitter:description" content="GLP-1 therapies and wellness peptides, prescribed by your own physician.">
+<meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --oat:#faf7f2;
+  --cream:#f4eee2;
+  --cream-deep:#ebe3d2;
+  --dark:#1a1a1a;
+  --clay:#C4724A;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+body{
+  font-family:var(--sans);
+  background:var(--oat);
+  color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAV ── */
+.wl-nav{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:10;
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4vw,48px);
+}
+.wl-nav-logo{
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+}
+.wl-nav-logo img{height:88px;width:auto}
+.wl-nav-back{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:rgba(26,26,26,0.55);
+  text-decoration:none;
+  transition:color 0.25s,letter-spacing 0.25s;
+  letter-spacing:0.02em;
+}
+.wl-nav-back:hover{
+  color:var(--dark);
+  letter-spacing:0.04em;
+}
+
+/* ── HERO BANNER ── */
+.wl-hero{
+  position:relative;
+  min-height:520px;
+  display:flex;
+  align-items:flex-end;
+  padding:128px clamp(20px,4vw,48px) clamp(48px,5vw,72px);
+  overflow:hidden;
+  background:#0f0d12;
+}
+.wl-hero-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 35%;
+  z-index:1;
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+.wl-hero-image[src]:not([src=""]){opacity:1}
+.wl-hero-fallback{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(ellipse at 70% 30%,rgba(196,114,74,0.18) 0%,rgba(196,114,74,0.04) 50%,transparent 80%),
+    linear-gradient(135deg,#2a1f15 0%,#1a1410 50%,#15110d 100%);
+}
+.wl-hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:linear-gradient(180deg,rgba(15,12,8,0.15) 0%,rgba(15,12,8,0.55) 70%,rgba(15,12,8,0.85) 100%);
+}
+.wl-hero-content{
+  position:relative;
+  z-index:3;
+  max-width:760px;
+}
+.wl-hero-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:18px;
+  display:block;
+}
+.wl-hero-title{
+  font-family:var(--serif);
+  font-size:clamp(56px,7vw,104px);
+  font-weight:500;
+  color:#fff;
+  line-height:0.95;
+  letter-spacing:-0.025em;
+  margin:0 0 24px;
+}
+.wl-hero-title em{
+  font-style:italic;
+  color:rgba(255,255,255,0.6);
+  font-weight:400;
+  display:block;
+}
+.wl-hero-tagline{
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:400;
+  color:rgba(255,255,255,0.78);
+  line-height:1.65;
+  max-width:540px;
+  margin:0;
+}
+
+/* ── PULL QUOTE ── */
+.wl-quote{
+  background:var(--oat);
+  padding:96px clamp(20px,4vw,48px);
+}
+.wl-quote-inner{
+  max-width:920px;
+  margin:0 auto;
+  text-align:center;
+}
+.wl-quote-text{
+  font-family:var(--serif);
+  font-size:clamp(22px,2.4vw,32px);
+  font-weight:400;
+  font-style:italic;
+  color:rgba(26,26,26,0.72);
+  line-height:1.5;
+  letter-spacing:-0.01em;
+  margin:0 0 32px;
+}
+.wl-quote-attribution{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+.wl-quote-rule{
+  width:32px;
+  height:1px;
+  background:var(--clay);
+  margin-bottom:14px;
+}
+.wl-quote-name{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:700;
+  color:var(--dark);
+  letter-spacing:0.04em;
+}
+.wl-quote-role{
+  font-family:var(--sans);
+  font-size:12px;
+  font-weight:400;
+  color:rgba(26,26,26,0.5);
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+
+/* ── PRODUCTS SECTION ── */
+.wl-products{
+  background:var(--oat);
+  padding:32px clamp(20px,4vw,48px) 96px;
+}
+.wl-products-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+.wl-products-header{
+  margin:0 0 56px;
+}
+.wl-products-title{
+  font-family:var(--serif);
+  font-size:clamp(40px,4.5vw,60px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.02em;
+  margin:0 0 18px;
+}
+.wl-products-sub{
+  font-family:var(--sans);
+  font-size:15px;
+  color:rgba(26,26,26,0.6);
+  line-height:1.6;
+  margin:0;
+  max-width:580px;
+}
+
+.wl-products-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+/* ── PRODUCT CARD ── */
+.wl-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  text-decoration:none;
+  color:inherit;
+  border:1px solid rgba(0,0,0,0.04);
+  box-shadow:0 1px 3px rgba(0,0,0,0.03);
+  transition:transform 0.45s cubic-bezier(0.22,1,0.36,1),box-shadow 0.45s cubic-bezier(0.22,1,0.36,1);
+  cursor:pointer;
+}
+.wl-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 4px 16px rgba(0,0,0,0.05),0 24px 60px rgba(196,114,74,0.15);
+}
+
+/* Vial image area — softbox-lit feel via radial gradient */
+.wl-card-image-wrap{
+  position:relative;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 55%,#faf5ea 0%,#ede4d0 70%,#e3d8be 100%);
+}
+.wl-card-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  z-index:2;
+  opacity:0;
+  padding:32px;
+  transition:opacity 0.4s ease,transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  filter:drop-shadow(0 12px 24px rgba(60,40,20,0.18));
+}
+.wl-card-image[src]:not([src=""]){opacity:1}
+.wl-card:hover .wl-card-image{transform:translateY(-4px) scale(1.02)}
+
+/* CARD BODY */
+.wl-card-body{
+  position:relative;
+  padding:32px 32px 28px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.wl-pill{
+  position:absolute;
+  top:24px;
+  right:32px;
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.55);
+  padding:6px 12px;
+  background:rgba(0,0,0,0.04);
+  border-radius:100px;
+}
+.wl-pill-popular{
+  background:var(--dark);
+  color:#fff;
+}
+.wl-meta{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  color:rgba(26,26,26,0.5);
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.wl-name{
+  font-family:var(--serif);
+  font-size:36px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.02em;
+  margin:0 0 18px;
+}
+.wl-price{
+  font-family:'DM Sans','Inter',sans-serif;
+  font-size:26px;
+  font-weight:500;
+  color:var(--dark);
+  letter-spacing:-0.015em;
+  line-height:1;
+  margin-bottom:14px;
+}
+.wl-price span{
+  font-size:13px;
+  color:rgba(26,26,26,0.4);
+  font-weight:400;
+}
+.wl-desc{
+  font-family:var(--sans);
+  font-size:14px;
+  color:rgba(26,26,26,0.7);
+  line-height:1.6;
+  margin:0 0 14px;
+}
+.wl-callout{
+  font-family:var(--sans);
+  font-size:13px;
+  color:rgba(26,26,26,0.65);
+  line-height:1.5;
+  margin:0 0 6px;
+}
+.wl-callout strong{
+  color:var(--clay);
+  font-weight:700;
+}
+.wl-fine{
+  font-family:var(--sans);
+  font-size:12px;
+  color:rgba(26,26,26,0.45);
+  line-height:1.4;
+  margin:0 0 22px;
+}
+.wl-cta{
+  margin-top:auto;
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  color:var(--dark);
+  padding-top:18px;
+  border-top:1px solid rgba(0,0,0,0.08);
+  transition:color 0.25s,letter-spacing 0.25s;
+}
+.wl-card:hover .wl-cta{
+  color:var(--clay);
+  letter-spacing:0.06em;
+}
+
+/* ── TRUST STRIP ── */
+.wl-trust{
+  background:var(--oat);
+  padding:32px clamp(20px,4vw,48px);
+  border-top:1px solid rgba(0,0,0,0.08);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+.wl-trust-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(16px,3vw,48px);
+  flex-wrap:wrap;
+}
+.wl-trust-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.55);
+}
+.wl-trust-check{
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:rgba(196,114,74,0.12);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:8px;
+  color:var(--clay);
+}
+
+/* ── COMPARISON ── */
+.wl-compare{
+  background:var(--oat);
+  padding:96px clamp(20px,4vw,48px);
+}
+.wl-compare-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+.wl-compare-header{
+  text-align:center;
+  margin-bottom:56px;
+}
+.wl-compare-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--clay);
+  margin-bottom:18px;
+  display:block;
+}
+.wl-compare-title{
+  font-family:var(--serif);
+  font-size:clamp(40px,4.5vw,60px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.02em;
+  margin:0 0 14px;
+}
+.wl-compare-title em{
+  font-style:italic;
+  color:rgba(26,26,26,0.55);
+  font-weight:400;
+}
+.wl-compare-sub{
+  font-family:var(--sans);
+  font-size:15px;
+  color:rgba(26,26,26,0.6);
+  line-height:1.6;
+  margin:0;
+  max-width:520px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.wl-compare-table{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:0;
+  background:#fff;
+  border-radius:18px;
+  border:1px solid rgba(0,0,0,0.05);
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04),0 16px 48px rgba(0,0,0,0.06);
+}
+.wl-compare-col{
+  padding:40px 36px 36px;
+  display:flex;
+  flex-direction:column;
+}
+.wl-compare-divider{
+  width:1px;
+  background:rgba(0,0,0,0.07);
+}
+.wl-compare-col-head{
+  margin-bottom:28px;
+  position:relative;
+}
+.wl-compare-pill{
+  display:inline-block;
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.55);
+  padding:6px 12px;
+  background:rgba(0,0,0,0.04);
+  border-radius:100px;
+  margin-bottom:14px;
+}
+.wl-compare-pill-popular{
+  background:var(--dark);
+  color:#fff;
+}
+.wl-compare-name{
+  font-family:var(--serif);
+  font-size:40px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1;
+  letter-spacing:-0.02em;
+  margin:0 0 8px;
+}
+.wl-compare-tag{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:var(--clay);
+  letter-spacing:0.01em;
+  margin:0;
+}
+.wl-compare-list{
+  list-style:none;
+  margin:0 0 24px;
+  padding:0;
+  border-top:1px solid rgba(0,0,0,0.07);
+}
+.wl-compare-list li{
+  padding:14px 0;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.wl-compare-label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  color:rgba(26,26,26,0.45);
+  text-transform:uppercase;
+}
+.wl-compare-value{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.4;
+}
+.wl-compare-best{
+  margin-top:auto;
+  padding-top:20px;
+  border-top:1px solid rgba(0,0,0,0.07);
+}
+.wl-compare-best-label{
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--clay);
+  margin-bottom:8px;
+  display:block;
+}
+.wl-compare-best-text{
+  font-family:var(--sans);
+  font-size:13px;
+  color:rgba(26,26,26,0.7);
+  line-height:1.6;
+  margin:0;
+}
+.wl-compare-note{
+  text-align:center;
+  font-family:var(--sans);
+  font-size:11px;
+  color:rgba(26,26,26,0.4);
+  line-height:1.6;
+  margin:32px auto 0;
+  max-width:680px;
+}
+
+/* ── CLOSER ── */
+.wl-closer{
+  position:relative;
+  min-height:560px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:96px clamp(20px,4vw,48px);
+  text-align:center;
+}
+.wl-closer-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+  opacity:0;
+  filter:brightness(0.55);
+  transition:opacity 0.5s ease;
+}
+.wl-closer-image[src]:not([src=""]){opacity:1}
+.wl-closer-fallback{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(135deg,#1a1410 0%,#15110d 50%,#0f0c08 100%);
+}
+.wl-closer-overlay{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background:linear-gradient(180deg,rgba(15,12,8,0.4) 0%,rgba(15,12,8,0.7) 100%);
+}
+.wl-closer-content{
+  position:relative;
+  z-index:3;
+  max-width:680px;
+}
+.wl-closer-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:18px;
+  display:block;
+}
+.wl-closer-title{
+  font-family:var(--serif);
+  font-size:clamp(48px,6vw,80px);
+  font-weight:500;
+  color:#fff;
+  line-height:0.95;
+  letter-spacing:-0.025em;
+  margin:0 0 6px;
+}
+.wl-closer-title-italic{
+  font-family:var(--serif);
+  font-size:clamp(48px,6vw,80px);
+  font-weight:400;
+  font-style:italic;
+  color:rgba(255,255,255,0.55);
+  line-height:0.95;
+  letter-spacing:-0.025em;
+  margin:0 0 28px;
+}
+.wl-closer-sub{
+  font-family:var(--sans);
+  font-size:15px;
+  color:rgba(255,255,255,0.7);
+  line-height:1.65;
+  margin:0 auto 36px;
+  max-width:480px;
+}
+.wl-closer-cta{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  padding:18px 40px;
+  background:#fff;
+  color:var(--dark);
+  text-decoration:none;
+  display:inline-block;
+  transition:background 0.25s,color 0.25s,transform 0.25s,letter-spacing 0.25s;
+  border-radius:2px;
+}
+.wl-closer-cta:hover{
+  background:var(--clay);
+  color:#fff;
+  transform:translateY(-2px);
+  letter-spacing:0.06em;
+}
+.wl-closer-fine{
+  font-family:var(--sans);
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  margin-top:18px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+/* ── DISCLAIMER ── */
+.wl-disclaimer{
+  background:var(--oat);
+  padding:32px clamp(20px,4vw,48px);
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,0.05);
+}
+.wl-disclaimer-text{
+  font-family:var(--sans);
+  font-size:11px;
+  color:rgba(26,26,26,0.4);
+  line-height:1.6;
+  max-width:760px;
+  margin:0 auto;
+}
+
+/* ── FOOTER ── */
+.wl-footer{
+  background:var(--dark);
+  padding:64px clamp(20px,4vw,48px) 32px;
+  text-align:center;
+}
+.wl-footer-logo img{
+  height:64px;
+  width:auto;
+  opacity:0.85;
+  margin-bottom:24px;
+}
+.wl-footer-links{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+.wl-footer-link{
+  font-family:var(--sans);
+  font-size:12px;
+  color:rgba(255,255,255,0.45);
+  text-decoration:none;
+  letter-spacing:0.04em;
+  transition:color 0.25s;
+}
+.wl-footer-link:hover{color:#fff}
+.wl-footer-text{
+  font-family:var(--sans);
+  font-size:11px;
+  color:rgba(255,255,255,0.35);
+  line-height:1.7;
+  max-width:640px;
+  margin:0 auto 16px;
+}
+.wl-footer-copyright{
+  font-family:var(--sans);
+  font-size:11px;
+  color:rgba(255,255,255,0.25);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .wl-products-grid{grid-template-columns:1fr;gap:18px}
+  .wl-compare-table{grid-template-columns:1fr;border-radius:14px}
+  .wl-compare-divider{display:none}
+  .wl-compare-col:first-of-type{border-bottom:1px solid rgba(0,0,0,0.07)}
+}
+@media(max-width:640px){
+  .wl-nav{height:64px}
+  .wl-nav-logo img{height:48px}
+  .wl-hero{min-height:auto;padding:96px 20px 48px}
+  .wl-hero-title{font-size:48px}
+  .wl-hero-tagline{font-size:14px}
+  .wl-quote{padding:64px 20px}
+  .wl-quote-text{font-size:18px;margin-bottom:24px}
+  .wl-products{padding:32px 16px 64px}
+  .wl-products-header{margin-bottom:32px}
+  .wl-products-title{font-size:36px}
+  .wl-card-body{padding:24px 22px 22px}
+  .wl-name{font-size:28px;margin-bottom:14px}
+  .wl-price{font-size:22px}
+  .wl-pill{top:20px;right:22px}
+  .wl-trust-item{font-size:10px}
+  .wl-compare{padding:64px 16px}
+  .wl-compare-header{margin-bottom:40px}
+  .wl-compare-title{font-size:32px}
+  .wl-compare-col{padding:32px 24px 28px}
+  .wl-compare-name{font-size:34px}
+  .wl-closer{padding:64px 20px;min-height:auto}
+  .wl-closer-title{font-size:44px}
+  .wl-closer-title-italic{font-size:44px}
+  .wl-closer-cta{width:100%}
+  .wl-footer-links{gap:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="wl-nav">
+  <a href="/" class="wl-nav-logo">
+    <img src="whiterylologoofficial.png" alt="Rylo Health" />
+  </a>
+  <a href="/" class="wl-nav-back">&larr; Back to home</a>
+</nav>
+
+
+<!-- HERO BANNER -->
+<section class="wl-hero">
+  <img class="wl-hero-image" src="cat-weight-loss.jpg" alt="" />
+  <div class="wl-hero-fallback"></div>
+  <div class="wl-hero-overlay"></div>
+  <div class="wl-hero-content">
+    <span class="wl-hero-eyebrow">Weight Loss Protocol</span>
+    <h1 class="wl-hero-title">Metabolic medicine,<em>for how you live now.</em></h1>
+    <p class="wl-hero-tagline">Compounded GLP-1 medication, prescribed by US-licensed clinicians, dosed to your biology, and shipped from a domestic compounding pharmacy. No middlemen. No chatbots. No fixed brand-name doses.</p>
+  </div>
+</section>
+
+
+<!-- PRODUCTS -->
+<section class="wl-products">
+  <div class="wl-products-inner">
+
+    <div class="wl-products-header">
+      <h2 class="wl-products-title">Weight loss treatments.</h2>
+      <p class="wl-products-sub">Two clinician-prescribed options, dosed to your biology.</p>
+    </div>
+
+    <div class="wl-products-grid">
+
+      <a href="tirzepatide-product.html" class="wl-card">
+        <div class="wl-card-image-wrap">
+          <img class="wl-card-image" src="vial-tirz.png" alt="Compounded Tirzepatide" />
+        </div>
+        <div class="wl-card-body">
+          <span class="wl-pill wl-pill-popular">Most Popular</span>
+          <div class="wl-meta">GLP-1 + GIP &middot; Weekly</div>
+          <h3 class="wl-name">Tirzepatide</h3>
+          <div class="wl-price">$229<span>/month</span></div>
+          <p class="wl-desc">Acts on two metabolic pathways. The strongest GLP-1 available.</p>
+          <p class="wl-callout">3 months at $199/month &middot; <strong>Save $90</strong></p>
+          <p class="wl-fine">Cancel anytime. No commitment.</p>
+          <span class="wl-cta">Reserve your spot &rarr;</span>
+        </div>
+      </a>
+
+      <a href="semaglutide-product.html" class="wl-card">
+        <div class="wl-card-image-wrap">
+          <img class="wl-card-image" src="vial-sema.png" alt="Compounded Semaglutide" />
+        </div>
+        <div class="wl-card-body">
+          <span class="wl-pill">In stock</span>
+          <div class="wl-meta">GLP-1 &middot; Weekly</div>
+          <h3 class="wl-name">Semaglutide</h3>
+          <div class="wl-price">$169<span>/month</span></div>
+          <p class="wl-desc">Appetite regulation, glucose balance, and metabolic health.</p>
+          <p class="wl-callout">3 months at $149/month &middot; <strong>Save $60</strong></p>
+          <p class="wl-fine">Cancel anytime. No commitment.</p>
+          <span class="wl-cta">Reserve your spot &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TRUST STRIP -->
+<section class="wl-trust">
+  <div class="wl-trust-inner">
+    <div class="wl-trust-item"><div class="wl-trust-check">&#10003;</div>Licensed US Providers</div>
+    <div class="wl-trust-item"><div class="wl-trust-check">&#10003;</div>Same-day Review</div>
+    <div class="wl-trust-item"><div class="wl-trust-check">&#10003;</div>Compounded by US Pharmacy</div>
+    <div class="wl-trust-item"><div class="wl-trust-check">&#10003;</div>HIPAA-secure</div>
+    <div class="wl-trust-item"><div class="wl-trust-check">&#10003;</div>Free Shipping</div>
+  </div>
+</section>
+
+
+<!-- COMPARISON -->
+<section class="wl-compare">
+  <div class="wl-compare-inner">
+
+    <div class="wl-compare-header">
+      <span class="wl-compare-eyebrow">Which is right for you?</span>
+      <h2 class="wl-compare-title">Both work. <em>They work differently.</em></h2>
+      <p class="wl-compare-sub">A real clinician will help you choose. But here's the honest difference.</p>
+    </div>
+
+    <div class="wl-compare-table">
+      <div class="wl-compare-col">
+        <div class="wl-compare-col-head">
+          <span class="wl-compare-pill wl-compare-pill-popular">Most Popular</span>
+          <h3 class="wl-compare-name">Tirzepatide</h3>
+          <p class="wl-compare-tag">The strongest GLP-1 available.</p>
+        </div>
+        <ul class="wl-compare-list">
+          <li>
+            <span class="wl-compare-label">Mechanism</span>
+            <span class="wl-compare-value">GLP-1 + GIP &middot; Dual pathway</span>
+          </li>
+          <li>
+            <span class="wl-compare-label">Avg. trial weight loss</span>
+            <span class="wl-compare-value">~20% over 72 weeks</span>
+          </li>
+          <li>
+            <span class="wl-compare-label">Dose schedule</span>
+            <span class="wl-compare-value">Once weekly, self-injected</span>
+          </li>
+          <li>
+            <span class="wl-compare-label">Starting price</span>
+            <span class="wl-compare-value">$229/month</span>
+          </li>
+        </ul>
+        <div class="wl-compare-best">
+          <span class="wl-compare-best-label">Best for</span>
+          <p class="wl-compare-best-text">Patients who want the most effective option, are comfortable with a slightly higher cost, and haven't responded to semaglutide alone.</p>
+        </div>
+      </div>
+
+      <div class="wl-compare-divider" aria-hidden="true"></div>
+
+      <div class="wl-compare-col">
+        <div class="wl-compare-col-head">
+          <span class="wl-compare-pill">In stock</span>
+          <h3 class="wl-compare-name">Semaglutide</h3>
+          <p class="wl-compare-tag">The proven GLP-1 standard.</p>
+        </div>
+        <ul class="wl-compare-list">
+          <li>
+            <span class="wl-compare-label">Mechanism</span>
+            <span class="wl-compare-value">GLP-1 only &middot; Single pathway</span>
+          </li>
+          <li>
+            <span class="wl-compare-label">Avg. trial weight loss</span>
+            <span class="wl-compare-value">~15% over 68 weeks</span>
+          </li>
+          <li>
+            <span class="wl-compare-label">Dose schedule</span>
+            <span class="wl-compare-value">Once weekly, self-injected</span>
+          </li>
+          <li>
+            <span class="wl-compare-label">Starting price</span>
+            <span class="wl-compare-value">$169/month</span>
+          </li>
+        </ul>
+        <div class="wl-compare-best">
+          <span class="wl-compare-best-label">Best for</span>
+          <p class="wl-compare-best-text">Patients new to GLP-1, looking for proven appetite regulation and metabolic support at a more accessible price.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="wl-compare-note">A US-licensed clinician reviews your profile and recommends what's clinically appropriate. Compounded medications are not FDA-approved. Trial data references FDA-approved tirzepatide and semaglutide; individual results vary.</p>
+  </div>
+</section>
+
+
+<!-- CLOSER -->
+<section class="wl-closer">
+  <img class="wl-closer-image" src="closer-weight-loss.jpg" alt="" />
+  <div class="wl-closer-fallback"></div>
+  <div class="wl-closer-overlay"></div>
+  <div class="wl-closer-content">
+    <span class="wl-closer-eyebrow">Founding Access</span>
+    <h2 class="wl-closer-title">Reserve your spot.</h2>
+    <p class="wl-closer-title-italic">Founding access opens soon.</p>
+    <p class="wl-closer-sub">The first 500 founding members lock in launch pricing for life. No credit card required.</p>
+    <a href="waitlist.html?interest=weight-loss" class="wl-closer-cta">Reserve your spot &rarr;</a>
+    <p class="wl-closer-fine">Founding access &middot; Closes at 500</p>
+  </div>
+</section>
+
+
+<!-- DISCLAIMER -->
+<section class="wl-disclaimer">
+  <p class="wl-disclaimer-text">All treatments require a valid prescription from a licensed US provider. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety, efficacy, or quality. Individual results may vary. Rylo Health connects patients with licensed healthcare providers for telehealth consultations.</p>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="wl-footer">
+  <a href="/" class="wl-footer-logo">
+    <img src="whiterylologoofficial.png" alt="Rylo Health" />
+  </a>
+  <div class="wl-footer-links">
+    <a href="/" class="wl-footer-link">Home</a>
+    <a href="/#how-it-works" class="wl-footer-link">How It Works</a>
+    <a href="/#faq" class="wl-footer-link">FAQ</a>
+    <a href="privacy.html" class="wl-footer-link">Privacy</a>
+    <a href="terms.html" class="wl-footer-link">Terms</a>
+    <a href="mailto:hello@rylohealth.com" class="wl-footer-link">Contact</a>
+  </div>
+  <p class="wl-footer-text">Rylo Health connects patients with licensed healthcare providers for telehealth consultations. Compounded medications are not FDA-approved.</p>
+  <p class="wl-footer-copyright">&copy; 2026 Rylo Health LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,2 +1,37 @@
 .DS_Store
 node_modules/
+
+# Environment files (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Backup files
+*.bak
+*.bak[0-9]*
+*.cta-bak
+
+# Working/dev artifacts
+temporary screenshots/
+opt/
+Desktop/
+
+# Personal / sensitive
+*.pdf
+PATEL.webp
+
+# Source design files (committed PNG/WebP exports are sufficient)
+*.ai
+*.psd
+*.sketch
+*.fig
+
+# Personal screenshots in repo root
+Screenshot*.png
+Screenshot*.PNG
+
+# Dev utility scripts (local-only)
+screenshot-*.mjs
+
+# In-progress page (kept local until ready to deploy)
+/golf.html

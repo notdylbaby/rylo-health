@@ -629,6 +629,21 @@ body{
   background:var(--navy);
   transform:translateY(-2px);
 }
+.fc-btn-disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+  background:#9a9a9a;
+}
+.fc-btn-disabled:hover{
+  background:#9a9a9a;
+  transform:none;
+}
+.fc-btn-soldout{
+  background:#5C4636;
+}
+.fc-btn-soldout:hover{
+  background:#4A382B;
+}
 
 .fc-fine{max-width:520px;margin:0 auto 14px}
 .fc-fine p{
@@ -879,7 +894,7 @@ body{
       <p class="fc-fee-note">The $149 founder fee is for Founders' Circle membership and lifetime rate-lock access. It does not pay for medication, consultations, or prescriptions &mdash; all medical services are billed separately if and when you become a patient.</p>
     </div>
 
-    <button type="button" class="fc-btn" id="fcOpenBtn">Become a Founder &middot; $149</button>
+    <button type="button" class="fc-btn" id="fcStripeBtn" disabled aria-busy="true">Loading...</button>
 
     <div class="fc-fine">
       <p>If you're determined medically ineligible at intake, you may choose a full refund or keep the locked-rate access for future use. Full refund if Rylo doesn't open by December 31, 2026.</p>
@@ -1070,33 +1085,76 @@ body{
 
   // --- FOUNDERS' CIRCLE ---
   const FOUNDERS_CAP = 50;
+  let _stripeState = { claimed: 0, cap: FOUNDERS_CAP, stripe_live: false };
 
   async function loadFoundersCount(){
     try{
-      const res = await fetch(SUPABASE_URL + '/rest/v1/founders?select=id', {
-        method:'GET',
-        headers:{
-          apikey: SUPABASE_KEY,
-          Authorization: 'Bearer ' + SUPABASE_KEY,
-          Prefer:'count=exact',
-          Range:'0-0'
-        }
-      });
-      if(!res.ok) throw new Error('founders count');
-      const range = res.headers.get('content-range') || '';
-      const match = range.match(/\/(\d+)$/);
-      const count = match ? parseInt(match[1],10) : 0;
-      updateFoundersCounter(count);
+      const res = await fetch('/api/founder-count', { method:'GET' });
+      if(!res.ok) throw new Error('founder-count ' + res.status);
+      const data = await res.json();
+      _stripeState = {
+        claimed: data.claimed || 0,
+        cap: data.cap || FOUNDERS_CAP,
+        stripe_live: !!data.stripe_live
+      };
+      updateFoundersCounter(_stripeState.claimed, _stripeState.cap);
+      updateStripeButton(_stripeState);
     }catch(e){console.error('founders counter', e)}
   }
 
-  function updateFoundersCounter(count){
+  function updateFoundersCounter(count, cap){
+    const max = cap || FOUNDERS_CAP;
     const num = document.getElementById('fcCount');
     const bar = document.getElementById('fcBarFill');
     if(num) num.textContent = count;
     if(bar){
-      const pct = Math.min(100, Math.round((count / FOUNDERS_CAP) * 100));
+      const pct = Math.min(100, Math.round((count / max) * 100));
       bar.style.width = pct + '%';
+    }
+  }
+
+  function updateStripeButton(state){
+    const btn = document.getElementById('fcStripeBtn');
+    if(!btn) return;
+    btn.removeAttribute('aria-busy');
+    btn.classList.remove('fc-btn-disabled', 'fc-btn-soldout');
+
+    if(!state.stripe_live){
+      btn.disabled = true;
+      btn.textContent = 'Awaiting Stripe approval';
+      btn.classList.add('fc-btn-disabled');
+      btn.onclick = null;
+      return;
+    }
+    if(state.claimed >= state.cap){
+      btn.disabled = false;
+      btn.textContent = 'Sold out · Join the waitlist for the next batch';
+      btn.classList.add('fc-btn-soldout');
+      btn.onclick = function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); };
+      return;
+    }
+    btn.disabled = false;
+    btn.textContent = 'Become a Founder · $149';
+    btn.onclick = startStripeCheckout;
+  }
+
+  async function startStripeCheckout(){
+    const btn = document.getElementById('fcStripeBtn');
+    if(!btn) return;
+    const original = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Redirecting to checkout...';
+    try{
+      const res = await fetch('/api/create-checkout-session', { method:'POST' });
+      if(!res.ok) throw new Error('checkout ' + res.status);
+      const data = await res.json();
+      if(!data.url) throw new Error('no_url');
+      window.location.href = data.url;
+    }catch(err){
+      console.error('checkout error', err);
+      btn.disabled = false;
+      btn.textContent = original;
+      alert('Could not open checkout. Please try again in a moment.');
     }
   }
 
@@ -1179,18 +1237,9 @@ body{
     if(form) form.addEventListener('submit', submitForm);
     loadCount();
 
-    const fcOpenBtn = document.getElementById('fcOpenBtn');
-    if(fcOpenBtn) fcOpenBtn.addEventListener('click', openFoundersModal);
-    const fcModalClose = document.getElementById('fcModalClose');
-    if(fcModalClose) fcModalClose.addEventListener('click', closeFoundersModal);
-    const fcModalOverlay = document.getElementById('fcModalOverlay');
-    if(fcModalOverlay){
-      fcModalOverlay.addEventListener('click', function(e){
-        if(e.target === fcModalOverlay) closeFoundersModal();
-      });
-    }
-    const fcForm = document.getElementById('fcForm');
-    if(fcForm) fcForm.addEventListener('submit', submitFoundersForm);
+    // Founders' Circle button is now wired by updateStripeButton() after
+    // /api/founder-count resolves. The legacy email-reservation modal markup
+    // remains in the DOM but is no longer triggered.
     const wlFcLink = document.getElementById('wlFcLink');
     if(wlFcLink){
       wlFcLink.addEventListener('click', function(e){
@@ -1199,9 +1248,6 @@ body{
         if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
       });
     }
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeFoundersModal();
-    });
     loadFoundersCount();
   });
 })();

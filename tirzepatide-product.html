@@ -594,7 +594,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   </ul>
   <div class="rn-right">
     <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-ghost">Log in</a>
-    <a href="waitlist.html?product=tirzepatide" class="rn-cta">Reserve your spot →</a>
+    <a href="https://buy.stripe.com/00w6oGfymfaq1nd4gr93y00" class="rn-cta">Become a Founder $149</a>
   </div>
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -677,7 +677,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       </div>
       <p style="font-size:11px;color:rgba(255,255,255,0.3);line-height:1.6;margin-bottom:12px;">Clinical trials: avg. 20% body weight reduction with tirzepatide.&thinsp;&dagger;<br><span style="font-size:10px;opacity:0.7;">&dagger;Based on published clinical research. Results vary. Not a guarantee of weight loss.</span></p>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:0;">
-        <a href="waitlist.html?product=tirzepatide" class="hero-cta">Reserve your spot &rarr;</a>
+        <a href="https://buy.stripe.com/00w6oGfymfaq1nd4gr93y00" class="hero-cta">Become a Founder $149</a>
+        <p class="founder-disclaimer">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
         <p class="hero-cta-sub">Free intake &middot; No commitment &middot; Prescription required</p>
 
       </div>
@@ -737,7 +738,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
         <div class="price-big">$179<span class="price-mo">/mo</span></div>
         <div class="price-compare">vs. $1,000+/mo for Zepbound&reg; out of pocket</div>
         <p class="price-note">3-month plan: $149/mo &middot; Save $90<br>No membership fee. No price increases as your dose goes up.</p>
-        <a href="waitlist.html?product=tirzepatide" class="price-btn">Reserve your spot &rarr;</a>
+        <a href="https://buy.stripe.com/00w6oGfymfaq1nd4gr93y00" class="price-btn">Become a Founder $149</a>
+        <p class="founder-disclaimer founder-disclaimer-light">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
         <p class="price-sub">Free intake &middot; No commitment &middot; Cancel anytime<br>Prescription required &middot; Results vary by patient</p>
       </div>
       <div class="disc-card">
@@ -814,7 +816,10 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,48px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:12px;">Ready to start? <em style="font-style:italic;color:rgba(255,255,255,0.38);">Takes 5 minutes.</em></p>
     <p style="font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:0.02em;">Free intake &middot; No commitment &middot; Licensed provider review</p>
   </div>
-  <a href="waitlist.html?product=tirzepatide" style="display:inline-block;font-size:12px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:20px 52px;background:#fff;color:#1a1a1a;text-decoration:none;border-radius:0;flex-shrink:0;">Reserve your spot &rarr;</a>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
+    <a href="https://buy.stripe.com/00w6oGfymfaq1nd4gr93y00" style="display:inline-block;font-size:12px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:20px 52px;background:#fff;color:#1a1a1a;text-decoration:none;border-radius:0;">Become a Founder $149</a>
+    <p class="founder-disclaimer" style="text-align:right;max-width:340px;margin:0;">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
+  </div>
 </div>
 
 <!-- FAQ -->
@@ -855,7 +860,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   <div style="position:relative;z-index:2;">
     <h2 class="fcta-h">Ready to find out<br><em>if you qualify?</em></h2>
     <p class="fcta-sub">Free intake. Licensed provider review. Ships if approved.<br><span style="font-size:14px;color:rgba(255,255,255,0.35);">If you are not approved, you will not be charged for medication.</span></p>
-    <a href="waitlist.html?product=tirzepatide" class="fcta-btn">Reserve your spot &rarr;</a>
+    <a href="https://buy.stripe.com/00w6oGfymfaq1nd4gr93y00" class="fcta-btn">Become a Founder $149</a>
+    <p class="founder-disclaimer">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
     <p class="fcta-note">Compounded tirzepatide is not FDA-approved &middot; Prescription required &middot; Individual results will vary<br>Not a guarantee of weight loss &middot; A licensed provider determines clinical eligibility</p>
   </div>
 </section>
@@ -990,6 +996,46 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+})();
+</script>
+
+<!-- Founders modal: Stripe pause fallback -->
+<style>
+.founder-disclaimer{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.55;color:rgba(255,255,255,0.5);margin:14px auto 4px;max-width:480px;text-align:center;letter-spacing:0.01em}
+.founder-disclaimer-light{color:rgba(26,26,26,0.55)}
+.founder-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
+.founder-modal[hidden]{display:none}
+.founder-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.founder-modal-card{position:relative;max-width:440px;width:100%;background:#faf7f2;border-radius:12px;padding:40px 32px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.35)}
+.founder-modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:transparent;font-size:22px;color:rgba(26,26,26,0.5);cursor:pointer;line-height:1;border-radius:50%}
+.founder-modal-close:hover{background:rgba(0,0,0,0.05);color:#1a1a1a}
+.founder-modal-msg{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:18px;line-height:1.5;color:rgba(26,26,26,0.78);margin:0 0 24px}
+.founder-modal-btn{display:inline-block;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;color:#fff;background:#1a1a1a;text-decoration:none;padding:14px 28px;border-radius:0;transition:background 0.25s}
+.founder-modal-btn:hover{background:#0C1C2E}
+</style>
+<div id="founderModal" class="founder-modal" hidden>
+  <div class="founder-modal-backdrop"></div>
+  <div class="founder-modal-card" role="dialog" aria-modal="true" aria-labelledby="founderModalMsg">
+    <button type="button" class="founder-modal-close" aria-label="Close">&times;</button>
+    <p id="founderModalMsg" class="founder-modal-msg">The Founders' Circle is opening soon. Reserve your spot below and we'll notify you the moment payment opens.</p>
+    <a href="waitlist.html?product=tirzepatide-founder" class="founder-modal-btn">Notify me when it opens</a>
+  </div>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById('founderModal'); if(!modal) return;
+  var backdrop=modal.querySelector('.founder-modal-backdrop');
+  var closeBtn=modal.querySelector('.founder-modal-close');
+  function open(){modal.removeAttribute('hidden');document.body.style.overflow='hidden'}
+  function close(){modal.setAttribute('hidden','');document.body.style.overflow=''}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="https://buy.stripe.com/"]');
+    if(!a) return;
+    e.preventDefault(); open();
+  });
+  backdrop.addEventListener('click',close);
+  closeBtn.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close()});
 })();
 </script>
 </body>

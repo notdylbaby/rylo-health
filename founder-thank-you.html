@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're in · Founders' Circle confirmed · Rylo Health</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--oat:#faf7f2;--dark:#1a1a1a;--clay:#C4724A}
+    body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--oat);color:var(--dark);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 24px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    .ty{max-width:600px;text-align:center}
+    .ty-eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--clay);margin-bottom:24px;display:inline-flex;align-items:center;gap:12px}
+    .ty-eyebrow::before,.ty-eyebrow::after{content:"";width:28px;height:1px;background:var(--clay);opacity:0.7}
+    .ty h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(36px,5vw,56px);font-weight:500;letter-spacing:-0.025em;line-height:1.05;margin-bottom:20px}
+    .ty h1 em{font-style:italic;color:rgba(26,26,26,0.6);font-weight:400}
+    .ty-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-style:italic;color:var(--clay);margin:24px 0 28px}
+    .ty-sub{font-size:16px;color:rgba(26,26,26,0.72);margin-bottom:36px;max-width:480px;margin-inline:auto}
+    .ty-btn{display:inline-block;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:0.02em;padding:16px 36px;background:var(--dark);color:#fff;text-decoration:none;transition:transform 0.25s cubic-bezier(0.22,1,0.36,1)}
+    .ty-btn:hover{transform:translateY(-2px)}
+    .ty-fine{font-size:11px;color:rgba(26,26,26,0.4);line-height:1.7;margin-top:48px;letter-spacing:0.01em}
+  </style>
+</head>
+<body>
+  <main class="ty">
+    <span class="ty-eyebrow">Founders' Circle</span>
+    <h1>You're in. <em>Welcome to the Founders' Circle.</em></h1>
+    <p class="ty-num" id="tyNum">Confirmation email is on its way.</p>
+    <p class="ty-sub">Your rate is locked. We'll email you the moment doors open — with 24-hour priority access before the public.</p>
+    <a href="/" class="ty-btn">Back to Rylo</a>
+    <p class="ty-fine">Check spam if the confirmation email isn't in your inbox within a few minutes. Founders' Circle membership grants locked pricing only. Medication requires licensed provider review and clinical eligibility. Refundable within 30 days. Fully refundable if Rylo does not launch by December 31, 2026.</p>
+  </main>
+  <script>
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const sid = params.get('session_id');
+      if(sid){
+        const el = document.getElementById('tyNum');
+        if(el) el.textContent = "Confirmation email sent. Your founder number is in your inbox.";
+      }
+    })();
+  </script>
+</body>
+</html>
