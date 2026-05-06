@@ -6149,7 +6149,7 @@
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
-.wr-state-active .wr-ledger::before {
+.wr-ledger.wr-demo-active::before {
   opacity: 1;
   transition-delay: 1100ms;
 }
@@ -6189,11 +6189,11 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
   letter-spacing: -0.01em;
 }
-.wr-state-active .wr-ledger-row { opacity: 1; transform: translateY(0); }
-.wr-state-active .wr-ledger-row:nth-child(1) { transition-delay: 200ms; }
-.wr-state-active .wr-ledger-row:nth-child(2) { transition-delay: 550ms; }
-.wr-state-active .wr-ledger-row:nth-child(3) { transition-delay: 900ms; }
-.wr-state-active .wr-ledger-row:nth-child(3) .wr-ledger-price {
+.wr-ledger.wr-demo-active .wr-ledger-row { opacity: 1; transform: translateY(0); }
+.wr-ledger.wr-demo-active .wr-ledger-row:nth-child(1) { transition-delay: 200ms; }
+.wr-ledger.wr-demo-active .wr-ledger-row:nth-child(2) { transition-delay: 550ms; }
+.wr-ledger.wr-demo-active .wr-ledger-row:nth-child(3) { transition-delay: 900ms; }
+.wr-ledger.wr-demo-active .wr-ledger-row:nth-child(3) .wr-ledger-price {
   animation: wr-price-pulse 1s cubic-bezier(0.22, 1, 0.36, 1) 1200ms;
 }
 @keyframes wr-price-pulse {
@@ -6394,6 +6394,12 @@
     transform: translate(-50%, 50%) rotate(45deg);
   }
   .wr-dose-chart { height: 180px; padding: 24px 20px 18px; }
+  /* Mobile-only: even tighter timing so user catches all 3 dots before scrolling past */
+  .wr-dose-chart.wr-demo-active .wr-dose-line { transition-duration: 0.6s; }
+  .wr-dose-chart.wr-demo-active .wr-dose-dot-1 { transition-delay: 140ms; }
+  .wr-dose-chart.wr-demo-active .wr-dose-dot-2 { transition-delay: 380ms; }
+  .wr-dose-chart.wr-demo-active .wr-dose-dot-3 { transition-delay: 620ms; }
+  .wr-dose-chart.wr-demo-active + .wr-dose-annotation { transition-delay: 800ms; }
   .wr-ledger-row { padding: 18px 22px; }
   .wr-ledger-price { font-size: 20px; }
   .wr-ledger-dose { font-size: 15px; }
@@ -6452,7 +6458,7 @@
   vector-effect: non-scaling-stroke;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: stroke-dashoffset 0.75s cubic-bezier(0.65, 0, 0.35, 1);
 }
 .wr-dose-fill {
   fill: url(#wrDoseGrad);
@@ -6509,10 +6515,10 @@
   opacity: 1;
   transform: translate(-50%, 50%) scale(1);
 }
-.wr-dose-chart.wr-demo-active .wr-dose-dot-1 { transition-delay: 200ms; }
-.wr-dose-chart.wr-demo-active .wr-dose-dot-2 { transition-delay: 700ms; }
-.wr-dose-chart.wr-demo-active .wr-dose-dot-3 { transition-delay: 1150ms; }
-.wr-dose-chart.wr-demo-active + .wr-dose-annotation { opacity: 1; transition-delay: 1400ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-dot-1 { transition-delay: 180ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-dot-2 { transition-delay: 480ms; }
+.wr-dose-chart.wr-demo-active .wr-dose-dot-3 { transition-delay: 780ms; }
+.wr-dose-chart.wr-demo-active + .wr-dose-annotation { opacity: 1; transition-delay: 980ms; }
 
 /* CHAT THREAD */
 .wr-chat {
@@ -7090,13 +7096,25 @@
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('wr-state-active');
-        var demo = entry.target.querySelector('.wr-dose-chart, .wr-chat');
-        if (demo) demo.classList.add('wr-demo-active');
         stateObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+  }, { threshold: 0.5, rootMargin: '0px 0px -22% 0px' });
   states.forEach(function (s) { stateObserver.observe(s); });
+
+  /* Demo observer — fires only when the chart / chat / ledger itself is in view.
+     Decoupled from pillar trigger so animations don't play before user actually
+     sees the demo (especially important on mobile where pillars stack tall). */
+  var demos = section.querySelectorAll('.wr-dose-chart, .wr-chat, .wr-ledger');
+  var demoObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('wr-demo-active');
+        demoObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '0px 0px -8% 0px' });
+  demos.forEach(function (d) { demoObserver.observe(d); });
 })();
 </script>
 
