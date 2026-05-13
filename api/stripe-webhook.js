@@ -84,7 +84,7 @@ export default async function handler(req, res) {
         await resend.emails.send({
           from: FROM_EMAIL,
           to: email,
-          subject: "You're in. Welcome to the Founders' Circle.",
+          subject: "You're in. Welcome to the First 50.",
           html: buildWelcomeHTML(founderNumber)
         });
       }
@@ -103,7 +103,7 @@ function buildWelcomeHTML(num) {
   const padded = String(num).padStart(2, '0');
   return `
 <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;max-width:560px;margin:0 auto;padding:40px 24px;color:#1a1a1a;line-height:1.6;">
-  <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:500;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">You're in. <em style="color:rgba(26,26,26,0.6);font-weight:400;">Welcome to the Founders' Circle.</em></h1>
+  <h1 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:500;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">You're in. <em style="color:rgba(26,26,26,0.6);font-weight:400;">Welcome to the First 50.</em></h1>
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-style:italic;color:#C4724A;margin:24px 0 28px;">Founder #${padded} of 50.</p>
   <p style="font-size:15px;line-height:1.7;margin:0 0 16px;color:rgba(26,26,26,0.78);">Your rate is locked. For as long as you remain a member in good standing, you pay:</p>
   <table style="width:100%;border-collapse:collapse;margin:8px 0 28px;">
@@ -112,6 +112,6 @@ function buildWelcomeHTML(num) {
   </table>
   <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:500;letter-spacing:-0.01em;margin:32px 0 12px;">What's next.</h2>
   <p style="font-size:15px;line-height:1.7;margin:0 0 24px;color:rgba(26,26,26,0.78);">We'll email you the moment doors open. Your rate is locked, forever.</p>
-  <p style="font-size:11px;line-height:1.7;margin:40px 0 0;color:rgba(26,26,26,0.45);border-top:1px solid rgba(0,0,0,0.08);padding-top:24px;">Founders' Circle membership grants locked pricing only. Medication requires licensed provider review and clinical eligibility. Compounded medications are not FDA-approved and have not been evaluated by the FDA. Refundable within 30 days. Fully refundable if Rylo does not launch by December 31, 2026. — Rylo Health LLC</p>
+  <p style="font-size:11px;line-height:1.7;margin:40px 0 0;color:rgba(26,26,26,0.45);border-top:1px solid rgba(0,0,0,0.08);padding-top:24px;">First 50 membership grants locked pricing only. Medication requires licensed provider review and clinical eligibility. Compounded medications are not FDA-approved and have not been evaluated by the FDA. Refundable within 30 days. Fully refundable if Rylo does not launch by December 31, 2026. — Rylo Health LLC</p>
 </div>`;
 }

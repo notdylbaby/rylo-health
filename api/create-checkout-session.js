@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         quantity: 1
       }],
       metadata: { tier: 'founder' },
-      success_url: `${origin}/founder-thank-you.html?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/first50-thank-you.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/waitlist.html#founders`,
       submit_type: 'pay',
       allow_promotion_codes: false
