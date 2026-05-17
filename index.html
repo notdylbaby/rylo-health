@@ -8231,7 +8231,12 @@
   width: 100%;
   height: 720px;
   overflow: hidden;
-  background-image: url('brand-assets/golfdads.png');
+  background-image: url('brand-assets/golfdads.jpg');
+  background-image: image-set(
+    url('brand-assets/golfdads.webp') 1x type('image/webp'),
+    url('brand-assets/golfdads-hd.webp') 2x type('image/webp'),
+    url('brand-assets/golfdads.jpg') 1x type('image/jpeg')
+  );
   background-size: cover;
   background-position: center 50%;
   background-attachment: fixed;
@@ -8312,6 +8317,11 @@
     height: 640px;
     background-attachment: scroll;
     background-position: center 50%;
+    background-image: url('brand-assets/golfdads-sm.webp');
+    background-image: image-set(
+      url('brand-assets/golfdads-sm.webp') 1x type('image/webp'),
+      url('brand-assets/golfdads-md.webp') 2x type('image/webp')
+    );
   }
   .finally-text { padding: 0 24px 60px; }
   .finally-title { font-size: 46px; margin-bottom: 20px; }

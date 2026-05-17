@@ -35,3 +35,6 @@ screenshot-*.mjs
 
 # In-progress page (kept local until ready to deploy)
 /golf.html
+
+# Master source images (large, kept local only — optimized exports are committed instead)
+brand-assets/golfdads.png
