@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rylo Health · First 50</title>
-<meta name="description" content="A one-time $149 membership locks $160 tirzepatide or $100 semaglutide for the life of your membership.">
+<title>Peptide Early Access Waitlist · Rylo Health</title>
+<meta name="description" content="Reserve early access to Sermorelin, NAD+, Glutathione, and the longevity stacks. Compounded by a US-licensed pharmacy. Launching 2026.">
 
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=editorial-new@200,300,400,500,300i,400i&display=swap" rel="stylesheet">
@@ -49,10 +49,12 @@
   ::selection { background: var(--navy); color: var(--bg); }
 
   header {
-    padding: 36px 64px;
+    padding: 0 64px;
+    height: 96px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: visible;
   }
   .logo {
     display: inline-flex;
@@ -60,7 +62,7 @@
     text-decoration: none;
   }
   .logo img {
-    height: 32px;
+    height: 220px;
     width: auto;
     display: block;
   }
@@ -84,7 +86,7 @@
 
   /* HERO */
   .hero {
-    padding: 80px 0 100px;
+    padding: 56px 0 100px;
     position: relative;
     overflow: hidden;
   }
@@ -654,14 +656,16 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    header { padding: 28px 24px; }
-    .logo img { height: 26px; }
+    header { padding: 0 24px; height: 72px; }
+    .logo img { height: 44px; }
     .back-link { font-size: 13px; }
     .container { padding: 0 24px; }
-    .hero { padding: 40px 0 80px; }
-    h1 { font-size: 56px; }
-    .hero-sub { font-size: 18px; margin-bottom: 36px; }
-    .cta-button { padding: 20px 32px; font-size: 14px; gap: 14px; }
+    .hero { padding: 28px 0 80px; }
+    h1 { font-size: clamp(40px, 12vw, 56px); }
+    .hero-sub { font-size: 17px; margin-bottom: 36px; max-width: 340px; }
+    .cta-button { padding: 18px 24px; font-size: 13px; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .cta-button .price-tag { font-size: 16px; padding-left: 10px; }
+    .cta-button .arrow { font-size: 16px; }
     .cta-button .price-tag { font-size: 18px; }
     .cta-fine { font-size: 13px; }
     .pricing { padding: 80px 0 32px; }
@@ -803,7 +807,7 @@
     <div class="container">
       <div class="founder-inner">
         <div class="founder-rule"></div>
-        <p class="founder-quote">Every GLP-1 service I tried did the same thing. Locked you in with a low first month, then raised the rate. Made canceling a phone-call obstacle course. Added fees that were not there at signup. So I built Rylo. One $149 fee. Your rate locked at signup. <em>The price you see today is the price you will see in year five.</em></p>
+        <p class="founder-quote">Every GLP-1 service out there runs the same play. Low first month, then they raise the rate. Canceling buried behind a phone call. Fees showing up that weren't there at signup. So I built the First 50. Pay $149 once. Your rate locks the day you join. <em>The price you see today is the price you'll see in year five.</em></p>
         <p class="founder-attribution">Dylan, Founder</p>
       </div>
     </div>
@@ -840,7 +844,7 @@
   <!-- COMPLIANCE -->
   <section class="compliance">
     <div class="container">
-      <p class="brand-context">Rylo is a United States compounded telehealth service for GLP-1 and peptide protocols, launching late 2026. The First 50 secures lifetime locked GLP-1 rates for our founding members. <em>The lowest GLP-1 rates Rylo will ever offer.</em></p>
+      <p class="brand-context">Rylo is a United States compounded telehealth service for GLP-1 and peptide protocols, launching summer 2026. The First 50 secures locked GLP-1 rates for the life of your membership. <em>The lowest GLP-1 rates Rylo plans to offer publicly.</em></p>
       <div class="trust-pillars">
         <div class="pillar">Reviewed by licensed<br>United States physicians.</div>
         <div class="pillar">Compounded by a<br>licensed US pharmacy.</div>
