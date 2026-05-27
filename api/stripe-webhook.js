@@ -84,7 +84,7 @@ export default async function handler(req, res) {
         await resend.emails.send({
           from: FROM_EMAIL,
           to: email,
-          subject: "You're in. Welcome to the First 50.",
+          subject: `First 50 — rate locked. #${String(founderNumber).padStart(2, '0')} of 50.`,
           html: buildWelcomeHTML(founderNumber)
         });
       }

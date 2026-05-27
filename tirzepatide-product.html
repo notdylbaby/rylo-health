@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="Weekly compounded tirzepatide prescribed by US-licensed physicians. Any strength, any dose. Premium telehealth, locked monthly pricing.">
 <meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -31,8 +31,10 @@
   --clay:#C4724A;--matcha:#A8C5A0;--matcha-deep:#7A9E72;--matcha:#A8C5A0;--matcha-deep:#7A9E72;
   --text:#1a1a1a;
   --muted:#777;
-  --font:'Inter',sans-serif;
+  --font:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI',Roboto,sans-serif;
   --serif:'Cormorant Garamond',Georgia,serif;
+  --tracking-tight:-0.03em;
+  --tracking-display:-0.02em;
 }
 body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-font-smoothing:antialiased}
 
@@ -45,17 +47,17 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .rylo-nav.scrolled .rn-logo-white{display:none}
 .rylo-nav.scrolled .rn-logo-dark{display:block}
 .rn-links{display:flex;align-items:center;gap:6px;list-style:none}
-.rn-link{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:pointer;display:flex;align-items:center;gap:5px}
+.rn-link{font-family:var(--font,'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:pointer;display:flex;align-items:center;gap:5px}
 .rn-link:hover{color:#fff;background:rgba(255,255,255,0.08)}
 .rylo-nav.scrolled .rn-link{color:rgba(26,26,26,0.65)}
 .rylo-nav.scrolled .rn-link:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
 .rn-link svg{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1)}
 .rn-right{display:flex;align-items:center;gap:10px}
-.rn-ghost{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s}
+.rn-ghost{font-family:var(--font,'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s}
 .rn-ghost:hover{color:#fff;background:rgba(255,255,255,0.08)}
 .rylo-nav.scrolled .rn-ghost{color:rgba(26,26,26,0.65)}
 .rylo-nav.scrolled .rn-ghost:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
-.rn-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:10px 24px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
+.rn-cta{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:10px 24px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
 .rn-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .rylo-nav.scrolled .rn-cta{background:#1a1a1a;color:#fff;border:none;opacity:1}
 .rylo-nav.scrolled .rn-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
@@ -78,12 +80,12 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .rn-dd-item[data-product="nad"]
 .rn-dd-item[data-product="glut"]
 .rn-dd-body{flex:1;min-width:0}
-.rn-dd-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;margin-bottom:2px}
+.rn-dd-name{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:14px;font-weight:600;margin-bottom:2px}
 .rn-dd-desc{font-size:12px;font-weight:400;color:rgba(26,26,26,0.68);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rn-dd-item[data-product="tirz"] .rn-dd-name{color:#C4724A}.rn-dd-item[data-product="sema"] .rn-dd-name{color:#7AADC5}.rn-dd-item[data-product="serm"] .rn-dd-name{color:#8FA976}.rn-dd-item[data-product="nad"] .rn-dd-name{color:#9B8BB4}.rn-dd-item[data-product="glut"] .rn-dd-name{color:#B5727A}
-.rn-dd-price{font-family:'DM Sans','Inter',sans-serif;font-size:14px;font-weight:500;color:#1a1a1a;white-space:nowrap;flex-shrink:0;min-width:75px;text-align:right}
+.rn-dd-price{font-family:'DM Sans','Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:14px;font-weight:500;color:#1a1a1a;white-space:nowrap;flex-shrink:0;min-width:75px;text-align:right}
 .rn-dd-price span{font-weight:400;color:rgba(26,26,26,0.72)}
 .rn-dd-divider{height:1px;background:rgba(0,0,0,0.05);margin:4px 16px}
-.rn-dd-category{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,26,26,0.35);padding:12px 16px 6px;display:block}
+.rn-dd-category{font-family:var(--font);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(26,26,26,0.4);padding:12px 16px 6px;display:block}
 .rn-dd-category:not(:first-child){border-top:1px solid rgba(0,0,0,0.05);margin-top:4px;padding-top:14px}
 .rn-dd-footer{display:flex;align-items:center;justify-content:center;padding:12px 16px 6px}
 .rn-dd-footer a{font-size:12px;font-weight:500;color:rgba(26,26,26,0.65);text-decoration:none;transition:color 0.2s}
@@ -103,40 +105,42 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .hero-vial-wrap img{width:100%;object-fit:contain;display:block;transform:rotate(-6deg);transition:transform 0.8s cubic-bezier(0.22,1,0.36,1)}
 .hero-vial-wrap:hover img{transform:rotate(-3deg) translateY(-12px)}
 
-/* HERO PRICE BLOCK — placed in right col */
-.hero-price-block{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1)}
-.hero-price-num{font-family:'DM Sans','Inter',sans-serif;font-size:clamp(48px,5vw,72px);font-weight:500;color:#fff;line-height:1;letter-spacing:-0.02em}
-.hero-price-mo{font-size:18px;color:rgba(255,255,255,0.35);font-weight:400;font-family:var(--font)}
-.hero-price-right{display:flex;flex-direction:column;gap:4px}
-.hero-price-vs{font-size:12px;font-weight:700;color:var(--clay);letter-spacing:0.04em;text-transform:uppercase}
-.hero-price-note{font-size:12px;color:rgba(255,255,255,0.3);font-weight:400}
+/* HERO PRICE BLOCK — single column, no borders */
+.hero-price-block{margin:0;padding:0}
+.hero-price-num{font-family:'DM Sans',var(--font);font-size:clamp(56px,6vw,80px);font-weight:300;color:#fff;line-height:1;letter-spacing:-0.035em;margin:0}
+.hero-price-mo{font-size:22px;color:rgba(255,255,255,0.42);font-weight:300;letter-spacing:0;margin-left:4px}
+.hero-price-tag{font-family:var(--font);font-size:14px;font-weight:400;color:rgba(255,255,255,0.7);letter-spacing:0.005em;line-height:1.4;margin:12px 0 0}
+.hero-price-compare{font-family:var(--font);font-size:13px;color:rgba(255,255,255,0.5);margin:18px 0 0;letter-spacing:0.005em;font-weight:400;line-height:1.625;max-width:460px}
+.hero-cta-stack{display:flex;flex-direction:column;margin-top:36px}
+.hero-cta-note{font-family:var(--font);font-size:12px;color:rgba(255,255,255,0.5);line-height:1.625;margin:18px 0 0;font-weight:400;letter-spacing:0.025em;max-width:480px}
+@media(max-width:768px){
+  .hero-price-num{font-size:clamp(52px,11vw,68px)}
+  .hero-cta-stack{margin-top:28px}
+  .hero-cta-note{font-size:12px;margin-top:16px}
+}
 
 /* RIGHT — text */
 .hero-right{display:flex;flex-direction:column;justify-content:center;gap:0}
-.hero-eyebrow{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--clay);animation:pulse 2.5s ease infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,76px);font-weight:600;color:#fff;line-height:0.92;letter-spacing:-0.03em;margin-bottom:14px}
+.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,76px);font-weight:300;color:#fff;line-height:0.96;letter-spacing:-0.03em;margin-bottom:22px}
 .hero-title em{font-style:italic;color:rgba(255,255,255,0.65);display:block}
-.hero-sub{font-size:15px;font-weight:500;color:rgba(255,255,255,0.82);line-height:1.65;max-width:480px;margin-bottom:14px}
+.hero-sub{font-size:17px;font-weight:400;color:rgba(255,255,255,0.82);line-height:1.6;max-width:520px;margin-bottom:22px;letter-spacing:-0.005em}
 .hero-disclaimer-hero{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.65;margin-bottom:16px;max-width:480px;font-style:italic}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0;margin-top:12px}
-.hero-pill{font-size:11px;font-weight:700;color:rgba(255,255,255,0.65);border:1.5px solid rgba(255,255,255,0.15);padding:6px 14px;border-radius:100px;letter-spacing:0.04em}
+.hero-pill{font-size:11px;font-weight:500;color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.18);padding:7px 14px;border-radius:100px;letter-spacing:0.06em}
 .hero-cta-wrap{display:flex;flex-direction:column;gap:8px}
-.hero-cta{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+.hero-cta{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
 .hero-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .hero-cta-sub{font-size:12px;color:rgba(255,255,255,0.28);letter-spacing:0.04em;margin-top:16px}
 
 /* TRUST BAR */
 .trust-bar{background:var(--dark);padding:22px 80px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,0.06)}
-.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:rgba(255,255,255,0.55);letter-spacing:0.06em;text-transform:uppercase}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;color:rgba(255,255,255,0.72);letter-spacing:0.005em}
 .trust-check{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:#fff}
 
 /* HOW IT WORKS — editorial split cards */
 
 
-.section-eyebrow{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--matcha-deep);margin-bottom:16px;display:block}
-.section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:600;color:var(--text);line-height:1;letter-spacing:-0.02em}.includes .section-title{font-size:clamp(56px,7vw,96px)!important;line-height:0.92!important;letter-spacing:-0.04em!important}
+.section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:300;color:var(--text);line-height:1.02;letter-spacing:-0.025em}.includes .section-title{font-size:clamp(56px,7vw,96px)!important;line-height:0.94!important;letter-spacing:-0.035em!important}
 .section-title em{font-style:italic;color:rgba(26,26,26,0.65)}
 
 
@@ -148,14 +152,14 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .what-is-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.55) 40%,rgba(0,0,0,0.65) 100%),linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%)}
 .what-is-content{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:flex-end;padding:80px 80px 80px;gap:60px;min-height:680px}
 .what-is-left{}
-.what-is-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:20px}
+.what-is-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:300;color:#fff;line-height:1.02;letter-spacing:-0.025em;margin-bottom:20px}
 .what-is-title em{font-style:italic;color:rgba(255,255,255,0.4)}
 .what-is-body{font-size:16px;font-weight:500;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:16px}
 .what-is-legal{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.65;font-style:italic}
 .what-is-right{display:flex;flex-direction:column;gap:0}
 .what-stat{padding:24px 0 24px 20px;border-bottom:1px solid rgba(255,255,255,0.1);border-left:2px solid #C4724A}
 .what-stat:first-child{border-top:none}
-.what-stat-num{font-family:var(--serif);font-size:clamp(40px,4vw,56px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:6px}
+.what-stat-num{font-family:var(--serif);font-size:clamp(40px,4vw,56px);font-weight:300;color:#fff;line-height:1;letter-spacing:-0.025em;margin-bottom:6px}
 .what-stat-label{font-size:13px;font-weight:600;color:rgba(255,255,255,0.45);line-height:1.5}
 .what-stat-source{font-size:11px;color:rgba(255,255,255,0.25);margin-top:4px;font-style:italic}
 
@@ -168,50 +172,51 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .inc-text{display:flex;flex-direction:column;gap:4px}
 .inc-icon{width:58px;height:58px;border-radius:14px;background:color-mix(in srgb,var(--clay) 16%,#1a1620);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .inc-icon svg{width:24px;height:24px;stroke:var(--clay);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.inc-t{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1.2}
-.inc-d{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.68);line-height:1.5}
+.inc-t{font-family:var(--font);font-size:18px;font-weight:500;color:#fff;letter-spacing:-0.015em;line-height:1.3}
+.inc-d{font-family:var(--font);font-size:15px;font-weight:400;color:rgba(255,255,255,0.78);line-height:1.6}
 .price-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:100px}
 .vial-card{background:var(--dark);border-radius:24px;padding:48px 32px;display:flex;align-items:center;justify-content:center;min-height:380px;position:relative;overflow:hidden}
 .vial-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(196,114,74,0.12) 0%,transparent 70%)}
 .vial-card img{width:85%;max-width:300px;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(0,0,0,0.6));transform:rotate(-8deg);position:relative;z-index:2;transition:transform 0.8s cubic-bezier(0.22,1,0.36,1)}
 .vial-card:hover img{transform:rotate(-4deg) translateY(-10px)}
-.price-card{background:linear-gradient(160deg,#1f1c18 0%,#252018 50%,#1a1814 100%);border-radius:24px;padding:40px 36px;border:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden}
+.price-card{background:linear-gradient(160deg,#1f1c18 0%,#252018 50%,#1a1814 100%);border-radius:20px;padding:36px 32px 32px;border:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden}
 .price-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(ellipse,rgba(196,114,74,0.12) 0%,transparent 70%);pointer-events:none}
-.price-label{font-size:11px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;display:block}
-.price-big{font-family:'DM Sans','Inter',sans-serif;font-size:72px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:4px}
-.price-mo{font-size:20px;color:rgba(255,255,255,0.3);font-weight:400}
-.price-compare{font-size:14px;font-weight:700;color:var(--clay);margin-bottom:8px}
-.price-note{font-size:13px;color:rgba(255,255,255,0.3);margin-bottom:28px;line-height:1.6}
-.price-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:opacity 0.2s ease;white-space:nowrap;text-align:center;display:block;margin-bottom:12px}
+.price-locked{font-family:var(--font);font-size:13px;font-weight:400;color:rgba(255,255,255,0.55);margin:0 0 22px;letter-spacing:0.005em;line-height:1}
+.price-locked em{font-style:normal}
+.price-big{font-family:'DM Sans',var(--font);font-size:72px;font-weight:300;color:#fff;line-height:1;letter-spacing:-0.03em;margin-bottom:6px}
+.price-mo{font-size:22px;color:rgba(255,255,255,0.4);font-weight:300;letter-spacing:0;margin-left:2px}
+.price-compare{font-size:14px;font-weight:500;color:var(--clay);margin-bottom:20px;letter-spacing:0.005em;line-height:1.5}
+.price-note{font-size:14px;color:rgba(255,255,255,0.72);margin-bottom:28px;line-height:1.7;font-weight:400}
+.price-btn{font-family:var(--font);font-size:14px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:18px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;text-align:center;margin-bottom:14px;box-shadow:0 6px 24px rgba(0,0,0,0.35)}
 .price-btn:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
-.price-sub{text-align:center;font-size:12px;color:rgba(255,255,255,0.25);line-height:1.6}
+.price-sub{text-align:center;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.7;letter-spacing:0.01em;font-weight:400}
 .disc-card{background:rgba(0,0,0,0.06);border-radius:16px;padding:22px;border:1px solid rgba(0,0,0,0.08)}
-.disc-label{font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#bbb;margin-bottom:8px}
-.disc-text{font-size:13px;font-weight:500;color:#999;line-height:1.7}
+.disc-label{font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:-0.015em;color:rgba(255,255,255,0.85);margin-bottom:12px}
+.disc-text{font-size:14px;font-weight:400;color:rgba(255,255,255,0.65);line-height:1.75}
 
 /* FAQ */
 .faq{background:var(--oat);padding:72px 48px}
 .faq-inner{max-width:800px;margin:0 auto}
 .faq-list{display:flex;flex-direction:column;gap:4px;margin-top:56px}
 .faq-item{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 32px;background:none;border:none;cursor:pointer;font-family:var(--font);font-size:16px;font-weight:700;color:var(--text);text-align:left;line-height:1.4;transition:color 0.2s}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 32px;background:none;border:none;cursor:pointer;font-family:var(--font);font-size:16px;font-weight:500;color:var(--text);text-align:left;line-height:1.45;letter-spacing:-0.01em;transition:color 0.2s}
 .faq-q:hover{color:var(--clay)}
 .faq-icon{width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,0.05);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400;color:var(--text);transition:all 0.3s cubic-bezier(0.34,1.4,0.64,1);flex-shrink:0;line-height:1}
 .faq-item.open .faq-icon{background:var(--dark);color:#fff;transform:rotate(45deg)}
 .faq-body{height:0;overflow:hidden;transition:height 0.3s cubic-bezier(0.4,0,0.2,1)}
-.faq-answer{padding:0 32px 28px;font-size:15px;font-weight:500;color:var(--muted);line-height:1.75}
+.faq-answer{padding:0 32px 28px;font-size:16px;font-weight:400;color:#555;line-height:1.75}
 
 /* FOOTER CTA */
 .fcta{background:var(--dark);padding:72px 48px;text-align:center;position:relative;overflow:hidden}
 .fcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(196,114,74,0.22) 0%,rgba(196,114,74,0.06) 40%,transparent 70%),radial-gradient(ellipse at 20% -20%,rgba(255,220,180,0.07) 0%,transparent 55%);pointer-events:none}
 .fcta::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(196,114,74,0.4),transparent);pointer-events:none}
 .fcta>*{position:relative;z-index:1}
-.fcta-h{font-family:var(--serif);font-size:clamp(44px,5.5vw,80px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:16px}
+.fcta-h{font-family:var(--serif);font-size:clamp(44px,5.5vw,80px);font-weight:300;color:#fff;line-height:1.02;letter-spacing:-0.03em;margin-bottom:18px}
 .fcta-h em{font-style:italic;color:rgba(255,255,255,0.4)}
-.fcta-sub{font-size:17px;font-weight:500;color:rgba(255,255,255,0.5);margin-bottom:44px}
-.fcta-btn{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+.fcta-sub{font-size:18px;font-weight:400;color:rgba(255,255,255,0.7);margin-bottom:44px;letter-spacing:-0.005em;line-height:1.55}
+.fcta-btn{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
 .fcta-btn:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
-.fcta-note{font-size:12px;color:rgba(255,255,255,0.25);margin-top:20px;line-height:1.7}
+.fcta-note{font-size:13px;color:rgba(255,255,255,0.45);margin-top:20px;line-height:1.7}
 
 /* FOOTER */
 
@@ -232,13 +237,13 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .hero-right{text-align:left}
   .hero-title{font-size:clamp(44px,10vw,64px)}
   .hero-pills{display:none}
-  .hero-cta{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+  .hero-cta{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
   .trust-bar{padding:14px 20px;gap:16px}
   .trust-item{font-size:11px}
   
   
   
-  .section-eyebrow{text-align:center}.how-header .section-title{font-size:32px;text-align:center}.sticky-bar-note{display:none}.sticky-bar{padding:12px 16px!important}.sticky-bar-inner{height:auto}.sticky-bar-left{flex:1;gap:8px}.sticky-bar-name{font-size:14px}.sticky-bar-price{font-size:13px}.sticky-bar-cta{padding:10px 16px!important;font-size:12px!important;background:#fff!important;color:#1a1a1a!important;white-space:nowrap}
+  .how-header .section-title{font-size:32px;text-align:center}.sticky-bar-note{display:none}.sticky-bar{padding:12px 16px!important}.sticky-bar-inner{height:auto}.sticky-bar-left{flex:1;gap:8px}.sticky-bar-name{font-size:14px}.sticky-bar-price{font-size:13px}.sticky-bar-cta{padding:10px 16px!important;font-size:12px!important;background:#fff!important;color:#1a1a1a!important;white-space:nowrap}
   
   .includes{padding:56px 20px}
   .includes-inner{grid-template-columns:1fr;gap:32px}
@@ -250,7 +255,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .faq-answer{padding:0 20px 20px;font-size:14px}
   .fcta{padding:56px 20px}
   .fcta-h{font-size:clamp(36px,8vw,56px)}
-  .fcta-btn{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+  .fcta-btn{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
   
     .sticky-bar{padding:0 20px}
   .sticky-bar-inner{gap:12px}
@@ -271,9 +276,9 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .sticky-bar-inner{max-width:1200px;margin:0 auto;height:52px;display:flex;align-items:center;justify-content:space-between}
 .sticky-bar-left{display:flex;align-items:center;gap:20px}
 .sticky-bar-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff;letter-spacing:-0.02em}
-.sticky-bar-price{font-size:14px;font-weight:800;color:#fff}
+.sticky-bar-price{font-size:14px;font-weight:500;color:#fff}
 .sticky-bar-note{font-size:12px;font-weight:600;color:#C4724A}
-.sticky-bar-cta{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25);padding:10px 24px}
+.sticky-bar-cta{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25);padding:10px 24px}
 .sticky-bar-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1)}
 .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -375,12 +380,6 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     flex-direction:column;
     align-items:flex-start;
   }
-  .hero-eyebrow{
-    font-size:10px;
-    letter-spacing:0.12em;
-    margin-bottom:14px;
-    gap:6px;
-  }
   .hero-title{
     font-size:clamp(36px,9.5vw,50px);
     margin-bottom:14px;
@@ -425,8 +424,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 
 /* ── DARK INCLUDES SECTION ── */
-.includes{background:#0f0d12;padding:96px 64px}
-.includes .section-eyebrow{color:var(--clay)}
+.includes{background:#0f0d12;padding:88px 64px 72px}
 .includes .section-title{color:#fff}
 .includes .section-title em{color:rgba(255,255,255,0.35);font-style:italic}
 .inc-item{border-bottom:1px solid rgba(255,255,255,0.07)}
@@ -435,12 +433,12 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .inc-t{color:#fff}
 .inc-d{color:rgba(255,255,255,0.68)}
 .disc-card{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.07)}
-.disc-label{color:rgba(255,255,255,0.45)}
+.disc-label{color:rgba(255,255,255,0.85)}
 .disc-text{color:rgba(255,255,255,0.25)}
 @media(max-width:768px){.includes{padding:56px 20px}}
 /* ── LARGE DESKTOP (1280px+) ── */
 @media(min-width:1280px){
-  .includes{padding:112px 80px}
+  .includes{padding:96px 80px 80px}
   .inc-item{gap:24px;padding:30px 0}
   .inc-icon{width:64px;height:64px;border-radius:16px}
   .inc-icon svg{width:26px;height:26px}
@@ -457,7 +455,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 /* ── GHOST CTA ── */
 .hero-cta-ghost{
-  font-family:'Inter',sans-serif;
+  font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
   font-size:12px;
   font-weight:500;
   letter-spacing:0.04em;
@@ -480,57 +478,37 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 }
 .hero-cta-ghost:active{transform:translateY(0)}
 
-/* ── HOW IT WORKS ── */
-.how{background:var(--oat);padding:96px 48px}
-.how-header{text-align:center;margin-bottom:72px}
-.how-steps{max-width:860px;margin:0 auto}
-.how-step{display:grid;grid-template-columns:100px 1fr;gap:48px;align-items:start;padding:48px 0;border-top:1px solid rgba(26,26,26,0.1)}
-.how-step:last-child{border-bottom:1px solid rgba(26,26,26,0.1)}
-.how-step-num{font-family:var(--serif);font-size:96px;font-weight:300;font-style:italic;color:var(--clay);letter-spacing:-0.04em;line-height:0.9;margin-top:4px}
-.how-step-title{font-family:var(--serif);font-size:clamp(24px,2.2vw,32px);font-weight:600;color:#111;line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px}
-.how-step-desc{font-size:17px;font-weight:400;color:rgba(26,26,26,0.72);line-height:1.78}
+/* ── HOW IT WORKS — light premium ── */
+.how{background:var(--oat);padding:88px 48px 96px;position:relative}
+.how::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,114,74,0.05) 0%,transparent 55%);pointer-events:none}
+.how-header{text-align:center;margin-bottom:56px;position:relative;z-index:1;max-width:1360px;margin-left:auto;margin-right:auto}
+.how-header .section-title{color:#1a1a1a}
+.how-header .section-title em{color:rgba(26,26,26,0.45);font-style:italic;font-weight:300}
+.how-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1360px;margin:0 auto;position:relative;z-index:1}
+
+.how-card{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,#ffffff 0%,#fbf8f2 100%);border:1px solid rgba(26,26,26,0.06);transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),border-color 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);box-shadow:0 1px 2px rgba(26,18,12,0.04),0 8px 24px rgba(196,114,74,0.05),0 24px 60px rgba(26,18,12,0.06)}
+.how-card:hover{transform:translateY(-6px);border-color:rgba(196,114,74,0.18);box-shadow:0 2px 4px rgba(26,18,12,0.05),0 16px 40px rgba(196,114,74,0.1),0 32px 80px rgba(26,18,12,0.08)}
+.how-card-photo-wrap{position:relative;height:360px;overflow:hidden;flex-shrink:0}
+.how-card-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:saturate(0.92) contrast(1.02);transition:transform 0.9s cubic-bezier(0.22,1,0.36,1)}
+.how-card-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,transparent 55%,rgba(251,248,242,0.4) 80%,#fbf8f2 100%);pointer-events:none;z-index:1}
+.how-card:hover .how-card-photo{transform:scale(1.06)}
+.how-card-body{padding:0 32px 36px;display:flex;flex-direction:column;gap:0;position:relative;margin-top:-18px;z-index:2}
+.how-card-num{font-family:var(--serif);font-size:88px;font-weight:300;font-style:italic;color:var(--clay);letter-spacing:-0.04em;line-height:0.9;margin-bottom:6px;display:block}
+.how-card-title{font-family:var(--serif);font-size:clamp(24px,2.1vw,30px);font-weight:400;color:#1a1a1a;line-height:1.18;letter-spacing:-0.025em;margin:0 0 14px}
+.how-card-desc{font-size:16px;font-weight:400;color:rgba(26,26,26,0.75);line-height:1.7;letter-spacing:-0.005em}
 @media(max-width:768px){
-  .how{padding:64px 24px}
-  .how-header{margin-bottom:48px}
-  .how-step{grid-template-columns:64px 1fr;gap:24px;padding:36px 0}
-  .how-step-num{font-size:64px}
-  .how-step-title{font-size:22px;margin-bottom:12px}
-  .how-step-desc{font-size:15px}
-}
-@media(max-width:480px){
-  .how{padding:48px 16px}
-  .how-step{grid-template-columns:56px 1fr;gap:16px;padding:28px 0}
-  .how-step-num{font-size:52px}
-}
-
-
-/* ── HOW IT WORKS ── */
-.how{background:var(--oat);padding:96px 48px}
-.how-header{text-align:center;margin-bottom:64px}
-.how-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;max-width:1360px;margin:0 auto}
-
-.how-card{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.04),0 8px 40px rgba(0,0,0,0.09),0 24px 64px rgba(0,0,0,0.06);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1)}
-.how-card:hover{transform:translateY(-6px);box-shadow:0 4px 16px rgba(0,0,0,0.06),0 16px 60px rgba(0,0,0,0.13),0 32px 80px rgba(0,0,0,0.08)}
-.how-card-photo-wrap{position:relative;height:380px;overflow:hidden;flex-shrink:0}
-.how-card-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.7s cubic-bezier(0.22,1,0.36,1)}.how-card-photo-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:110px;background:linear-gradient(to bottom,transparent,#fff);pointer-events:none;z-index:1}
-.how-card:hover .how-card-photo{transform:scale(1.05)}
-.how-card-body{padding:28px 30px 36px;display:flex;flex-direction:column;gap:0}
-.how-card-num{font-family:var(--serif);font-size:80px;font-weight:300;font-style:italic;color:var(--clay);letter-spacing:-0.04em;line-height:1;margin-bottom:14px}
-.how-card-title{font-family:var(--serif);font-size:clamp(26px,2.2vw,34px);font-weight:600;color:#111;line-height:1.15;letter-spacing:-0.02em;margin-bottom:14px}
-.how-card-desc{font-size:16px;font-weight:500;color:rgba(26,26,26,0.78);line-height:1.78}
-@media(max-width:768px){
-  .how{padding:64px 24px}
-  .how-header{margin-bottom:40px}
-  .how-grid{grid-template-columns:1fr;gap:16px}
-  .how-card-photo-wrap{height:240px}
-  .how-card-body{padding:24px 24px 28px}
-  .how-card-num{font-size:52px;margin-bottom:10px}
+  .how{padding:56px 20px 64px}
+  .how-header{margin-bottom:36px}
+  .how-grid{grid-template-columns:1fr;gap:18px}
+  .how-card-photo-wrap{height:260px}
+  .how-card-body{padding:0 24px 30px;margin-top:-14px}
+  .how-card-num{font-size:64px}
   .how-card-title{font-size:22px;margin-bottom:10px}
-  .how-card-desc{font-size:15px}
+  .how-card-desc{font-size:14.5px}
 }
 @media(max-width:480px){
-  .how{padding:48px 16px}
-  .how-card-photo-wrap{height:200px}
+  .how{padding:48px 16px 56px}
+  .how-card-photo-wrap{height:220px}
 }
 
 
@@ -553,16 +531,16 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .rn-menu-panel{position:absolute;top:96px;left:0;right:0;bottom:0;display:flex;flex-direction:column;overflow-y:auto;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),opacity 0.3s cubic-bezier(0.22,1,0.36,1)}
   .rn-menu-panel.rn-panel-hidden{transform:translateX(30px);opacity:0;pointer-events:none}
   .rn-menu-topbar{display:flex;align-items:center;justify-content:space-between;padding:28px 24px 20px}
-  .rn-menu-login{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:rgba(26,26,26,0.5);text-decoration:none;letter-spacing:0.01em}
-  .rn-menu-getstarted{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;background:#1a1a1a;padding:11px 22px;text-decoration:none;letter-spacing:0.01em;border-radius:2px}
+  .rn-menu-login{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:14px;font-weight:500;color:rgba(26,26,26,0.5);text-decoration:none;letter-spacing:0.01em}
+  .rn-menu-getstarted{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:13px;font-weight:600;color:#fff;background:#1a1a1a;padding:11px 22px;text-decoration:none;letter-spacing:0.01em;border-radius:2px}
   .rn-menu-divider{height:1px;background:rgba(0,0,0,0.07);margin:0 24px}
   .rn-menu-row{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;cursor:pointer;background:none;border:none;width:100%;text-align:left}
   .rn-menu-row-label{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:400;color:#1a1a1a;line-height:1}
   .rn-menu-row-arrow{font-size:20px;color:rgba(26,26,26,0.25);line-height:1}
   .rn-menu-plain-link{display:block;padding:22px 24px;font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:400;color:#1a1a1a;text-decoration:none;line-height:1}
-  .rn-menu-back{display:flex;align-items:center;gap:6px;padding:20px 24px;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:rgba(26,26,26,0.4);letter-spacing:0.06em;text-transform:uppercase}
+  .rn-menu-back{display:flex;align-items:center;gap:6px;padding:20px 24px;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:12px;font-weight:600;color:rgba(26,26,26,0.4);letter-spacing:0.06em;text-transform:uppercase}
   .rn-menu-back-arrow{font-size:15px}
-  .rn-menu-sub-cat{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C4724A;display:block;padding:8px 24px 12px}
+  .rn-menu-sub-cat{font-family:var(--font);font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:#C4724A;display:block;padding:8px 24px 12px}
   .rn-menu-product-link{display:block;padding:18px 24px;font-family:'Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:400;color:#1a1a1a;text-decoration:none;line-height:1.1;border-bottom:1px solid rgba(0,0,0,0.06)}
   .rn-menu-product-link:last-child{border-bottom:none}
 }
@@ -594,7 +572,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   </ul>
   <div class="rn-right">
     <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-ghost">Log in</a>
-    <a href="waitlist.html" class="rn-cta">Join the First 50 · $149</a>
+    <a href="waitlist.html" class="rn-cta">Reserve Your First 50 Spot · $149</a>
   </div>
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -661,26 +639,19 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
     <!-- RIGHT — text -->
     <div class="hero-right">
-      <div class="hero-eyebrow">
-        <div class="hero-eyebrow-dot"></div>
-        GLP-1 + GIP &middot; Weekly injection &middot; Prescription required
-      </div>
       <h1 class="hero-title">
-        The strongest
-        <em>GLP-1 available.</em>
+        The protocol,
+        <em>prescribed.</em>
       </h1>
-      <p class="hero-sub">Compounded tirzepatide activates two hormonal pathways at once &mdash; GLP-1 and GIP &mdash; producing significantly greater weight loss than semaglutide alone in eligible patients.</p>
+      <p class="hero-sub">A weekly compounded GLP-1 + GIP regimen, reviewed and prescribed by US-licensed physicians when clinically appropriate.</p>
       <div class="hero-price-block">
-                <div style="font-family:'DM Sans','Inter',sans-serif;font-size:clamp(48px,5vw,64px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;">$179<span style="font-size:20px;color:rgba(255,255,255,0.3);">/mo</span></div>
-        <div style="font-size:14px;font-weight:700;color:var(--clay);margin-top:8px;letter-spacing:-0.01em;">vs. $1,000+/mo for Zepbound&reg;</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px;">3 months &mdash; $149/mo &middot; No price increases as dose goes up</div>
+        <div class="hero-price-num">$160<span class="hero-price-mo">/mo</span></div>
+        <p class="hero-price-tag">First 50 rate, locked for life.</p>
+        <p class="hero-price-compare">Brand-name GLP-1 medications can cost $1,000+ per month at retail.</p>
       </div>
-      <p style="font-size:11px;color:rgba(255,255,255,0.3);line-height:1.6;margin-bottom:12px;">Clinical trials: avg. 20% body weight reduction with tirzepatide.&thinsp;&dagger;<br><span style="font-size:10px;opacity:0.7;">&dagger;Based on published clinical research. Results vary. Not a guarantee of weight loss.</span></p>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-top:0;">
-        <a href="waitlist.html" class="hero-cta">Join the First 50 · $149</a>
-        <p class="founder-disclaimer">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
-        <p class="hero-cta-sub">Free intake &middot; No commitment &middot; Prescription required</p>
-
+      <div class="hero-cta-stack">
+        <a href="waitlist.html" class="hero-cta">Reserve Your Spot &middot; $149</a>
+        <p class="hero-cta-note">Today's $149 reserves your First 50 membership and locks the $160/mo rate. Treatment is prescribed and billed separately, only when clinically appropriate.</p>
       </div>
     </div>
 
@@ -734,12 +705,12 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     </div>
     <div class="price-side">
 <div class="price-card">
-        <span class="price-label">Monthly price</span>
-        <div class="price-big">$179<span class="price-mo">/mo</span></div>
-        <div class="price-compare">vs. $1,000+/mo for Zepbound&reg; out of pocket</div>
-        <p class="price-note">3-month plan: $149/mo &middot; Save $90<br>No membership fee. No price increases as your dose goes up.</p>
-        <a href="waitlist.html" class="price-btn">Join the First 50 · $149</a>
-        <p class="founder-disclaimer founder-disclaimer-light">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
+        <div class="price-big">$160<span class="price-mo">/mo</span></div>
+        <p class="price-locked"><em>First 50 rate &middot; locked for life</em></p>
+        <div class="price-compare">Brand-name GLP-1 medications can cost $1,000+ per month at retail.</div>
+        <p class="price-note">+ $149 one-time First 50 membership<br>No price increases as your dose goes up.</p>
+        <a href="waitlist.html" class="price-btn">Reserve Your First 50 Spot &middot; $149</a>
+        <p class="founder-disclaimer">First 50 Presale. 100% fully refundable at any time prior to your first physician consultation.</p>
         <p class="price-sub">Free intake &middot; No commitment &middot; Cancel anytime<br>Prescription required &middot; Results vary by patient</p>
       </div>
       <div class="disc-card">
@@ -752,8 +723,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 <!-- ─── COMPLIANCE ─── -->
 <style>
-.compliance-block{background:#faf7f2;border:1px solid rgba(30,49,72,0.10);border-radius:8px;padding:20px 24px;margin:32px auto;max-width:760px}
-.compliance-block p{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;color:rgba(30,49,72,0.65);line-height:1.7;margin:0;text-align:center}
+.compliance-block{background:var(--oat);padding:36px 32px 8px}
+.compliance-block p{font-family:var(--font);font-size:13px;font-weight:400;color:rgba(26,26,26,0.6);line-height:1.75;margin:0 auto;text-align:center;max-width:760px;letter-spacing:0.005em}
 </style>
 <section class="compliance-block">
   <p>Compounded tirzepatide. Contains tirzepatide as the active ingredient. Not the same as Mounjaro&reg; or Zepbound&reg;. Compounded medications are not FDA-approved and have not been independently evaluated for safety or efficacy. Individual results vary. Speak with a Rylo-affiliated clinician to determine if compounded tirzepatide is appropriate for you.</p>
@@ -798,29 +769,129 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   </div>
 </section>
 
-<section style="position:relative;min-height:560px;overflow:hidden;display:flex;align-items:center;">
-  <img src="glutathione-card.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(0.85) brightness(0.85);" />
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.15) 100%);"></div>
-  <div style="position:relative;z-index:2;padding:80px;max-width:680px;">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:400;color:#fff;line-height:0.95;letter-spacing:-0.03em;margin-bottom:24px;">The strongest GLP-1 data<em style="font-style:italic;color:rgba(255,255,255,0.4);display:block;">ever published.</em></h2>
-    <p style="font-size:16px;font-weight:500;color:rgba(255,255,255,0.6);line-height:1.75;max-width:480px;margin-bottom:32px;">Tirzepatide outperformed semaglutide by 47% in the first ever head-to-head clinical trial. 20.2% average body weight reduction over 72 weeks.</p>
-    <p style="font-size:12px;color:rgba(255,255,255,0.25);font-style:italic;line-height:1.65;">Based on published GLP-1 clinical data. Individual results will vary. Compounded medications are not FDA-approved and have not been independently studied.</p>
+<!-- PROVIDERS — real social proof -->
+<section class="providers">
+  <div class="providers-inner">
+    <header class="providers-head">
+      <h2 class="providers-h">Reviewed by US-licensed<em>physicians.</em></h2>
+      <p class="providers-sub">Two board-certified physicians personally review every Rylo patient before treatment is prescribed. Not a chatbot. Not an algorithm.</p>
+    </header>
+    <div class="providers-row">
+      <article class="prov-card">
+        <div class="prov-avatar">
+          <picture><source type="image/webp" srcset="dr-niazi.webp"><img src="dr-niazi.jpg" alt="Dr. Asad K. Niazi" loading="lazy" decoding="async" /></picture>
+        </div>
+        <div class="prov-body">
+          <h3 class="prov-name">Dr. Asad K. Niazi</h3>
+          <p class="prov-cred"><em>MD, MPH &middot; Internal Medicine</em></p>
+          <p class="prov-bio">Board-certified internist with residency at Huntington Health&ndash;Cedars-Sinai. Earned his MD and MPH at Texas Tech and the UT School of Public Health, with published cardiovascular research alongside Baylor College of Medicine.</p>
+        </div>
+      </article>
+      <article class="prov-card">
+        <div class="prov-avatar">
+          <picture><source type="image/webp" srcset="dr-patel.webp"><img src="dr-patel.jpg" alt="Dr. Abhishek Patel" loading="lazy" decoding="async" /></picture>
+        </div>
+        <div class="prov-body">
+          <h3 class="prov-name">Dr. Abhishek Patel</h3>
+          <p class="prov-cred"><em>MD &middot; Physical Medicine &amp; Rehabilitation</em></p>
+          <p class="prov-bio">Specialist in pain medicine, sports medicine, and rehabilitation. Board-certified by the American Board of Physical Medicine &amp; Rehabilitation with twelve years of clinical practice rooted in the University of Pittsburgh Medical Center.</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
+<style>
+.providers{background:var(--oat);padding:24px 48px 96px;position:relative}
+.providers-inner{max-width:1200px;margin:0 auto}
+.providers-head{text-align:center;margin-bottom:56px;max-width:680px;margin-left:auto;margin-right:auto}
+.providers-h{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:300;color:#1a1a1a;line-height:1.02;letter-spacing:-0.025em;margin:0 0 18px}
+.providers-h em{font-style:italic;color:rgba(26,26,26,0.45);display:block;font-weight:300}
+.providers-sub{font-family:var(--font);font-size:17px;font-weight:400;color:rgba(26,26,26,0.72);line-height:1.65;margin:0;letter-spacing:-0.005em}
+.providers-row{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.prov-card{background:linear-gradient(180deg,#fff 0%,#fbf8f2 100%);border:1px solid rgba(26,26,26,0.06);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:22px;transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),border-color 0.4s cubic-bezier(0.22,1,0.36,1);box-shadow:0 1px 2px rgba(26,18,12,0.04),0 8px 24px rgba(196,114,74,0.04),0 24px 60px rgba(26,18,12,0.05)}
+.prov-card:hover{transform:translateY(-4px);border-color:rgba(196,114,74,0.18);box-shadow:0 2px 4px rgba(26,18,12,0.05),0 14px 36px rgba(196,114,74,0.08),0 30px 70px rgba(26,18,12,0.07)}
+.prov-avatar{width:100px;height:100px;border-radius:50%;overflow:hidden;flex-shrink:0;background:#eae6df;box-shadow:0 6px 24px rgba(26,18,12,0.12)}
+.prov-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.prov-name{font-family:var(--serif);font-size:28px;font-weight:400;color:#1a1a1a;line-height:1.1;letter-spacing:-0.02em;margin:0 0 6px}
+.prov-cred{font-family:var(--serif);font-size:16px;color:var(--clay);margin:0 0 14px;line-height:1.4}
+.prov-cred em{font-style:italic}
+.prov-bio{font-family:var(--font);font-size:16px;font-weight:400;color:rgba(26,26,26,0.75);line-height:1.7;margin:0;letter-spacing:-0.005em}
+@media(max-width:768px){
+  .providers{padding:16px 20px 64px}
+  .providers-head{margin-bottom:40px}
+  .providers-h{font-size:34px}
+  .providers-sub{font-size:14.5px}
+  .providers-row{grid-template-columns:1fr;gap:18px}
+  .prov-card{padding:28px 24px;gap:18px}
+  .prov-avatar{width:80px;height:80px}
+  .prov-name{font-size:24px}
+}
+</style>
 
-
-
-
-<div style="background:linear-gradient(135deg,#1c1914 0%,#252018 40%,#1c1914 100%);padding:56px 80px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
-  <div>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,48px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:12px;">Ready to start? <em style="font-style:italic;color:rgba(255,255,255,0.38);">Takes 5 minutes.</em></p>
-    <p style="font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:0.02em;">Free intake &middot; No commitment &middot; Licensed provider review</p>
+<!-- EDITORIAL DATA SECTION -->
+<section class="evidence">
+  <div class="evidence-bg">
+    <img class="evidence-img" src="jeansweightnew-opt.jpg" alt="" loading="lazy" />
+    <div class="evidence-scrim"></div>
   </div>
-  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;flex-shrink:0;">
-    <a href="waitlist.html" style="display:inline-block;font-size:12px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:18px 28px;background:#fff;color:#1a1a1a;text-decoration:none;border-radius:0;">Join the First 50 · $149</a>
-    <p class="founder-disclaimer" style="text-align:right;max-width:340px;margin:0;">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
+  <div class="evidence-inner">
+    <h2 class="evidence-h">The strongest GLP-1 data<em>ever published.</em></h2>
+    <p class="evidence-body">Tirzepatide outperformed semaglutide by 47% in the first head-to-head clinical trial — 20.2% average body weight reduction over 72 weeks.</p>
+    <p class="evidence-cite">Based on published GLP-1 clinical data. Individual results will vary. Compounded medications are not FDA-approved and have not been independently studied.</p>
+  </div>
+</section>
+<style>
+.evidence{position:relative;min-height:620px;overflow:hidden;display:flex;align-items:center;background:#0d0d0d}
+.evidence-bg{position:absolute;inset:0}
+.evidence-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(0.92) brightness(0.88) contrast(1.04);transition:transform 1.2s cubic-bezier(0.22,1,0.36,1)}
+.evidence:hover .evidence-img{transform:scale(1.03)}
+.evidence-scrim{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,7,5,0.78) 0%,rgba(8,7,5,0.45) 45%,rgba(8,7,5,0.08) 100%),linear-gradient(to top,rgba(0,0,0,0.3) 0%,transparent 55%)}
+.evidence-inner{position:relative;z-index:2;padding:96px 80px;max-width:720px;width:100%}
+.evidence-h{font-family:var(--serif);font-size:clamp(40px,4.8vw,72px);font-weight:300;color:#fff;line-height:1;letter-spacing:-0.03em;margin:0 0 24px}
+.evidence-h em{font-style:italic;color:rgba(255,255,255,0.45);display:block;font-weight:300}
+.evidence-body{font-family:var(--font);font-size:18px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.6;max-width:540px;margin:0 0 28px;letter-spacing:-0.005em}
+.evidence-cite{font-family:var(--font);font-size:13px;color:rgba(255,255,255,0.55);font-style:italic;line-height:1.7;max-width:540px;margin:0;font-weight:400;letter-spacing:0.005em}
+@media(max-width:768px){
+  .evidence{min-height:520px}
+  .evidence-img{object-position:center 28%}
+  .evidence-scrim{background:linear-gradient(to top,rgba(8,7,5,0.92) 0%,rgba(8,7,5,0.6) 55%,rgba(8,7,5,0.35) 100%)}
+  .evidence-inner{padding:64px 24px}
+  .evidence-h{font-size:38px}
+  .evidence-body{font-size:15px}
+}
+</style>
+
+<div class="midband">
+  <div class="midband-inner">
+    <div class="midband-text">
+      <p class="midband-h">Ready to start? <em>Takes 5 minutes.</em></p>
+      <p class="midband-sub">Free intake &middot; No commitment &middot; Licensed provider review</p>
+    </div>
+    <div class="midband-cta-wrap">
+      <a href="waitlist.html" class="midband-cta">Reserve Your First 50 Spot &middot; $149</a>
+      <p class="midband-disc">First 50 Presale &middot; Fully refundable before your first consultation.</p>
+    </div>
   </div>
 </div>
+<style>
+.midband{background:linear-gradient(135deg,#1c1914 0%,#252018 40%,#1c1914 100%);padding:64px 80px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+.midband-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:56px;flex-wrap:wrap}
+.midband-text{flex:1;min-width:280px}
+.midband-h{font-family:var(--serif);font-size:clamp(30px,3vw,46px);font-weight:300;color:#fff;line-height:1.04;letter-spacing:-0.025em;margin:0 0 14px}
+.midband-h em{font-style:italic;color:rgba(255,255,255,0.42);font-weight:300}
+.midband-sub{font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.04em;font-weight:400;margin:0;line-height:1.6}
+.midband-cta-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0}
+.midband-cta{font-family:var(--font);font-size:16px;font-weight:500;letter-spacing:0.01em;padding:22px 36px;background:#fff;color:#1a1a1a;text-decoration:none;display:inline-block;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);box-shadow:0 8px 32px rgba(0,0,0,0.35)}
+.midband-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
+.midband-disc{font-size:12px;color:rgba(255,255,255,0.55);text-align:right;max-width:420px;margin:0;line-height:1.65;font-weight:400}
+@media(max-width:768px){
+  .midband{padding:48px 24px}
+  .midband-inner{flex-direction:column;align-items:flex-start;gap:28px}
+  .midband-cta-wrap{align-items:flex-start;width:100%}
+  .midband-cta{width:100%;text-align:center;padding:20px}
+  .midband-disc{text-align:left;max-width:none}
+}
+</style>
 
 <!-- FAQ -->
 <section class="faq" id="faq">
@@ -860,37 +931,153 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   <div style="position:relative;z-index:2;">
     <h2 class="fcta-h">Ready to find out<br><em>if you qualify?</em></h2>
     <p class="fcta-sub">Free intake. Licensed provider review. Ships if approved.<br><span style="font-size:14px;color:rgba(255,255,255,0.35);">If you are not approved, you will not be charged for medication.</span></p>
-    <a href="waitlist.html" class="fcta-btn">Join the First 50 · $149</a>
-    <p class="founder-disclaimer">$149 one-time membership fee. Refundable within 30 days. Fully refundable if Rylo does not open by December 31, 2026.</p>
+    <a href="waitlist.html" class="fcta-btn">Reserve Your First 50 Spot · $149</a>
+    <p class="founder-disclaimer">First 50 Presale. 100% fully refundable at any time prior to your first physician consultation.</p>
     <p class="fcta-note">Compounded tirzepatide is not FDA-approved &middot; Prescription required &middot; Individual results will vary<br>Not a guarantee of weight loss &middot; A licensed provider determines clinical eligibility</p>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer style="background:#1a1a1a;padding:48px 24px 32px;text-align:center;">
-  <a href="/" style="display:inline-block;margin-bottom:20px;"><img src="whiterylologoofficial.png" alt="Rylo Health" style="height:64px;width:auto;opacity:0.85;" /></a>
-  <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;flex-wrap:wrap;">
-    <a href="/#treatments" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Treatments</a>
-    <a href="/#how-it-works" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">How It Works</a>
-    <a href="/#faq" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">FAQ</a>
-    <a href="privacy.html" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a>
-    <a href="terms.html" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Terms of Service</a>
-    <a href="mailto:hello@rylohealth.com" style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;">Contact</a>
-  </div>
-  <div style="max-width:560px;margin:0 auto 20px;">
-    <p style="font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.25);line-height:1.8;">Rylo connects patients with licensed healthcare providers for telehealth consultations. Compounded medications are not FDA-approved and are prepared by licensed US compounding pharmacies. Individual results may vary. Rylo does not manufacture medications.</p>
-  </div>
-  <p style="font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,0.2);">&copy; 2026 Rylo Health LLC</p>
-<div class="footer-legal">
-  <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
-  <p class="legal-trademarks">Mounjaro&reg; and Zepbound&reg; are registered trademarks of Eli Lilly and Company. Ozempic&reg; and Wegovy&reg; are registered trademarks of Novo Nordisk. Rylo Health is not affiliated with, endorsed by, or sponsored by these companies.</p>
-</div>
+<!-- ─── FOOTER (matches homepage) ─── -->
 <style>
-.footer-legal{max-width:1100px;margin:24px auto 0;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,0.1);text-align:center}
-.legal-disclaimer,.legal-trademarks{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.4);margin:0 0 12px;letter-spacing:0.01em}
+.site-footer{background:#1a1a1a;color:rgba(255,255,255,0.7);position:relative}
+.footer-inner{max-width:none;margin:0;padding:56px 6vw 20px;position:relative}
+.footer-top{display:grid;grid-template-columns:33% 67%;align-items:start;gap:72px}
+.footer-subscribe{text-align:left;max-width:100%;margin:0;padding:0;border:none}
+.footer-subscribe-tagline{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2.2vw,30px);font-weight:400;line-height:1.18;letter-spacing:-0.01em;color:rgba(255,255,255,0.9);margin:0 0 12px}
+.footer-subscribe-tagline em{font-style:italic;color:rgba(255,255,255,0.9)}
+.footer-subscribe-form{display:flex;gap:0;align-items:stretch;background:transparent;border:none;border-radius:0;padding:0;max-width:420px;margin:0 0 10px}
+.footer-subscribe-input{flex:1;min-width:0;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-right:none;outline:none;font-family:var(--font);font-size:14px;font-weight:400;color:rgba(255,255,255,0.92);padding:13px 16px;letter-spacing:0.005em;border-radius:0;transition:border-color 0.25s ease,background 0.25s ease}
+.footer-subscribe-input:focus{border-color:rgba(255,255,255,0.32);background:rgba(255,255,255,0.07)}
+.footer-subscribe-input::placeholder{color:rgba(255,255,255,0.38)}
+.footer-subscribe-btn{background:#fff;color:#1a1a1a;border:1px solid #fff;border-radius:0;font-family:var(--font);font-size:13px;font-weight:500;letter-spacing:0.04em;padding:13px 24px;cursor:pointer;white-space:nowrap;transition:background 0.25s ease,color 0.25s ease,transform 0.25s ease,opacity 0.25s ease}
+.footer-subscribe-btn:hover:not(:disabled){background:#C4724A;color:#fff;border-color:#C4724A}
+.footer-subscribe-btn:disabled{opacity:0.55;cursor:not-allowed}
+.footer-subscribe-fine{font-family:var(--font);font-size:12px;font-weight:400;color:rgba(255,255,255,0.42);letter-spacing:0.005em;margin:0;text-align:left}
+.footer-subscribe-fine.is-success{color:rgba(165,180,145,0.9)}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;align-items:start;gap:40px;margin:0}
+.footer-col-title{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#a8a39d;margin-bottom:14px;text-align:left}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;margin:0;padding:0;text-align:left}
+.footer-links a{font-family:var(--font);font-size:13px;font-weight:400;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.01em;transition:color 0.2s ease}
+.footer-links a:hover{color:rgba(255,255,255,1)}
+.footer-bottom{margin-top:56px;padding:0;border:none;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer-copy{font-family:var(--font);font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.04em}
+.footer-signature{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.42);letter-spacing:0.01em}
+.footer-legal{max-width:100%;margin:24px 0 0;padding:0;border:none;text-align:justify;text-justify:inter-word;hyphens:auto}
+.legal-disclaimer,.legal-trademarks{font-family:var(--font);font-size:11px;line-height:1.75;color:rgba(255,255,255,0.4);margin:0 0 10px;letter-spacing:0.01em}
 .legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
+/* ── BRAND WORDMARK SIGN-OFF ── */
+.rylo-brand-mark{width:100vw;margin:34px auto 0;padding:0;overflow:hidden;text-align:center;pointer-events:none;user-select:none}
+.rylo-brand-mark-svg{display:block;width:100%;height:auto;max-height:38vh;margin:0 auto -2vh}
+@media(max-width:768px){.rylo-brand-mark{width:100vw;margin-top:24px}.rylo-brand-mark-svg{max-height:30vh;margin-bottom:-1.5vh}}
+@media(max-width:1024px) and (min-width:769px){.footer-top{grid-template-columns:1fr;gap:28px}.footer-grid{gap:32px}}
+@media(max-width:768px){
+  .footer-inner{padding:56px 6vw 24px}
+  .footer-top{grid-template-columns:1fr;gap:36px}
+  .footer-subscribe{max-width:100%}
+  .footer-subscribe-tagline{font-size:22px;margin-bottom:14px}
+  .footer-subscribe-form{flex-direction:column;padding:0;gap:10px;border-radius:0;max-width:100%;background:transparent;border:none;margin-bottom:12px}
+  .footer-subscribe-input{padding:14px 16px;border:1px solid rgba(255,255,255,0.14);border-radius:0;width:100%}
+  .footer-subscribe-btn{width:100%;padding:14px 20px;border-radius:0}
+  .footer-subscribe-fine{font-size:11px;line-height:1.55}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .footer-col-title{margin-bottom:12px}
+  .footer-links{gap:10px}
+  .footer-bottom{margin-top:36px;flex-direction:column;align-items:flex-start;gap:8px}
+  .footer-copy,.footer-signature{font-size:11px}
+  .footer-legal{margin-top:20px;text-align:left}
+  .legal-disclaimer,.legal-trademarks{font-size:10.5px;line-height:1.7;margin-bottom:10px}
+  .legal-trademarks{margin-bottom:0}
+}
 </style>
-
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-subscribe">
+        <p class="footer-subscribe-tagline"><em>Notes from Rylo.</em></p>
+        <form class="footer-subscribe-form" id="footerSubscribeForm" novalidate>
+          <input type="email" name="email" placeholder="your email" required autocomplete="email" class="footer-subscribe-input" />
+          <button type="submit" class="footer-subscribe-btn" id="footerSubscribeBtn">Subscribe</button>
+        </form>
+        <p class="footer-subscribe-fine" id="footerSubscribeFine">No spam. Just the rare update worth reading.</p>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a></li>
+            <li><a href="https://instagram.com/joinrylo" target="_blank" rel="noopener">Instagram &middot; @joinrylo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Protocols</div>
+          <ul class="footer-links">
+            <li><a href="tirzepatide-product.html">Tirzepatide</a></li>
+            <li><a href="semaglutide-product.html">Semaglutide</a></li>
+            <li><a href="sermorelin-product.html">Sermorelin</a></li>
+            <li><a href="nad-product.html">NAD+</a></li>
+            <li><a href="peptide-waitlist.html">The Pulse Stack</a></li>
+            <li><a href="peptide-waitlist.html">The Wolverine Stack</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Rylo Health LLC.</span>
+      <span class="footer-signature">Compounded by licensed US pharmacies.</span>
+    </div>
+    <div class="footer-legal">
+      <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
+      <p class="legal-trademarks">Mounjaro&reg; and Zepbound&reg; are registered trademarks of Eli Lilly and Company. Ozempic&reg; and Wegovy&reg; are registered trademarks of Novo Nordisk. Rylo Health is not affiliated with, endorsed by, or sponsored by these companies.</p>
+    </div>
+  </div>
+  <div class="rylo-brand-mark" aria-hidden="true">
+    <svg class="rylo-brand-mark-svg" viewBox="53.73 325.68 1624.32 809.95" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rylo">
+      <defs>
+        <linearGradient id="ryloMarkGradient" x1="0" y1="325.68" x2="0" y2="1135.63" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#1a1a1a"/>
+          <stop offset="18%" stop-color="#1a1a1a"/>
+          <stop offset="100%" stop-color="#C4724A"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#ryloMarkGradient)" d="M278.15,724.68c-2.04-4.12-11.43-7.4-15.3-7.37l-29.87.2.37,154.46c.03,13.54,3.56,27.5,7.91,39.67,7.08,19.79,22.04,32.46,41.23,40.18l-.14,28.42-228.42-.05-.2-28.01,22.61-13.81c16.15-16.21,24.62-40.62,24.63-65.13l.22-397.41c0-15.67-4.22-31.18-9.71-44.43-6.77-16.35-20.76-24.41-37.01-30.72l.18-29.28,233.56-.25,53.06,1.35c39.87,3.85,77.81,15.27,110.48,38.51,77.01,54.79,78.64,182.24,4.09,246.91-16.74,14.52-34.03,24.28-55.06,34.08l26.63,49.48,56.32,106.63,27.57,50.33c8.03,14.66,18.9,28.56,32.64,38.56l26.71,13.66.02,29.55-166.28-.07-5.53-11.44-62.39-126.23-58.32-117.82ZM361.18,483.75c-6.45-24.12-20.91-44.22-41.94-57.47-20.07-12.64-43-13.96-66.66-13.21-4.23.13-11.2.54-13.72,2.59s-5.74,8.32-5.75,12.47l-.14,243.08,40.98-.42c21.68-3.54,42.83-11.44,58.38-26.71,38.52-37.81,42.72-108.45,28.85-160.34Z"/>
+      <path fill="url(#ryloMarkGradient)" d="M1607.82,933.25c-48.31,44.94-122.12,64.5-187.27,59.77-48.64-3.53-94.57-18.38-133.24-47.61-36.44-27.55-58.42-65.32-73.31-107.91-9.3-26.6-11.71-53.78-11.62-82.26.29-90.78,50.7-171.47,135.9-204.73,30.92-12.07,62.33-17.58,95.91-19.13,25.41-1.17,50.25,2.74,75.6,8.79,35.77,8.54,69.05,25.55,96.83,50.06,30.95,27.3,51.4,63.3,61.78,103.12,12.26,46.99,13.63,94.85-.52,141.04-11.71,38.22-31.19,72-60.06,98.86ZM1522.59,911.75c15.74-25.32,24.16-53.36,25.36-84.16,2.98-76.24-19.27-178.98-80.7-229.25-26.86-21.98-67.77-24.34-94.34-1.22-26.6,23.14-38.06,57.29-41.5,91.66-6.07,60.61,7,122.32,33.54,176.64,13.32,27.26,31.1,50.41,56.83,66.65,34.9,22.02,81.31,11.06,100.81-20.32Z"/>
+      <path fill="url(#ryloMarkGradient)" d="M900.34,662.7l-116.65,309.1c-11.85,31.41-24.08,60.44-40.26,89.23-8.1,14.42-18.62,26.12-29.75,37.87-23.68,25-54.73,37.09-89.28,36.72-48.46-.52-83.36-39.09-75.81-84.03,3.88-23.08,19.11-41.3,42.01-45.63,18.41-3.48,33.57,5.75,41.59,22.09,4.7,9.57,10.99,19.49,20.06,25.48,10.9,7.2,27.24,5.72,37.13-2.63,11.62-9.81,19.85-22.8,25.11-36.78l14.41-38.32-39.01-97.13-58.88-149.91-42.08-104.79c-10.17-25.32-28.87-43.01-53.78-54.02l-.06-27.55,211.39.06,1.11,27.91c-9.37,4.3-21.24,8.09-26.63,16.75-9.68,15.54-6.05,35.33-.1,51.52l20.43,55.57,48.47,124.17,18.31-46.83,21.18-56.02,22.07-61.5c6.83-19.05,11.79-40.15,5.46-59.83-4.11-12.76-22.38-20.08-34.3-25.34v-26.45l150.39.11-.69,28.92c-13.47,5.27-24.6,10.81-32.95,21.43-16.67,21.21-28.85,43.29-38.87,69.84Z"/>
+      <path fill="url(#ryloMarkGradient)" d="M960.55,951.1c14.28-6.91,25.76-14.3,32.79-27.85,5.25-10.1,10.11-23.17,10.31-34.88l1.08-62.21-.22-346.96c-.02-33.37-8.38-60.31-41.77-68.71l-.22-27.34,151.29-57.07c7.12-2.69,17.44,8.7,17.44,16.43l.2,533.58c0,14.52,4.52,28.41,9.39,40.57,6.67,16.64,19.07,27.28,35.89,34.23l.3,29.35-215.92-.09-.56-29.04Z"/>
+    </svg>
+  </div>
+  <script>
+  (function(){
+    const SUPABASE_URL='https://vqydeyqxyvwdldtfifju.supabase.co';
+    const SUPABASE_KEY='sb_publishable_JfGJ90E3Msi8xTcS4IYHRg_fiY5ThdA';
+    async function submitFooterSubscribe(e){
+      e.preventDefault();
+      const form=e.target;
+      const data=new FormData(form);
+      const email=(data.get('email')||'').trim();
+      const fine=document.getElementById('footerSubscribeFine');
+      const btn=document.getElementById('footerSubscribeBtn');
+      const original=btn.textContent;
+      if(!email||!/.+@.+\..+/.test(email)){fine.textContent='Enter a valid email address.';return;}
+      btn.disabled=true;btn.textContent='Subscribing…';
+      try{
+        const res=await fetch(SUPABASE_URL+'/rest/v1/waitlist',{method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({email:email,zip_code:'',product_interest:'newsletter'})});
+        if(res.ok){form.style.display='none';fine.textContent="You're subscribed. We'll email when Rylo opens.";fine.classList.add('is-success');}
+        else if(res.status===409){fine.textContent="You're already on the list.";btn.disabled=false;btn.textContent=original;}
+        else{throw new Error('subscribe '+res.status);}
+      }catch(err){console.error(err);fine.textContent='Something went wrong. Try again?';btn.disabled=false;btn.textContent=original;}
+    }
+    document.addEventListener('DOMContentLoaded',function(){const form=document.getElementById('footerSubscribeForm');if(form)form.addEventListener('submit',submitFooterSubscribe);});
+  })();
+  </script>
 </footer>
 
 <script>
@@ -1001,8 +1188,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 <!-- Founders modal: Stripe pause fallback -->
 <style>
-.founder-disclaimer{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line-height:1.55;color:rgba(255,255,255,0.5);margin:14px auto 4px;max-width:480px;text-align:center;letter-spacing:0.01em}
-.founder-disclaimer-light{color:rgba(26,26,26,0.55)}
+.founder-disclaimer{font-family:var(--font);font-size:13px;font-weight:400;line-height:1.65;color:rgba(255,255,255,0.62);margin:12px auto 14px;max-width:500px;text-align:center;letter-spacing:0.005em}
+.founder-disclaimer-light{color:rgba(26,26,26,0.72)}
 .founder-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
 .founder-modal[hidden]{display:none}
 .founder-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}

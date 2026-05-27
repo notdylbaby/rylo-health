@@ -320,6 +320,46 @@
     font-weight: 300;
   }
 
+  /* LOCK YOUR RATE — combined section */
+  .lock-section { padding: 56px 0 100px; }
+  .lock-section-header { text-align: center; max-width: 720px; margin: 0 auto 64px; }
+  .lock-section-cta { display: flex; flex-direction: column; align-items: center; gap: 22px; margin-top: 16px; }
+
+  .lock-timeline {
+    list-style: none;
+    margin: 88px auto 56px;
+    padding: 0;
+    max-width: 920px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+  .lt-step {
+    text-align: center;
+    padding: 0 28px;
+    position: relative;
+  }
+  .lt-step + .lt-step { border-left: 1px solid var(--rule); }
+  .lt-body { max-width: none; }
+  .lt-bold {
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    line-height: 1.35;
+  }
+  .lt-light {
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
   /* PROMISES — Clean headlines only, no numbers */
   .promises {
     background: var(--navy);
@@ -338,6 +378,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 64px;
+    align-items: start;
     max-width: 1080px;
     margin: 0 auto;
   }
@@ -345,14 +386,6 @@
     text-align: left;
     padding: 0;
     position: relative;
-  }
-  .promise::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--gold);
-    margin-bottom: 32px;
   }
   .promise h3 {
     font-family: var(--display);
@@ -365,7 +398,7 @@
   }
   .promise h3 em {
     font-style: italic;
-    color: var(--gold);
+    color: inherit;
     font-weight: 300;
   }
   .promise p {
@@ -378,7 +411,7 @@
 
   /* FOUNDER NOTE — quiet, personal, signed */
   .founder {
-    padding: 120px 0;
+    padding: 120px 0 56px;
     text-align: center;
   }
   .founder-inner {
@@ -398,7 +431,7 @@
     line-height: 1.45;
     color: var(--ink);
     letter-spacing: -0.022em;
-    margin-bottom: 40px;
+    margin-bottom: 0;
   }
   .founder-quote em {
     font-style: italic;
@@ -416,7 +449,7 @@
 
   /* SPOT COUNTER */
   .spots {
-    padding: 120px 0;
+    padding: 56px 0 120px;
     text-align: center;
   }
   .spots-header {
@@ -678,17 +711,23 @@
     .price-detail { font-size: 14px; }
     .pricing-note { font-size: 24px; margin-top: 52px; }
     .pricing-second { font-size: 21px; margin-top: 14px; }
+    .lock-section { padding: 28px 0 80px; }
+    .lock-section-header { margin-bottom: 48px; }
+    .lock-timeline { margin: 64px auto 40px; grid-template-columns: 1fr; max-width: 480px; }
+    .lt-step { padding: 28px 0; }
+    .lt-step + .lt-step { border-left: none; border-top: 1px solid var(--rule); }
+    .lt-bold { font-size: 17px; }
+    .lt-light { font-size: 14px; }
     .promises { padding: 80px 0; }
     .promises-header { margin-bottom: 64px; }
     .promises-grid { grid-template-columns: 1fr; gap: 56px; }
-    .promise::before { margin-bottom: 24px; }
     .promise h3 { font-size: 30px; }
     .promise p { font-size: 14px; }
-    .founder { padding: 80px 0; }
+    .founder { padding: 80px 0 40px; }
     .founder-rule { margin: 0 auto 36px; }
-    .founder-quote { font-size: 22px; margin-bottom: 32px; }
+    .founder-quote { font-size: 22px; margin-bottom: 0; }
     .founder-attribution { font-size: 12px; }
-    .spots { padding: 80px 0; }
+    .spots { padding: 40px 0 80px; }
     .dot { width: 10px; height: 10px; }
     .dots { gap: 8px; }
     .spots-text { font-size: 19px; }
@@ -728,31 +767,12 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- LOCK YOUR RATE — combined hero + pricing -->
+  <section class="lock-section reveal">
     <div class="container">
-      <div class="hero-inner">
-        <h1>Lock your rate.<br>For <em>life</em>.</h1>
-        <p class="hero-sub">Fifty members. One $149 fee. Your rate, locked at signup.</p>
-        <div class="hero-cta">
-          <!-- TODO: Replace href="#" with the real checkout API endpoint when wired up. -->
-          <a href="#" class="cta-button">
-            Become one of the First 50
-            <span class="price-tag">$149</span>
-            <span class="arrow">→</span>
-          </a>
-          <p class="cta-fine">Fully refundable if you're medically ineligible. Fully refundable if Rylo doesn't launch by December 31, 2026.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing reveal">
-    <div class="container">
-      <div class="pricing-header">
-        <h2 class="section-title">The rate <em>you join at</em>.</h2>
-        <p class="section-deck">Two compounded GLP-1 medications. One locked monthly price for each. Any strength, any dose your prescriber recommends.</p>
+      <div class="lock-section-header">
+        <h2 class="section-title">Lock your rate. <em>For life.</em></h2>
+        <p class="section-deck">Two compounded GLP-1s. One locked monthly rate each, at any dose your prescriber recommends.</p>
       </div>
 
       <div class="pricing-grid">
@@ -768,8 +788,36 @@
         </div>
       </div>
 
-      <p class="pricing-note">The rate you join at. Every month. <em>No matter what.</em></p>
-      <p class="pricing-second">Always. For the rest of your <em>life</em>.</p>
+      <ol class="lock-timeline">
+        <li class="lt-step">
+          <div class="lt-body">
+            <p class="lt-bold">Today, you pay $149 once.</p>
+            <p class="lt-light">To join. You never pay it again.</p>
+          </div>
+        </li>
+        <li class="lt-step">
+          <div class="lt-body">
+            <p class="lt-bold">Each month, $160 or $100.</p>
+            <p class="lt-light">Your medication, at your locked rate.</p>
+          </div>
+        </li>
+        <li class="lt-step">
+          <div class="lt-body">
+            <p class="lt-bold">Forever, the same price.</p>
+            <p class="lt-light">It never goes up. Not for a higher dose, not ever.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="lock-section-cta">
+        <!-- TODO: Replace href="#" with the real checkout API endpoint when wired up. -->
+        <a href="#" class="cta-button">
+          Become one of the First 50
+          <span class="price-tag">$149</span>
+          <span class="arrow">→</span>
+        </a>
+        <p class="cta-fine">Fully refundable if you&rsquo;re medically ineligible at intake. Fully refundable if Rylo does not open by December 31, 2026.</p>
+      </div>
     </div>
   </section>
 
@@ -784,18 +832,18 @@
       <div class="promises-grid">
 
         <div class="promise">
-          <h3>No annual <em>prepay</em>.</h3>
-          <p>You do not write a check for a year of medication on day one. Pay your $149 membership, then your monthly rate as you go. No commitment beyond the next month.</p>
+          <h3>No annual<br><em>prepay</em>.</h3>
+          <p>Pay your $149 membership, then your monthly rate as you go. Nothing upfront.</p>
         </div>
 
         <div class="promise">
-          <h3>The rate <em>never changes</em>.</h3>
-          <p>$160 tirzepatide, $100 semaglutide, every month, for the life of your membership. No reset clauses. No quiet hikes. No fine print waiting to fire.</p>
+          <h3>The rate<br><em>never changes</em>.</h3>
+          <p>$160 tirzepatide, $100 semaglutide, locked for your membership&rsquo;s lifetime.</p>
         </div>
 
         <div class="promise">
-          <h3>Refundable if <em>ineligible</em>.</h3>
-          <p>If a Rylo prescriber determines you are medically ineligible at intake, your membership is fully refunded. And if Rylo Health does not open for enrollment by December 31, 2026, every member receives a full refund automatically.</p>
+          <h3>Refundable<br>if <em>ineligible</em>.</h3>
+          <p>Refunded if ineligible at intake, or if Rylo does not open by December 31, 2026.</p>
         </div>
 
       </div>
@@ -807,8 +855,7 @@
     <div class="container">
       <div class="founder-inner">
         <div class="founder-rule"></div>
-        <p class="founder-quote">Every GLP-1 service out there runs the same play. Low first month, then they raise the rate. Canceling buried behind a phone call. Fees showing up that weren't there at signup. So I built the First 50. Pay $149 once. Your rate locks the day you join. <em>The price you see today is the price you'll see in year five.</em></p>
-        <p class="founder-attribution">Dylan, Founder</p>
+        <p class="founder-quote">Every other GLP-1 service runs the same play. A low first month, then the rate climbs. Cancellations buried behind a phone call. Fees that were never mentioned at signup. The First 50 is the opposite. Pay <span style="font-family:var(--body);font-weight:400;letter-spacing:0;font-variant-numeric:tabular-nums;">$149</span> once. Your rate locks the day you join, and <em>the price you see today is the price you&rsquo;ll see in year five.</em></p>
       </div>
     </div>
   </section>
@@ -818,7 +865,7 @@
     <div class="container">
       <div class="spots-header">
         <h2 class="section-title">Fifty <em>spots</em>.</h2>
-        <p class="section-deck">Once the fiftieth member joins, the offer closes. The lifetime locked rate is no longer offered.</p>
+        <p class="section-deck">Once the 50th member joins, the offer closes. The lifetime locked rate is no longer offered.</p>
       </div>
 
       <div class="dots" id="dots"></div>
@@ -830,7 +877,7 @@
   <section class="cta-2 reveal">
     <div class="container">
       <h3>Before it <em>closes</em>.</h3>
-      <p class="cta-2-sub">Once the fiftieth member joins, the offer permanently closes. The lifetime locked rate is no longer offered.</p>
+      <p class="cta-2-sub">Once the 50th member joins, the offer permanently closes. The lifetime locked rate is no longer offered.</p>
       <!-- TODO: Replace href="#" with the real checkout API endpoint. -->
       <a href="#" class="cta-button">
         Lock your price
@@ -844,11 +891,11 @@
   <!-- COMPLIANCE -->
   <section class="compliance">
     <div class="container">
-      <p class="brand-context">Rylo is a United States compounded telehealth service for GLP-1 and peptide protocols, launching summer 2026. The First 50 secures locked GLP-1 rates for the life of your membership. <em>The lowest GLP-1 rates Rylo plans to offer publicly.</em></p>
+      <p class="brand-context">Rylo is a modern clinical practice delivering specialized GLP-1 and peptide routines. Launching Summer 2026.<br><br>Securing a spot in the First 50 locks in your pricing for the life of your membership. <em>The lowest public rate we will ever offer.</em></p>
       <div class="trust-pillars">
-        <div class="pillar">Reviewed by licensed<br>United States physicians.</div>
-        <div class="pillar">Compounded by a<br>licensed US pharmacy.</div>
-        <div class="pillar">HIPAA secure.</div>
+        <div class="pillar">Prescribed by<br>practicing US physicians.</div>
+        <div class="pillar">Formulated by<br>licensed US pharmacies.</div>
+        <div class="pillar">Complete patient<br>data privacy.</div>
       </div>
     </div>
   </section>
