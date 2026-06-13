@@ -31,7 +31,7 @@
   --clay:#B5C99A;
   --text:#1a1a1a;
   --muted:#777;
-  --font:'Inter',sans-serif;
+  --font:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,'Segoe UI',Roboto,sans-serif;
   --serif:'Cormorant Garamond',Georgia,serif;
 }
 body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-font-smoothing:antialiased}
@@ -45,17 +45,17 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .rylo-nav.scrolled .rn-logo-white{display:none}
 .rylo-nav.scrolled .rn-logo-dark{display:block}
 .rn-links{display:flex;align-items:center;gap:6px;list-style:none}
-.rn-link{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:pointer;display:flex;align-items:center;gap:5px}
+.rn-link{font-family:var(--font,var(--font),sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:pointer;display:flex;align-items:center;gap:5px}
 .rn-link:hover{color:#fff;background:rgba(255,255,255,0.08)}
 .rylo-nav.scrolled .rn-link{color:rgba(26,26,26,0.65)}
 .rylo-nav.scrolled .rn-link:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
 .rn-link svg{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1)}
 .rn-right{display:flex;align-items:center;gap:10px}
-.rn-ghost{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s}
+.rn-ghost{font-family:var(--font,var(--font),sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s}
 .rn-ghost:hover{color:#fff;background:rgba(255,255,255,0.08)}
 .rylo-nav.scrolled .rn-ghost{color:rgba(26,26,26,0.65)}
 .rylo-nav.scrolled .rn-ghost:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
-.rn-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:10px 24px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
+.rn-cta{font-family:var(--font),sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:10px 24px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap}
 .rn-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .rylo-nav.scrolled .rn-cta{background:#1a1a1a;color:#fff;border:none;opacity:1}
 .rylo-nav.scrolled .rn-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
@@ -78,12 +78,12 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .rn-dd-item[data-product="nad"]
 .rn-dd-item[data-product="glut"]
 .rn-dd-body{flex:1;min-width:0}
-.rn-dd-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;margin-bottom:2px}
+.rn-dd-name{font-family:var(--font),sans-serif;font-size:14px;font-weight:600;margin-bottom:2px}
 .rn-dd-desc{font-size:12px;font-weight:400;color:rgba(26,26,26,0.68);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rn-dd-item[data-product="tirz"] .rn-dd-name{color:#C4724A}.rn-dd-item[data-product="sema"] .rn-dd-name{color:#7AADC5}.rn-dd-item[data-product="serm"] .rn-dd-name{color:#8FA976}.rn-dd-item[data-product="nad"] .rn-dd-name{color:#9B8BB4}.rn-dd-item[data-product="glut"] .rn-dd-name{color:#B5727A}
-.rn-dd-price{font-family:'DM Sans','Inter',sans-serif;font-size:14px;font-weight:500;color:#1a1a1a;white-space:nowrap;flex-shrink:0;min-width:75px;text-align:right}
+.rn-dd-price{font-family:'DM Sans',var(--font),sans-serif;font-size:14px;font-weight:500;color:#1a1a1a;white-space:nowrap;flex-shrink:0;min-width:75px;text-align:right}
 .rn-dd-price span{font-weight:400;color:rgba(26,26,26,0.72)}
 .rn-dd-divider{height:1px;background:rgba(0,0,0,0.05);margin:4px 16px}
-.rn-dd-category{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,26,26,0.35);padding:12px 16px 6px;display:block}
+.rn-dd-category{font-family:var(--font),sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,26,26,0.35);padding:12px 16px 6px;display:block}
 .rn-dd-category:not(:first-child){border-top:1px solid rgba(0,0,0,0.05);margin-top:4px;padding-top:14px}
 .rn-dd-footer{display:flex;align-items:center;justify-content:center;padding:12px 16px 6px}
 .rn-dd-footer a{font-size:12px;font-weight:500;color:rgba(26,26,26,0.65);text-decoration:none;transition:color 0.2s}
@@ -105,7 +105,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 /* HERO PRICE BLOCK */
 .hero-price-block{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1)}
-.hero-price-num{font-family:'DM Sans','Inter',sans-serif;font-size:clamp(48px,5vw,72px);font-weight:500;color:#fff;line-height:1;letter-spacing:-0.02em}
+.hero-price-num{font-family:'DM Sans',var(--font),sans-serif;font-size:clamp(48px,5vw,72px);font-weight:500;color:#fff;line-height:1;letter-spacing:-0.02em}
 .hero-price-mo{font-size:18px;color:rgba(255,255,255,0.35);font-weight:400;font-family:var(--font)}
 .hero-price-right{display:flex;flex-direction:column;gap:4px}
 .hero-price-vs{font-size:12px;font-weight:700;color:var(--clay);letter-spacing:0.04em;text-transform:uppercase}
@@ -116,14 +116,14 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .hero-eyebrow{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--clay);animation:pulse 2.5s ease infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,76px);font-weight:600;color:#fff;line-height:0.92;letter-spacing:-0.03em;margin-bottom:14px}
+.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,76px);font-weight:300;color:#fff;line-height:0.92;letter-spacing:-0.03em;margin-bottom:14px}
 .hero-title em{font-style:italic;color:rgba(255,255,255,0.65);display:block}
 .hero-sub{font-size:15px;font-weight:500;color:rgba(255,255,255,0.82);line-height:1.65;max-width:480px;margin-bottom:14px}
 .hero-disclaimer-hero{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.65;margin-bottom:16px;max-width:480px;font-style:italic}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0;margin-top:12px}
 .hero-pill{font-size:11px;font-weight:700;color:rgba(255,255,255,0.65);border:1.5px solid rgba(255,255,255,0.15);padding:6px 14px;border-radius:100px;letter-spacing:0.04em}
 .hero-cta-wrap{display:flex;flex-direction:column;gap:8px}
-.hero-cta{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+.hero-cta{font-family:var(--font),sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
 .hero-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .hero-cta-sub{font-size:12px;color:rgba(255,255,255,0.28);letter-spacing:0.04em;margin-top:16px}
 
@@ -136,7 +136,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 
 .section-eyebrow{font-size:12px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--matcha-deep);margin-bottom:16px;display:block}
-.section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:600;color:var(--text);line-height:1;letter-spacing:-0.02em}.includes .section-title{font-size:clamp(56px,7vw,96px)!important;line-height:0.92!important;letter-spacing:-0.04em!important}
+.section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:300;color:var(--text);line-height:1.02;letter-spacing:-0.025em}.includes .section-title{font-size:clamp(56px,7vw,96px)!important;line-height:0.94!important;letter-spacing:-0.035em!important}
 .section-title em{font-style:italic;color:rgba(26,26,26,0.65)}
 
 
@@ -151,8 +151,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .inc-text{display:flex;flex-direction:column;gap:4px}
 .inc-icon{width:58px;height:58px;border-radius:14px;background:color-mix(in srgb,var(--clay) 16%,#1a1620);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .inc-icon svg{width:24px;height:24px;stroke:var(--clay);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.inc-t{font-family:'Inter',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1.2}
-.inc-d{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.68);line-height:1.5}
+.inc-t{font-family:var(--font),sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1.2}
+.inc-d{font-family:var(--font),sans-serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.68);line-height:1.5}
 .price-side{display:flex;flex-direction:column;gap:16px;position:sticky;top:100px}
 .vial-card{background:var(--dark);border-radius:24px;padding:48px 32px;display:flex;align-items:center;justify-content:center;min-height:380px;position:relative;overflow:hidden}
 .vial-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(181,201,154,0.12) 0%,transparent 70%)}
@@ -161,11 +161,11 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .price-card{background:linear-gradient(160deg,#1f1c18 0%,#252018 50%,#1a1814 100%);border-radius:24px;padding:40px 36px;border:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden}
 .price-card::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(ellipse,rgba(181,201,154,0.12) 0%,transparent 70%);pointer-events:none}
 .price-label{font-size:11px;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;display:block}
-.price-big{font-family:'DM Sans','Inter',sans-serif;font-size:72px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:4px}
+.price-big{font-family:'DM Sans',var(--font),sans-serif;font-size:72px;font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:4px}
 .price-mo{font-size:20px;color:rgba(255,255,255,0.3);font-weight:400}
 .price-compare{font-size:14px;font-weight:700;color:var(--clay);margin-bottom:8px}
 .price-note{font-size:13px;color:rgba(255,255,255,0.3);margin-bottom:28px;line-height:1.6}
-.price-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:opacity 0.2s ease;white-space:nowrap;text-align:center;display:block;margin-bottom:12px}
+.price-btn{font-family:var(--font),sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:opacity 0.2s ease;white-space:nowrap;text-align:center;display:block;margin-bottom:12px}
 .price-btn:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .price-sub{text-align:center;font-size:12px;color:rgba(255,255,255,0.25);line-height:1.6}
 .disc-card{background:rgba(0,0,0,0.06);border-radius:16px;padding:22px;border:1px solid rgba(0,0,0,0.08)}
@@ -192,7 +192,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .fcta-h{font-family:var(--serif);font-size:clamp(44px,5.5vw,80px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:16px}
 .fcta-h em{font-style:italic;color:rgba(255,255,255,0.4)}
 .fcta-sub{font-size:17px;font-weight:500;color:rgba(255,255,255,0.5);margin-bottom:44px}
-.fcta-btn{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+.fcta-btn{font-family:var(--font),sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
 .fcta-btn:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .fcta-note{font-size:12px;color:rgba(255,255,255,0.25);margin-top:20px;line-height:1.7}
 
@@ -214,7 +214,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .hero-right{text-align:left}
   .hero-title{font-size:clamp(44px,10vw,64px)}
   .hero-pills{display:none}
-  .hero-cta{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+  .hero-cta{font-family:var(--font),sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
   .trust-bar{padding:14px 20px;gap:16px}
   .trust-item{font-size:11px}
   
@@ -232,7 +232,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .faq-answer{padding:0 20px 20px;font-size:14px}
   .fcta{padding:56px 20px}
   .fcta-h{font-size:clamp(36px,8vw,56px)}
-  .fcta-btn{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
+  .fcta-btn{font-family:var(--font),sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
   
     .sticky-bar{padding:0 20px}
   .sticky-bar-inner{gap:12px}
@@ -255,7 +255,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .sticky-bar-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff;letter-spacing:-0.02em}
 .sticky-bar-price{font-size:14px;font-weight:800;color:#fff}
 .sticky-bar-note{font-size:12px;font-weight:600;color:var(--clay)}
-.sticky-bar-cta{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25);padding:10px 24px}
+.sticky-bar-cta{font-family:var(--font),sans-serif;font-size:17px;font-weight:600;letter-spacing:0.01em;text-transform:none;padding:22px 56px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25);padding:10px 24px}
 .sticky-bar-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
 .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1)}
 .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -318,8 +318,9 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 /* ── MOBILE HERO LAYOUT ── */
 @media(max-width:768px){
   .hero{
-    height:auto;
+    height:100svh;
     min-height:100svh;
+    max-height:100svh;
     display:flex;
     flex-direction:column;
     overflow:hidden;
@@ -331,22 +332,21 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     height:auto;
     min-height:0;
     grid-template-columns:1fr;
-    padding:76px 24px 20px;
+    padding:76px 24px 26px;
     gap:0;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:flex-start;
+    justify-content:flex-end;
   }
   .hero-left{
     display:flex;
     justify-content:center;
     align-items:center;
     width:100%;
-    height:48svh;
-    min-height:260px;
+    flex:1 1 auto;
+    min-height:170px;
     position:relative;
-    flex-shrink:0;
   }
   .hero-left::before{
     content:'';
@@ -371,9 +371,10 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     justify-content:center;
   }
   .hero-vial-wrap img{
-    height:100%;
+    height:auto;
     width:auto;
-    max-height:44svh;
+    max-height:100%;
+    max-width:82%;
     object-fit:contain;
     display:block;
     transform:rotate(-10deg);
@@ -468,7 +469,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
 /* ── GHOST CTA ── */
 .hero-cta-ghost{
-  font-family:'Inter',sans-serif;
+  font-family:var(--font),sans-serif;
   font-size:12px;
   font-weight:500;
   letter-spacing:0.04em;
@@ -564,16 +565,16 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .rn-menu-panel{position:absolute;top:96px;left:0;right:0;bottom:0;display:flex;flex-direction:column;overflow-y:auto;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),opacity 0.3s cubic-bezier(0.22,1,0.36,1)}
   .rn-menu-panel.rn-panel-hidden{transform:translateX(30px);opacity:0;pointer-events:none}
   .rn-menu-topbar{display:flex;align-items:center;justify-content:space-between;padding:28px 24px 20px}
-  .rn-menu-login{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:rgba(26,26,26,0.5);text-decoration:none;letter-spacing:0.01em}
-  .rn-menu-getstarted{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;background:#1a1a1a;padding:11px 22px;text-decoration:none;letter-spacing:0.01em;border-radius:2px}
+  .rn-menu-login{font-family:var(--font),sans-serif;font-size:14px;font-weight:500;color:rgba(26,26,26,0.5);text-decoration:none;letter-spacing:0.01em}
+  .rn-menu-getstarted{font-family:var(--font),sans-serif;font-size:13px;font-weight:600;color:#fff;background:#1a1a1a;padding:11px 22px;text-decoration:none;letter-spacing:0.01em;border-radius:2px}
   .rn-menu-divider{height:1px;background:rgba(0,0,0,0.07);margin:0 24px}
   .rn-menu-row{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;cursor:pointer;background:none;border:none;width:100%;text-align:left}
   .rn-menu-row-label{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:400;color:#1a1a1a;line-height:1}
   .rn-menu-row-arrow{font-size:20px;color:rgba(26,26,26,0.25);line-height:1}
   .rn-menu-plain-link{display:block;padding:22px 24px;font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;font-weight:400;color:#1a1a1a;text-decoration:none;line-height:1}
-  .rn-menu-back{display:flex;align-items:center;gap:6px;padding:20px 24px;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:rgba(26,26,26,0.4);letter-spacing:0.06em;text-transform:uppercase}
+  .rn-menu-back{display:flex;align-items:center;gap:6px;padding:20px 24px;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:var(--font),sans-serif;font-size:12px;font-weight:600;color:rgba(26,26,26,0.4);letter-spacing:0.06em;text-transform:uppercase}
   .rn-menu-back-arrow{font-size:15px}
-  .rn-menu-sub-cat{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C4724A;display:block;padding:8px 24px 12px}
+  .rn-menu-sub-cat{font-family:var(--font),sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C4724A;display:block;padding:8px 24px 12px}
   .rn-menu-product-link{display:block;padding:18px 24px;font-family:'Cormorant Garamond',Georgia,serif;font-size:40px;font-weight:400;color:#1a1a1a;text-decoration:none;line-height:1.1;border-bottom:1px solid rgba(0,0,0,0.06)}
   .rn-menu-product-link:last-child{border-bottom:none}
 }
@@ -591,7 +592,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       <a class="rn-link">Treatments <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="rn-dd">
         <span class="rn-dd-category">Weight Loss</span>
-        <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Strongest option available</div></div><div class="rn-dd-price">$179<span>/mo</span></div></a>
+        <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Once-weekly injection</div></div><div class="rn-dd-price">$160<span>/mo</span></div></a>
         <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$129<span>/mo</span></div></a>
         <span class="rn-dd-category">Wellness</span>
         <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Recovery &amp; vitality</div></div><div class="rn-dd-price">$159<span>/mo</span></div></a>
@@ -671,17 +672,13 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 
     <!-- RIGHT — text -->
     <div class="hero-right">
-      <div class="hero-eyebrow">
-        <div class="hero-eyebrow-dot"></div>
-        Growth hormone peptide &middot; Daily injection &middot; Prescription required
-      </div>
       <h1 class="hero-title">
         Your body already
         <em>makes it.</em>
       </h1>
       <p class="hero-sub">Sermorelin is a 29-amino-acid peptide that signals your pituitary gland to produce more of its own growth hormone &mdash; working with your biology, not replacing it.</p>
       <div class="hero-price-block">
-                <div style="font-family:'DM Sans','Inter',sans-serif;font-size:clamp(48px,5vw,64px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;">$159<span style="font-size:20px;color:rgba(255,255,255,0.3);">/mo</span></div>
+                <div style="font-family:'DM Sans',var(--font),sans-serif;font-size:clamp(48px,5vw,64px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;">$159<span style="font-size:20px;color:rgba(255,255,255,0.3);">/mo</span></div>
         <div style="font-size:13px;font-weight:500;color:#B5C99A;margin-top:6px;">Medication, provider review &amp; shipping included</div>
         <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px;">No membership fee &middot; No hidden costs &middot; Cancel anytime</div>
       </div>
@@ -806,33 +803,45 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 </section>
 
 <!-- LIFESTYLE PHOTO SECTION -->
-<section style="position:relative;min-height:560px;overflow:hidden;display:flex;align-items:center;">
-  <img src="sermorelin-lifestyle.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;filter:saturate(0.85) brightness(0.85);" />
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.15) 100%);"></div>
-  <div style="position:relative;z-index:2;padding:80px;max-width:680px;">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:400;color:#fff;line-height:0.95;letter-spacing:-0.03em;margin-bottom:24px;">Signal, don&rsquo;t<em style="font-style:italic;color:rgba(255,255,255,0.4);display:block;">replace.</em></h2>
-    <p style="font-size:16px;font-weight:500;color:rgba(255,255,255,0.6);line-height:1.75;max-width:480px;margin-bottom:32px;">Unlike direct HGH injections, sermorelin stimulates your pituitary gland to release its own growth hormone &mdash; keeping your body&rsquo;s natural feedback loops intact. Administered daily at bedtime to align with your natural GH rhythm during sleep.</p>
-    <p style="font-size:12px;color:rgba(255,255,255,0.25);font-style:italic;line-height:1.65;">Sermorelin was previously FDA-approved but voluntarily discontinued by its manufacturer &mdash; not for safety or efficacy reasons. Compounded sermorelin is not FDA-approved. Individual results will vary. A licensed provider will determine if this treatment is appropriate for you.</p>
+<section class="evidence">
+  <div class="evidence-bg">
+    <img class="evidence-img" src="sermorelin-lifestyle.jpg" alt="" loading="lazy" />
+    <div class="evidence-scrim"></div>
+  </div>
+  <div class="evidence-inner">
+    <h2 class="evidence-h">Signal, don&rsquo;t<em>replace.</em></h2>
+    <p class="evidence-body">Unlike direct HGH injections, sermorelin stimulates your pituitary gland to release its own growth hormone &mdash; keeping your body&rsquo;s natural feedback loops intact. Administered daily at bedtime to align with your natural GH rhythm during sleep.</p>
+    <p class="evidence-cite">Sermorelin was previously FDA-approved but voluntarily discontinued by its manufacturer &mdash; not for safety or efficacy reasons. Compounded sermorelin is not FDA-approved. Individual results will vary. A licensed provider will determine if this treatment is appropriate for you.</p>
   </div>
 </section>
+<style>
+.evidence{position:relative;min-height:620px;overflow:hidden;display:flex;align-items:center;background:#0d0d0d}
+.evidence-bg{position:absolute;inset:0}
+.evidence-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;filter:saturate(0.9) brightness(0.85) contrast(1.03);transition:transform 1.2s cubic-bezier(0.22,1,0.36,1)}
+.evidence:hover .evidence-img{transform:scale(1.03)}
+.evidence-scrim{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.5) 45%,rgba(0,0,0,0.12) 100%),linear-gradient(to top,rgba(0,0,0,0.3) 0%,transparent 55%)}
+.evidence-inner{position:relative;z-index:2;padding:96px 80px;max-width:720px;width:100%}
+.evidence-h{font-family:var(--serif),'Cormorant Garamond',serif;font-size:clamp(40px,4.8vw,68px);font-weight:400;color:#fff;line-height:0.98;letter-spacing:-0.03em;margin:0 0 24px}
+.evidence-h em{font-style:italic;color:rgba(255,255,255,0.42);display:block;font-weight:400}
+.evidence-body{font-family:var(--font);font-size:17px;font-weight:400;color:rgba(255,255,255,0.82);line-height:1.7;max-width:520px;margin:0 0 28px;letter-spacing:-0.005em}
+.evidence-cite{font-family:var(--font);font-size:12px;color:rgba(255,255,255,0.35);font-style:italic;line-height:1.7;max-width:540px;margin:0;font-weight:400}
+@media(max-width:768px){
+  .evidence{min-height:540px;align-items:flex-end}
+  .evidence-img{object-position:center 26%}
+  .evidence-scrim{background:linear-gradient(to top,rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.82) 28%,rgba(0,0,0,0.45) 60%,rgba(0,0,0,0.12) 100%)}
+  .evidence-inner{padding:0 24px 52px}
+  .evidence-h{font-size:33px;line-height:1.06;letter-spacing:-0.02em;margin:0 0 14px}
+  .evidence-body{font-size:15px;line-height:1.65;color:rgba(255,255,255,0.9);margin:0 0 16px}
+  .evidence-cite{font-size:11px;line-height:1.6}
+}
+</style>
 
 
 
-<!-- READY TO START BAR -->
-<div class="rts-wrap">
-  <div class="rts-inner reveal">
-    <div>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,48px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:12px;">Ready to start? <em style="font-style:italic;color:rgba(255,255,255,0.38);">Takes 5 minutes.</em></p>
-      <p style="font-size:13px;color:rgba(255,255,255,0.3);letter-spacing:0.02em;">Free intake &middot; No commitment &middot; Licensed provider review</p>
-    </div>
-    <a href="peptide-waitlist.html" class="rts-btn">Reserve your spot &rarr;</a>
-  </div>
-</div>
 
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-inner">
-    <span class="section-eyebrow reveal reveal-eyebrow">Common questions</span>
     <h2 class="section-title reveal reveal-d1" style="text-align:left;margin-top:12px;">Your questions,<br><em>answered honestly.</em></h2>
     <div class="faq-list">
       <div class="faq-item">

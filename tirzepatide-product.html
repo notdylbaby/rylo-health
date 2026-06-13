@@ -98,20 +98,20 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .hero-content{position:relative;z-index:2;height:calc(100vh - 64px - 50px);display:grid;grid-template-columns:1.25fr 1fr;align-items:center;padding:32px 80px;gap:60px}
 .hero .trust-bar{position:absolute;bottom:0;left:0;right:0;z-index:3;background:rgba(255,255,255,0.05);border-top:1px solid rgba(255,255,255,0.06);border-bottom:none;padding:14px 80px;gap:36px}
 
-/* LEFT — vial */
+/* LEFT - vial */
 .hero-left{display:flex;align-items:flex-start;justify-content:center;position:relative;padding-top:0}
 .hero-left::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(196,114,74,0.18) 0%,transparent 70%);top:20%;left:50%;transform:translate(-50%,-20%);z-index:0;pointer-events:none}
 .hero-vial-wrap{position:relative;width:110%;max-width:780px;z-index:1;margin-left:-5%;margin-top:-20px}
 .hero-vial-wrap img{width:100%;object-fit:contain;display:block;transform:rotate(-6deg);transition:transform 0.8s cubic-bezier(0.22,1,0.36,1)}
 .hero-vial-wrap:hover img{transform:rotate(-3deg) translateY(-12px)}
 
-/* HERO PRICE BLOCK — single column, no borders */
+/* HERO PRICE BLOCK - single column, no borders */
 .hero-price-block{margin:0;padding:0}
 .hero-price-num{font-family:'DM Sans',var(--font);font-size:clamp(56px,6vw,80px);font-weight:300;color:#fff;line-height:1;letter-spacing:-0.035em;margin:0}
 .hero-price-mo{font-size:22px;color:rgba(255,255,255,0.42);font-weight:300;letter-spacing:0;margin-left:4px}
 .hero-price-tag{font-family:var(--font);font-size:14px;font-weight:400;color:rgba(255,255,255,0.7);letter-spacing:0.005em;line-height:1.4;margin:12px 0 0}
-.hero-price-compare{font-family:var(--font);font-size:13px;color:rgba(255,255,255,0.5);margin:18px 0 0;letter-spacing:0.005em;font-weight:400;line-height:1.625;max-width:460px}
-.hero-cta-stack{display:flex;flex-direction:column;margin-top:36px}
+.hero-price-compare{font-family:var(--font);font-size:13px;color:rgba(255,255,255,0.5);margin:10px 0 0;letter-spacing:0.005em;font-weight:400;line-height:1.625;max-width:460px}
+.hero-cta-stack{display:flex;flex-direction:column;margin-top:22px}
 .hero-cta-note{font-family:var(--font);font-size:12px;color:rgba(255,255,255,0.5);line-height:1.625;margin:18px 0 0;font-weight:400;letter-spacing:0.025em;max-width:480px}
 @media(max-width:768px){
   .hero-price-num{font-size:clamp(52px,11vw,68px)}
@@ -119,11 +119,11 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .hero-cta-note{font-size:12px;margin-top:16px}
 }
 
-/* RIGHT — text */
+/* RIGHT - text */
 .hero-right{display:flex;flex-direction:column;justify-content:center;gap:0}
-.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,76px);font-weight:300;color:#fff;line-height:0.96;letter-spacing:-0.03em;margin-bottom:22px}
-.hero-title em{font-style:italic;color:rgba(255,255,255,0.65);display:block}
-.hero-sub{font-size:17px;font-weight:400;color:rgba(255,255,255,0.82);line-height:1.6;max-width:520px;margin-bottom:22px;letter-spacing:-0.005em}
+.hero-title{font-family:var(--serif);font-size:clamp(44px,5vw,76px);font-weight:400;color:#fff;line-height:0.96;letter-spacing:-0.03em;margin-bottom:16px}
+.hero-title em{color:#fff;display:block}
+.hero-sub{font-size:17px;font-weight:400;color:rgba(255,255,255,0.82);line-height:1.6;max-width:520px;margin-bottom:14px;letter-spacing:-0.005em}
 .hero-disclaimer-hero{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.65;margin-bottom:16px;max-width:480px;font-style:italic}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:0;margin-top:12px}
 .hero-pill{font-size:11px;font-weight:500;color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.18);padding:7px 14px;border-radius:100px;letter-spacing:0.06em}
@@ -137,11 +137,11 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .trust-item{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;color:rgba(255,255,255,0.72);letter-spacing:0.005em}
 .trust-check{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:#fff}
 
-/* HOW IT WORKS — editorial split cards */
+/* HOW IT WORKS - editorial split cards */
 
 
-.section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:300;color:var(--text);line-height:1.02;letter-spacing:-0.025em}.includes .section-title{font-size:clamp(56px,7vw,96px)!important;line-height:0.94!important;letter-spacing:-0.035em!important}
-.section-title em{font-style:italic;color:rgba(26,26,26,0.65)}
+.section-title{font-family:var(--serif);font-size:clamp(40px,4.5vw,64px);font-weight:400;color:var(--text);line-height:1.02;letter-spacing:-0.025em}.includes .section-title{font-size:clamp(56px,7vw,96px)!important;line-height:0.94!important;letter-spacing:-0.035em!important}
+.section-title em{color:var(--text)}
 
 
 
@@ -211,8 +211,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .fcta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(196,114,74,0.22) 0%,rgba(196,114,74,0.06) 40%,transparent 70%),radial-gradient(ellipse at 20% -20%,rgba(255,220,180,0.07) 0%,transparent 55%);pointer-events:none}
 .fcta::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(196,114,74,0.4),transparent);pointer-events:none}
 .fcta>*{position:relative;z-index:1}
-.fcta-h{font-family:var(--serif);font-size:clamp(44px,5.5vw,80px);font-weight:300;color:#fff;line-height:1.02;letter-spacing:-0.03em;margin-bottom:18px}
-.fcta-h em{font-style:italic;color:rgba(255,255,255,0.4)}
+.fcta-h{font-family:var(--serif);font-size:clamp(44px,5.5vw,80px);font-weight:400;color:#fff;line-height:1.02;letter-spacing:-0.03em;margin-bottom:18px}
+.fcta-h em{color:#fff}
 .fcta-sub{font-size:18px;font-weight:400;color:rgba(255,255,255,0.7);margin-bottom:44px;letter-spacing:-0.005em;line-height:1.55}
 .fcta-btn{font-family:'Helvetica Neue',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;font-size:16px;font-weight:500;letter-spacing:0.01em;text-transform:none;padding:22px 32px;background:#fff;color:#1a1a1a;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);white-space:nowrap;box-shadow:0 8px 40px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.25)}
 .fcta-btn:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
@@ -312,8 +312,9 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 /* ── MOBILE HERO LAYOUT ── */
 @media(max-width:768px){
   .hero{
-    height:auto;
+    height:100svh;
     min-height:100svh;
+    max-height:100svh;
     display:flex;
     flex-direction:column;
     overflow:hidden;
@@ -325,22 +326,21 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     height:auto;
     min-height:0;
     grid-template-columns:1fr;
-    padding:76px 24px 20px;
+    padding:76px 24px 26px;
     gap:0;
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:flex-start;
+    justify-content:flex-end;
   }
   .hero-left{
     display:flex;
     justify-content:center;
     align-items:center;
     width:100%;
-    height:48svh;
-    min-height:260px;
+    flex:1 1 auto;
+    min-height:170px;
     position:relative;
-    flex-shrink:0;
   }
   .hero-left::before{
     content:'';
@@ -365,9 +365,10 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     justify-content:center;
   }
   .hero-vial-wrap img{
-    height:100%;
+    height:auto;
     width:auto;
-    max-height:44svh;
+    max-height:100%;
+    max-width:82%;
     object-fit:contain;
     display:block;
     transform:rotate(-10deg);
@@ -388,6 +389,9 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   .hero-sub{ display:none; }
   .hero-disclaimer-hero{ display:none; }
   .hero-pills{ display:none; }
+  .hero-price-compare{ display:none; }
+  .hero-cta-stack{ margin-top:0; }
+  .hero-cta-note{ display:none; }
   .hero-price-block{
     padding:12px 0;
     margin-bottom:16px;
@@ -426,7 +430,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 /* ── DARK INCLUDES SECTION ── */
 .includes{background:#0f0d12;padding:88px 64px 72px}
 .includes .section-title{color:#fff}
-.includes .section-title em{color:rgba(255,255,255,0.35);font-style:italic}
+.includes .section-title em{color:#fff}
 .inc-item{border-bottom:1px solid rgba(255,255,255,0.07)}
 .inc-item:first-child{border-top:1px solid rgba(255,255,255,0.07)}
 .inc-icon{background:color-mix(in srgb,var(--clay) 16%,#1a1620)}
@@ -478,12 +482,12 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 }
 .hero-cta-ghost:active{transform:translateY(0)}
 
-/* ── HOW IT WORKS — light premium ── */
+/* ── HOW IT WORKS - light premium ── */
 .how{background:var(--oat);padding:88px 48px 96px;position:relative}
 .how::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,114,74,0.05) 0%,transparent 55%);pointer-events:none}
 .how-header{text-align:center;margin-bottom:56px;position:relative;z-index:1;max-width:1360px;margin-left:auto;margin-right:auto}
 .how-header .section-title{color:#1a1a1a}
-.how-header .section-title em{color:rgba(26,26,26,0.45);font-style:italic;font-weight:300}
+.how-header .section-title em{color:var(--text);font-weight:400}
 .how-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1360px;margin:0 auto;position:relative;z-index:1}
 
 .how-card{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,#ffffff 0%,#fbf8f2 100%);border:1px solid rgba(26,26,26,0.06);transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),border-color 0.5s cubic-bezier(0.22,1,0.36,1),box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);box-shadow:0 1px 2px rgba(26,18,12,0.04),0 8px 24px rgba(196,114,74,0.05),0 24px 60px rgba(26,18,12,0.06)}
@@ -559,7 +563,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       <a class="rn-link">Treatments <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
       <div class="rn-dd">
         <span class="rn-dd-category">Weight Loss</span>
-        <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Strongest option available</div></div><div class="rn-dd-price">$179<span>/mo</span></div></a>
+        <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Once-weekly injection</div></div><div class="rn-dd-price">$160<span>/mo</span></div></a>
         <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$129<span>/mo</span></div></a>
         <span class="rn-dd-category">Wellness</span>
         <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Recovery &amp; vitality</div></div><div class="rn-dd-price">$159<span>/mo</span></div></a>
@@ -630,18 +634,18 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 <section class="hero">
   <div class="hero-content">
 
-    <!-- LEFT — vial -->
+    <!-- LEFT - vial -->
     <div class="hero-left">
       <div class="hero-vial-wrap">
         <img src="floatingtirz-opt.png" alt="Compounded Tirzepatide" fetchpriority="high" />
       </div>
     </div>
 
-    <!-- RIGHT — text -->
+    <!-- RIGHT - text -->
     <div class="hero-right">
       <h1 class="hero-title">
-        The protocol,
-        <em>prescribed.</em>
+        Two pathways.
+        <em>One protocol.</em>
       </h1>
       <p class="hero-sub">A weekly compounded GLP-1 + GIP regimen, reviewed and prescribed by US-licensed physicians when clinically appropriate.</p>
       <div class="hero-price-block">
@@ -656,7 +660,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     </div>
 
   </div>
-  <!-- TRUST BAR — inside hero, pinned to bottom -->
+  <!-- TRUST BAR - inside hero, pinned to bottom -->
   <div class="trust-bar">
     <div class="trust-item"><div class="trust-check">&#10003;</div>503A licensed pharmacy</div>
     <div class="trust-item"><div class="trust-check">&#10003;</div>Board-certified MD review</div>
@@ -691,7 +695,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
         </div>
         <div class="inc-item">
           <div class="inc-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <div class="inc-text"><div class="inc-t">Ships in 2&ndash;3 days, free</div><div class="inc-d">Discreet, unmarked packaging delivered to your door.</div></div>
+          <div class="inc-text"><div class="inc-t">Ships in 2 to 3 days, free</div><div class="inc-d">Discreet, unmarked packaging delivered to your door.</div></div>
         </div>
         <div class="inc-item">
           <div class="inc-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
@@ -727,7 +731,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .compliance-block p{font-family:var(--font);font-size:13px;font-weight:400;color:rgba(26,26,26,0.6);line-height:1.75;margin:0 auto;text-align:center;max-width:760px;letter-spacing:0.005em}
 </style>
 <section class="compliance-block">
-  <p>Compounded tirzepatide. Contains tirzepatide as the active ingredient. Not the same as Mounjaro&reg; or Zepbound&reg;. Compounded medications are not FDA-approved and have not been independently evaluated for safety or efficacy. Individual results vary. Speak with a Rylo-affiliated clinician to determine if compounded tirzepatide is appropriate for you.</p>
+  <p>Compounded tirzepatide. Contains tirzepatide as the active ingredient. Compounded medications are not FDA-approved and have not been independently evaluated for safety or efficacy. Individual results vary. Speak with a Rylo-affiliated clinician to determine if compounded tirzepatide is appropriate for you.</p>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -763,81 +767,22 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
         <div class="how-card-body">
           <div class="how-card-num">3</div>
           <h3 class="how-card-title">Your medication ships to you</h3>
-          <p class="how-card-desc">If approved, your prescription is filled by a licensed 503A compounding pharmacy and shipped in discreet packaging within 3&ndash;5 business days. Free every month.</p>
+          <p class="how-card-desc">If approved, your prescription is filled by a licensed 503A compounding pharmacy and shipped in discreet packaging within 3 to 5 business days. Free every month.</p>
         </div>
       </div>
   </div>
 </section>
 
-<!-- PROVIDERS — real social proof -->
-<section class="providers">
-  <div class="providers-inner">
-    <header class="providers-head">
-      <h2 class="providers-h">Reviewed by US-licensed<em>physicians.</em></h2>
-      <p class="providers-sub">Two board-certified physicians personally review every Rylo patient before treatment is prescribed. Not a chatbot. Not an algorithm.</p>
-    </header>
-    <div class="providers-row">
-      <article class="prov-card">
-        <div class="prov-avatar">
-          <picture><source type="image/webp" srcset="dr-niazi.webp"><img src="dr-niazi.jpg" alt="Dr. Asad K. Niazi" loading="lazy" decoding="async" /></picture>
-        </div>
-        <div class="prov-body">
-          <h3 class="prov-name">Dr. Asad K. Niazi</h3>
-          <p class="prov-cred"><em>MD, MPH &middot; Internal Medicine</em></p>
-          <p class="prov-bio">Board-certified internist with residency at Huntington Health&ndash;Cedars-Sinai. Earned his MD and MPH at Texas Tech and the UT School of Public Health, with published cardiovascular research alongside Baylor College of Medicine.</p>
-        </div>
-      </article>
-      <article class="prov-card">
-        <div class="prov-avatar">
-          <picture><source type="image/webp" srcset="dr-patel.webp"><img src="dr-patel.jpg" alt="Dr. Abhishek Patel" loading="lazy" decoding="async" /></picture>
-        </div>
-        <div class="prov-body">
-          <h3 class="prov-name">Dr. Abhishek Patel</h3>
-          <p class="prov-cred"><em>MD &middot; Physical Medicine &amp; Rehabilitation</em></p>
-          <p class="prov-bio">Specialist in pain medicine, sports medicine, and rehabilitation. Board-certified by the American Board of Physical Medicine &amp; Rehabilitation with twelve years of clinical practice rooted in the University of Pittsburgh Medical Center.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<style>
-.providers{background:var(--oat);padding:24px 48px 96px;position:relative}
-.providers-inner{max-width:1200px;margin:0 auto}
-.providers-head{text-align:center;margin-bottom:56px;max-width:680px;margin-left:auto;margin-right:auto}
-.providers-h{font-family:var(--serif);font-size:clamp(36px,4vw,56px);font-weight:300;color:#1a1a1a;line-height:1.02;letter-spacing:-0.025em;margin:0 0 18px}
-.providers-h em{font-style:italic;color:rgba(26,26,26,0.45);display:block;font-weight:300}
-.providers-sub{font-family:var(--font);font-size:17px;font-weight:400;color:rgba(26,26,26,0.72);line-height:1.65;margin:0;letter-spacing:-0.005em}
-.providers-row{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.prov-card{background:linear-gradient(180deg,#fff 0%,#fbf8f2 100%);border:1px solid rgba(26,26,26,0.06);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:22px;transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),border-color 0.4s cubic-bezier(0.22,1,0.36,1);box-shadow:0 1px 2px rgba(26,18,12,0.04),0 8px 24px rgba(196,114,74,0.04),0 24px 60px rgba(26,18,12,0.05)}
-.prov-card:hover{transform:translateY(-4px);border-color:rgba(196,114,74,0.18);box-shadow:0 2px 4px rgba(26,18,12,0.05),0 14px 36px rgba(196,114,74,0.08),0 30px 70px rgba(26,18,12,0.07)}
-.prov-avatar{width:100px;height:100px;border-radius:50%;overflow:hidden;flex-shrink:0;background:#eae6df;box-shadow:0 6px 24px rgba(26,18,12,0.12)}
-.prov-avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.prov-name{font-family:var(--serif);font-size:28px;font-weight:400;color:#1a1a1a;line-height:1.1;letter-spacing:-0.02em;margin:0 0 6px}
-.prov-cred{font-family:var(--serif);font-size:16px;color:var(--clay);margin:0 0 14px;line-height:1.4}
-.prov-cred em{font-style:italic}
-.prov-bio{font-family:var(--font);font-size:16px;font-weight:400;color:rgba(26,26,26,0.75);line-height:1.7;margin:0;letter-spacing:-0.005em}
-@media(max-width:768px){
-  .providers{padding:16px 20px 64px}
-  .providers-head{margin-bottom:40px}
-  .providers-h{font-size:34px}
-  .providers-sub{font-size:14.5px}
-  .providers-row{grid-template-columns:1fr;gap:18px}
-  .prov-card{padding:28px 24px;gap:18px}
-  .prov-avatar{width:80px;height:80px}
-  .prov-name{font-size:24px}
-}
-</style>
-
 <!-- EDITORIAL DATA SECTION -->
 <section class="evidence">
   <div class="evidence-bg">
-    <img class="evidence-img" src="jeansweightnew-opt.jpg" alt="" loading="lazy" />
+    <img class="evidence-img" src="Tirzepatide%20photo.png" alt="" loading="lazy" />
     <div class="evidence-scrim"></div>
   </div>
   <div class="evidence-inner">
-    <h2 class="evidence-h">The strongest GLP-1 data<em>ever published.</em></h2>
-    <p class="evidence-body">Tirzepatide outperformed semaglutide by 47% in the first head-to-head clinical trial — 20.2% average body weight reduction over 72 weeks.</p>
-    <p class="evidence-cite">Based on published GLP-1 clinical data. Individual results will vary. Compounded medications are not FDA-approved and have not been independently studied.</p>
+    <h2 class="evidence-h">How tirzepatide <em>works.</em></h2>
+    <p class="evidence-body">Tirzepatide is a once-weekly GLP-1 and GIP receptor agonist. It helps regulate appetite and how your body responds to food, while your provider tailors the dose to you over time.</p>
+    <p class="evidence-cite">Compounded medications are not FDA-approved and have not been independently studied. Prescription required. Individual results will vary.</p>
   </div>
 </section>
 <style>
@@ -847,51 +792,21 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .evidence:hover .evidence-img{transform:scale(1.03)}
 .evidence-scrim{position:absolute;inset:0;background:linear-gradient(to right,rgba(8,7,5,0.78) 0%,rgba(8,7,5,0.45) 45%,rgba(8,7,5,0.08) 100%),linear-gradient(to top,rgba(0,0,0,0.3) 0%,transparent 55%)}
 .evidence-inner{position:relative;z-index:2;padding:96px 80px;max-width:720px;width:100%}
-.evidence-h{font-family:var(--serif);font-size:clamp(40px,4.8vw,72px);font-weight:300;color:#fff;line-height:1;letter-spacing:-0.03em;margin:0 0 24px}
-.evidence-h em{font-style:italic;color:rgba(255,255,255,0.45);display:block;font-weight:300}
+.evidence-h{font-family:var(--serif);font-size:clamp(40px,4.8vw,72px);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.03em;margin:0 0 24px}
+.evidence-h em{color:#fff;font-weight:400}
 .evidence-body{font-family:var(--font);font-size:18px;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.6;max-width:540px;margin:0 0 28px;letter-spacing:-0.005em}
 .evidence-cite{font-family:var(--font);font-size:13px;color:rgba(255,255,255,0.55);font-style:italic;line-height:1.7;max-width:540px;margin:0;font-weight:400;letter-spacing:0.005em}
 @media(max-width:768px){
-  .evidence{min-height:520px}
-  .evidence-img{object-position:center 28%}
-  .evidence-scrim{background:linear-gradient(to top,rgba(8,7,5,0.92) 0%,rgba(8,7,5,0.6) 55%,rgba(8,7,5,0.35) 100%)}
-  .evidence-inner{padding:64px 24px}
-  .evidence-h{font-size:38px}
-  .evidence-body{font-size:15px}
+  .evidence{min-height:540px;align-items:flex-end}
+  .evidence-img{object-position:center 26%}
+  .evidence-scrim{background:linear-gradient(to top,rgba(8,7,5,0.95) 0%,rgba(8,7,5,0.82) 28%,rgba(8,7,5,0.45) 60%,rgba(8,7,5,0.12) 100%)}
+  .evidence-inner{padding:0 24px 52px}
+  .evidence-h{font-size:33px;line-height:1.06;letter-spacing:-0.02em;margin:0 0 14px}
+  .evidence-body{font-size:15px;line-height:1.65;color:rgba(255,255,255,0.92);margin:0 0 16px}
+  .evidence-cite{font-size:12px;line-height:1.6}
 }
 </style>
 
-<div class="midband">
-  <div class="midband-inner">
-    <div class="midband-text">
-      <p class="midband-h">Ready to start? <em>Takes 5 minutes.</em></p>
-      <p class="midband-sub">Free intake &middot; No commitment &middot; Licensed provider review</p>
-    </div>
-    <div class="midband-cta-wrap">
-      <a href="waitlist.html" class="midband-cta">Reserve Your First 50 Spot &middot; $149</a>
-      <p class="midband-disc">First 50 Presale &middot; Fully refundable before your first consultation.</p>
-    </div>
-  </div>
-</div>
-<style>
-.midband{background:linear-gradient(135deg,#1c1914 0%,#252018 40%,#1c1914 100%);padding:64px 80px;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
-.midband-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:56px;flex-wrap:wrap}
-.midband-text{flex:1;min-width:280px}
-.midband-h{font-family:var(--serif);font-size:clamp(30px,3vw,46px);font-weight:300;color:#fff;line-height:1.04;letter-spacing:-0.025em;margin:0 0 14px}
-.midband-h em{font-style:italic;color:rgba(255,255,255,0.42);font-weight:300}
-.midband-sub{font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.04em;font-weight:400;margin:0;line-height:1.6}
-.midband-cta-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0}
-.midband-cta{font-family:var(--font);font-size:16px;font-weight:500;letter-spacing:0.01em;padding:22px 36px;background:#fff;color:#1a1a1a;text-decoration:none;display:inline-block;transition:background 0.25s cubic-bezier(0.22,1,0.36,1),color 0.25s cubic-bezier(0.22,1,0.36,1),transform 0.25s cubic-bezier(0.22,1,0.36,1);box-shadow:0 8px 32px rgba(0,0,0,0.35)}
-.midband-cta:hover{background:var(--clay);color:#fff;transform:translateY(-2px)}
-.midband-disc{font-size:12px;color:rgba(255,255,255,0.55);text-align:right;max-width:420px;margin:0;line-height:1.65;font-weight:400}
-@media(max-width:768px){
-  .midband{padding:48px 24px}
-  .midband-inner{flex-direction:column;align-items:flex-start;gap:28px}
-  .midband-cta-wrap{align-items:flex-start;width:100%}
-  .midband-cta{width:100%;text-align:center;padding:20px}
-  .midband-disc{text-align:left;max-width:none}
-}
-</style>
 
 <!-- FAQ -->
 <section class="faq" id="faq">
@@ -900,19 +815,19 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q">Is compounded tirzepatide FDA-approved?<span class="faq-icon">+</span></button>
-        <div class="faq-body"><p class="faq-answer">No. Compounded tirzepatide is not FDA-approved as a finished drug product. The FDA does not evaluate compounded medications for safety, effectiveness, or quality the way it does brand-name drugs. It is legally prepared by a licensed 503A compounding pharmacy and prescribed by a licensed provider. If safety is your primary concern, FDA-approved Zepbound&reg; or Mounjaro&reg; are the more conservative options.</p></div>
+        <div class="faq-body"><p class="faq-answer">No. Compounded tirzepatide is not FDA-approved as a finished drug product. The FDA does not evaluate compounded medications for safety, effectiveness, or quality the way it does brand-name drugs. It is legally prepared by a licensed 503A compounding pharmacy and prescribed by a licensed provider. If safety is your primary concern, FDA-approved tirzepatide products are the more conservative option.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">How is this different from Zepbound&reg; or Mounjaro&reg;?<span class="faq-icon">+</span></button>
-        <div class="faq-body"><p class="faq-answer">Zepbound&reg; and Mounjaro&reg; contain FDA-approved tirzepatide manufactured by Eli Lilly and Company. Compounded tirzepatide contains the same active ingredient but is prepared by a compounding pharmacy &mdash; not manufactured by the original drug maker and not FDA-approved as a finished product. Brand-name versions cost $1,000+/month without insurance. Rylo&rsquo;s compounded version starts at $199/month. Both require a prescription from a licensed provider.</p></div>
+        <button class="faq-q">How is compounded tirzepatide different from the brand-name version?<span class="faq-icon">+</span></button>
+        <div class="faq-body"><p class="faq-answer">Brand-name tirzepatide is FDA-approved and made by its original drug maker. Compounded tirzepatide contains the same active ingredient but is prepared by a licensed compounding pharmacy and is not FDA-approved as a finished product. Brand-name versions can cost $1,000+/month without insurance; Rylo&rsquo;s compounded version is $160/month. Both require a prescription from a licensed provider.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">When will I see results?<span class="faq-icon">+</span></button>
-        <div class="faq-body"><p class="faq-answer">Individual results vary significantly. Published clinical trial data for tirzepatide shows an average of 20.2% body weight loss over 72 weeks alongside diet and exercise. Some patients notice reduced appetite within the first 1&ndash;2 weeks. These results are from FDA-approved tirzepatide trials &mdash; compounded versions have not been independently studied. Results are not guaranteed.</p></div>
+        <div class="faq-body"><p class="faq-answer">Individual results vary significantly and are not guaranteed. Some patients notice reduced appetite within the first few weeks. Weight changes depend on your dose, adherence, and lifestyle. Compounded medications have not been independently studied, and your provider will set expectations for your situation.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">What are the side effects?<span class="faq-icon">+</span></button>
-        <div class="faq-body"><p class="faq-answer">The most common side effects are GI-related &mdash; nausea, diarrhea, constipation, or vomiting &mdash; especially during the first weeks of treatment. These typically ease as your body adjusts. Serious but rare risks include pancreatitis, gallbladder problems, and a potential increased risk of thyroid tumors. Do not use if you have a personal or family history of medullary thyroid carcinoma or MEN2. Your provider will review your complete health history before prescribing.</p></div>
+        <div class="faq-body"><p class="faq-answer">The most common side effects are GI-related: nausea, diarrhea, constipation, or vomiting, especially during the first weeks of treatment. These typically ease as your body adjusts. Serious but rare risks include pancreatitis, gallbladder problems, and a potential increased risk of thyroid tumors. Do not use if you have a personal or family history of medullary thyroid carcinoma or MEN2. Your provider will review your complete health history before prescribing.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Can I cancel anytime?<span class="faq-icon">+</span></button>
