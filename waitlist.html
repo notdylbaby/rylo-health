@@ -9,10 +9,6 @@
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=editorial-new@200,300,400,500,300i,400i&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
   :root {
     --bg: #faf7f2;
@@ -29,7 +25,7 @@
     --gold-shadow: rgba(184, 152, 96, 0.22);
 
     --display: 'editorial-new', 'Times New Roman', serif;
-    --body: 'Inter', system-ui, -apple-system, sans-serif;
+    --body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -160,18 +156,18 @@
     cursor: pointer;
   }
   .cta-button .price-tag {
-    font-family: var(--display);
-    font-size: 20px;
-    font-weight: 300;
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 600;
     letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
     padding-left: 14px;
     border-left: 1px solid rgba(250, 247, 242, 0.28);
   }
   .cta-button .arrow {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 20px;
-    font-weight: 300;
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 400;
     transition: transform 0.4s ease;
   }
   .cta-button:hover {
@@ -254,13 +250,13 @@
   }
 
   .price-name {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 36px;
-    font-weight: 300;
+    font-family: var(--body);
+    font-style: normal;
+    font-size: 26px;
+    font-weight: 500;
     color: var(--ink);
     margin-bottom: 32px;
-    letter-spacing: -0.022em;
+    letter-spacing: -0.012em;
   }
   .price-value {
     font-family: var(--display);
@@ -377,37 +373,53 @@
   .promises-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 64px;
+    gap: 56px;
     align-items: start;
     max-width: 1080px;
     margin: 0 auto;
+    counter-reset: promise;
   }
   .promise {
     text-align: left;
-    padding: 0;
+    padding: 32px 0 0;
     position: relative;
+    border-top: 1px solid rgba(184, 152, 96, 0.38);
+    counter-increment: promise;
+  }
+  .promise::before {
+    content: "0" counter(promise);
+    display: block;
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 28px;
   }
   .promise h3 {
     font-family: var(--display);
     font-size: 38px;
     font-weight: 300;
     line-height: 1.08;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     letter-spacing: -0.028em;
     color: var(--bg);
   }
   .promise h3 em {
     font-style: italic;
-    color: inherit;
+    color: var(--gold);
     font-weight: 300;
   }
   .promise p {
     font-family: var(--body);
     font-size: 15px;
     line-height: 1.7;
-    color: rgba(250, 247, 242, 0.78);
+    color: rgba(250, 247, 242, 0.82);
     letter-spacing: 0;
   }
+  .promises-grid .promise.reveal:nth-child(1) { transition-delay: 0.05s; }
+  .promises-grid .promise.reveal:nth-child(2) { transition-delay: 0.18s; }
+  .promises-grid .promise.reveal:nth-child(3) { transition-delay: 0.31s; }
 
   /* FOUNDER NOTE — quiet, personal, signed */
   .founder {
@@ -493,12 +505,11 @@
     50% { box-shadow: 0 0 0 7px rgba(26, 26, 26, 0); }
   }
   .spots-text {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 22px;
-    font-weight: 300;
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 400;
     color: var(--ink-soft);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
   .spots-text .count {
     color: var(--ink);
@@ -511,7 +522,7 @@
 
   /* CTA 2 */
   .cta-2 {
-    background: var(--bg-shade);
+    background: var(--bg);
     padding: 120px 0;
     text-align: center;
     border-top: 1px solid var(--rule);
@@ -567,7 +578,7 @@
     overflow: hidden;
     border-radius: 2px;
     margin-bottom: 28px;
-    background: var(--bg-shade);
+    background: var(--bg);
   }
   .doctor-photo img {
     width: 100%;
@@ -602,7 +613,8 @@
 
   /* COMPLIANCE */
   .compliance {
-    background: var(--bg-shade);
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
     padding: 80px 0;
     text-align: center;
     border-top: 1px solid var(--rule);
@@ -610,17 +622,17 @@
   .brand-context {
     max-width: 720px;
     margin: 0 auto 64px;
-    font-family: var(--display);
-    font-size: 22px;
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--ink);
-    letter-spacing: -0.018em;
+    font-family: var(--body);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    letter-spacing: -0.006em;
   }
   .brand-context em {
-    font-style: italic;
+    font-style: normal;
     color: var(--gold-deep);
-    font-weight: 300;
+    font-weight: 500;
   }
   .trust-pillars {
     display: grid;
@@ -631,13 +643,12 @@
     align-items: start;
   }
   .pillar {
-    font-family: var(--display);
-    font-style: italic;
-    font-size: 22px;
-    font-weight: 300;
+    font-family: var(--body);
+    font-size: 19px;
+    font-weight: 400;
     color: var(--ink-soft);
-    line-height: 1.4;
-    letter-spacing: -0.015em;
+    line-height: 1.5;
+    letter-spacing: -0.006em;
     position: relative;
   }
   .pillar:not(:first-child)::before {
@@ -690,7 +701,7 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     header { padding: 0 24px; height: 72px; }
-    .logo img { height: 44px; }
+    .logo img { height: 52px; }
     .back-link { font-size: 13px; }
     .container { padding: 0 24px; }
     .hero { padding: 28px 0 80px; }
@@ -704,11 +715,12 @@
     .pricing { padding: 80px 0 32px; }
     .section-title { font-size: 42px; }
     .section-deck { font-size: 17px; }
-    .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
-    .price-card { padding: 56px 32px; }
-    .price-name { font-size: 30px; margin-bottom: 26px; }
-    .price-value { font-size: 88px; }
-    .price-detail { font-size: 14px; }
+    .pricing-grid { grid-template-columns: 1fr 1fr; gap: 14px; max-width: 480px; }
+    .price-card { padding: 40px 14px; }
+    .price-name { font-size: clamp(16px, 5vw, 22px); margin-bottom: 18px; white-space: nowrap; }
+    .price-value { font-size: clamp(46px, 15vw, 68px); margin-bottom: 8px; }
+    .price-value .unit { font-size: 16px; display: block; margin-top: 6px; }
+    .price-detail { font-size: 12px; margin-top: 16px; }
     .pricing-note { font-size: 24px; margin-top: 52px; }
     .pricing-second { font-size: 21px; margin-top: 14px; }
     .lock-section { padding: 28px 0 80px; }
@@ -720,9 +732,11 @@
     .lt-light { font-size: 14px; }
     .promises { padding: 80px 0; }
     .promises-header { margin-bottom: 64px; }
-    .promises-grid { grid-template-columns: 1fr; gap: 56px; }
-    .promise h3 { font-size: 30px; }
-    .promise p { font-size: 14px; }
+    .promises-grid { grid-template-columns: 1fr; gap: 44px; }
+    .promise { text-align: center; padding-top: 28px; }
+    .promise::before { margin-bottom: 18px; }
+    .promise h3 { font-size: 32px; }
+    .promise p { font-size: 14px; max-width: 320px; margin: 0 auto; }
     .founder { padding: 80px 0 40px; }
     .founder-rule { margin: 0 auto 36px; }
     .founder-quote { font-size: 22px; margin-bottom: 0; }
@@ -822,26 +836,26 @@
   </section>
 
   <!-- THREE PROMISES — no numbers, headlines do the work -->
-  <section class="promises reveal">
+  <section class="promises">
     <div class="container">
-      <div class="promises-header">
+      <div class="promises-header reveal">
         <h2 class="section-title">Three <em>promises</em>.</h2>
         <p class="section-deck">What every Rylo First 50 member receives at signup, in writing.</p>
       </div>
 
       <div class="promises-grid">
 
-        <div class="promise">
+        <div class="promise reveal">
           <h3>No annual<br><em>prepay</em>.</h3>
           <p>Pay your $149 membership, then your monthly rate as you go. Nothing upfront.</p>
         </div>
 
-        <div class="promise">
+        <div class="promise reveal">
           <h3>The rate<br><em>never changes</em>.</h3>
           <p>$160 tirzepatide, $100 semaglutide, locked for your membership&rsquo;s lifetime.</p>
         </div>
 
-        <div class="promise">
+        <div class="promise reveal">
           <h3>Refundable<br>if <em>ineligible</em>.</h3>
           <p>Refunded if ineligible at intake, or if Rylo does not open by December 31, 2026.</p>
         </div>
