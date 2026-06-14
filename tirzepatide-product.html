@@ -22,6 +22,8 @@
 <meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rylo-hero.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -564,7 +566,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       <div class="rn-dd">
         <span class="rn-dd-category">Weight Loss</span>
         <a href="tirzepatide-product.html" class="rn-dd-item" data-product="tirz"><div class="rn-dd-body"><div class="rn-dd-name">Tirzepatide</div><div class="rn-dd-desc">GLP-1 + GIP &middot; Once-weekly injection</div></div><div class="rn-dd-price">$160<span>/mo</span></div></a>
-        <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$129<span>/mo</span></div></a>
+        <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$100<span>/mo</span></div></a>
         <span class="rn-dd-category">Wellness</span>
         <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Recovery &amp; vitality</div></div><div class="rn-dd-price">$159<span>/mo</span></div></a>
         <a href="nad-product.html" class="rn-dd-item" data-product="nad"><div class="rn-dd-body"><div class="rn-dd-name">NAD+</div><div class="rn-dd-desc">Cellular energy &middot; Metabolic support</div></div><div class="rn-dd-price">$139<span>/mo</span></div></a>
@@ -631,42 +633,17 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-
-    <!-- LEFT - vial -->
-    <div class="hero-left">
-      <div class="hero-vial-wrap">
-        <img src="floatingtirz-opt.png" alt="Compounded Tirzepatide" fetchpriority="high" />
-      </div>
+<section class="rylo-hero" style="--rylo-glow-a:124,80,42;--rylo-glow-b:198,140,82;--rylo-glow-c:234,198,152">
+  <div class="rylo-hero__inner">
+    <div class="rylo-hero__media"><img src="/floatingtirz-opt.png" alt="Compounded tirzepatide vial"></div>
+    <div class="rylo-hero__content">
+      <h1 class="rylo-headline">Two pathways.<br><em>One protocol.</em></h1>
+      <p class="rylo-subhead">A weekly compounded tirzepatide protocol. The dual GLP-1 and GIP regimen, reviewed and prescribed by US-licensed physicians when clinically appropriate.</p>
+      <div class="rylo-price"><span class="amt">$160</span><span class="per">/mo</span></div>
+      <p class="rylo-subcopy">First 50 rate, locked for life. No price increases as your dose goes up.</p>
+      <a class="rylo-cta rylo-cta--main" href="/waitlist.html">Reserve your spot</a>
+      <p class="rylo-fineprint">Today's $149 reserves your First 50 membership and locks the $160/mo rate. Treatment is prescribed and billed separately, only when clinically appropriate.</p>
     </div>
-
-    <!-- RIGHT - text -->
-    <div class="hero-right">
-      <h1 class="hero-title">
-        Two pathways.
-        <em>One protocol.</em>
-      </h1>
-      <p class="hero-sub">A weekly compounded GLP-1 + GIP regimen, reviewed and prescribed by US-licensed physicians when clinically appropriate.</p>
-      <div class="hero-price-block">
-        <div class="hero-price-num">$160<span class="hero-price-mo">/mo</span></div>
-        <p class="hero-price-tag">First 50 rate, locked for life.</p>
-        <p class="hero-price-compare">Brand-name GLP-1 medications can cost $1,000+ per month at retail.</p>
-      </div>
-      <div class="hero-cta-stack">
-        <a href="waitlist.html" class="hero-cta">Reserve Your Spot &middot; $149</a>
-        <p class="hero-cta-note">Today's $149 reserves your First 50 membership and locks the $160/mo rate. Treatment is prescribed and billed separately, only when clinically appropriate.</p>
-      </div>
-    </div>
-
-  </div>
-  <!-- TRUST BAR - inside hero, pinned to bottom -->
-  <div class="trust-bar">
-    <div class="trust-item"><div class="trust-check">&#10003;</div>503A licensed pharmacy</div>
-    <div class="trust-item"><div class="trust-check">&#10003;</div>Board-certified MD review</div>
-    <div class="trust-item"><div class="trust-check">&#10003;</div>HIPAA-secure intake</div>
-    <div class="trust-item"><div class="trust-check">&#10003;</div>Free discreet shipping</div>
-    <div class="trust-item"><div class="trust-check">&#10003;</div>HSA &amp; FSA accepted</div>
   </div>
 </section>
 
@@ -708,30 +685,16 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       </div>
     </div>
     <div class="price-side">
-<div class="price-card">
-        <div class="price-big">$160<span class="price-mo">/mo</span></div>
-        <p class="price-locked"><em>First 50 rate &middot; locked for life</em></p>
-        <div class="price-compare">Brand-name GLP-1 medications can cost $1,000+ per month at retail.</div>
-        <p class="price-note">+ $149 one-time First 50 membership<br>No price increases as your dose goes up.</p>
-        <a href="waitlist.html" class="price-btn">Reserve Your First 50 Spot &middot; $149</a>
-        <p class="founder-disclaimer">First 50 Presale. 100% fully refundable at any time prior to your first physician consultation.</p>
-        <p class="price-sub">Free intake &middot; No commitment &middot; Cancel anytime<br>Prescription required &middot; Results vary by patient</p>
+      <div class="pcard">
+        <div class="pcard-row"><span class="pcard-amt">$160</span><span class="pcard-per">/mo</span></div>
+        <p class="pcard-note">First 50 rate, locked for life. No price increases as your dose goes up.</p>
+        <a class="pcard-cta" href="/waitlist.html">Reserve your spot</a>
       </div>
       <div class="disc-card">
-        <p class="disc-label">Important safety information</p>
         <p class="disc-text">Compounded tirzepatide is not FDA-approved. The FDA does not evaluate compounded drugs for safety, effectiveness, or quality. A licensed provider must determine if this treatment is clinically appropriate for you. Do not use if pregnant, planning pregnancy, or breastfeeding. Individual results will vary. This is not a guarantee of weight loss.</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ─── COMPLIANCE ─── -->
-<style>
-.compliance-block{background:var(--oat);padding:36px 32px 8px}
-.compliance-block p{font-family:var(--font);font-size:13px;font-weight:400;color:rgba(26,26,26,0.6);line-height:1.75;margin:0 auto;text-align:center;max-width:760px;letter-spacing:0.005em}
-</style>
-<section class="compliance-block">
-  <p>Compounded tirzepatide. Contains tirzepatide as the active ingredient. Compounded medications are not FDA-approved and have not been independently evaluated for safety or efficacy. Individual results vary. Speak with a Rylo-affiliated clinician to determine if compounded tirzepatide is appropriate for you.</p>
 </section>
 
 <!-- HOW IT WORKS -->
@@ -782,7 +745,6 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   <div class="evidence-inner">
     <h2 class="evidence-h">How tirzepatide <em>works.</em></h2>
     <p class="evidence-body">Tirzepatide is a once-weekly GLP-1 and GIP receptor agonist. It helps regulate appetite and how your body responds to food, while your provider tailors the dose to you over time.</p>
-    <p class="evidence-cite">Compounded medications are not FDA-approved and have not been independently studied. Prescription required. Individual results will vary.</p>
   </div>
 </section>
 <style>
@@ -819,7 +781,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       </div>
       <div class="faq-item">
         <button class="faq-q">How is compounded tirzepatide different from the brand-name version?<span class="faq-icon">+</span></button>
-        <div class="faq-body"><p class="faq-answer">Brand-name tirzepatide is FDA-approved and made by its original drug maker. Compounded tirzepatide contains the same active ingredient but is prepared by a licensed compounding pharmacy and is not FDA-approved as a finished product. Brand-name versions can cost $1,000+/month without insurance; Rylo&rsquo;s compounded version is $160/month. Both require a prescription from a licensed provider.</p></div>
+        <div class="faq-body"><p class="faq-answer">Brand-name tirzepatide is FDA-approved and made by its original drug maker. Compounded tirzepatide contains the same active ingredient but is prepared by a licensed compounding pharmacy and is not FDA-approved as a finished product. Both require a prescription from a licensed provider.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">When will I see results?<span class="faq-icon">+</span></button>
@@ -838,17 +800,14 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 </section>
 
 <!-- FOOTER CTA -->
-<section class="fcta" style="position:relative;overflow:hidden;">
-  <video autoplay muted loop playsinline preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(0.7) brightness(0.55);">
-    <source src="202603291319-opt.mp4" type="video/mp4">
-  </video>
-  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);"></div>
-  <div style="position:relative;z-index:2;">
+<section class="fcta">
+  <img class="fcta-bg" src="/yoga-women.png" alt="">
+  <div class="fcta-scrim"></div>
+  <div class="fcta-content">
     <h2 class="fcta-h">Ready to find out<br><em>if you qualify?</em></h2>
-    <p class="fcta-sub">Free intake. Licensed provider review. Ships if approved.<br><span style="font-size:14px;color:rgba(255,255,255,0.35);">If you are not approved, you will not be charged for medication.</span></p>
-    <a href="waitlist.html" class="fcta-btn">Reserve Your First 50 Spot · $149</a>
-    <p class="founder-disclaimer">First 50 Presale. 100% fully refundable at any time prior to your first physician consultation.</p>
-    <p class="fcta-note">Compounded tirzepatide is not FDA-approved &middot; Prescription required &middot; Individual results will vary<br>Not a guarantee of weight loss &middot; A licensed provider determines clinical eligibility</p>
+    <p class="fcta-sub">Free intake. Licensed provider review. Ships if approved.</p>
+    <a href="/waitlist.html" class="fcta-btn">Reserve your spot</a>
+    <p class="fcta-refund">First 50 presale. Fully refundable any time before your first physician consultation.</p>
   </div>
 </section>
 
@@ -881,9 +840,9 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 .legal-disclaimer,.legal-trademarks{font-family:var(--font);font-size:11px;line-height:1.75;color:rgba(255,255,255,0.4);margin:0 0 10px;letter-spacing:0.01em}
 .legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
 /* ── BRAND WORDMARK SIGN-OFF ── */
-.rylo-brand-mark{width:100vw;margin:34px auto 0;padding:0;overflow:hidden;text-align:center;pointer-events:none;user-select:none}
+.rylo-brand-mark{width:100%;margin:34px auto 0;padding:0;overflow:hidden;text-align:center;pointer-events:none;user-select:none}
 .rylo-brand-mark-svg{display:block;width:100%;height:auto;max-height:38vh;margin:0 auto -2vh}
-@media(max-width:768px){.rylo-brand-mark{width:100vw;margin-top:24px}.rylo-brand-mark-svg{max-height:30vh;margin-bottom:-1.5vh}}
+@media(max-width:768px){.rylo-brand-mark{width:100%;margin-top:24px}.rylo-brand-mark-svg{max-height:30vh;margin-bottom:-1.5vh}}
 @media(max-width:1024px) and (min-width:769px){.footer-top{grid-template-columns:1fr;gap:28px}.footer-grid{gap:32px}}
 @media(max-width:768px){
   .footer-inner{padding:56px 6vw 24px}
@@ -1140,5 +1099,6 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   document.addEventListener('keydown',function(e){if(e.key==='Escape') close()});
 })();
 </script>
+<script src="/rylo-hero.js"></script>
 </body>
 </html>

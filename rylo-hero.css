@@ -1,0 +1,186 @@
+.rylo-hero {
+  --rylo-stage:#17110c; --rylo-stage-edge:#0d0906; --rylo-cream:#f3eadc; --rylo-cream-bright:#f9f3e8;
+  --rylo-muted:#a3947f; --rylo-muted-soft:#7d6f5e; --rylo-btn-fill:#f0e6d5; --rylo-btn-fill-hi:#f9f0e1;
+  --rylo-btn-text:#1a130c; --rylo-accent:#c79a68; --rylo-hair:rgba(243,234,220,0.10);
+  --rylo-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --rylo-serif:"Fraunces",Georgia,serif;
+  /* Product glow — each page overrides these three RGB triplets with its own color.
+     Default is the tirzepatide warm clay. NEVER hardcode a single color here. */
+  --rylo-glow-a:124,80,42; --rylo-glow-b:198,140,82; --rylo-glow-c:234,198,152;
+  container-type:inline-size; container-name:hero; position:relative; overflow:hidden; color:var(--rylo-cream);
+  background:
+    radial-gradient(58% 50% at 30% 42%, rgba(var(--rylo-glow-a),0.55) 0%, rgba(var(--rylo-glow-a),0) 62%),
+    radial-gradient(42% 36% at 30% 40%, rgba(var(--rylo-glow-b),0.38) 0%, rgba(var(--rylo-glow-b),0) 58%),
+    radial-gradient(30% 26% at 30% 38%, rgba(var(--rylo-glow-c),0.20) 0%, rgba(var(--rylo-glow-c),0) 52%),
+    linear-gradient(180deg, var(--rylo-stage) 0%, var(--rylo-stage-edge) 100%);
+}
+.rylo-hero *, .rylo-hero *::before, .rylo-hero *::after { box-sizing:border-box; }
+.rylo-nav { display:flex; align-items:center; justify-content:space-between; padding:26px 30px; }
+.rylo-wordmark { font-family:var(--rylo-serif); font-optical-sizing:auto; font-weight:420; font-size:24px; letter-spacing:0.2px; color:var(--rylo-cream-bright); font-variation-settings:"SOFT" 20,"WONK" 0; text-decoration:none; }
+.rylo-nav__links, .rylo-nav__right { display:none; gap:30px; align-items:center; }
+.rylo-nav__links a, .rylo-login { font-size:15px; color:var(--rylo-cream); text-decoration:none; opacity:0.82; letter-spacing:0.1px; }
+.rylo-nav__links a:hover, .rylo-login:hover { opacity:1; }
+.rylo-menu { width:26px; height:13px; display:flex; flex-direction:column; justify-content:space-between; background:none; border:0; padding:0; cursor:pointer; }
+.rylo-menu span { display:block; height:1.5px; width:100%; background:var(--rylo-cream); border-radius:2px; }
+.rylo-hero__inner { display:flex; flex-direction:column; align-items:flex-start; padding:8px 30px 34px; }
+.rylo-hero__media { width:100%; display:flex; justify-content:center; padding:18px 0 40px; }
+.rylo-hero__media img { width:220px; max-width:70%; height:auto; filter:drop-shadow(0 22px 32px rgba(0,0,0,0.55)); }
+.rylo-hero__content { width:100%; }
+.rylo-headline { font-family:var(--rylo-serif); font-optical-sizing:auto; color:var(--rylo-cream-bright); font-size:40px; line-height:1.02; font-weight:330; letter-spacing:-0.6px; margin:0 0 20px; font-variation-settings:"opsz" 144,"SOFT" 18,"WONK" 0; }
+.rylo-headline em { font-style:italic; font-weight:330; font-variation-settings:"opsz" 144,"SOFT" 55,"WONK" 1; }
+.rylo-subhead { font-family:var(--rylo-sans); color:var(--rylo-cream); opacity:0.82; font-size:16px; line-height:1.5; font-weight:400; margin:0 0 28px; max-width:30em; }
+.rylo-price { display:flex; align-items:baseline; gap:8px; margin:0 0 8px; }
+.rylo-price .amt { font-family:var(--rylo-serif); font-optical-sizing:auto; color:var(--rylo-cream-bright); font-size:50px; line-height:1; font-weight:300; letter-spacing:-0.8px; font-variation-settings:"opsz" 144,"SOFT" 16,"WONK" 0; }
+.rylo-price .per { font-family:var(--rylo-sans); color:var(--rylo-muted); font-size:16px; font-weight:400; }
+.rylo-subcopy { font-family:var(--rylo-sans); color:var(--rylo-muted); font-size:14px; font-weight:400; margin:0 0 28px; letter-spacing:0.1px; }
+.rylo-cta { border:0; border-radius:10px; background:var(--rylo-btn-fill); color:var(--rylo-btn-text); font-family:var(--rylo-sans); font-size:16px; font-weight:500; letter-spacing:0.1px; cursor:pointer; text-decoration:none; display:inline-block; text-align:center; transition:background 180ms ease, transform 120ms ease; }
+.rylo-cta:hover { background:var(--rylo-btn-fill-hi); }
+.rylo-cta:active { transform:translateY(1px); }
+.rylo-cta:focus-visible { outline:2px solid var(--rylo-accent); outline-offset:3px; }
+.rylo-cta--main { width:100%; padding:17px 22px; }
+.rylo-cta--nav { display:none; padding:12px 22px; font-size:14px; border-radius:8px; }
+.rylo-fineprint { font-family:var(--rylo-sans); color:var(--rylo-muted-soft); font-size:12.5px; line-height:1.55; font-weight:400; margin:16px 0 0; max-width:34em; }
+@container hero (min-width:760px) {
+  .rylo-nav { padding:30px 56px; }
+  .rylo-nav__links { display:flex; flex:1; justify-content:center; }
+  .rylo-nav__right { display:flex; }
+  .rylo-menu { display:none; }
+  .rylo-cta--nav { display:inline-block; }
+  .rylo-hero__inner { flex-direction:row; align-items:center; gap:56px; padding:20px 56px 70px; min-height:560px; }
+  .rylo-hero__media { width:46%; padding:0; }
+  .rylo-hero__media img { width:300px; max-width:100%; }
+  .rylo-hero__content { width:54%; }
+  .rylo-headline { font-size:70px; letter-spacing:-1.6px; margin-bottom:26px; }
+  .rylo-subhead { font-size:18px; margin-bottom:36px; }
+  .rylo-price .amt { font-size:76px; letter-spacing:-1.8px; }
+  .rylo-price .per { font-size:20px; }
+  .rylo-subcopy { font-size:15px; margin-bottom:30px; }
+  .rylo-cta--main { width:auto; min-width:420px; padding:19px 28px; }
+  .rylo-fineprint { font-size:13px; }
+}
+@media (prefers-reduced-motion:reduce){ .rylo-cta { transition:none; } }
+
+/* ─────────────────────────────────────────────────────────────
+   SHARED PRODUCT-PAGE FIXES (apply to all pages via this sheet)
+   ───────────────────────────────────────────────────────────── */
+
+/* How-it-works cards: the photo fade must fill the whole frame.
+   Kills the leftover 110px ::after band that drew a hard line
+   across every step photo on the non-tirzepatide pages. */
+.how-card-photo-wrap::after { inset:0 !important; height:auto !important; }
+
+/* Step numbers: force lining figures so "3" (and 4,5,7,9) don't drop below the
+   baseline like Cormorant's old-style numerals do — keeps 1/2/3 the same height. */
+.how-card-num { font-variant-numeric: lining-nums !important; font-feature-settings: "lnum" 1 !important; line-height: 1 !important; }
+
+/* Tighter "Everything. One flat price." section — less top space
+   (the redundant trust/checkmark strip was removed). */
+.includes { padding-top: 56px !important; }
+@media (max-width:768px){ .includes { padding-top: 36px !important; } }
+
+/* Closing CTA — headline + CTA OVER the yoga photo, clean gradient scrim, subtle parallax */
+.fcta { position:relative !important; overflow:hidden !important; background:#17110c !important; padding:0 !important; text-align:center !important; }
+.fcta::before, .fcta::after { display:none !important; }
+.fcta-bg { position:absolute !important; left:0; top:-6%; width:100%; height:112%; object-fit:cover; object-position:center 42%; filter:saturate(0.85) brightness(0.5); transition:none !important; will-change:transform; }
+.fcta-scrim { position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,7,5,0.78) 0%, rgba(10,7,5,0.66) 46%, rgba(10,7,5,0.92) 100%); }
+.fcta-content { position:relative; z-index:2; max-width:600px; margin:0 auto; padding:96px 24px 88px; }
+.fcta .fcta-h { font-size: clamp(30px,3.6vw,50px) !important; color:#f9f3e8 !important; margin-bottom:16px !important; }
+.fcta .fcta-sub { font-size:16px !important; font-weight:400 !important; color:rgba(249,243,232,0.90) !important; margin:0 auto 30px !important; max-width:520px !important; line-height:1.55 !important; }
+.fcta .fcta-btn { background:#f0e6d5 !important; color:#1a130c !important; border-radius:10px !important; padding:17px 34px !important; font-weight:500 !important; box-shadow:0 12px 34px rgba(0,0,0,0.4) !important; }
+.fcta .fcta-btn:hover { background:#f9f0e1 !important; color:#1a130c !important; transform:translateY(-1px) !important; }
+.fcta-refund { position:relative; z-index:2; font-family:var(--font); font-size:13px; color:rgba(249,243,232,0.74); line-height:1.6; margin:18px auto 0; max-width:480px; }
+@media (max-width:768px){ .fcta-bg{ object-position:center 46%; } .fcta-content{ padding:58px 22px 52px; } .fcta .fcta-h{ font-size:clamp(28px,7vw,40px) !important; } }
+
+/* Single safety block — make it legible (no ghost-gray) */
+.disc-text { color: rgba(255,255,255,0.74) !important; font-size: 13.5px !important; line-height: 1.7 !important; }
+.compliance-block p { color: rgba(26,26,26,0.72) !important; }
+
+/* Sticky price card in the "Everything. One flat price." section */
+.pcard { background:linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03)); border:1px solid rgba(243,234,220,0.14); border-radius:18px; padding:30px 30px 32px; box-shadow:0 24px 60px rgba(0,0,0,0.40); }
+.pcard-row { display:flex; align-items:baseline; gap:6px; }
+.pcard-amt { font-family:'Fraunces',Georgia,serif; font-optical-sizing:auto; font-size:58px; font-weight:340; color:#f9f3e8; line-height:1; letter-spacing:-1.5px; font-variation-settings:"opsz" 144,"SOFT" 16,"WONK" 0; }
+.pcard-per { font-family:var(--font); font-size:18px; font-weight:400; color:rgba(243,234,220,0.52); }
+.pcard-note { font-family:var(--font); font-size:14px; font-weight:400; color:rgba(243,234,220,0.74); line-height:1.55; margin:14px 0 22px; }
+.pcard-cta { display:block; text-align:center; background:#f0e6d5; color:#1a130c; border-radius:10px; padding:16px 24px; font-family:var(--font); font-size:16px; font-weight:500; letter-spacing:0.1px; text-decoration:none; transition:background .2s ease, transform .12s ease; }
+.pcard-cta:hover { background:#f9f0e1; transform:translateY(-1px); }
+.pcard-cta:active { transform:translateY(0); }
+.pcard-cta:focus-visible { outline:2px solid #c79a68; outline-offset:3px; }
+@media (max-width:768px){ .pcard { padding:26px 24px 28px; } .pcard-amt { font-size:48px; } }
+
+/* Lifestyle / "How it works" band — DESKTOP ONLY.
+   Copy stays to the LEFT side (not centered), vertically centered,
+   with a comfortable inset and a left-to-right scrim for readability.
+   Mobile keeps its bottom-anchored layout untouched. */
+@media (min-width:769px){
+  .evidence { align-items:center !important; }
+  .evidence-inner { max-width:640px !important; margin:0 !important; padding:0 64px 0 104px !important; text-align:left !important; }
+  .evidence-h { text-align:left !important; margin-left:0 !important; margin-right:0 !important; margin-bottom:22px !important; }
+  .evidence-body, .evidence-cite { max-width:540px !important; margin-left:0 !important; margin-right:0 !important; text-align:left !important; }
+  .evidence-body { margin-bottom:26px !important; }
+  .evidence-scrim {
+    background:linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.52) 42%, rgba(0,0,0,0.12) 100%) !important;
+  }
+}
+
+/* ── Lifestyle band: refined banner + smooth parallax ── */
+.evidence { min-height: 470px !important; }
+.evidence-bg { overflow: hidden !important; }
+.evidence-img { height: 130% !important; top: -15% !important; transition: none !important; will-change: transform; }
+@media (max-width:768px){ .evidence { min-height: 360px !important; } }
+
+/* ── Hero column layout + vial sizing (appended) ── */
+.rylo-hero {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;        /* hero fills exactly one viewport */
+  padding-top: 96px;        /* clears the fixed site header (64px bar + 120px logo overflowing to ~92px) */
+}
+.rylo-hero__inner { flex: 1 1 auto; }   /* content centers in the space, trust strip falls to the bottom */
+/* Trust strip pinned to the bottom edge of the hero viewport */
+.rylo-hero .trust-bar { margin-top: auto; border-top: 1px solid rgba(243,234,220,0.10); background: transparent; }
+.rylo-hero__media img { width: 240px; max-width: 80%; }
+@container hero (min-width: 760px) {
+  .rylo-hero__media img { width: 100%; max-width: 520px; }   /* bigger vial */
+  .rylo-hero__inner { gap: 80px; }                            /* more separation */
+  .rylo-hero__content { padding-left: 40px; }                 /* nudge text right, off-center */
+}
+
+/* ── MOBILE: fit the whole hero in one viewport (vial big, CTA visible) ── */
+@media (max-width:759px){
+  .rylo-hero { padding-top: 60px !important; }
+  .rylo-hero__inner { justify-content: center !important; padding: 8px 24px 24px !important; }
+  .rylo-hero__media { padding: 0 0 18px !important; }
+  .rylo-hero__media img { width: 230px !important; max-width: 72% !important; }
+  .rylo-subhead { display: none !important; }     /* long descriptor — hidden on mobile to keep CTA in view */
+  .rylo-headline { margin-bottom: 14px !important; }
+  .rylo-price { margin-bottom: 6px !important; }
+  .rylo-subcopy { margin-bottom: 16px !important; }
+  .rylo-fineprint { margin-top: 12px !important; }
+}
+
+/* ── Apple-style scroll reveal: elements gently rise + fade in on scroll ── */
+@media (prefers-reduced-motion: no-preference){
+  .rl-reveal{ opacity:0; transform:translateY(30px); transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1); }
+  .how-card.rl-reveal{ transition:opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1) !important; }
+  .rl-reveal.rl-in{ opacity:1; transform:none; }
+}
+/* subtle hover lift on the sticky price card */
+.pcard:hover{ transform:translateY(-4px); box-shadow:0 30px 72px rgba(0,0,0,0.5); }
+
+/* ── Editorial polish: one serif voice (Fraunces) + bigger, breathier headings ── */
+.section-title, .how-card-title, .evidence-h, .how-card-num {
+  font-family:'Fraunces',Georgia,serif !important;
+  font-optical-sizing:auto;
+}
+.section-title, .how-card-title, .evidence-h { font-variation-settings:"opsz" 144,"SOFT" 16,"WONK" 0; letter-spacing:-0.03em !important; }
+.section-title em, .how-card-title em, .evidence-h em { font-variation-settings:"opsz" 144,"SOFT" 42,"WONK" 1; }
+/* more confident scale + whitespace on the editorial section headers */
+.how, .faq { padding-top:108px !important; padding-bottom:104px !important; }
+.how-header { margin-bottom:64px !important; }
+.how-header .section-title, .faq .section-title { font-size:clamp(42px,5vw,72px) !important; line-height:1.0 !important; }
+@media (max-width:768px){
+  .how, .faq { padding-top:66px !important; padding-bottom:64px !important; }
+  .how-header { margin-bottom:40px !important; }
+  .how-header .section-title, .faq .section-title { font-size:clamp(34px,8vw,46px) !important; }
+}
