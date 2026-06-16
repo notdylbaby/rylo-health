@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(/Users/dylantran/Library/Caches/ms-playwright-go/1.50.1/node -e ':*)"
+      "Bash(/Users/dylantran/Library/Caches/ms-playwright-go/1.50.1/node -e ':*)",
+      "Bash(git add *)"
     ]
   }
 }

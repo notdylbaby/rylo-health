@@ -38,3 +38,7 @@ screenshot-*.mjs
 
 # Master source images (large, kept local only — optimized exports are committed instead)
 brand-assets/golfdads.png
+
+# Restore-point copy + LegitScript working copy (kept out of git history)
+/backup-pre-legitscript-2026-06-14/
+/legitscript-site/

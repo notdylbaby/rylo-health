@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>First 50 preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#faf7f2;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.founding{
+  background:#faf7f2;
+  padding:112px clamp(20px,4vw,48px) 120px;
+  text-align:center;
+  border-top:1px solid rgba(0,0,0,0.05);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.founding-inner{max-width:780px;width:100%;margin:0 auto}
+.founders-block{text-align:center}
+.founders-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:0.32em;text-transform:uppercase;color:#C4724A;
+  margin:0 0 28px;
+}
+.founders-eyebrow-mark{display:inline-block;width:5px;height:5px;border-radius:50%;background:#C4724A}
+.founders-head{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(44px,5.6vw,68px);
+  font-weight:500;color:#1a1a1a;line-height:1.02;
+  letter-spacing:-0.025em;margin:0 0 24px;
+}
+.founders-head em{font-style:italic;color:rgba(26,26,26,0.5)}
+.founders-lede{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:clamp(15px,1.3vw,17px);
+  font-weight:400;line-height:1.6;color:rgba(26,26,26,0.62);
+  margin:0 auto 64px;max-width:560px;letter-spacing:0.002em;
+}
+.founders-prices{
+  display:flex;justify-content:center;align-items:stretch;
+  gap:0;margin:0 auto 56px;max-width:620px;
+}
+.founders-price{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;flex:1;padding:8px 32px;position:relative;
+}
+.founders-price + .founders-price::before{
+  content:"";position:absolute;left:0;top:14%;bottom:14%;
+  width:1px;background:rgba(26,26,26,0.12);
+}
+.founders-price-name{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(26,26,26,0.5);margin-bottom:14px;
+}
+.founders-price-amount{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:clamp(52px,5.6vw,76px);font-weight:500;color:#1a1a1a;
+  line-height:1;letter-spacing:-0.04em;
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.founders-price-mo{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',sans-serif;
+  font-size:18px;font-weight:400;color:rgba(26,26,26,0.4);
+  letter-spacing:-0.01em;margin-left:4px;
+}
+.founders-btn{
+  display:inline-block;font-family:'Inter',sans-serif;
+  font-size:13px;font-weight:500;letter-spacing:0.04em;
+  padding:18px 44px;background:#1a1a1a;color:#fff;
+  text-decoration:none;border-radius:0;
+}
+.founders-fine{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:300;
+  line-height:1.7;color:rgba(26,26,26,0.42);
+  margin:44px auto 0;max-width:520px;letter-spacing:0.01em;
+}
+@media (max-width:600px){
+  .founding{padding:80px clamp(20px,4vw,48px) 88px}
+  .founders-eyebrow{margin-bottom:20px;letter-spacing:0.28em}
+  .founders-head{font-size:38px;margin-bottom:18px;line-height:1.04}
+  .founders-lede{font-size:14px;margin-bottom:44px;max-width:380px}
+  .founders-prices{flex-direction:column;gap:0;margin-bottom:40px;max-width:280px}
+  .founders-price{padding:24px 0;width:100%}
+  .founders-price + .founders-price::before{
+    left:18%;right:18%;top:0;bottom:auto;width:auto;height:1px;
+  }
+  .founders-price-name{margin-bottom:10px}
+  .founders-price-amount{font-size:52px}
+  .founders-price-mo{font-size:16px}
+  .founders-btn{padding:16px 32px;font-size:12px}
+  .founders-fine{margin-top:36px;font-size:10.5px}
+}
+</style>
+</head>
+<body>
+<section class="founding" id="first50">
+  <div class="founding-inner">
+    <div class="founders-block">
+      <p class="founders-eyebrow"><span class="founders-eyebrow-mark"></span>First 50</p>
+      <h3 class="founders-head">Lock these rates.<br><em>For life.</em></h3>
+      <p class="founders-lede">A one-time $149 founding membership. Two GLP-1 medications, two rates, locked for the life of your membership.</p>
+      <div class="founders-prices">
+        <div class="founders-price">
+          <span class="founders-price-name">Tirzepatide</span>
+          <span class="founders-price-amount">$160<span class="founders-price-mo">/mo</span></span>
+        </div>
+        <div class="founders-price">
+          <span class="founders-price-name">Semaglutide</span>
+          <span class="founders-price-amount">$100<span class="founders-price-mo">/mo</span></span>
+        </div>
+      </div>
+      <a href="#" class="founders-btn">Become one of the First 50, $149 &rarr;</a>
+      <p class="founders-fine">Membership grants locked pricing only. Medication requires licensed provider review and clinical eligibility. Fully refundable if determined medically ineligible at intake. Fully refundable if Rylo does not launch by December 31, 2026.</p>
+    </div>
+  </div>
+</section>
+</body>
+</html>
