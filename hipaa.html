@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HIPAA Privacy Statement · Notice of Privacy Practices · Rylo Health</title>
+
+<meta name="description" content="Rylo Health HIPAA Privacy Statement and Notice of Privacy Practices for Protected Health Information (PHI).">
+
+<meta property="og:title" content="Rylo Health · HIPAA Privacy Statement">
+<meta property="og:description" content="Notice of Privacy Practices for Protected Health Information (PHI).">
+<meta property="og:image" content="https://rylohealth.com/og-image.jpg">
+<meta property="og:url" content="https://rylohealth.com">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rylo Health · HIPAA Privacy Statement">
+<meta name="twitter:description" content="Notice of Privacy Practices for Protected Health Information (PHI).">
+<meta name="twitter:image" content="https://rylohealth.com/og-image.jpg">
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --oat:#faf7f2;
+  --dark:#1a1a1a;
+  --terracotta:#C4724A;
+  --walnut:#5C4636;
+  --olive:#3F4A39;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',sans-serif;
+}
+body{
+  font-family:var(--sans);
+  background:var(--oat);
+  color:var(--dark);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* NAV */
+.lg-nav{
+  position:relative;
+  z-index:10;
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(20px,4vw,48px);
+  border-bottom:1px solid rgba(26,26,26,0.06);
+  background:var(--oat);
+}
+.lg-nav-logo img{height:64px;width:auto;display:block}
+.lg-nav-back{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  color:rgba(26,26,26,0.55);
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.25s,letter-spacing 0.25s;
+}
+.lg-nav-back:hover{color:var(--dark);letter-spacing:0.04em}
+
+/* HEADER */
+.lg-header{
+  padding:96px clamp(20px,4vw,48px) 56px;
+  text-align:center;
+  border-bottom:1px solid rgba(26,26,26,0.08);
+  position:relative;
+}
+.lg-header::before{
+  content:"";
+  position:absolute;
+  top:64px;left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:1px;
+  background:var(--olive);
+  opacity:0.85;
+}
+.lg-eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--olive);
+  margin-bottom:24px;
+  display:block;
+}
+.lg-title{
+  font-family:var(--serif);
+  font-size:clamp(48px,5.6vw,84px);
+  font-weight:500;
+  color:var(--dark);
+  line-height:0.96;
+  letter-spacing:-0.03em;
+  margin:0 0 18px;
+}
+.lg-title em{font-style:italic;color:rgba(26,26,26,0.5);font-weight:400}
+.lg-updated{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:13px;
+  font-weight:400;
+  font-style:italic;
+  color:rgba(26,26,26,0.5);
+  margin:0;
+}
+
+/* BODY */
+.lg-body{
+  max-width:680px;
+  margin:0 auto;
+  padding:64px clamp(20px,4vw,48px) 96px;
+  flex:1;
+  width:100%;
+}
+.lg-section{padding:36px 0;border-top:1px solid rgba(26,26,26,0.10)}
+.lg-section:first-child{border-top:none;padding-top:0}
+.lg-section:last-child{padding-bottom:0}
+.lg-section h2{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.15;
+  letter-spacing:-0.015em;
+  margin:0 0 18px;
+}
+.lg-section p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(26,26,26,0.82);
+  line-height:1.75;
+  margin:0 0 16px;
+}
+.lg-section p:last-child{margin-bottom:0}
+.lg-section strong{font-weight:600;color:var(--dark)}
+.lg-section a{color:var(--olive);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:color 0.2s}
+.lg-section a:hover{color:var(--walnut)}
+
+/* CONTACT */
+.lg-contact{
+  margin-top:48px;
+  padding:28px 32px;
+  border:1px solid rgba(26,26,26,0.10);
+  background:#fff;
+}
+.lg-contact-label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--olive);
+  display:block;
+  margin-bottom:10px;
+}
+.lg-contact p{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:rgba(26,26,26,0.7);
+  line-height:1.65;
+  margin:0 0 14px;
+}
+.lg-contact p:last-child{margin-bottom:0}
+.lg-contact a{color:var(--walnut);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(92,70,54,0.3);padding-bottom:1px;transition:border-color 0.2s,color 0.2s}
+.lg-contact a:hover{color:var(--olive);border-bottom-color:var(--olive)}
+
+/* FOOTER */
+.lg-footer{
+  background:var(--dark);
+  padding:48px clamp(20px,4vw,48px) 32px;
+  text-align:center;
+  margin-top:auto;
+}
+.lg-footer-text{
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  margin:0;
+  line-height:1.6;
+}
+.footer-legal{max-width:1100px;margin:24px auto 0;padding:24px 24px 0;border-top:1px solid rgba(255,255,255,0.10);text-align:center}
+.legal-disclaimer,.legal-trademarks{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.7;color:rgba(255,255,255,0.4);margin:0 0 12px;letter-spacing:0.01em}
+.legal-trademarks{margin-bottom:0;color:rgba(255,255,255,0.32)}
+
+@media(max-width:560px){
+  .lg-nav{height:64px}
+  .lg-nav-logo img{height:44px}
+  .lg-header{padding:72px 20px 48px}
+  .lg-header::before{top:48px}
+  .lg-body{padding:48px 20px 72px}
+  .lg-section{padding:28px 0}
+  .lg-section h2{font-size:24px}
+  .lg-section p{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<nav class="lg-nav">
+  <a href="/" class="lg-nav-logo"><img src="blackrylologoofficial.png" alt="Rylo Health" /></a>
+  <a href="/" class="lg-nav-back">&larr; Back to home</a>
+</nav>
+
+<header class="lg-header">
+  <span class="lg-eyebrow">Legal &middot; HIPAA</span>
+  <h1 class="lg-title">HIPAA <em>Privacy Statement.</em></h1>
+  <p class="lg-updated">Notice of Privacy Practices for Protected Health Information (PHI) &middot; Effective June 16, 2026</p>
+</header>
+
+<main class="lg-body">
+
+  <section class="lg-section">
+    <p>This Notice of Privacy Practices ("Notice") describes how <strong>Rylo Health LLC</strong> ("we", "us", or "our") may use and disclose your Protected Health Information (PHI) to carry out treatment, payment, or healthcare operations and for other purposes that are permitted or required by law. This Notice also describes your rights regarding your PHI. We are required by law to maintain the privacy of your PHI, provide you with this Notice of our legal duties and privacy practices, and to abide by the terms of this Notice.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Uses and disclosures of PHI.</h2>
+    <p>We may use and disclose your PHI for the following purposes:</p>
+    <p><strong>a. Treatment.</strong> We may use and disclose your PHI to provide, coordinate, or manage your healthcare and related services. This may include communication with other healthcare providers about your treatment and coordinating your care with other providers.</p>
+    <p><strong>b. Payment.</strong> We may use and disclose your PHI to obtain payment for healthcare services provided to you. This may include contacting your insurance company to verify your coverage, billing and collection activities, and sharing PHI with other healthcare providers, insurance companies, or collection agencies.</p>
+    <p><strong>c. Healthcare Operations.</strong> We may use and disclose your PHI for healthcare operations, including quality assessment, improvement activities, case management, accreditation, licensing, credentialing, and conducting or arranging for medical reviews, audits, or legal services.</p>
+    <p><strong>d. As Required by Law.</strong> We may use and disclose your PHI when required to do so by federal, state, or local law.</p>
+    <p><strong>e. Public Health and Safety.</strong> We may use and disclose your PHI to prevent or control disease, injury, or disability, to report child abuse or neglect, to report reactions to medications or problems with products, and to notify persons who may have been exposed to a communicable disease or may be at risk of spreading a disease or condition.</p>
+    <p><strong>f. Health Oversight Activities.</strong> We may disclose your PHI to health oversight agencies for activities authorized by law, such as audits, investigations, inspections, and licensure.</p>
+    <p><strong>g. Judicial and Administrative Proceedings.</strong> We may disclose your PHI in response to a court or administrative order, subpoena, discovery request, or other lawful process.</p>
+    <p><strong>h. Law Enforcement.</strong> We may disclose your PHI for law enforcement purposes, such as to report certain types of wounds or injuries, or to comply with a court order, warrant, or other legal process.</p>
+    <p><strong>i. Research.</strong> We may use and disclose your PHI for research purposes when the research has been approved by an institutional review board and privacy protections are in place.</p>
+    <p><strong>j. Organ and Tissue Donation.</strong> If you are an organ donor, we may disclose your PHI to organizations that handle organ procurement, transplantation, or donation.</p>
+    <p><strong>k. Workers' Compensation.</strong> We may disclose your PHI for workers' compensation or similar programs that provide benefits for work-related injuries or illnesses.</p>
+    <p><strong>l. Military and Veterans.</strong> If you are a member of the armed forces, we may disclose your PHI as required by military authorities.</p>
+    <p><strong>m. Inmates.</strong> If you are an inmate, we may disclose your PHI to the correctional institution or law enforcement official having custody of you.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Your rights regarding PHI.</h2>
+    <p>You have the following rights with respect to your PHI:</p>
+    <p><strong>a. Right to Inspect and Copy.</strong> You have the right to inspect and copy your PHI that we maintain, with certain exceptions. To request access, submit a written request to our Privacy Officer. We may charge a reasonable fee for the costs of copying, mailing, or other supplies associated with your request.</p>
+    <p><strong>b. Right to Amend.</strong> You have the right to request an amendment to your PHI if you believe it is incorrect or incomplete. To request an amendment, submit a written request to our Privacy Officer, specifying the information you believe is incorrect and why. We may deny your request if we believe the information is accurate and complete, or if we did not create the information.</p>
+    <p><strong>c. Right to an Accounting of Disclosures.</strong> You have the right to request an accounting of disclosures of your PHI made by us in the past six years, except for disclosures made for treatment, payment, or healthcare operations, and certain other disclosures. To request an accounting, submit a written request to our Privacy Officer.</p>
+    <p><strong>d. Right to Request Restrictions.</strong> You have the right to request a restriction on our use or disclosure of your PHI for treatment, payment, or healthcare operations. We are not required to agree to your request but will consider it. To request a restriction, submit a written request to our Privacy Officer, specifying the restriction you are requesting and to whom it applies.</p>
+    <p><strong>e. Right to Request Confidential Communications.</strong> You have the right to request that we communicate with you about your PHI in a certain way or at a certain location. To request confidential communications, submit a written request to our Privacy Officer, specifying how or where you wish to be contacted.</p>
+    <p><strong>f. Right to a Paper Copy of This Notice.</strong> You have the right to receive a paper copy of this Notice, even if you have agreed to receive it electronically. To obtain a paper copy of this Notice, contact our Privacy Officer.</p>
+    <p><strong>g. Right to be Notified of a Breach.</strong> You have the right to be notified in the event that we discover a breach of your PHI.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Transmission of PHI.</h2>
+    <p>We are committed to protecting the privacy of your PHI and will ensure that any electronic transmission of PHI complies with the Health Insurance Portability and Accountability Act (HIPAA) Privacy Rule (45 CFR 164). This includes the use of Secure-Socket Layer (SSL) or equivalent technology for the transmission of PHI, as well as adherence to all applicable security standards for online transmissions of PHI.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Changes to this Notice.</h2>
+    <p>We reserve the right to change this Notice and the revised Notice will be effective for PHI we already have about you, as well as any information we receive in the future. We will post a copy of the current Notice in our office and on our website. The Notice will contain the effective date on the first page.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Complaints.</h2>
+    <p>If you believe your privacy rights have been violated, you may file a complaint with our Privacy Officer or with the Secretary of the Department of Health and Human Services. You will not be retaliated against for filing a complaint.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>Rights of specific jurisdictions within the US.</h2>
+    <p>This Notice is provided in accordance with the Notice of Privacy Practices for Protected Health Information from the Department of Health and Human Services' Model and is applicable across all US states. Certain states may have additional privacy protections that apply to your PHI. The following is an example of specific rights in the state of California. If you reside in a state with additional privacy protections, you may have additional rights related to your PHI.</p>
+    <p><strong>California Residents.</strong></p>
+    <p><strong>a. Right to Access.</strong> In addition to the rights described above, California residents have the right to request access to their PHI in a readily usable electronic format, as well as any additional information required by California law. To request access, submit a written request to our Privacy Officer.</p>
+    <p><strong>b. Right to Restrict Certain Disclosures.</strong> California residents have the right to request restrictions on certain disclosures of their PHI to health plans if they paid out-of-pocket for a specific healthcare item or service in full. To request such a restriction, submit a written request to our Privacy Officer.</p>
+    <p><strong>c. Confidentiality of Medical Information Act (CMIA).</strong> California residents are protected by the Confidentiality of Medical Information Act (CMIA), which provides additional privacy protections for medical information. We are required to comply with CMIA in addition to HIPAA.</p>
+    <p><strong>d. Marketing and Sale of PHI.</strong> California residents have the right to request that their PHI not be used for marketing purposes or sold to third parties without their authorization. To request a restriction on the use of your PHI for marketing or the sale of your PHI, submit a written request to our Privacy Officer.</p>
+    <p><strong>e. Minor's Rights.</strong> If you are a minor (under the age of 18), you have the right to request that certain information related to certain sensitive services, such as reproductive health, mental health, or substance use disorder treatment, not be disclosed to your parent or guardian without your consent. To request a restriction on the disclosure of such information, submit a written request to our Privacy Officer.</p>
+    <p>If you reside in a state other than California, please consult your state's specific privacy laws for information about any additional rights you may have regarding your PHI. You may also contact our Privacy Officer for more information about your rights under specific state laws.</p>
+  </section>
+
+  <section class="lg-section">
+    <h2>State-specific provisions.</h2>
+    <p>In addition to the privacy practices described above, we comply with applicable state-specific privacy laws related to PHI. The following are examples of a few states with additional privacy protections:</p>
+    <p><strong>New York.</strong> For residents of New York, we comply with the New York State Confidentiality of Information Law, which provides additional privacy protections for HIV-related information, mental health records, and genetic testing results. We will obtain written consent before disclosing such information, even for treatment, payment, or healthcare operations.</p>
+    <p><strong>Texas.</strong> For residents of Texas, we comply with the Texas Medical Privacy Act, which offers privacy protections beyond HIPAA, including requiring consent for certain disclosures of PHI, additional safeguards for electronic PHI, and specific requirements for the destruction of PHI. We also adhere to Texas's specific privacy protections for mental health records and substance use treatment records.</p>
+    <p><strong>Florida.</strong> For residents of Florida, we comply with Florida's privacy laws, which offer additional protections for mental health records, HIV/AIDS-related information, and substance abuse treatment records. We will obtain written consent before disclosing such information, even for treatment, payment, or healthcare operations. We also implement specific security measures to protect electronic PHI, as required by Florida law.</p>
+    <p><strong>Illinois.</strong> For residents of Illinois, we comply with Illinois's specific privacy laws related to mental health records, HIV/AIDS-related information, and genetic testing results. We will obtain written consent before disclosing such information, even for treatment, payment, or healthcare operations. In addition, we will notify patients of any unauthorized access to their electronic PHI, as required by Illinois law.</p>
+    <p><strong>Massachusetts.</strong> For residents of Massachusetts, we comply with Massachusetts's specific privacy laws related to mental health records, HIV/AIDS-related information, and genetic testing results. We will obtain written consent before disclosing such information, even for treatment, payment, or healthcare operations. We also implement specific security measures to protect electronic PHI, as required by Massachusetts law.</p>
+    <p><strong>California.</strong> For residents of California, we comply with the Confidentiality of Medical Information Act (CMIA), as well as California's specific privacy laws related to marketing, sale of PHI, and minors' rights. We will obtain written consent before disclosing certain information and adhere to additional privacy protections, as required by California law.</p>
+  </section>
+
+  <div class="lg-contact" id="contact">
+    <span class="lg-contact-label">Contact Information</span>
+    <p>To exercise any of your rights, or if you have any questions about this Notice or our privacy practices, please contact our Privacy Officer at:</p>
+    <p><strong>Rylo Health LLC</strong><br>
+    1708 Spring Green Blvd<br>Ste 120 #173<br>Katy, TX 77494<br>
+    Phone: <a href="tel:+18328080652">(832) 808-0652</a><br>
+    Email: <a href="mailto:hello@rylohealth.com">hello@rylohealth.com</a><br>
+    Web: <a href="https://rylohealth.com">rylohealth.com</a></p>
+  </div>
+
+</main>
+
+<footer class="lg-footer">
+  <p class="lg-footer-text">Rylo Health connects patients with licensed healthcare providers for telehealth consultations. Compounded medications are not FDA-approved. Individual results may vary. &copy; 2026 Rylo Health LLC.</p>
+  <div class="footer-legal">
+    <p class="legal-disclaimer">Rylo Health offers compounded medications prescribed by licensed clinicians. Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety or efficacy. Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure, or prevent any disease. Individual results vary. Speak with your prescribing clinician about whether a compounded medication is right for you.</p>
+  </div>
+</footer>
+
+</body>
+</html>
