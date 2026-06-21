@@ -594,8 +594,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     
   </ul>
   <div class="rn-right">
-    <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-ghost">Log in</a>
-    <a href="{{INTAKE_URL}}" class="rn-cta">Join the First 50 · $149</a>
+    <a href="#" data-rylo-link="patientLogin" class="rn-ghost">Log in</a>
+    <a href="#" data-rylo-link="glp1Intake" class="rn-cta">Join the First 50 · $149</a>
   </div>
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -612,8 +612,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   </div>
   <div class="rn-menu-panel" id="rnMenuMain">
     <div class="rn-menu-topbar">
-      <a href="mailto:hello@rylohealth.com?subject=Account Access" class="rn-menu-login">Log in</a>
-      <a href="{{INTAKE_URL}}" class="rn-menu-getstarted">Get started →</a>
+      <a href="#" data-rylo-link="patientLogin" class="rn-menu-login">Log in</a>
+      <a href="#" data-rylo-link="glp1Intake" class="rn-menu-getstarted">Get started →</a>
     </div>
     <div class="rn-menu-divider"></div>
     <button class="rn-menu-row" id="rnOpenWeightLoss" aria-label="Weight Loss">
@@ -658,7 +658,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       <!-- CONFIRM price -->
       <div class="rylo-price"><span class="amt">$100</span><span class="per">/mo</span></div>
       <p class="rylo-subcopy">First 50 rate, locked for life. No price increases as your dose goes up.</p>
-      <a class="rylo-cta rylo-cta--main" href="/{{INTAKE_URL}}">Reserve your spot</a>
+      <a class="rylo-cta rylo-cta--main" href="#" data-rylo-link="glp1Intake">Reserve your spot</a>
       <p class="rylo-fineprint">Today's $149 reserves your First 50 membership and locks the $100/mo rate. Treatment is prescribed and billed separately, only when clinically appropriate.</p>
     </div>
   </div>
@@ -705,7 +705,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       <div class="pcard">
         <div class="pcard-row"><span class="pcard-amt">$100</span><span class="pcard-per">/mo</span></div>
         <p class="pcard-note">First 50 rate, locked for life. No price increases as your dose goes up.</p>
-        <a class="pcard-cta" href="/{{INTAKE_URL}}">Reserve your spot</a>
+        <a class="pcard-cta" href="#" data-rylo-link="glp1Intake">Reserve your spot</a>
       </div>
       <div class="disc-card">
         <p class="disc-text">Compounded semaglutide is not FDA-approved. The FDA does not evaluate compounded drugs for safety, effectiveness, or quality. A licensed provider must determine if this treatment is clinically appropriate for you. Do not use if pregnant, planning pregnancy, or breastfeeding. Individual results will vary. This is not a guarantee of weight loss.</p>
@@ -826,7 +826,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   <div class="fcta-content">
     <h2 class="fcta-h">Ready to find out<br><em>if you qualify?</em></h2>
     <p class="fcta-sub">Free intake. Licensed provider review. Ships if approved.</p>
-    <a href="/{{INTAKE_URL}}" class="fcta-btn">Reserve your spot</a>
+    <a href="#" data-rylo-link="glp1Intake" class="fcta-btn">Reserve your spot</a>
     <p class="fcta-refund">First 50 presale. Fully refundable any time before your first physician consultation.</p>
   </div>
 </section>
@@ -1174,6 +1174,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
 }
 </style>
 
+<script src="/config/links.js"></script>
 <script src="/rylo-hero.js"></script>
 </body>
 </html>

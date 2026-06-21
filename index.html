@@ -175,12 +175,10 @@
     .rylo-nav.scrolled .rn-link:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
     .rn-link svg{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1)}
     .rn-right{display:flex;align-items:center;gap:10px}
-    .rn-ghost{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:default}
-    .rn-ghost:hover{color:rgba(255,255,255,0.5);background:transparent}
-    .rylo-nav.scrolled .rn-ghost{color:rgba(26,26,26,0.45)}
-    .rylo-nav.scrolled .rn-ghost:hover{color:rgba(26,26,26,0.45);background:transparent}
-    .rn-ghost::after{content:'Coming soon';position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-4px);background:#1a1a1a;color:#faf7f2;font-family:'Inter',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding:5px 10px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.15s ease,transform 0.15s ease}
-    .rn-ghost:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
+    .rn-ghost{font-family:var(--font,'Inter',sans-serif);font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);text-decoration:none;padding:8px 16px;border-radius:100px;transition:color 0.3s,background 0.3s;position:relative;cursor:pointer}
+    .rn-ghost:hover{color:#fff;background:rgba(255,255,255,0.08)}
+    .rylo-nav.scrolled .rn-ghost{color:rgba(26,26,26,0.65)}
+    .rylo-nav.scrolled .rn-ghost:hover{color:#1a1a1a;background:rgba(0,0,0,0.04)}
     .rn-cta{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;text-transform:none;padding:14px 32px;background:#1a1a1a;color:#fff;border:none;border-radius:0;text-decoration:none;display:inline-block;cursor:pointer;transition:opacity 0.2s ease;white-space:nowrap}
     .rn-cta:hover{background:#0C1C2E;color:#fff;opacity:1;transform:translateY(-1px)}
     .rylo-nav.scrolled .rn-cta{background:#1a1a1a;color:#fff;border:none;opacity:1}
@@ -2336,23 +2334,7 @@
         font-family: 'Inter', sans-serif;
         font-size: 14px; font-weight: 500; color: rgba(26,26,26,0.5);
         text-decoration: none; letter-spacing: 0.01em;
-        position: relative; cursor: default;
-      }
-      .rn-menu-login::after {
-        content: 'Coming soon';
-        position: absolute;
-        top: calc(100% + 6px); left: 0;
-        background: #1a1a1a; color: #faf7f2;
-        font-size: 10px; font-weight: 500;
-        letter-spacing: 0.07em; text-transform: uppercase;
-        padding: 5px 10px; border-radius: 4px;
-        white-space: nowrap;
-        opacity: 0; pointer-events: none;
-        transform: translateY(-4px);
-        transition: opacity 0.15s ease, transform 0.15s ease;
-      }
-      .rn-menu-login:hover::after {
-        opacity: 1; transform: translateY(0);
+        position: relative; cursor: pointer;
       }
       .rn-menu-getstarted {
         font-family: 'Inter', sans-serif;
@@ -3240,8 +3222,8 @@
     <li><a href="#how-it-works" class="rn-link">How It Works</a></li>
   </ul>
   <div class="rn-right">
-    <a href="#" onclick="return false;" class="rn-ghost">Log in</a>
-    <a href="{{INTAKE_URL}}" class="rn-cta">Get Started</a>
+    <a href="#" data-rylo-link="patientLogin" class="rn-ghost">Log in</a>
+    <a href="#" data-rylo-link="glp1Intake" class="rn-cta">Get Started</a>
   </div>
   <!-- Mobile hamburger (hidden on desktop via CSS) -->
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
@@ -3265,8 +3247,8 @@
   <!-- Main panel -->
   <div class="rn-menu-panel" id="rnMenuMain">
     <div class="rn-menu-topbar">
-      <a href="#" onclick="return false;" class="rn-menu-login">Log in</a>
-      <a href="{{INTAKE_URL}}" class="rn-menu-getstarted">Get Started</a>
+      <a href="#" data-rylo-link="patientLogin" class="rn-menu-login">Log in</a>
+      <a href="#" data-rylo-link="glp1Intake" class="rn-menu-getstarted">Get Started</a>
     </div>
     <div class="rn-menu-divider"></div>
     <button class="rn-menu-row" id="rnOpenWeightLoss" aria-label="Weight Loss">
@@ -3332,12 +3314,12 @@
       <p class="hero-sub fade-in" style="transition-delay:0.3s">Compounded GLP-1 and NAD+ protocols, prescribed by your own US-licensed physician. Not a chatbot.</p>
       <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
         <div class="hero-cta-row">
-          <a href="{{INTAKE_URL}}" class="btn-hero-start">Get Started</a>
+          <a href="#" data-rylo-link="glp1Intake" class="btn-hero-start">Get Started</a>
           <a href="#how-it-works" class="hero-cta-secondary">See protocols</a>
         </div>
       </div>
       <div class="hero-eligibility-pill fade-in" style="transition-delay:0.45s">
-        <a href="{{INTAKE_URL}}">
+        <a href="#" data-rylo-link="glp1Intake">
           <span>Get Started</span>
           <span class="hero-eligibility-pill-arrow">→</span>
         </a>
@@ -3426,7 +3408,7 @@
     <div class="bento">
       <h3 class="bento-cat">Weight Loss</h3>
       <div class="bento-grid bento-2">
-        <a href="{{INTAKE_URL}}" class="bento-tile bento-lead">
+        <a href="#" data-rylo-link="glp1Intake" class="bento-tile bento-lead">
           <div class="bento-img"><picture><source type="image/webp" srcset="tirzepatideproductcardnew-hd.webp"><img src="tirzepatideproductcardnew-hd.jpg" alt="" width="1400" height="933" loading="lazy" decoding="async" /></picture></div>
           <div class="bento-body">
             <div class="bento-row">
@@ -3442,7 +3424,7 @@
             </div>
           </div>
         </a>
-        <a href="{{INTAKE_URL}}" class="bento-tile bento-lead">
+        <a href="#" data-rylo-link="glp1Intake" class="bento-tile bento-lead">
           <div class="bento-img"><picture><source type="image/webp" srcset="newsemaglutide-hd-flipped.webp"><img src="newsemaglutide-hd-flipped.jpg" alt="" width="1400" height="933" loading="lazy" decoding="async" /></picture></div>
           <div class="bento-body">
             <div class="bento-row">
@@ -3465,7 +3447,7 @@
     <div class="bento">
       <h3 class="bento-cat">Wellness</h3>
       <div class="bento-grid bento-rec">
-        <a href="{{INTAKE_URL}}" class="bento-tile bento-lead bento-feature">
+        <a href="#" data-rylo-link="nadIntake" class="bento-tile bento-lead bento-feature">
           <div class="bento-img"><picture><source type="image/webp" srcset="NAD-Product-Card-hd.webp"><img src="NAD-Product-Card-hd.jpg" alt="" width="1400" height="599" loading="lazy" decoding="async" style="object-position:30% center" /></picture></div>
           <div class="bento-body">
             <div class="bento-row">
@@ -3843,7 +3825,7 @@
           <span class="founders-price-amount">$100<span class="founders-price-mo">/mo</span></span>
         </div>
       </div>
-      <a href="{{INTAKE_URL}}" class="founders-btn">Get Started &rarr;</a>
+      <a href="#" data-rylo-link="glp1Intake" class="founders-btn">Get Started &rarr;</a>
       <p class="founders-fine">Pricing reflects the monthly membership rate. Medication requires licensed provider review and clinical eligibility. A valid prescription is required.</p>
     </div>
   </div>
@@ -4638,7 +4620,7 @@
     <p class="vial-headline">Your prescription.</p>
     <p class="vial-subline">Compounded for you.</p>
     <p class="vial-desc">Same-day provider review. Compounded by a licensed US pharmacy. Shipped free to your door every month.</p>
-    <a href="{{INTAKE_URL}}" class="vial-cta">Get Started</a>
+    <a href="#" data-rylo-link="glp1Intake" class="vial-cta">Get Started</a>
   </div>
   <div class="vial-img-col">
     <img src="./holdingvial.png" loading="eager" alt="Precision compounded medication vial" />
@@ -4869,7 +4851,7 @@
   <div class="hrw-mobile-head">
     <h2 class="hrw-mobile-title">How <em>Rylo</em> works</h2>
     <p class="hrw-mobile-sub">Three steps. Five minutes. Medication at your door.</p>
-    <a href="{{INTAKE_URL}}" class="hrw-dp-cta">Get Started</a>
+    <a href="#" data-rylo-link="glp1Intake" class="hrw-dp-cta">Get Started</a>
   </div>
   <div class="hrw-mobile-body">
     <!-- Desktop-only progress track: positioned on left edge of right column -->
@@ -4908,7 +4890,7 @@
       </div>
     </div>
   </div>
-  <a href="{{INTAKE_URL}}" class="hrw-mobile-cta">Get Started</a>
+  <a href="#" data-rylo-link="glp1Intake" class="hrw-mobile-cta">Get Started</a>
 </section>
 
 <!-- ─── WHY RYLO SECTION ─── -->
@@ -8078,7 +8060,7 @@
 
 <!-- ─── STICKY MOBILE CTA ─── -->
 <div class="sticky-mobile-cta" id="stickyMobileCta">
-  <a href="{{INTAKE_URL}}">Get Started</a>
+  <a href="#" data-rylo-link="glp1Intake">Get Started</a>
 </div>
 <script>
 (function(){
@@ -8565,6 +8547,7 @@
   });
 })();
 </script>
+<script src="/config/links.js"></script>
 
 </body>
 </html>
