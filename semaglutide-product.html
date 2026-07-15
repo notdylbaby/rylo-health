@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/rylo-hero.css">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -592,6 +592,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
         <a href="semaglutide-product.html" class="rn-dd-item" data-product="sema"><div class="rn-dd-body"><div class="rn-dd-name">Semaglutide</div><div class="rn-dd-desc">GLP-1 &middot; Appetite control &amp; metabolic support</div></div><div class="rn-dd-price">$100<span>/mo</span></div></a>
         <span class="rn-dd-category">Wellness</span>
         <a href="nad-product.html" class="rn-dd-item" data-product="nad"><div class="rn-dd-body"><div class="rn-dd-name">NAD+</div><div class="rn-dd-desc">Cellular energy &middot; Metabolic support</div></div><div class="rn-dd-price">$139<span>/mo</span></div></a>
+        <a href="sermorelin-product.html" class="rn-dd-item" data-product="serm"><div class="rn-dd-body"><div class="rn-dd-name">Sermorelin</div><div class="rn-dd-desc">Growth hormone peptide &middot; Sleep &amp; recovery</div></div><div class="rn-dd-price">$159<span>/mo</span></div></a>
       </div>
     </li>
     <li><a href="/#how-it-works" class="rn-link">How It Works</a></li>
@@ -599,7 +600,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   </ul>
   <div class="rn-right">
     <a href="#" data-rylo-link="patientLogin" class="rn-ghost">Log in</a>
-    <a href="#" data-rylo-link="glp1Intake" class="rn-cta">Join the First 50 · $149</a>
+    <a href="#" data-rylo-link="glp1Intake" class="rn-cta">Get Started</a>
   </div>
   <button class="rn-hamburger" id="rnHamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -648,6 +649,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     <div class="rn-menu-divider"></div>
     <span class="rn-menu-sub-cat">Wellness</span>
     <a href="nad-product.html" class="rn-menu-product-link">NAD+</a>
+    <a href="sermorelin-product.html" class="rn-menu-product-link">Sermorelin</a>
   </div>
 </div>
 
@@ -660,10 +662,14 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       <h1 class="rylo-headline">One pathway.<br><em>Precisely tuned.</em></h1>
       <p class="rylo-subhead">A weekly compounded semaglutide protocol. The GLP-1 regimen, reviewed and prescribed by US-licensed physicians when clinically appropriate.</p>
       <!-- CONFIRM price -->
-      <div class="rylo-price"><span class="amt">$100</span><span class="per">/mo</span></div>
-      <p class="rylo-subcopy">First 50 rate, locked for life. No price increases as your dose goes up.</p>
-      <a class="rylo-cta rylo-cta--main" href="#" data-rylo-link="glp1Intake">Reserve your spot</a>
-      <p class="rylo-fineprint">Today's $149 reserves your First 50 membership and locks the $100/mo rate. Treatment is prescribed and billed separately, only when clinically appropriate.</p>
+      <div class="plan-rows">
+        <div class="plan-row"><span class="plan-pill">First 20</span><span class="plan-label">$100 a month &middot; locked for life</span></div>
+        <div class="plan-row"><span class="plan-label">Monthly &middot; $149</span></div>
+        <div class="plan-row"><span class="plan-label">Quarterly &middot; $399 &middot; ships every 3 months</span></div>
+      </div>
+      <p class="plan-note">Your price does not change as your dose changes. Every strength is the same flat rate.</p>
+      <p class="plan-note plan-note--fine">Founding rate applies for the life of your subscription. If you cancel, rejoining is at standard pricing.</p>
+      <a class="rylo-cta rylo-cta--main" href="#" data-rylo-link="glp1Intake">See if I qualify</a>
     </div>
   </div>
 </section>
@@ -708,8 +714,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
     <div class="price-side">
       <div class="pcard">
         <div class="pcard-row"><span class="pcard-amt">$100</span><span class="pcard-per">/mo</span></div>
-        <p class="pcard-note">First 50 rate, locked for life. No price increases as your dose goes up.</p>
-        <a class="pcard-cta" href="#" data-rylo-link="glp1Intake">Reserve your spot</a>
+        <p class="pcard-note">One flat monthly rate. Medication, provider review, and shipping included.</p>
+        <a class="pcard-cta" href="#" data-rylo-link="glp1Intake">See if I qualify</a>
       </div>
       <div class="disc-card">
         <p class="disc-text">Compounded semaglutide is not FDA-approved. The FDA does not evaluate compounded drugs for safety, effectiveness, or quality. A licensed provider must determine if this treatment is clinically appropriate for you. Do not use if pregnant, planning pregnancy, or breastfeeding. Individual results will vary. This is not a guarantee of weight loss.</p>
@@ -830,8 +836,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   <div class="fcta-content">
     <h2 class="fcta-h">Ready to find out<br><em>if you qualify?</em></h2>
     <p class="fcta-sub">Free intake. Licensed provider review. Ships if approved.</p>
-    <a href="#" data-rylo-link="glp1Intake" class="fcta-btn">Reserve your spot</a>
-    <p class="fcta-refund">First 50 presale. Fully refundable any time before your first physician consultation.</p>
+    <a href="#" data-rylo-link="glp1Intake" class="fcta-btn">See if I qualify</a>
+    <p class="fcta-refund">Fully refundable any time before your first physician consultation.</p>
   </div>
 </section>
 
@@ -911,6 +917,7 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
             <li><a href="tirzepatide-product.html">Tirzepatide</a></li>
             <li><a href="semaglutide-product.html">Semaglutide</a></li>
             <li><a href="nad-product.html">NAD+</a></li>
+            <li><a href="sermorelin-product.html">Sermorelin</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -925,6 +932,20 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
       </div>
     </div>
     <div class="footer-bottom">
+      <a
+        class="ls-seal"
+        href="https://www.legitscript.com/websites/?checker_keywords=rylohealth.com"
+        target="_blank"
+        rel="noopener"
+        title="Verify LegitScript Approval for www.rylohealth.com"
+      >
+        <img
+          src="https://static.legitscript.com/seals/51224077.png"
+          alt="Verify Approval for www.rylohealth.com"
+          width="73"
+          height="79"
+        />
+      </a>
       <span class="footer-copy">&copy; 2026 Rylo Health LLC.</span>
       <span class="footer-signature">Compounded by licensed US pharmacies.</span>
     </div>
@@ -1098,8 +1119,8 @@ body{font-family:var(--font);background:var(--oat);color:var(--text);-webkit-fon
   <div class="founder-modal-backdrop"></div>
   <div class="founder-modal-card" role="dialog" aria-modal="true" aria-labelledby="founderModalMsg">
     <button type="button" class="founder-modal-close" aria-label="Close">&times;</button>
-    <p id="founderModalMsg" class="founder-modal-msg">The First 50 is opening soon. Reserve your spot below and we'll notify you the moment payment opens.</p>
-    <a href="{{INTAKE_URL}}" class="founder-modal-btn">Notify me when it opens</a>
+    <p id="founderModalMsg" class="founder-modal-msg">Start your online visit to see whether treatment is right for you.</p>
+    <a href="#" data-rylo-link="glp1Intake" class="founder-modal-btn">See if I qualify</a>
   </div>
 </div>
 <script>

@@ -3,7 +3,7 @@
   --rylo-muted:#a3947f; --rylo-muted-soft:#7d6f5e; --rylo-btn-fill:#f0e6d5; --rylo-btn-fill-hi:#f9f0e1;
   --rylo-btn-text:#1a130c; --rylo-accent:#c79a68; --rylo-hair:rgba(243,234,220,0.10);
   --rylo-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
-  --rylo-serif:"Fraunces",Georgia,serif;
+  --rylo-serif:"Libre Caslon Display",Georgia,serif;
   /* Product glow — each page overrides these three RGB triplets with its own color.
      Default is the tirzepatide warm clay. NEVER hardcode a single color here. */
   --rylo-glow-a:124,80,42; --rylo-glow-b:198,140,82; --rylo-glow-c:234,198,152;
@@ -16,7 +16,7 @@
 }
 .rylo-hero *, .rylo-hero *::before, .rylo-hero *::after { box-sizing:border-box; }
 .rylo-nav { display:flex; align-items:center; justify-content:space-between; padding:26px 30px; }
-.rylo-wordmark { font-family:var(--rylo-serif); font-optical-sizing:auto; font-weight:420; font-size:24px; letter-spacing:0.2px; color:var(--rylo-cream-bright); font-variation-settings:"SOFT" 20,"WONK" 0; text-decoration:none; }
+.rylo-wordmark { font-family:var(--rylo-serif); font-optical-sizing:auto; font-weight:560; font-size:24px; letter-spacing:0.2px; color:var(--rylo-cream-bright); font-variation-settings:normal; text-decoration:none; }
 .rylo-nav__links, .rylo-nav__right { display:none; gap:30px; align-items:center; }
 .rylo-nav__links a, .rylo-login { font-size:15px; color:var(--rylo-cream); text-decoration:none; opacity:0.82; letter-spacing:0.1px; }
 .rylo-nav__links a:hover, .rylo-login:hover { opacity:1; }
@@ -26,11 +26,11 @@
 .rylo-hero__media { width:100%; display:flex; justify-content:center; padding:18px 0 40px; }
 .rylo-hero__media img { width:220px; max-width:70%; height:auto; filter:drop-shadow(0 22px 32px rgba(0,0,0,0.55)); }
 .rylo-hero__content { width:100%; }
-.rylo-headline { font-family:var(--rylo-serif); font-optical-sizing:auto; color:var(--rylo-cream-bright); font-size:40px; line-height:1.02; font-weight:330; letter-spacing:-0.6px; margin:0 0 20px; font-variation-settings:"opsz" 144,"SOFT" 18,"WONK" 0; }
-.rylo-headline em { font-style:italic; font-weight:330; font-variation-settings:"opsz" 144,"SOFT" 55,"WONK" 1; }
+.rylo-headline { font-family:'Libre Caslon Display',Georgia,serif; color:var(--rylo-cream-bright); font-size:40px; line-height:1.06; font-weight:400; letter-spacing:-0.3px; margin:0 0 20px; }
+.rylo-headline em { font-style:italic; font-weight:400; color:rgba(243,234,220,0.60); }
 .rylo-subhead { font-family:var(--rylo-sans); color:var(--rylo-cream); opacity:0.82; font-size:16px; line-height:1.5; font-weight:400; margin:0 0 28px; max-width:30em; }
 .rylo-price { display:flex; align-items:baseline; gap:8px; margin:0 0 8px; }
-.rylo-price .amt { font-family:var(--rylo-serif); font-optical-sizing:auto; color:var(--rylo-cream-bright); font-size:50px; line-height:1; font-weight:300; letter-spacing:-0.8px; font-variation-settings:"opsz" 144,"SOFT" 16,"WONK" 0; }
+.rylo-price .amt { font-family:'Libre Caslon Display',Georgia,serif; color:var(--rylo-cream-bright); font-size:50px; line-height:1; font-weight:400; letter-spacing:-1px; }
 .rylo-price .per { font-family:var(--rylo-sans); color:var(--rylo-muted); font-size:16px; font-weight:400; }
 .rylo-subcopy { font-family:var(--rylo-sans); color:var(--rylo-muted); font-size:14px; font-weight:400; margin:0 0 28px; letter-spacing:0.1px; }
 .rylo-cta { border:0; border-radius:10px; background:var(--rylo-btn-fill); color:var(--rylo-btn-text); font-family:var(--rylo-sans); font-size:16px; font-weight:500; letter-spacing:0.1px; cursor:pointer; text-decoration:none; display:inline-block; text-align:center; transition:background 180ms ease, transform 120ms ease; }
@@ -39,7 +39,7 @@
 .rylo-cta:focus-visible { outline:2px solid var(--rylo-accent); outline-offset:3px; }
 .rylo-cta--main { width:100%; padding:17px 22px; }
 .rylo-cta--nav { display:none; padding:12px 22px; font-size:14px; border-radius:8px; }
-.rylo-fineprint { font-family:var(--rylo-sans); color:var(--rylo-muted-soft); font-size:12.5px; line-height:1.55; font-weight:400; margin:16px 0 0; max-width:34em; }
+.rylo-fineprint { font-family:var(--rylo-sans); color:var(--rylo-muted-soft); font-size:12.5px; line-height:1.55; font-weight:400; margin:22px 0 0; max-width:34em; }
 @container hero (min-width:760px) {
   .rylo-nav { padding:30px 56px; }
   .rylo-nav__links { display:flex; flex:1; justify-content:center; }
@@ -47,14 +47,14 @@
   .rylo-menu { display:none; }
   .rylo-cta--nav { display:inline-block; }
   .rylo-hero__inner { flex-direction:row; align-items:center; gap:56px; padding:20px 56px 70px; min-height:560px; }
-  .rylo-hero__media { width:46%; padding:0; }
+  .rylo-hero__media { width:54%; padding:0; }
   .rylo-hero__media img { width:300px; max-width:100%; }
-  .rylo-hero__content { width:54%; }
+  .rylo-hero__content { width:46%; }
   .rylo-headline { font-size:70px; letter-spacing:-1.6px; margin-bottom:26px; }
   .rylo-subhead { font-size:18px; margin-bottom:36px; }
   .rylo-price .amt { font-size:76px; letter-spacing:-1.8px; }
   .rylo-price .per { font-size:20px; }
-  .rylo-subcopy { font-size:15px; margin-bottom:30px; }
+  .rylo-subcopy { font-size:15px; margin-bottom:40px; }
   .rylo-cta--main { width:auto; min-width:420px; padding:19px 28px; }
   .rylo-fineprint { font-size:13px; }
 }
@@ -98,7 +98,7 @@
 /* Sticky price card in the "Everything. One flat price." section */
 .pcard { background:linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03)); border:1px solid rgba(243,234,220,0.14); border-radius:18px; padding:30px 30px 32px; box-shadow:0 24px 60px rgba(0,0,0,0.40); }
 .pcard-row { display:flex; align-items:baseline; gap:6px; }
-.pcard-amt { font-family:'Fraunces',Georgia,serif; font-optical-sizing:auto; font-size:58px; font-weight:340; color:#f9f3e8; line-height:1; letter-spacing:-1.5px; font-variation-settings:"opsz" 144,"SOFT" 16,"WONK" 0; }
+.pcard-amt { font-family:'Libre Caslon Display',Georgia,serif; font-size:58px; font-weight:400; color:#f9f3e8; line-height:1; letter-spacing:-1.2px; }
 .pcard-per { font-family:var(--font); font-size:18px; font-weight:400; color:rgba(243,234,220,0.52); }
 .pcard-note { font-family:var(--font); font-size:14px; font-weight:400; color:rgba(243,234,220,0.74); line-height:1.55; margin:14px 0 22px; }
 .pcard-cta { display:block; text-align:center; background:#f0e6d5; color:#1a130c; border-radius:10px; padding:16px 24px; font-family:var(--font); font-size:16px; font-weight:500; letter-spacing:0.1px; text-decoration:none; transition:background .2s ease, transform .12s ease; }
@@ -141,7 +141,7 @@
 .rylo-hero .trust-bar { margin-top: auto; border-top: 1px solid rgba(243,234,220,0.10); background: transparent; }
 .rylo-hero__media img { width: 240px; max-width: 80%; }
 @container hero (min-width: 760px) {
-  .rylo-hero__media img { width: 100%; max-width: 520px; }   /* bigger vial */
+  .rylo-hero__media img { width: 100%; max-width: 760px; }   /* bigger vial */
   .rylo-hero__inner { gap: 80px; }                            /* more separation */
   .rylo-hero__content { padding-left: 40px; }                 /* nudge text right, off-center */
 }
@@ -151,11 +151,11 @@
   .rylo-hero { padding-top: 60px !important; }
   .rylo-hero__inner { justify-content: center !important; padding: 8px 24px 24px !important; }
   .rylo-hero__media { padding: 0 0 18px !important; }
-  .rylo-hero__media img { width: 230px !important; max-width: 72% !important; }
+  .rylo-hero__media img { width: 88% !important; max-width: 360px !important; }
   .rylo-subhead { display: none !important; }     /* long descriptor — hidden on mobile to keep CTA in view */
   .rylo-headline { margin-bottom: 14px !important; }
   .rylo-price { margin-bottom: 6px !important; }
-  .rylo-subcopy { margin-bottom: 16px !important; }
+  .rylo-subcopy { margin-bottom: 24px !important; }
   .rylo-fineprint { margin-top: 12px !important; }
 }
 
@@ -170,11 +170,10 @@
 
 /* ── Editorial polish: one serif voice (Fraunces) + bigger, breathier headings ── */
 .section-title, .how-card-title, .evidence-h, .how-card-num {
-  font-family:'Fraunces',Georgia,serif !important;
-  font-optical-sizing:auto;
+  font-family:'Libre Caslon Display',Georgia,serif !important;
 }
-.section-title, .how-card-title, .evidence-h { font-variation-settings:"opsz" 144,"SOFT" 16,"WONK" 0; letter-spacing:-0.03em !important; }
-.section-title em, .how-card-title em, .evidence-h em { font-variation-settings:"opsz" 144,"SOFT" 42,"WONK" 1; }
+.section-title, .how-card-title, .evidence-h { font-weight:400 !important; letter-spacing:-0.01em !important; }
+.section-title em, .how-card-title em, .evidence-h em { font-weight:400; font-style:italic; }
 /* more confident scale + whitespace on the editorial section headers */
 .how, .faq { padding-top:108px !important; padding-bottom:104px !important; }
 .how-header { margin-bottom:64px !important; }
@@ -184,3 +183,23 @@
   .how-header { margin-bottom:40px !important; }
   .how-header .section-title, .faq .section-title { font-size:clamp(34px,8vw,46px) !important; }
 }
+
+/* ── LegitScript certification seal (render native 73x79; never scale/recolor/filter/blend) ── */
+.ls-seal { display: inline-flex; align-items: center; line-height: 0; flex: 0 0 auto; }
+.ls-seal img { width: 100px; height: auto; }
+.footer-trust { display: flex; align-items: center; gap: 18px; }
+.footer-trust-lines { display: flex; flex-direction: column; gap: 4px; }
+.footer-trust-lead { font-family: var(--rylo-sans); font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: rgba(255,255,255,0.86); }
+.footer-trust-meta { font-family: var(--rylo-sans); font-size: 12.5px; letter-spacing: 0.02em; color: rgba(255,255,255,0.5); }
+.footer-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.footer-dot { color: rgba(255,255,255,0.3); }
+@media (max-width: 768px){ .footer-trust { flex-basis: 100%; } }
+
+/* ── Three-option plan rows (GLP-1 product-page hero pricing) ── */
+.plan-rows { margin: 6px 0 20px; }
+.plan-row { display: flex; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.14); }
+.plan-row:first-child { border-top: 1px solid rgba(255,255,255,0.14); }
+.plan-pill { display: inline-flex; align-items: center; background: #C8D64B; color: #1B1A18; font-family: var(--rylo-sans); font-size: 12px; font-weight: 500; letter-spacing: normal; line-height: 1; padding: 5px 11px; border-radius: 999px; flex: 0 0 auto; }
+.plan-label { font-family: var(--rylo-sans); font-size: 16px; color: #F4F1E9; letter-spacing: 0.01em; }
+.plan-note { font-family: var(--rylo-sans); font-size: 13px; line-height: 1.5; color: rgba(244,241,233,0.72); margin: 0 0 6px; max-width: 34em; }
+.plan-note--fine { font-size: 12px; color: #87837A; margin-bottom: 20px; }

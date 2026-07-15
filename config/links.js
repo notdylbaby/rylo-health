@@ -15,6 +15,7 @@
     // GLP-1 intake covers BOTH semaglutide and tirzepatide.
     glp1Intake:   'https://start.rylohealth.com/start-online-visit/glp1-intake',
     nadIntake:    'https://start.rylohealth.com/start-online-visit/nad-intake-8b84cff2',
+    sermorelinIntake: 'https://start.rylohealth.com/start-online-visit/sermorelin',
     patientLogin: 'https://my.rylohealth.com',
   };
 
