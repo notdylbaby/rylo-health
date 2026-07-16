@@ -148,15 +148,21 @@
 
 /* ── MOBILE: fit the whole hero in one viewport (vial big, CTA visible) ── */
 @media (max-width:759px){
-  .rylo-hero { padding-top: 60px !important; }
-  .rylo-hero__inner { justify-content: center !important; padding: 8px 24px 24px !important; }
-  .rylo-hero__media { padding: 0 0 18px !important; }
-  .rylo-hero__media img { width: 88% !important; max-width: 360px !important; }
+  .rylo-hero { padding-top: 40px !important; }
+  .rylo-hero__inner { justify-content: center !important; padding: 8px 24px 20px !important; }
+  .rylo-hero__media { padding: 0 0 12px !important; }
+  .rylo-hero__media img { width: 62% !important; max-width: 250px !important; }  /* smaller so the CTA stays in view */
   .rylo-subhead { display: none !important; }     /* long descriptor — hidden on mobile to keep CTA in view */
-  .rylo-headline { margin-bottom: 14px !important; }
+  .rylo-headline { margin-bottom: 12px !important; }
+  /* single-price pages (NAD+, sermorelin) */
   .rylo-price { margin-bottom: 6px !important; }
-  .rylo-subcopy { margin-bottom: 24px !important; }
+  .rylo-subcopy { margin-bottom: 18px !important; }
   .rylo-fineprint { margin-top: 12px !important; }
+  /* three-option pages (tirzepatide, semaglutide) */
+  .plan-rows { margin: 2px 0 12px !important; }
+  .plan-row { padding: 11px 0 !important; }
+  .plan-note { margin-bottom: 4px !important; }
+  .plan-note--fine { margin-bottom: 14px !important; }
 }
 
 /* ── Apple-style scroll reveal: elements gently rise + fade in on scroll ── */
