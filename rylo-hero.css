@@ -1,7 +1,7 @@
 .rylo-hero {
-  --rylo-stage:#17110c; --rylo-stage-edge:#0d0906; --rylo-cream:#f3eadc; --rylo-cream-bright:#f9f3e8;
-  --rylo-muted:#a3947f; --rylo-muted-soft:#7d6f5e; --rylo-btn-fill:#f0e6d5; --rylo-btn-fill-hi:#f9f0e1;
-  --rylo-btn-text:#1a130c; --rylo-accent:#c79a68; --rylo-hair:rgba(243,234,220,0.10);
+  --rylo-stage:#1B1A18; --rylo-stage-edge:#141311; --rylo-cream:#f3eadc; --rylo-cream-bright:#f9f3e8;
+  --rylo-muted:#a3947f; --rylo-muted-soft:#7d6f5e; --rylo-btn-fill:#F4F1E9; --rylo-btn-fill-hi:#ffffff;
+  --rylo-btn-text:#1B1A18; --rylo-accent:#c79a68; --rylo-hair:rgba(243,234,220,0.10);
   --rylo-sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
   --rylo-serif:"Libre Caslon Display",Georgia,serif;
   /* Product glow — each page overrides these three RGB triplets with its own color.
@@ -9,9 +9,9 @@
   --rylo-glow-a:124,80,42; --rylo-glow-b:198,140,82; --rylo-glow-c:234,198,152;
   container-type:inline-size; container-name:hero; position:relative; overflow:hidden; color:var(--rylo-cream);
   background:
-    radial-gradient(58% 50% at 30% 42%, rgba(var(--rylo-glow-a),0.55) 0%, rgba(var(--rylo-glow-a),0) 62%),
-    radial-gradient(42% 36% at 30% 40%, rgba(var(--rylo-glow-b),0.38) 0%, rgba(var(--rylo-glow-b),0) 58%),
-    radial-gradient(30% 26% at 30% 38%, rgba(var(--rylo-glow-c),0.20) 0%, rgba(var(--rylo-glow-c),0) 52%),
+    radial-gradient(64% 56% at 30% 42%, rgba(var(--rylo-glow-a),0.42) 0%, rgba(var(--rylo-glow-a),0) 66%),
+    radial-gradient(48% 42% at 30% 40%, rgba(var(--rylo-glow-b),0.28) 0%, rgba(var(--rylo-glow-b),0) 62%),
+    radial-gradient(34% 30% at 30% 40%, rgba(var(--rylo-glow-c),0.16) 0%, rgba(var(--rylo-glow-c),0) 56%),
     linear-gradient(180deg, var(--rylo-stage) 0%, var(--rylo-stage-edge) 100%);
 }
 .rylo-hero *, .rylo-hero *::before, .rylo-hero *::after { box-sizing:border-box; }
@@ -33,11 +33,11 @@
 .rylo-price .amt { font-family:'Libre Caslon Display',Georgia,serif; color:var(--rylo-cream-bright); font-size:50px; line-height:1; font-weight:400; letter-spacing:-1px; }
 .rylo-price .per { font-family:var(--rylo-sans); color:var(--rylo-muted); font-size:16px; font-weight:400; }
 .rylo-subcopy { font-family:var(--rylo-sans); color:var(--rylo-muted); font-size:14px; font-weight:400; margin:0 0 28px; letter-spacing:0.1px; }
-.rylo-cta { border:0; border-radius:10px; background:var(--rylo-btn-fill); color:var(--rylo-btn-text); font-family:var(--rylo-sans); font-size:16px; font-weight:500; letter-spacing:0.1px; cursor:pointer; text-decoration:none; display:inline-block; text-align:center; transition:background 180ms ease, transform 120ms ease; }
+.rylo-cta { border:0; border-radius:4px; background:var(--rylo-btn-fill); color:var(--rylo-btn-text); font-family:var(--rylo-sans); font-size:16px; font-weight:500; letter-spacing:0.1px; cursor:pointer; text-decoration:none; display:inline-block; text-align:center; transition:background 180ms ease, transform 120ms ease; }
 .rylo-cta:hover { background:var(--rylo-btn-fill-hi); }
 .rylo-cta:active { transform:translateY(1px); }
 .rylo-cta:focus-visible { outline:2px solid var(--rylo-accent); outline-offset:3px; }
-.rylo-cta--main { width:100%; padding:17px 22px; }
+.rylo-cta--main { width:100%; padding:16px 24px; }
 .rylo-cta--nav { display:none; padding:12px 22px; font-size:14px; border-radius:8px; }
 .rylo-fineprint { font-family:var(--rylo-sans); color:var(--rylo-muted-soft); font-size:12.5px; line-height:1.55; font-weight:400; margin:22px 0 0; max-width:34em; }
 @container hero (min-width:760px) {
@@ -46,16 +46,16 @@
   .rylo-nav__right { display:flex; }
   .rylo-menu { display:none; }
   .rylo-cta--nav { display:inline-block; }
-  .rylo-hero__inner { flex-direction:row; align-items:center; gap:56px; padding:20px 56px 70px; min-height:560px; }
+  .rylo-hero__inner { flex-direction:row; align-items:center; gap:56px; padding:16px 56px 36px; min-height:560px; }
   .rylo-hero__media { width:54%; padding:0; }
   .rylo-hero__media img { width:300px; max-width:100%; }
   .rylo-hero__content { width:46%; }
-  .rylo-headline { font-size:70px; letter-spacing:-1.6px; margin-bottom:26px; }
-  .rylo-subhead { font-size:18px; margin-bottom:36px; }
+  .rylo-headline { font-size:70px; letter-spacing:-1.6px; margin-bottom:14px; }
+  .rylo-subhead { font-size:18px; margin-bottom:16px; }
   .rylo-price .amt { font-size:76px; letter-spacing:-1.8px; }
   .rylo-price .per { font-size:20px; }
   .rylo-subcopy { font-size:15px; margin-bottom:40px; }
-  .rylo-cta--main { width:auto; min-width:420px; padding:19px 28px; }
+  .rylo-cta--main { width:100%; padding:16px 24px; }
   .rylo-fineprint { font-size:13px; }
 }
 @media (prefers-reduced-motion:reduce){ .rylo-cta { transition:none; } }
@@ -99,6 +99,8 @@
 .pcard { background:linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03)); border:1px solid rgba(243,234,220,0.14); border-radius:18px; padding:30px 30px 32px; box-shadow:0 24px 60px rgba(0,0,0,0.40); }
 .pcard-row { display:flex; align-items:baseline; gap:6px; }
 .pcard-amt { font-family:'Libre Caslon Display',Georgia,serif; font-size:58px; font-weight:400; color:#f9f3e8; line-height:1; letter-spacing:-1.2px; }
+.pcard-perday { font-family:var(--rylo-sans); font-size:15px; line-height:1.5; color:rgba(249,243,232,0.82); margin:12px 0 0; }
+.pcard-perday b { font-weight:600; color:#C8D64B; }
 .pcard-per { font-family:var(--font); font-size:18px; font-weight:400; color:rgba(243,234,220,0.52); }
 .pcard-note { font-family:var(--font); font-size:14px; font-weight:400; color:rgba(243,234,220,0.74); line-height:1.55; margin:14px 0 22px; }
 .pcard-cta { display:block; text-align:center; background:#f0e6d5; color:#1a130c; border-radius:10px; padding:16px 24px; font-family:var(--font); font-size:16px; font-weight:500; letter-spacing:0.1px; text-decoration:none; transition:background .2s ease, transform .12s ease; }
@@ -176,10 +178,10 @@
 
 /* ── Editorial polish: one serif voice (Fraunces) + bigger, breathier headings ── */
 .section-title, .how-card-title, .evidence-h, .how-card-num {
-  font-family:'Libre Caslon Display',Georgia,serif !important;
+  font-family:'Neue Haas Grotesk Display','Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif !important;
 }
 .section-title, .how-card-title, .evidence-h { font-weight:400 !important; letter-spacing:-0.01em !important; }
-.section-title em, .how-card-title em, .evidence-h em { font-weight:400; font-style:italic; }
+.section-title em, .how-card-title em, .evidence-h em { font-weight:400; font-style:normal; }
 /* more confident scale + whitespace on the editorial section headers */
 .how, .faq { padding-top:108px !important; padding-bottom:104px !important; }
 .how-header { margin-bottom:64px !important; }
@@ -202,10 +204,112 @@
 @media (max-width: 768px){ .footer-trust { flex-basis: 100%; } }
 
 /* ── Three-option plan rows (GLP-1 product-page hero pricing) ── */
-.plan-rows { margin: 6px 0 20px; }
-.plan-row { display: flex; align-items: center; gap: 12px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.14); }
+.plan-rows { margin: 2px 0 12px; }
+.plan-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.14); }
 .plan-row:first-child { border-top: 1px solid rgba(255,255,255,0.14); }
 .plan-pill { display: inline-flex; align-items: center; background: #C8D64B; color: #1B1A18; font-family: var(--rylo-sans); font-size: 12px; font-weight: 500; letter-spacing: normal; line-height: 1; padding: 5px 11px; border-radius: 999px; flex: 0 0 auto; }
 .plan-label { font-family: var(--rylo-sans); font-size: 16px; color: #F4F1E9; letter-spacing: 0.01em; }
 .plan-note { font-family: var(--rylo-sans); font-size: 13px; line-height: 1.5; color: rgba(244,241,233,0.72); margin: 0 0 6px; max-width: 34em; }
-.plan-note--fine { font-size: 12px; color: #87837A; margin-bottom: 20px; }
+.plan-note--fine { font-size: 12px; color: #87837A; margin-bottom: 12px; }
+/* ── Unified hero pricing: First 20 card + Monthly/Quarterly tiers ── */
+.pr-block { font-family: var(--rylo-sans); margin: 2px 0 12px; }
+.pr-first20 { background: rgba(244,241,233,0.055); border-top: 2px solid #C8D64B; border-radius: 4px; padding: 14px 22px 16px; margin: 0 0 10px; }
+.pr-badge { display: inline-flex; align-items: center; background: #C8D64B; color: #1B1A18; font-size: 12px; font-weight: 600; letter-spacing: 0.01em; padding: 5px 11px; border-radius: 100px; margin: 0 0 10px; }
+.pr-price { font-size: 32px; font-weight: 600; letter-spacing: -0.02em; color: #F4F1E9; line-height: 1.05; }
+.pr-locked { font-size: 15px; font-weight: 500; color: #C8D64B; margin: 6px 0 0; }
+.pr-tiers { border-top: 1px solid rgba(244,241,233,0.12); }
+.pr-tier { padding: 10px 2px; border-bottom: 1px solid rgba(244,241,233,0.12); }
+.pr-tier-main { font-size: 17px; font-weight: 500; color: #F4F1E9; letter-spacing: 0.01em; }
+.pr-tier-sub { font-size: 13px; font-weight: 400; color: rgba(244,241,233,0.6); margin: 4px 0 0; }
+@media (max-width:768px){ .pr-first20 { padding: 12px 18px 14px; } }
+
+/* ═══════════ SHARED PRODUCT HERO — master template (identical on all 5 product pages) ═══════════ */
+.phero{ position:relative; overflow:hidden; min-height:100vh; padding-top:96px;
+  display:flex; flex-direction:column; justify-content:center; box-sizing:border-box;
+  background:
+    radial-gradient(64% 56% at 30% 42%, rgba(160,104,52,0.42) 0%, rgba(160,104,52,0) 66%),
+    radial-gradient(48% 42% at 30% 40%, rgba(206,150,86,0.28) 0%, rgba(206,150,86,0) 62%),
+    radial-gradient(34% 30% at 30% 40%, rgba(240,206,150,0.16) 0%, rgba(240,206,150,0) 56%),
+    #0D0B09; }
+.phero *{ box-sizing:border-box; }
+.phero__inner{ width:100%; max-width:1240px; margin:0 auto; padding:24px 56px 40px;
+  display:grid; grid-template-columns:1fr 1fr; grid-template-areas:"media head" "media pricing";
+  column-gap:56px; row-gap:18px; align-items:center; }
+.phero__media{ grid-area:media; align-self:center; display:flex; align-items:center; justify-content:center; }
+.phero__vial{ height:66vh; max-height:680px; width:auto; max-width:100%; object-fit:contain; filter:drop-shadow(0 32px 44px rgba(0,0,0,0.5)); }
+.phero__head{ grid-area:head; align-self:end; max-width:520px; }
+.phero__pricing{ grid-area:pricing; align-self:start; max-width:520px; }
+.phero__headline{ font-family:'Neue Haas Grotesk Display','Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:600; font-size:64px; line-height:1.0; letter-spacing:-0.02em; color:#F4F1E9; margin:0; }
+.phero__headline em{ font-style:normal; font-weight:600; color:#F4F1E9; }
+.phero__body{ font-family:var(--rylo-sans); font-size:18px; line-height:1.55; color:rgba(244,241,233,0.6); margin:16px 0 0; max-width:460px; }
+.phero__first20{ background:rgba(244,241,233,0.055); border-top:2px solid #C8D64B; border-radius:4px; padding:14px 22px 16px; margin:0 0 14px; }
+.phero__badge{ display:inline-flex; align-items:center; background:#C8D64B; color:#1B1A18; font-family:var(--rylo-sans); font-size:12px; font-weight:600; padding:5px 11px; border-radius:100px; margin:0 0 10px; }
+.phero__f20price{ font-family:var(--rylo-sans); font-size:30px; font-weight:600; letter-spacing:-0.02em; color:#F4F1E9; line-height:1.05; }
+.phero__f20locked{ font-family:var(--rylo-sans); font-size:15px; font-weight:500; color:#C8D64B; margin:6px 0 0; }
+.phero__rows{ border-top:1px solid rgba(244,241,233,0.12); margin:0; }
+.phero__row{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1px solid rgba(244,241,233,0.12); }
+.phero__row-label{ font-family:var(--rylo-sans); font-size:15px; font-weight:400; color:rgba(244,241,233,0.68); }
+.phero__row-price{ font-family:var(--rylo-sans); font-size:26px; font-weight:700; color:#F4F1E9; letter-spacing:-0.02em; line-height:1; }
+.phero__flat{ font-family:var(--rylo-sans); font-size:13px; line-height:1.5; color:rgba(244,241,233,0.72); margin:22px 0 0; max-width:460px; }
+.phero__fine{ font-family:var(--rylo-sans); font-size:12px; line-height:1.5; color:#87837A; margin:6px 0 0; max-width:460px; }
+.phero__cta{ display:flex; align-items:center; justify-content:center; width:100%; min-height:52px; margin:18px 0 0; padding:15px 24px; border:0; border-radius:4px; background:#F4F1E9; color:#1B1A18; font-family:var(--rylo-sans); font-size:16px; font-weight:500; text-decoration:none; cursor:pointer; transition:opacity .18s cubic-bezier(.2,.6,.2,1),transform .18s cubic-bezier(.2,.6,.2,1); }
+.phero__cta:hover{ opacity:.9; } .phero__cta:active{ transform:translateY(1px); } .phero__cta:focus-visible{ outline:2px solid #F4F1E9; outline-offset:3px; }
+.phero__trust{ font-family:var(--rylo-sans); font-size:13px; color:#87837A; margin:18px 0 0; }
+.phero__disc{ font-family:var(--rylo-sans); font-size:11.5px; line-height:1.55; color:rgba(135,131,122,0.9); margin:10px 0 0; max-width:520px; }
+@media (max-width:900px){
+  .phero{ min-height:0; padding-top:84px; justify-content:flex-start; }
+  .phero__inner{ grid-template-columns:1fr; grid-template-areas:"head" "media" "pricing"; column-gap:0; row-gap:20px; padding:14px 16px 40px; }
+  .phero__head,.phero__pricing{ max-width:none; align-self:auto; }
+  .phero__media{ align-self:auto; }
+  .phero__vial{ height:45vh; max-height:none; }
+  .phero__headline{ font-size:40px; }
+}
+/* Phones (≤430px): compact hero so the price rows + CTA land in the first viewport */
+@media (max-width:430px){
+  .phero{ padding-top:64px; min-height:100vh; min-height:100svh; }  /* fill viewport so next section can't peek behind the sticky bar */
+  .phero__inner{ row-gap:12px; padding:12px 16px 44px; }   /* consistent rhythm, no random gaps */
+  .phero__vial{ height:32vh; max-height:none; }            /* enlarged ~1.9x — anchors the hero as the main visual */
+  .phero:has(.phero__first20) .phero__vial{ height:22vh; } /* GLP-1 pages have the extra First 20 card + founding line — smaller vial so no text sits under the sticky bar */
+  .phero__headline{ font-size:28px; letter-spacing:-0.02em; }  /* one step down */
+  .phero__body{ font-size:14px; line-height:1.4; margin-top:8px; }   /* tight to headline */
+  .phero__first20{ padding:10px 18px 11px; margin-bottom:9px; }
+  .phero__f20price{ font-size:23px; }
+  .phero__row{ padding:11px 0; }
+  .phero__row-price{ font-size:24px; }
+  .phero__flat{ font-size:13px; margin-top:14px; }
+  .phero__cta{ display:none; }                             /* inline CTA hidden — sticky bar is the only button */
+}
+
+/* Footer FDA compliance paragraph (relocated out of the hero/CTA area) */
+.footer-fda{ font-family:var(--rylo-sans, -apple-system,"Helvetica Neue",Arial,sans-serif); font-size:13px; line-height:1.6; color:#87837A; margin:14px 0 0; }
+/* Sticky mobile CTA bar — phones only, releases at the footer */
+.mcta{ display:none; }
+@media (max-width:430px){
+  .mcta{ display:block; position:fixed; left:0; right:0; bottom:0; z-index:1200;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg, rgba(13,11,9,0) 0%, rgba(13,11,9,0.9) 45%, #0D0B09 100%);
+    pointer-events:none; transition:transform .28s cubic-bezier(.2,.7,.2,1), opacity .2s ease; }
+  .mcta__btn{ display:flex; align-items:center; justify-content:center; width:100%; height:56px; border-radius:4px;
+    background:#F4F1E9; color:#1B1A18; font-family:var(--rylo-sans, -apple-system,"Helvetica Neue",Arial,sans-serif);
+    font-size:16px; font-weight:500; text-decoration:none; box-shadow:0 10px 28px rgba(0,0,0,0.5); pointer-events:auto; }
+  .mcta--hidden{ transform:translateY(130%); opacity:0; pointer-events:none; }
+}
+
+/* FONT SWAP: all headline/display text -> sans (Neue Haas / Inter Tight), no italic serif */
+.fcta-h, .hero-title, .how-step-num, .how-card-num, .how-step-title,
+.rn-menu-row-label, .rn-menu-plain-link, .rn-menu-product-link, .sticky-bar-name {
+  font-family:'Neue Haas Grotesk Display','Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif !important; font-style:normal !important;
+}
+
+/* FONT SWAP: zero italic anywhere — display heading <em>s, step numbers, footer voice, citations/legal */
+.section-title em, .includes .section-title em, .how-header .section-title em,
+.how-card-title em, .how-step-title em, .evidence-h em, .fcta-h em, .hero-title em,
+.how-step-num, .how-card-num, .what-is-title em,
+.footer-subscribe-tagline, .footer-subscribe-tagline em, .footer-signature,
+.evidence-cite, .what-is-legal, .what-stat-source, .hero-disclaimer-hero {
+  font-style: normal !important;
+}
+/* footer voice was italic Cormorant serif → sans */
+.footer-subscribe-tagline, .footer-signature {
+  font-family:'Neue Haas Grotesk Display','Inter Tight','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}

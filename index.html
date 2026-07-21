@@ -5,21 +5,49 @@
   <link rel="apple-touch-icon" href="favicon.png">
 
   <meta charset="UTF-8" />
+
+  <!-- ── Homepage intro curtain: decide skip BEFORE the overlay paints (no flash on repeat visits) ── -->
+  <script>
+    (function () {
+      try {
+        var seen = sessionStorage.getItem('ryloIntroSeen');
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (seen || reduce) { document.documentElement.classList.add('rylo-intro-skip'); }
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    .rylo-intro{position:fixed;inset:0;z-index:2147483647;background:#0F2E22;display:flex;align-items:center;justify-content:center;opacity:1;will-change:opacity}
+    .rylo-intro__mark{width:clamp(190px,36vw,360px);height:auto;display:block;opacity:0;transform:scale(0.92);will-change:opacity,transform}
+    .rylo-intro.is-in .rylo-intro__mark{opacity:1;transform:scale(1);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+    .rylo-intro.is-out{opacity:0;pointer-events:none;transition:opacity .7s ease}
+    html.rylo-intro-skip .rylo-intro{display:none!important}
+  </style>
+
+  <script>
+    /* === First 20 spots remaining — edit THIS one number by hand as members join === */
+    window.RYLO_FIRST20_SPOTS_LEFT = 17;
+    document.addEventListener('DOMContentLoaded', function () {
+      var txt = window.RYLO_FIRST20_SPOTS_LEFT + ' of 20 spots left';
+      var els = document.querySelectorAll('[data-first20-spots]');
+      for (var i = 0; i < els.length; i++) els[i].textContent = txt;
+    });
+  </script>
   <script src="/config/gtm.js"></script> <!-- Google Tag Manager (single source: config/gtm.js) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rylo Health · GLP-1 and NAD+ care online</title>
+  <title>Rylo Health · GLP-1, NAD+ & peptide therapy, prescribed online</title>
 
-  <meta name="description" content="Compounded tirzepatide, semaglutide, and NAD+ prescribed by US-licensed physicians. Premium telehealth. Locked monthly pricing.">
+  <meta name="description" content="Weight loss and longevity, prescribed online. Compounded GLP-1, NAD+, sermorelin, and glutathione. Peptide therapy from your own US-licensed physician.">
 
-  <meta property="og:title" content="Rylo Health · GLP-1 and NAD+ care online">
-  <meta property="og:description" content="Compounded tirzepatide, semaglutide, and NAD+ prescribed by US-licensed physicians. Premium telehealth. Locked monthly pricing.">
+  <meta property="og:title" content="Rylo Health · GLP-1, NAD+ & peptide therapy, prescribed online">
+  <meta property="og:description" content="Weight loss and longevity, prescribed online. Compounded GLP-1, NAD+, sermorelin, and glutathione. Peptide therapy from your own US-licensed physician.">
   <meta property="og:image" content="https://rylohealth.com/holdingvial.png">
   <meta property="og:url" content="https://rylohealth.com">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Rylo Health · GLP-1 and NAD+ care online">
-  <meta name="twitter:description" content="Compounded tirzepatide, semaglutide, and NAD+ prescribed by US-licensed physicians. Premium telehealth. Locked monthly pricing.">
+  <meta name="twitter:title" content="Rylo Health · GLP-1, NAD+ & peptide therapy, prescribed online">
+  <meta name="twitter:description" content="Weight loss and longevity, prescribed online. Compounded GLP-1, NAD+, sermorelin, and glutathione. Peptide therapy from your own US-licensed physician.">
   <meta name="twitter:image" content="https://rylohealth.com/holdingvial.png">
 
   <script type="application/ld+json">
@@ -3211,6 +3239,34 @@
   </style>
 </head>
 <body>
+  <!-- ── Homepage intro curtain (homepage only; once per session) ── -->
+  <div class="rylo-intro" id="ryloIntro" role="presentation" aria-hidden="true">
+    <img class="rylo-intro__mark" src="whiterylologoofficial.png" alt="Rylo Health" />
+  </div>
+  <script>
+    (function () {
+      var el = document.getElementById('ryloIntro');
+      if (!el) return;
+      // Skipped (already seen this session or reduced-motion): remove immediately, no animation.
+      if (document.documentElement.classList.contains('rylo-intro-skip')) {
+        if (el.parentNode) el.parentNode.removeChild(el);
+        return;
+      }
+      // Mark as seen up front so navigating away mid-intro never replays it.
+      try { sessionStorage.setItem('ryloIntroSeen', '1'); } catch (e) {}
+      var prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      // Fade + scale the wordmark in (~0.9s), hold, fade the curtain out (~0.7s). Total <= 2s.
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { el.classList.add('is-in'); });
+      });
+      setTimeout(function () { el.classList.add('is-out'); }, 1250);
+      setTimeout(function () {
+        if (el.parentNode) el.parentNode.removeChild(el);
+        document.body.style.overflow = prevOverflow;
+      }, 1950);
+    })();
+  </script>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PG2N8WBZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -3316,7 +3372,7 @@
         <span class="hero-line1 fade-in" style="transition-delay:0s">For the body</span>
         <span class="hero-line2 fade-in" style="transition-delay:0.15s"><em>still in the game.</em></span>
       </h1>
-      <p class="hero-sub fade-in" style="transition-delay:0.3s">Compounded GLP-1 and NAD+ protocols, prescribed by your own US-licensed physician. Not a chatbot.</p>
+      <p class="hero-sub fade-in" style="transition-delay:0.3s">Weight loss and longevity, prescribed online. Compounded GLP-1, NAD+, sermorelin, and glutathione from your own US-licensed physician. Not a chatbot.</p>
       <div class="hero-cta-wrap fade-in" style="transition-delay:0.45s">
         <div class="hero-cta-row">
           <a href="#" data-rylo-link="glp1Intake" class="btn-hero-start">Get Started</a>
@@ -3424,7 +3480,7 @@
             <div class="bento-foot">
               <div class="bento-price-stack">
                 <span class="bento-price"><span class="bento-price-num">$160</span><span class="bento-price-per">/mo</span></span>
-                <span class="bento-price-info">First 20 rate &middot; standard $249<span class="bento-price-info-q"> &middot; quarterly $549</span></span>
+                <span class="bento-price-info">First 20 rate &middot; standard $249<span class="bento-price-info-q"> &middot; quarterly $599</span></span>
               </div>
               <span class="bento-arrow">&rarr;</span>
             </div>
@@ -3450,24 +3506,24 @@
       </div>
     </div>
 
-    <!-- WELLNESS -->
+    <!-- PERFORMANCE — 1 lead + 2 stacked -->
     <div class="bento">
-      <h3 class="bento-cat">Wellness</h3>
-      <div class="bento-grid bento-2">
-        <a href="/nad-product.html" class="bento-tile bento-lead">
-          <div class="bento-img"><picture><source type="image/webp" srcset="NAD-Product-Card-hd.webp"><img src="NAD-Product-Card-hd.jpg" alt="" width="1400" height="599" loading="lazy" decoding="async" style="object-position:30% center" /></picture></div>
+      <h3 class="bento-cat">Performance</h3>
+      <div class="bento-grid bento-perf">
+        <a href="/nad-product.html" class="bento-tile bento-lead bento-pos-lead">
+          <div class="bento-img"><picture><img src="NAD.png" alt="" width="1376" height="768" loading="lazy" decoding="async" style="object-position:center" /></picture></div>
           <div class="bento-body">
             <div class="bento-row">
               <h4 class="bento-name">NAD+</h4>
             </div>
             <p class="bento-tag"><b>Coenzyme</b> &middot; Supports cellular energy and metabolic function</p>
             <div class="bento-foot">
-              <span class="bento-price"><span class="bento-price-num">$139</span><span class="bento-price-per">/mo</span></span>
+              <span class="bento-price"><span class="bento-price-num">$219</span><span class="bento-price-per">/mo</span></span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
         </a>
-        <a href="/sermorelin-product.html" class="bento-tile bento-lead">
+        <a href="/sermorelin-product.html" class="bento-tile bento-lead bento-pos-a">
           <div class="bento-img"><picture><source type="image/webp" srcset="SermorelinVIBE-hd.webp"><img src="SermorelinVIBE-hd.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async" style="object-position:center" /></picture></div>
           <div class="bento-body">
             <div class="bento-row">
@@ -3475,11 +3531,77 @@
             </div>
             <p class="bento-tag"><b>Peptide</b> &middot; Supports growth hormone, sleep, and recovery</p>
             <div class="bento-foot">
-              <span class="bento-price"><span class="bento-price-num">$159</span><span class="bento-price-per">/mo</span></span>
+              <span class="bento-price"><span class="bento-price-num">$249</span><span class="bento-price-per">/mo</span></span>
               <span class="bento-arrow">&rarr;</span>
             </div>
           </div>
         </a>
+        <div class="bento-tile bento-lead bento-pos-b bento-soon">
+          <div class="soon-reveal"><span>Coming soon</span></div>
+          <div class="bento-img"><picture><source type="image/webp" srcset="pulsestackproduct-hd.webp"><img src="pulsestackproduct-hd.jpg" alt="" width="1400" height="933" loading="lazy" decoding="async" /></picture></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">The Pulse Stack</h4>
+            </div>
+            <p class="bento-tag"><b>CJC-1295 + Ipamorelin</b> &middot; Supports growth hormone, sleep, and recovery</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LONGEVITY — 1 lead + 2 standard -->
+    <div class="bento">
+      <h3 class="bento-cat">Longevity</h3>
+      <div class="bento-grid bento-long">
+        <div class="bento-tile bento-lead bento-pos-lead bento-soon">
+          <div class="soon-reveal"><span>Coming soon</span></div>
+          <div class="bento-img"><picture><img src="ghkcuskin.png" alt="" width="1696" height="960" loading="lazy" decoding="async" style="object-position:center" /></picture></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">GHK-Cu</h4>
+            </div>
+            <p class="bento-tag"><b>Copper peptide</b> &middot; Supports skin, collagen, and hair</p>
+          </div>
+        </div>
+        <a href="/glutathione-product.html" class="bento-tile bento-lead">
+          <div class="bento-img"><picture><source type="image/webp" srcset="glutathioneproductcard-hd.webp"><img src="glutathioneproductcard-hd.jpg" alt="" width="1400" height="933" loading="lazy" decoding="async" style="object-position:center" /></picture></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">Glutathione</h4>
+            </div>
+            <p class="bento-tag"><b>Antioxidant</b> &middot; Supports antioxidant capacity, immunity, and skin</p>
+            <div class="bento-foot">
+              <span class="bento-price"><span class="bento-price-num">$149</span><span class="bento-price-per">/mo</span></span>
+              <span class="bento-arrow">&rarr;</span>
+            </div>
+          </div>
+        </a>
+        <div class="bento-tile bento-lead bento-soon">
+          <div class="soon-reveal"><span>Coming soon</span></div>
+          <div class="bento-img"><picture><source type="image/webp" srcset="MOTSC-hd.webp"><img src="MOTSC-hd.jpg" alt="" width="1400" height="600" loading="lazy" decoding="async" /></picture></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">MOTS-c</h4>
+            </div>
+            <p class="bento-tag"><b>Mitochondrial peptide</b> &middot; Supports metabolic function</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento">
+      <h3 class="bento-cat">Recovery</h3>
+      <div class="bento-grid bento-rec">
+        <div class="bento-tile bento-lead bento-feature bento-soon">
+          <div class="soon-reveal"><span>Coming soon</span></div>
+          <div class="bento-img"><picture><source type="image/webp" srcset="BPCIMAGE-hd.webp"><img src="BPCIMAGE-hd.jpg" alt="" width="1400" height="933" loading="lazy" decoding="async" /></picture></div>
+          <div class="bento-body">
+            <div class="bento-row">
+              <h4 class="bento-name">The Wolverine Stack</h4>
+            </div>
+            <p class="bento-tag"><b>BPC-157 + TB-500</b> &middot; Supports tissue and joint recovery</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -3513,7 +3635,9 @@
 .bento-grid{display:grid;gap:16px}
 
 /* Weight Loss: 2 equal hero tiles */
-.bento-2{grid-template-columns:1fr 1fr;grid-template-rows:440px}
+.bento-2{grid-template-columns:1fr 1fr;grid-template-rows:440px;grid-auto-rows:440px}
+.bento-3{display:flex;flex-wrap:wrap;justify-content:center}
+.bento-3 > .bento-tile{flex:0 1 calc((100% - 32px)/3);height:440px}
 
 /* Performance: 1 lead spans 2 rows on left, cards stacked on right */
 .bento-perf{
@@ -3548,7 +3672,21 @@
   box-shadow:0 1px 3px rgba(26,26,26,0.04);
   transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),box-shadow 0.4s cubic-bezier(0.22,1,0.36,1);
 }
-.card-badge{position:absolute;top:12px;left:12px;z-index:3;background:#C8D64B;color:#1B1A18;font-family:var(--font);font-size:12px;font-weight:500;line-height:1;letter-spacing:normal;padding:5px 12px;border-radius:999px;opacity:0;animation:cardBadgeIn 0.3s ease forwards}
+.card-badge{position:absolute;top:-14px;left:18px;z-index:6;background:#C8D64B;color:#1B1A18;font-family:var(--font);font-size:14px;font-weight:600;line-height:1;letter-spacing:0.01em;padding:9px 18px;border-radius:999px;box-shadow:0 12px 28px rgba(11,10,9,0.3),0 2px 6px rgba(11,10,9,0.18);opacity:0;animation:cardBadgeIn 0.3s ease forwards}
+/* Let the First 20 badge pop off the card edge */
+.bento-tile:has(> .card-badge){overflow:visible}
+.bento-tile:has(> .card-badge) .bento-img{border-radius:14px}
+.bento-tile:has(> .card-badge) .bento-body{border-radius:0 0 14px 14px}
+/* Coming-soon cards: frosted neutral badge, non-clickable, gently dimmed */
+.card-badge--soon{top:-13px;left:18px;background:rgba(20,19,17,0.72);color:#F4F1E9;border:1px solid rgba(255,255,255,0.18);padding:7px 15px;box-shadow:0 10px 24px rgba(11,10,9,0.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.bento-soon{cursor:pointer}
+.bento-soon .bento-img img{filter:brightness(0.64) saturate(0.9)}
+.bento-soon:hover .bento-img img{transform:scale(1.05);filter:brightness(0.54) saturate(0.88)}
+/* Always-on, unmistakable "Coming soon" */
+.soon-reveal{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(180deg,rgba(11,10,9,0.5) 0%,rgba(11,10,9,0.24) 44%,rgba(11,10,9,0.58) 100%);transition:background 0.45s ease;pointer-events:none}
+.bento-soon:hover .soon-reveal{background:linear-gradient(180deg,rgba(11,10,9,0.64) 0%,rgba(11,10,9,0.42) 44%,rgba(11,10,9,0.74) 100%)}
+.soon-reveal span{font-family:'Libre Caslon Display',Georgia,serif;font-weight:600;font-size:clamp(36px,4.8vw,64px);line-height:1.0;color:#F4F1E9;letter-spacing:0.004em;text-shadow:0 2px 32px rgba(0,0,0,0.55);transition:transform 0.5s cubic-bezier(0.22,1,0.36,1)}
+.bento-soon:hover .soon-reveal span{transform:scale(1.05)}
 @keyframes cardBadgeIn{from{opacity:0}to{opacity:1}}
 .bento-tile:hover{
   transform:translateY(-4px);
@@ -3795,7 +3933,8 @@
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .bento-2{grid-template-columns:1fr;grid-template-rows:auto}
+  .bento-2{grid-template-columns:1fr;grid-template-rows:auto;grid-auto-rows:auto}
+  .bento-3 > .bento-tile{flex-basis:100%;height:auto}
   .bento-perf{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .bento-perf .bento-pos-lead,.bento-perf .bento-pos-a,.bento-perf .bento-pos-b{
     grid-column:auto;grid-row:auto;
@@ -3848,12 +3987,17 @@
         <div class="founders-price">
           <span class="founders-price-name">Tirzepatide</span>
           <span class="founders-price-amount">$160<span class="founders-price-mo">/mo</span></span>
+          <span class="founders-first20">First 20</span>
+          <span class="founders-spots" data-first20-spots>17 of 20 spots left</span>
         </div>
         <div class="founders-price">
           <span class="founders-price-name">Semaglutide</span>
           <span class="founders-price-amount">$100<span class="founders-price-mo">/mo</span></span>
+          <span class="founders-first20">First 20</span>
+          <span class="founders-spots" data-first20-spots>17 of 20 spots left</span>
         </div>
       </div>
+      <p class="founders-lock">First 20 members only. Locked monthly for life.</p>
       <a href="#" data-rylo-link="glp1Intake" class="founders-btn">Get Started &rarr;</a>
       <p class="founders-fine">Pricing reflects the monthly membership rate. Medication requires licensed provider review and clinical eligibility. A valid prescription is required.</p>
     </div>
@@ -4050,9 +4194,12 @@
   justify-content:center;
   align-items:stretch;
   gap:0;
-  margin:0 auto 56px;
+  margin:0 auto 22px;
   max-width:620px;
 }
+.founders-first20{ display:inline-block; margin-top:16px; background:#C8D64B; color:#1B1A18; font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.01em; padding:4px 10px; border-radius:100px; }
+.founders-spots{ display:block; margin-top:8px; font-family:'Inter',sans-serif; font-size:12px; font-weight:500; color:rgba(26,26,26,0.55); }
+.founders-lock{ text-align:center; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:#C8D64B; letter-spacing:0.01em; margin:0 auto 38px; max-width:520px; }
 .founders-price{
   display:flex;
   flex-direction:column;
@@ -6923,17 +7070,17 @@
             <div class="wr-ledger-row">
               <span class="wr-ledger-month">Month 1</span>
               <span class="wr-ledger-dose">2.5 mg</span>
-              <span class="wr-ledger-price">$179</span>
+              <span class="wr-ledger-price">$149</span>
             </div>
             <div class="wr-ledger-row">
               <span class="wr-ledger-month">Month 2</span>
               <span class="wr-ledger-dose">5.0 mg</span>
-              <span class="wr-ledger-price">$179</span>
+              <span class="wr-ledger-price">$149</span>
             </div>
             <div class="wr-ledger-row">
               <span class="wr-ledger-month">Month 3</span>
               <span class="wr-ledger-dose">7.5 mg</span>
-              <span class="wr-ledger-price">$179</span>
+              <span class="wr-ledger-price">$149</span>
             </div>
           </div>
         </div>
@@ -7420,10 +7567,15 @@
         <div class="footer-col">
           <div class="footer-col-title">Protocols</div>
           <ul class="footer-links">
-            <li><a href="#treatments">Tirzepatide</a></li>
-            <li><a href="#treatments">Semaglutide</a></li>
-            <li><a href="#treatments">NAD+</a></li>
-            <li><a href="#treatments">Sermorelin</a></li>
+            <li><a href="tirzepatide-product.html">Tirzepatide</a></li>
+            <li><a href="semaglutide-product.html">Semaglutide</a></li>
+            <li><a href="nad-product.html">NAD+</a></li>
+            <li><a href="sermorelin-product.html">Sermorelin</a></li>
+            <li><a href="glutathione-product.html">Glutathione</a></li>
+            <li><a href="/#treatments">The Pulse Stack</a></li>
+            <li><a href="/#treatments">GHK-Cu</a></li>
+            <li><a href="/#treatments">MOTS-c</a></li>
+            <li><a href="/#treatments">The Wolverine Stack</a></li>
           </ul>
         </div>
 

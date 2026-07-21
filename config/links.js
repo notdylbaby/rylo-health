@@ -16,6 +16,9 @@
     glp1Intake:   'https://start.rylohealth.com/start-online-visit/glp1-intake',
     nadIntake:    'https://start.rylohealth.com/start-online-visit/nad-intake-8b84cff2',
     sermorelinIntake: 'https://start.rylohealth.com/start-online-visit/sermorelin',
+    // TODO: /start-online-visit/glutathione 404s today. Placeholder points at the
+    // NAD+ intake so the CTA is not dead; swap in the real URL when it exists.
+    glutathioneIntake: 'https://start.rylohealth.com/start-online-visit/nad-intake-8b84cff2',
     patientLogin: 'https://my.rylohealth.com',
   };
 
